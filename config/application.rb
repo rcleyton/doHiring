@@ -1,3 +1,4 @@
+require 'dotenv/load' if File.exist?('.env')
 require_relative "boot"
 
 require "rails"
