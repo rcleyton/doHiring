@@ -1,0 +1,49 @@
+@mixin container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+@mixin title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333; 
+  margin-bottom: 1rem;
+}
+
+@mixin subtitle {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+@mixin paragraph {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+@mixin list {
+  list-style-type: disc;
+  margin-bottom: 1rem;
+}
+
+@mixin list-item {
+  margin-left: 1rem;
+}
+
+@mixin button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+@mixin button-hover {
+  background-color: #0069d9;
+}
+
