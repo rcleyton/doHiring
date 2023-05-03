@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Recruiters Dashboard</title>
+    <title>Applicants Dashboard</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -16,7 +16,7 @@
         <h3>doHiring</h3>
       </div>
       <div class="menu">
-        <%= link_to 'Sair', destroy_recruiter_session_path, method: :delete %>
+        <%= link_to 'Sair', destroy_applicant_session_path, method: :delete %>
       </div>
     </header>
     <%= yield %>

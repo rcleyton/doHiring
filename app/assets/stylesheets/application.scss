@@ -111,5 +111,14 @@ input[type="password"] {
   width: 100%;
 }
 
+/* Header */
+header {
+  display: flex;
+  background-color: #ccc;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 4rem;
+}
+
 @import 'home';
  
