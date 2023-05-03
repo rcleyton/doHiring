@@ -16,9 +16,7 @@
 
     <dt>CPF:</dt>
     <dd><%= @applicant_profile.cpf %></dd>
-
-
-    
+  
     <dt>Gênero:</dt>
     <dd><%= @applicant_profile.gender %></dd>
     
@@ -28,4 +26,7 @@
     <dt>Objetivos Profissionais:</dt>
     <dd><%= @applicant_profile.professional_goals %></dd>
   </dl>
+
+  <%= button_to 'Editar', edit_applicants_dashboard_profile_path(@applicant_profile),
+  method: :get, class: 'btn btn-edit' %>
 </div>

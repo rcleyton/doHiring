@@ -7,6 +7,8 @@ class ApplicantsDashboard::ProfileController < ApplicantsDashboardController
   end
 
   def new
+    redirect_to applicants_dashboard_profile_path(current_applicant.applicant_profile) if 
+    current_applicant.applicant_profile.present?
     @applicant_profile = ApplicantProfile.new
   end
 
@@ -16,6 +18,19 @@ class ApplicantsDashboard::ProfileController < ApplicantsDashboardController
       redirect_to applicants_dashboard_profile_path(@applicant_profile)
     else  
       render :new
+    end
+  end
+
+  def edit
+    @applicant_profile = ApplicantProfile.find(params[:id])
+  end
+
+  def update
+    @applicant_profile = ApplicantProfile.find(params[:id])
+    if @applicant_profile.update(applicant_profile_params)
+      redirect_to applicants_dashboard_profile_path
+    else
+      render :edit
     end
   end
 
