@@ -1,0 +1,33 @@
+<div class="container">
+  <h1 class="title">Criar Perfil</h1>
+
+  <%= form_with model: @applicant_profile, url: applicants_dashboard_profile_index_path do |form| %>
+    <%= form.hidden_field :applicant_id, value: current_applicant.id %>
+
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+
+    <%= form.label :birthdate %>
+    <%= form.date_field :birthdate %>
+
+    <%= form.label :rg %>
+    <%= form.text_field :rg %>
+
+    <%= form.label :cpf %>
+    <%= form.text_field :cpf %>
+
+    <%= form.label :gender %>
+    <%= form.text_field :gender %>
+    
+    <%= form.label :civil_status %>
+    <%= form.text_field :gender %>
+
+    <%= form.label :professional_goals %>
+    <%= form.text_area :professional_goals %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+  <% end %>
+</div>

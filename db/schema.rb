@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_03_142718) do
+ActiveRecord::Schema.define(version: 2023_05_03_212612) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "applicant_profiles", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.date "birthdate"
+    t.string "rg"
+    t.string "cpf"
+    t.string "gender"
+    t.string "civil_status"
+    t.string "professional_goals"
+    t.bigint "applicant_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["applicant_id"], name: "index_applicant_profiles_on_applicant_id"
+  end
 
   create_table "applicants", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -52,5 +67,6 @@ ActiveRecord::Schema.define(version: 2023_05_03_142718) do
     t.index ["reset_password_token"], name: "index_recruiters_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "applicant_profiles", "applicants"
   add_foreign_key "recruiter_profiles", "recruiters"
 end

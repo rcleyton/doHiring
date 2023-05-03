@@ -1,0 +1,31 @@
+<div class="container">
+  <h1 class="title">Meu Perfil</h1>
+  
+  <dl>
+    <dt>Nome:</dt>
+    <dd><%= @applicant_profile.first_name %></dd>
+
+    <dt>Sobrenome:</dt>
+    <dd><%= @applicant_profile.last_name %></dd>
+
+    <dt>Ano de nascimento:</dt>
+    <dd><%= @applicant_profile.birthdate %></dd>
+
+    <dt>RG:</dt>
+    <dd><%= @applicant_profile.rg %></dd>
+
+    <dt>CPF:</dt>
+    <dd><%= @applicant_profile.cpf %></dd>
+
+
+    
+    <dt>Gênero:</dt>
+    <dd><%= @applicant_profile.gender %></dd>
+    
+    <dt>Estado civil:</dt>
+    <dd><%= @applicant_profile.civil_status%></dd>
+    
+    <dt>Objetivos Profissionais:</dt>
+    <dd><%= @applicant_profile.professional_goals %></dd>
+  </dl>
+</div>
