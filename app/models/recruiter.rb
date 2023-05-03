@@ -3,4 +3,5 @@ class Recruiter < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_one :recruiter_profile, dependent: :destroy
 end

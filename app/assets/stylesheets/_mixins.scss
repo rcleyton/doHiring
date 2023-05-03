@@ -47,3 +47,8 @@
   background-color: #0069d9;
 }
 
+@mixin nav-menu {
+  display: flex;
+  align-items: center;
+}
+

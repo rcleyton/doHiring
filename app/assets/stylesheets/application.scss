@@ -53,6 +53,7 @@ form {
 input[type="text"],
 input[type="email"],
 input[type="password"],
+input[type="number"],
 textarea {
   padding: 0.5rem;
   margin-bottom: 1rem;
@@ -68,6 +69,7 @@ label {
 
 /* List definition */
 dl {
+  width: 500px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -75,11 +77,13 @@ dl {
 dt {
   flex-basis: 25%;
   font-weight: bold;
+  padding: .5rem 0;
 }
 
 dd {
   flex-basis: 75%;
   margin-left: 0;
+  padding: .5rem 0;
 }
 
 /* Table */
@@ -111,6 +115,15 @@ input[type="password"] {
   width: 100%;
 }
 
+/* Buttons */
+.btn-save {
+  @include button;
+}
+
+.btn-save:hover {
+  @include button-hover;
+}
+
 /* Header */
 header {
   display: flex;
@@ -118,6 +131,18 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 4rem;
+}
+
+.nav-menu {
+  @include nav-menu;
+
+  & li {
+    padding: .5rem 1rem ;
+  }
+  
+  & a {
+    text-decoration: none;
+  }
 }
 
 @import 'home';

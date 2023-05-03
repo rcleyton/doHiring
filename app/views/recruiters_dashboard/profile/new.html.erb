@@ -1,0 +1,27 @@
+<div class="container">
+  <h1 class="title">Criar Perfil</h1>
+
+  <%= form_with model: @recruiter_profile, url: recruiters_dashboard_profile_index_path do |form| %>
+    <%= form.hidden_field :recruiter_id, value: current_recruiter.id %>
+
+    <%= form.label :full_name %>
+    <%= form.text_field :full_name %>
+
+    <%= form.label :document %>
+    <%= form.text_field :document %>
+
+    <%= form.label :phone %>
+    <%= form.text_field :phone%>
+
+    <%= form.label :cell_phone %>
+    <%= form.text_field :cell_phone %>
+
+    <%= form.label :sector %>
+    <%= form.text_field :sector %>
+
+    <%= form.label :number_employee %>
+    <%= form.number_field :number_employee %>
+
+    <%= form.submit class: 'btn-save' %>
+  <% end %>
+</div>
