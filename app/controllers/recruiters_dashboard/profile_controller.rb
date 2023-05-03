@@ -2,9 +2,14 @@ class RecruitersDashboard::ProfileController < RecruitersDashboardController
 
   def show 
     @recruiter_profile = RecruiterProfile.find(params[:id])
+    redirect_to recruiters_dashboard_home_index_path if @recruiter_profile != current_recruiter.recruiter_profile
+    rescue ActiveRecord::RecordNotFound
+    redirect_to recruiters_dashboard_home_index_path
   end
-  
+
   def new
+    redirect_to  recruiters_dashboard_profile_path(current_recruiter.recruiter_profile) if 
+    current_recruiter.recruiter_profile.present?
     @recruiter_profile = RecruiterProfile.new
   end
 
