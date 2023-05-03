@@ -1,7 +1,11 @@
 <div class="container">
   <h1 class="title">Criar Perfil</h1>
 
-  <%= form_with model: @recruiter_profile, url: recruiters_dashboard_profile_index_path do |form| %>
+  <%= form_with model: @recruiter_profile, 
+      url: (@recruiter_profile.new_record? ? 
+      recruiters_dashboard_profile_index_path : 
+      recruiters_dashboard_profile_path ) do |form| %>
+
     <%= form.hidden_field :recruiter_id, value: current_recruiter.id %>
 
     <%= form.label :full_name %>

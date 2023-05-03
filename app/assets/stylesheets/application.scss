@@ -116,12 +116,17 @@ input[type="password"] {
 }
 
 /* Buttons */
-.btn-save {
+.btn {
   @include button;
 }
 
-.btn-save:hover {
-  @include button-hover;
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-edit {
+  background-color: yellow;
 }
 
 /* Header */

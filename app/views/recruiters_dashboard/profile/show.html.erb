@@ -20,4 +20,7 @@
       <dt>Número de funcionários:</dt>
       <dd><%= @recruiter_profile.number_employee %></dd>
     </dl>
+
+    <%= button_to 'Editar', edit_recruiters_dashboard_profile_path(@recruiter_profile),
+    method: :get, class: 'btn btn-edit' %>
   </div>

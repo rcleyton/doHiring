@@ -22,6 +22,19 @@ class RecruitersDashboard::ProfileController < RecruitersDashboardController
     end
   end
 
+  def edit 
+    @recruiter_profile = RecruiterProfile.find(params[:id])
+  end
+
+  def update
+    @recruiter_profile = RecruiterProfile.find(params[:id])
+    if @recruiter_profile.update(recruiter_profile_params)
+      redirect_to recruiters_dashboard_profile_path
+    else
+      render :edit
+    end
+  end
+
   private
 
   def recruiter_profile_params
