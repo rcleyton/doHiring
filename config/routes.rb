@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   namespace :recruiters_dashboard do
     get 'home/index'
     resources 'profile', only: %i[ show new create edit update ]
+    resources 'vacancies', only: %i[ new  create ]
   end
   
 end

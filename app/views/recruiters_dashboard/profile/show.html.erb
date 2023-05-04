@@ -1,6 +1,5 @@
-<div class="container">
+<main>
   <h1 class="title">Meu Perfil</h1>
-
     <dl>
       <dt>Nome:</dt>
       <dd><%= @recruiter_profile.full_name %></dd>
@@ -23,4 +22,4 @@
 
     <%= button_to 'Editar', edit_recruiters_dashboard_profile_path(@recruiter_profile),
     method: :get, class: 'btn btn-edit' %>
-  </div>
+</main>

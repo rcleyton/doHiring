@@ -1,0 +1,29 @@
+<main>
+  <h1 class="title">Cadastrar uma nova vaga</h1>
+  <%= form_with model: @vacancy, url: recruiters_dashboard_vacancies_path do |form| %>
+    <%= form.hidden_field :recruiter_profile_id, value: current_recruiter.id %>
+
+  <%= form.label :title %>
+  <%= form.text_field :title %>
+
+  <%= form.label :description %>
+  <%= form.text_area :description %>
+
+  <%= form.label :vacancy_lever %>
+  <%= form.text_field :vacancy_lever %>
+
+  <%= form.label :working_model %>
+  <%= form.text_field :working_model %>
+
+  <%= form.label :salary %>
+  <%= form.text_field :salary %>
+
+  <%= form.label :benefits %>
+  <%= form.text_field :benefits %>
+
+  <%= form.label :location %>
+  <%= form.text_field :location %>  
+
+  <%= form.submit class: 'btn btn-primary' %>
+  <% end %>
+</main>

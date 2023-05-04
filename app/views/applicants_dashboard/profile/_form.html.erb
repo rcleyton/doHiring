@@ -1,35 +1,33 @@
-<div class="container">
-  <%= form_with model: @applicant_profile, 
-      url: (@applicant_profile.new_record? ? 
-      applicants_dashboard_profile_index_path : 
-      applicants_dashboard_profile_path ) do |form| %>
+<%= form_with model: @applicant_profile, 
+    url: (@applicant_profile.new_record? ? 
+    applicants_dashboard_profile_index_path : 
+    applicants_dashboard_profile_path ) do |form| %>
 
-    <%= form.hidden_field :applicant_id, value: current_applicant.id %>
+  <%= form.hidden_field :applicant_id, value: current_applicant.id %>
 
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
+  <%= form.label :first_name %>
+  <%= form.text_field :first_name %>
 
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
+  <%= form.label :last_name %>
+  <%= form.text_field :last_name %>
 
-    <%= form.label :birthdate %>
-    <%= form.date_field :birthdate %>
+  <%= form.label :birthdate %>
+  <%= form.date_field :birthdate %>
 
-    <%= form.label :rg %>
-    <%= form.text_field :rg %>
+  <%= form.label :rg %>
+  <%= form.text_field :rg %>
 
-    <%= form.label :cpf %>
-    <%= form.text_field :cpf %>
+  <%= form.label :cpf %>
+  <%= form.text_field :cpf %>
 
-    <%= form.label :gender %>
-    <%= form.text_field :gender %>
-    
-    <%= form.label :civil_status %>
-    <%= form.text_field :civil_status %>
+  <%= form.label :gender %>
+  <%= form.text_field :gender %>
+  
+  <%= form.label :civil_status %>
+  <%= form.text_field :civil_status %>
 
-    <%= form.label :professional_goals %>
-    <%= form.text_area :professional_goals %>
+  <%= form.label :professional_goals %>
+  <%= form.text_area :professional_goals %>
 
-    <%= form.submit class: 'btn btn-primary' %>
-  <% end %>
-</div>
+  <%= form.submit class: 'btn btn-primary' %>
+<% end %>

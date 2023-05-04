@@ -50,6 +50,12 @@ form {
   margin-bottom: 1rem;
 }
 
+main {
+  width: 50vw;
+  margin: 0 auto;
+  padding: 3rem 0;
+}
+
 input[type="text"],
 input[type="email"],
 input[type="password"],
@@ -70,19 +76,19 @@ label {
 
 /* List definition */
 dl {
-  width: 500px;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
 }
 
 dt {
-  flex-basis: 25%;
+  flex-basis: 35%;
   font-weight: bold;
   padding: .5rem 0;
 }
 
 dd {
-  flex-basis: 75%;
+  flex-basis: 65%;
   margin-left: 0;
   padding: .5rem 0;
 }

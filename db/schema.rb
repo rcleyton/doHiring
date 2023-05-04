@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_03_212612) do
+ActiveRecord::Schema.define(version: 2023_05_04_204011) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,21 @@ ActiveRecord::Schema.define(version: 2023_05_03_212612) do
     t.index ["reset_password_token"], name: "index_recruiters_on_reset_password_token", unique: true
   end
 
+  create_table "vacancies", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "vacancy_level"
+    t.string "working_model"
+    t.string "salary"
+    t.string "benefits"
+    t.string "location"
+    t.bigint "recruiter_profile_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["recruiter_profile_id"], name: "index_vacancies_on_recruiter_profile_id"
+  end
+
   add_foreign_key "applicant_profiles", "applicants"
   add_foreign_key "recruiter_profiles", "recruiters"
+  add_foreign_key "vacancies", "recruiter_profiles"
 end
