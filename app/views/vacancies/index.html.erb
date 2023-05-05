@@ -1,0 +1,30 @@
+<main>
+  <h1 class="title">Vagas Cadastradas</h1>
+
+  <h2 class="subtitle">
+    <%= "Hoje temos #{total_vacancies} vagas esperando por você!" %>
+  </h2> 
+
+  <table>
+  <thead>
+    <tr>
+      <th>Vaga</th>
+      <th>Nível da Vaga</th>
+      <th>Modalidade</th>
+      <th>Localização</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @vacancies.each do |vacancy| %>
+    <tr>
+      <td><%= vacancy.title %></td>  
+      <td><%= vacancy.vacancy_level %></td>  
+      <td><%= vacancy.working_model %></td>  
+      <td><%= vacancy.location %></td>  
+      <td><%= link_to 'Ver Vaga', vacancy_path(vacancy), class: 'btn' %></td>
+    </tr>
+    <% end %>
+  </tbody>
+  </table>
+</main>

@@ -19,5 +19,7 @@ Rails.application.routes.draw do
     resources 'profile', only: %i[ show new create edit update ]
     resources 'vacancies', only: %i[ new  create ]
   end
+
+  resources :vacancies, only: %i[ index show ]
   
 end
