@@ -16,6 +16,7 @@ test:
 
 production:
   <<: *default
-  database: doHiring_production
-  username: doHiring
-  password: <%= ENV["DOHIRING_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
+  # database: doHiring_production
+  # username: doHiring
+  # password: <%= ENV["DOHIRING_DATABASE_PASSWORD"] %>
