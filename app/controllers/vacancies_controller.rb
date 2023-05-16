@@ -5,5 +5,7 @@ class VacanciesController < ApplicationController
 
   def show
     @vacancy = Vacancy.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+    redirect_to vacancies_path
   end
 end

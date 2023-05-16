@@ -1,0 +1,23 @@
+<main>
+  <h1 class="title">
+    <%= @vacancy.title %>
+  </h1>
+  <dl>
+    <dt>Título:</dt>
+    <dd><%= @vacancy.title %></dd>
+    <dt>Descrição:</dt>
+    <dd><%= @vacancy.description %></dd>
+    <dt>Nível da Vaga:</dt>
+    <dd><%= @vacancy.vacancy_level %></dd>
+    <dt>Modelo de Trabalho:</dt>
+    <dd><%= @vacancy.working_model %></dd>
+    <dt>Salário:</dt>
+    <dd><%= @vacancy.salary %></dd>
+    <dt>Benefícios:</dt>
+    <dd><%= @vacancy.benefits %></dd>
+    <dt>Localização:</dt>
+    <dd><%= @vacancy.location %></dd>
+  </dl>
+  <%= button_to 'Editar', edit_recruiters_dashboard_vacancy_path(@vacancy),
+    method: :get, class: 'btn btn-edit' %>
+</main>
