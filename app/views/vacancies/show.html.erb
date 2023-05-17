@@ -18,4 +18,6 @@
     <dt>Localização:</dt>
     <dd><%= @vacancy.location %></dd>
   </dl>
+  <%= link_to "Candidatar", new_applicants_dashboard_vacancy_candidature_path(@vacancy),
+  class: "btn btn-primary" %>
 </main>

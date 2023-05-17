@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_04_204011) do
+ActiveRecord::Schema.define(version: 2023_05_17_023838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,16 @@ ActiveRecord::Schema.define(version: 2023_05_04_204011) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_applicants_on_email", unique: true
     t.index ["reset_password_token"], name: "index_applicants_on_reset_password_token", unique: true
+  end
+
+  create_table "candidatures", force: :cascade do |t|
+    t.string "reason_application"
+    t.bigint "applicant_profile_id", null: false
+    t.bigint "vacancy_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["applicant_profile_id"], name: "index_candidatures_on_applicant_profile_id"
+    t.index ["vacancy_id"], name: "index_candidatures_on_vacancy_id"
   end
 
   create_table "recruiter_profiles", force: :cascade do |t|
@@ -82,6 +92,8 @@ ActiveRecord::Schema.define(version: 2023_05_04_204011) do
   end
 
   add_foreign_key "applicant_profiles", "applicants"
+  add_foreign_key "candidatures", "applicant_profiles"
+  add_foreign_key "candidatures", "vacancies"
   add_foreign_key "recruiter_profiles", "recruiters"
   add_foreign_key "vacancies", "recruiter_profiles"
 end

@@ -1,4 +1,10 @@
 <main>
-  <h1>ApplicantsDashboard::Home#index</h1>
-  <p>Find me in app/views/applicants_dashboard/home/index.html.erb</p>
+  <h1 class="title">Dashboardo do Candidato</h1>
+  <h3 class="subtitle">Minhas candidaturas</h3>
+
+  <ul>
+    <% @candidatures.each do |candidature| %>
+      <li><%= link_to candidature.vacancy.title, applicants_dashboard_candidature_path(candidature) %></li>
+    <% end %>
+  </ul>
 </main>

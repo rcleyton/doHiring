@@ -1,0 +1,10 @@
+<main>
+  <h1 class='title'>Aplicar para a vaga</h1>
+
+  <%= form_with model: @candidature, url: applicants_dashboard_vacancy_candidatures_path do |form| %>
+      <%= form.hidden_field :applicant_profile_id, value: current_applicant.id %>
+      <%= form.hidden_field :vacancy_id, value: params[:vacancy_id] %>
+      <%= form.text_area :reason_application %>
+      <%= form.submit class: "btn btn-primary" %>
+  <%end %>
+</main>
