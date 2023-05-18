@@ -17,6 +17,8 @@ class ApplicationController < ActionController::Base
   def layout_by_resource
     if devise_controller? && resource_name == :recruiter
       "authenticate_recruiter"
+    else
+      "authenticate_applicant"
     end
   end
 end
