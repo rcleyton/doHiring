@@ -1,0 +1,14 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      recruiter: Recrutador
+    attributes: 
+      user:
+        email: Email
+        password: Senha
+  devise:
+    sessions:
+      new:
+        log_in: Entrar
+        
