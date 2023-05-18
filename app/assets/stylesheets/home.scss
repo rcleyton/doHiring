@@ -1,12 +1,64 @@
+@import './variables';
 @import './mixins';
 
+.homepage {
+  background-image: linear-gradient(to right top, #1e192c, #22223a, #242c49, #223658, #1b4167);
+}
+
 .container {
-  @include container;
-  height: 100vh;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.welcome {
+  padding-top: 5rem;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
+
+  &__info,
+  &__image {
+    flex: 1;
+  }
+
+  &__image {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  &__buttons {
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    display: flex;
+    padding: 1rem 0;
+  }
+
+  &__buttons a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #242B47;
+    background-color: #04d361;
+    padding: .7rem 1rem;
+    border-radius: 5px;
+    border: none;
+    transition: .3s;
+  }
+
+  &__buttons a:nth-of-type(even) {
+    background-color: #7dbae5;
+  }
+
+  &__buttons a:hover {
+    color: #fff;
+    opacity: .8;
+  } 
+
+  &__image img {
+    bottom: 0;
+    animation: moveUpDown 2s ease-in-out infinite;
+  }
 }
 
 .title {
@@ -17,3 +69,53 @@
   @include subtitle;
 }
 
+.home__paragraph {
+  @include paragraph;
+}
+
+.info {
+  margin: 5rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+
+  &__recruiter,
+  &__applicant,
+  &__match {
+    flex: 1;
+  }
+}
+
+.info .subtitle::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 20px;
+  margin-right: 15px;
+  background: #04d361;
+}
+
+.footer {
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__brand {
+    font-size: 2.25rem;
+    font-weight: bold;
+    color: #7dbae5;
+  }
+}
+
+@keyframes moveUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

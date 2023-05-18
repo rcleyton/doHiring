@@ -1,45 +1,109 @@
-@mixin container {
-  width: 80%;
-  margin: 0 auto;
-}
+// @mixin container {
+//   width: 80%;
+//   margin: 0 auto;
+// }
+
+// @mixin title {
+//   font-size: 2.5rem;
+//   font-weight: bold;
+//   color: #333; 
+//   margin-bottom: 1rem;
+// }
+
+// @mixin subtitle {
+//   font-size: 2rem;
+//   font-weight: bold;
+//   color: #666;
+//   margin-bottom: 1rem;
+// }
+
+// @mixin paragraph {
+//   font-size: 1rem;
+//   line-height: 1.5;
+//   color: #555;
+//   margin-bottom: 1rem;
+// }
+
+// @mixin list {
+//   list-style-type: disc;
+//   margin-bottom: 1rem;
+// }
+
+// @mixin list-item {
+//   margin-left: 1rem;
+// }
+
+// @mixin button {
+//   text-decoration: none;
+//   border: none;
+//   padding: 0.5rem 1rem;
+//   border-radius: 4px;
+//   font-size: 1rem;
+//   cursor: pointer;
+// }
+
+
+
+@import './variables';
 
 @mixin title {
-  font-size: 2.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: $title;
+  color: #04d361;
   font-weight: bold;
-  color: #333; 
-  margin-bottom: 1rem;
+  padding: 0 0 2rem 0;
 }
 
 @mixin subtitle {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #666;
-  margin-bottom: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: $subtitle;
+  color: #E31260;
+  font-weight: 600;
+  padding: 0 0 1.2rem 0;
 }
 
 @mixin paragraph {
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #555;
+  padding: 0 0 1rem 0;
+  color: #e7efeb;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+@mixin box {
+  width: 60%;
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 2rem 3rem;
+  margin: 0 auto;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+@mixin box_title {
+  font-weight: bold;
+  color: #111827;
   margin-bottom: 1rem;
 }
 
-@mixin list {
-  list-style-type: disc;
-  margin-bottom: 1rem;
+@mixin box_subtitle {
+  font-weight: 500;
+  color: #6b7280;
+  margin-bottom: 2rem;
 }
 
-@mixin list-item {
-  margin-left: 1rem;
+@mixin divider {
+  margin: 2rem 0;
+  border: 1px solid #b7c3db;
 }
 
 @mixin button {
-  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 10px;
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  font-size: 1rem;
   cursor: pointer;
+  color: #fff;
+  padding: 1rem;
+  margin: 1rem 0 0 0;
 }
 
 @mixin nav-menu {

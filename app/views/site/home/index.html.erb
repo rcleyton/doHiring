@@ -1,3 +1,4 @@
+<!--
 <div class="container">
   <%= link_to 'Ver Vagas', vacancies_path %>
   
@@ -8,4 +9,57 @@
     <%= link_to 'Quero Trabalhar', new_applicant_registration_path, class: 'btn btn-primary' %>
   </div>
 
+</div> -->
+<div class="container">
+  <section class="welcome">
+    <div class="welcome__info">
+      <h1 class="title">Bem-vindo ao doHiring</h1>
+      <p class="subtitle">Encontre as melhores oportunidades de emprego.</p>
+      <p class="home__paragraph">A doHiring é a plataforma ideal para conectar recrutadores e candidatos. Com nossas ferramentas, você pode encontrar oportunidades de emprego que correspondam às suas habilidades e experiências, ou encontrar os melhores talentos para sua empresa.</p>
+      <div class="welcome__buttons">
+        <%= link_to "quero contratar", new_recruiter_registration_path %>
+        <%= link_to "quero trabalhar", new_applicant_registration_path %>
+      </div>
+    </div>
+    <div class="welcome__image">
+      <%= image_tag "recruiter.png" %>
+    </div>
+  </section>
+
+  <section class="info">
+    <div class="info__recruiter">
+      <h2 class="subtitle">Recrutador</h2>
+      <p class="home__paragraph">
+      Encontre os melhores talentos para sua empresa com a doHiring. Com nossa plataforma, você pode criar vagas, gerenciar candidaturas e escolher os candidatos mais qualificados para a vaga. Simplifique seu processo de contratação e encontre os melhores talentos para sua equipe.
+      </p>
+    </div>
+
+    <div class="info__applicant">
+      <h2 class="subtitle">Candidato</h2>
+      <p class="home__paragraph">
+      A doHiring é o lugar ideal para encontrar as melhores oportunidades de emprego. Com nossa plataforma, você pode pesquisar vagas, se candidatar diretamente pelo sistema e acompanhar suas candidaturas. Além disso, nossa ferramenta de busca avançada ajuda você a encontrar vagas que correspondam às suas habilidades e experiências.
+      </p>
+    </div>
+
+    <div class="info__match">
+      <h2 class="subtitle">Deu Match</h2>
+      <p class="home__paragraph">
+      Com a doHiring, encontrar o candidato ideal para sua vaga é fácil. Com nosso recurso "Deu match", você recebe recomendações de candidatos qualificados que correspondem às suas vagas. Não perca tempo analisando centenas de candidaturas - encontre o candidato ideal em segundos com a doHiring.
+      </p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__brand">
+      doHiring
+    </div>
+    <div class="social">
+      <a href="https://www.linkedin.com/in/cleytonrsilva/" target="_blank">
+        <i class="fa-brands fa-linkedin fa-2xl" style="color: #e31260;"></i>
+      </a>
+      <a href="https://github.com/rcleyton/" target="_blank ">
+        <i class="fa-brands fa-square-github fa-2xl" style="color: #e31260;"></i>
+      </a>
+    </div>
+  </footer>
 </div>
