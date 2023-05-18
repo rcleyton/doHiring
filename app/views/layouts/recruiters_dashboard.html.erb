@@ -5,32 +5,58 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <header>
-      <div class="brand">
-        <h3>
-          <%= link_to 'doHiring', recruiters_dashboard_home_index_path %>
-        </h3>
+  <body class="dashboard">
+  <div class="sidebar">
+    <div class="logo-details">
+      <i class='bx bx-wallet'></i>
+      <span class="logo_name">doHiring</span>
+    </div>
+
+    <ul class="nav-links">
+      <li>
+        <%= link_to recruiters_dashboard_home_index_path, class: 'active' do %>
+          <i class="bx bx-grid-alt"></i>
+          <span class="links_name">Dashboard</span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to new_recruiters_dashboard_profile_path do %>
+          <i class='bx bx-user' ></i>
+          <span class="links_name">Meu Perfil</span>
+        <% end %>
+      </li>
+      <li class="log_out">
+        <%= link_to destroy_recruiter_session_path, method: :delete do %>
+          <i class="bx bx-log-out"></i>
+          <span class="links_name">Sair</span>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+
+  <section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <i class="bx bx-menu sidebarBtn"></i>
+        <span class="dashboard">
+          <%= controller_name.capitalize.gsub('Controller', '') %>
+        </span>
       </div>
-      <div class="menu">
-        <ul class="nav-menu">
-          <li>
-            <%= current_recruiter.email %>
-          </li>
-          <li>
-            <%= link_to 'Perfil', new_recruiters_dashboard_profile_path %>
-          </li>
-          <li>
-            <%= link_to 'Sair', destroy_recruiter_session_path, method: :delete %>
-          </li>
-        </ul>
+    </nav>
+    
+    <div class="home-content">
+        <div class="overview-boxes">
+          <%= yield %>
+        </div>
       </div>
-    </header>
-    <%= yield %>
+    </section>
   </body>
 </html>

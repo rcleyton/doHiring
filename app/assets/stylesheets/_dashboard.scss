@@ -1,0 +1,218 @@
+@import './mixins';
+
+.recruiter-dashboard {
+  font-family: 'Poppins', sans-serif;
+}
+
+.sidebar {
+  position: fixed;
+  height: 100%;
+  width: 240px;
+  background-color: #0a2558;
+  transition: all 0.5s ease;
+
+  & .logo-details {
+    height: 80px;
+    display: flex;
+    align-items: center;
+  }
+
+  & .logo-details i {
+    font-size: 28px;
+    font-weight: 500;
+    color: #fff;
+    min-width: 60px;
+    text-align: center;
+  }
+
+  & .logo-details .logo_name {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  & .nav-links {
+    margin-top: 10px;
+  }
+
+  & .nav-links li {
+    position: relative;
+    list-style: none;
+    height: 50px;
+  }
+
+  & .nav-links li a {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.4s ease;
+  }
+
+  & .nav-links li a.active {
+    background: #081d45;
+  }
+
+  & .nav-links li a:hover {
+    background: #081d45;
+  }
+
+  & .nav-links li i {
+    min-width: 60px;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+  }
+
+  & .nav-links li a .links_name {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 400;
+    white-space: nowrap;
+  }
+
+  .nav-links .log_out {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+}
+
+.home-section {
+  position: relative;
+  background: #f5f5f5;
+  min-height: 100vh;
+  width: calc(100% - 240px);
+  left: 240px;
+  transition: all 0.5s ease;
+}
+.sidebar.active ~ .home-section {
+  width: calc(100% - 60px);
+  left: 60px;
+}
+.home-section nav {
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  width: calc(100% - 240px);
+  left: 240px;
+  z-index: 100;
+  padding: 0 20px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease;
+}
+.sidebar.active ~ .home-section nav {
+  left: 60px;
+  width: calc(100% - 60px);
+}
+.home-section nav .sidebar-button {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 500;
+}
+nav .sidebar-button i {
+  font-size: 35px;
+  margin-right: 10px;
+}
+
+.home-section .home-content {
+  position: relative;
+  padding-top: 104px;
+}
+
+.home-content .overview-boxes {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 20px;
+  margin-bottom: 26px;
+}
+
+.box {
+  @include box;
+
+  &__title {
+    @include box_title;
+  }
+
+  &__subtitle {
+    @include box_subtitle;
+  }
+}
+
+/* DASHBOARD PROFILE */
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 1rem 0;
+  width: 100%;
+}
+
+.form-label {
+  color: #111827;
+  font-size: .9rem;
+  line-height: 1.5rem;
+  font-weight: 500;
+  padding: .5rem 0;
+}
+
+.form-input {
+  width: 100%;
+  padding: .7rem .75rem;
+  border-radius: .375rem;
+  border: 1px solid #b7c3db;
+}
+
+.form-col-2 {
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+}
+
+.form-col-2 input {
+  width: 100%;
+}
+
+.divider {
+  @include divider;
+}
+
+.save-btn {
+  @include button;
+  background-color: #081d45;
+}
+
+/* SHOW PROFILE */
+
+.show_profile {
+  display: flex;
+  padding: 2rem 0;
+  border-top: 1px solid #e5e7eb;
+}
+
+.show_profile dt {
+  font-size: .9rem;
+  font-weight: 500;
+  width: 40%;
+}
+
+.show_profile dd {
+  width: 60%;
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+/* EDIT PROFILE */
+
+.btn-edit {
+  @include button;
+  background-color: #04D361;
+}
