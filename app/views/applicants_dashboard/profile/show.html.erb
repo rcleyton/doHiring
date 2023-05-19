@@ -1,5 +1,6 @@
-<main>
-  <h1 class="title">Meu Perfil</h1>
+<div class="box">
+  <h1 class="box__title">Meu Perfil</h1>
+  <hr class="divider">
   <dl>
     <dt>Nome:</dt>
     <dd><%= @applicant_profile.first_name %></dd>
@@ -28,4 +29,4 @@
 
   <%= button_to 'Editar', edit_applicants_dashboard_profile_path(@applicant_profile),
   method: :get, class: 'btn btn-edit' %>
-</main>
+</div>

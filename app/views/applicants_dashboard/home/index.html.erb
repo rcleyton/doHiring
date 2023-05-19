@@ -1,10 +1,10 @@
-<main>
-  <h1 class="title">Dashboardo do Candidato</h1>
-  <h3 class="subtitle">Minhas candidaturas</h3>
+<div class="box">
+  <h1 class="box__title">Dashboardo do Candidato</h1>
+  <h3 class="box__subtitle">Minhas candidaturas</h3>
 
   <ul>
     <% @candidatures.each do |candidature| %>
       <li><%= link_to candidature.vacancy.title, applicants_dashboard_candidature_path(candidature) %></li>
     <% end %>
   </ul>
-</main>
+</div>

@@ -1,33 +1,52 @@
-<%= form_with model: @applicant_profile, 
-    url: (@applicant_profile.new_record? ? 
-    applicants_dashboard_profile_index_path : 
-    applicants_dashboard_profile_path ) do |form| %>
+<div class="box">
+  <h1 class="box__title">Meu Perfil</h1>
+  <hr class="divider">
+  <%= form_with model: @applicant_profile, 
+      url: (@applicant_profile.new_record? ? 
+      applicants_dashboard_profile_index_path : 
+      applicants_dashboard_profile_path ) do |form| %>
 
-  <%= form.hidden_field :applicant_id, value: current_applicant.id %>
+    <%= form.hidden_field :applicant_id, value: current_applicant.id %>
+    <div class="form-control">
+      <%= form.label :first_name, class: 'form-label' %>
+      <%= form.text_field :first_name, class: 'form-input' %>
+    </div>
 
-  <%= form.label :first_name %>
-  <%= form.text_field :first_name %>
+    <div class="form-control">
+      <%= form.label :last_name, class: 'form-label' %>
+      <%= form.text_field :last_name, class: 'form-input' %>
+    </div>
 
-  <%= form.label :last_name %>
-  <%= form.text_field :last_name %>
+    <div class="form-control">
+      <%= form.label :birthdate, class: 'form-label' %>
+      <%= form.date_field :birthdate, class: 'form-input' %>
+    </div>
 
-  <%= form.label :birthdate %>
-  <%= form.date_field :birthdate %>
+    <div class="form-control">
+      <%= form.label :rg, class: 'form-label' %>
+      <%= form.text_field :rg, class: 'form-input' %>
+    </div>
 
-  <%= form.label :rg %>
-  <%= form.text_field :rg %>
+    <div class="form-control">
+      <%= form.label :cpf, class: 'form-label' %>
+      <%= form.text_field :cpf, class: 'form-input' %>
+    </div>
 
-  <%= form.label :cpf %>
-  <%= form.text_field :cpf %>
+    <div class="form-control">
+      <%= form.label :gender, class: 'form-label' %>
+      <%= form.text_field :gender, class: 'form-input' %>
+    </div>
 
-  <%= form.label :gender %>
-  <%= form.text_field :gender %>
-  
-  <%= form.label :civil_status %>
-  <%= form.text_field :civil_status %>
+    <div class="form-control">
+      <%= form.label :civil_status, class: 'form-label' %>
+      <%= form.text_field :civil_status, class: 'form-input' %>
+    </div>
 
-  <%= form.label :professional_goals %>
-  <%= form.text_area :professional_goals %>
+    <div class="form-control">
+      <%= form.label :professional_goals, class: 'form-label' %>
+      <%= form.text_area :professional_goals, class: 'form-input' %>
+    </div>
 
-  <%= form.submit class: 'btn btn-primary' %>
-<% end %>
+    <%= form.submit class: 'save-btn' %>
+  <% end %>
+</div>
