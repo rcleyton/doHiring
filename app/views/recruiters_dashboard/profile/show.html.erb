@@ -1,25 +1,26 @@
-<main>
-  <h1 class="title">Meu Perfil</h1>
-    <dl>
-      <dt>Nome:</dt>
-      <dd><%= @recruiter_profile.full_name %></dd>
+<div class="box">
+  <h1 class="box__title">Minhas Informações</h1>
+  <h3 class="box__subtitle">Informações do Recrutador, endereço e contato</h3>
+  <dl>
+    <dt>Nome:</dt>
+    <dd><%= @recruiter_profile.full_name %></dd>
 
-      <dt>CNPJ:</dt>
-      <dd><%= @recruiter_profile.document %></dd>
+    <dt>CNPJ:</dt>
+    <dd><%= @recruiter_profile.document %></dd>
 
-      <dt>Telefone:</dt>
-      <dd><%= @recruiter_profile.phone %></dd>
-      
-      <dt>Mobile:</dt>
-      <dd><%= @recruiter_profile.cell_phone %></dd>
-      
-      <dt>Setor:</dt>
-      <dd><%= @recruiter_profile.sector %></dd>
-      
-      <dt>Número de funcionários:</dt>
-      <dd><%= @recruiter_profile.number_employee %></dd>
-    </dl>
+    <dt>Telefone:</dt>
+    <dd><%= @recruiter_profile.phone %></dd>
+    
+    <dt>Mobile:</dt>
+    <dd><%= @recruiter_profile.cell_phone %></dd>
+    
+    <dt>Setor:</dt>
+    <dd><%= @recruiter_profile.sector %></dd>
+    
+    <dt>Número de funcionários:</dt>
+    <dd><%= @recruiter_profile.number_employee %></dd>
+  </dl>
 
-    <%= button_to 'Editar', edit_recruiters_dashboard_profile_path(@recruiter_profile),
-    method: :get, class: 'btn btn-edit' %>
-</main>
+  <%= button_to 'Editar', 
+  edit_recruiters_dashboard_profile_path(@recruiter_profile), method: :get, class: 'btn btn-edit' %>
+</div>

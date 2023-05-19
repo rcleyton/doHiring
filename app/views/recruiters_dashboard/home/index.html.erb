@@ -1,10 +1,10 @@
-<main>
+<div class="box">
 
   <%= link_to 'Cadastrar nova vaga', new_recruiters_dashboard_vacancy_path, class: 'btn btn-primary' %>
 
-  <h1 class="title title-vacancy">Minhas vagas</h1>
+  <h1 class="box__title">Minhas vagas</h1>
 
-  <% if @vacancies.nil? %>
+  <% if @vacancies.empty? %>
     <h1>Nenhuma vaga publicada ainda!</h1>
   <% else %>
     <table>
@@ -30,4 +30,4 @@
       </tbody>
     </table>
   <% end %>
-</main>
+</div>

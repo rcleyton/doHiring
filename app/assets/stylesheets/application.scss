@@ -43,37 +43,6 @@ img {
   height: auto;
 }
 
-/* Form */
-form {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1rem;
-}
-
-main {
-  width: 50vw;
-  margin: 0 auto;
-  padding: 3rem 0;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="number"],
-input[type="date"],
-textarea {
-  padding: 0.5rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
-}
-
-label {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-
 /* List definition */
 dl {
   width: 100%;
@@ -111,56 +80,4 @@ th {
   font-weight: bold;
 }
 
-/* Form Devise */
-.field input[type="email"],
-input[type="password"] {
-  width: 100%;
-}
-
-.actions input {
-  @include button;
-  width: 100%;
-}
-
-/* Buttons */
-.btn {
-  @include button;
-}
-
-.btn-primary {
-  background-color: #007bff;
-  color: #fff;
-}
-
-.btn-edit {
-  background-color: yellow;
-}
-
-/* Header */
-header {
-  display: flex;
-  background-color: #ccc;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 4rem;
-}
-
-.nav-menu {
-  @include nav-menu;
-
-  & li {
-    padding: .5rem 1rem ;
-  }
-  
-  & a {
-    text-decoration: none;
-  }
-}
-
-/* Dashboard */
-.title-vacancy {
-  margin: 5rem 0;
-}
-
-// @import 'home';
  
