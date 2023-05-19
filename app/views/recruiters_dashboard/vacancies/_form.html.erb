@@ -1,29 +1,47 @@
-<%= form_with model: @vacancy, 
-  url: (@vacancy.new_record? ?
-  recruiters_dashboard_vacancies_path :
-  recruiters_dashboard_vacancy_path) do |form| %>
-  <%= form.hidden_field :recruiter_profile_id, value: current_recruiter.id %>
+<div class="box">
+  <h1 class="box__title">Vaga</h1>
+  <hr class="divider">
+  <%= form_with model: @vacancy, 
+    url: (@vacancy.new_record? ?
+    recruiters_dashboard_vacancies_path :
+    recruiters_dashboard_vacancy_path) do |form| %>
+    <%= form.hidden_field :recruiter_profile_id, value: current_recruiter.id %>
 
-  <%= form.label :title %>
-  <%= form.text_field :title %>
+    <div class="form-control">
+      <%= form.label :title, class: 'form-label' %>
+      <%= form.text_field :title, class: 'form-input' %>
+    </div>
 
-  <%= form.label :description %>
-  <%= form.text_area :description %>
+    <div class="form-control">
+      <%= form.label :description, class: 'form-label' %>
+      <%= form.text_area :description, class: 'form-input' %>
+    </div>
 
-  <%= form.label :vacancy_level %>
-  <%= form.text_field :vacancy_level %>
+    <div class="form-control">
+      <%= form.label :vacancy_level, class: 'form-label' %>
+      <%= form.text_field :vacancy_level, class: 'form-input' %>
+    </div>
 
-  <%= form.label :working_model %>
-  <%= form.text_field :working_model %>
+    <div class="form-control">
+      <%= form.label :working_model, class: 'form-label' %>
+      <%= form.text_field :working_model, class: 'form-input' %>
+    </div>
 
-  <%= form.label :salary %>
-  <%= form.text_field :salary %>
+    <div class="form-control">
+      <%= form.label :salary, class: 'form-label' %>
+      <%= form.text_field :salary, class: 'form-input' %>
+    </div>
 
-  <%= form.label :benefits %>
-  <%= form.text_field :benefits %>
+    <div class="form-control">
+      <%= form.label :benefits, class: 'form-label' %>
+      <%= form.text_field :benefits, class: 'form-input' %>
+    </div>
 
-  <%= form.label :location %>
-  <%= form.text_field :location %>  
+    <div class="form-control">
+      <%= form.label :location, class: 'form-label' %>
+      <%= form.text_field :location, class: 'form-input' %>  
+    </div>
 
-  <%= form.submit class: 'btn btn-primary' %>
-<% end %>
+    <%= form.submit class: 'save-btn' %>
+  <% end %>
+</div>  

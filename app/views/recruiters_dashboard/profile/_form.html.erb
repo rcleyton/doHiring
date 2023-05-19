@@ -1,5 +1,6 @@
 <div class="box">
   <h1 class="box__title">Minhas Informações</h1>
+  <hr class="divider">
   <%= form_with model: @recruiter_profile, 
       url: (@recruiter_profile.new_record? ? 
       recruiters_dashboard_profile_index_path : 
@@ -36,7 +37,7 @@
       <%= form.label :number_employee, class: 'form-label' %>
       <%= form.number_field :number_employee, class: 'form-input' %>
     </div>
-    
+
     <%= form.submit class: 'save-btn' %>
   <% end %>
 </div>

@@ -1,7 +1,6 @@
-<main>
-  <h1 class="title">
-    <%= @vacancy.title %>
-  </h1>
+<div class="box">
+  <h1 class="box__title"><%= @vacancy.title %></h1>
+  <hr class="divider">
   <dl>
     <dt>Título:</dt>
     <dd><%= @vacancy.title %></dd>
@@ -20,4 +19,4 @@
   </dl>
   <%= button_to 'Editar', edit_recruiters_dashboard_vacancy_path(@vacancy),
     method: :get, class: 'btn btn-edit' %>
-</main>
+</div>
