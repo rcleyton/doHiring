@@ -1,30 +1,22 @@
-<main>
-  <h1 class="title">Vagas Cadastradas</h1>
-
-  <h2 class="subtitle">
+<section class="section__vacancies">
+  <h2 class="title">
     <%= "Hoje temos #{total_vacancies} vagas esperando por você!" %>
   </h2> 
+</section>
 
-  <table>
-  <thead>
-    <tr>
-      <th>Vaga</th>
-      <th>Nível da Vaga</th>
-      <th>Modalidade</th>
-      <th>Localização</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @vacancies.each do |vacancy| %>
-    <tr>
-      <td><%= vacancy.title %></td>  
-      <td><%= vacancy.vacancy_level %></td>  
-      <td><%= vacancy.working_model %></td>  
-      <td><%= vacancy.location %></td>  
-      <td><%= link_to 'Ver Vaga', vacancy_path(vacancy), class: 'btn' %></td>
-    </tr>
-    <% end %>
-  </tbody>
-  </table>
-</main>
+<% @vacancies.each do |vacancy| %>
+<div class="vacancy__box">
+  <div class="vacancy__info">
+    <div class="info-job">
+      <h3><%= link_to vacancy.title, vacancy_path(vacancy) %></h3>
+      <p>
+        Engenharia de Software
+      </p>
+    </div>
+    <div class="info-job-mode">
+      <span><%= vacancy.vacancy_level %></span>
+      <p><%= vacancy.salary %></p>
+    </div>
+  </div>
+</div>
+<% end %>

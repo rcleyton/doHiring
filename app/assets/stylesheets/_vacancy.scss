@@ -1,0 +1,21 @@
+.section__vacancies {
+  background-image: linear-gradient(to right top, #1e192c, #22223a, #242c49, #223658, #1b4167);
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+.vacancy__box {
+  width: 60%;
+  margin: 1rem auto;
+  padding: 1rem;
+  border: 1px solid #bebebe;
+  border-radius: 10px;
+
+  & .vacancy__info {
+    display: flex;
+    justify-content: space-between;
+  }
+}
