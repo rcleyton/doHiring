@@ -1,0 +1,15 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      applicant_profile: Perfil do Candidato
+    attributes:
+      applicant_profile:
+        first_name: Nome 
+        last_name: Sobrenome
+        birthdate: Data de nascimento
+        rg: RG
+        cpf: CPF
+        gender: Gênero
+        civil_status: Estado civil
+        professional_goals: Objetivos profissionais
