@@ -33,7 +33,7 @@ class RecruitersDashboard::VacanciesController < RecruitersDashboardController
 
   private
   def vacancy_params
-    params.require(:vacancy).permit(:title, :description, :vacancy_level,
+    params.require(:vacancy).permit(:code, :title, :description, :vacancy_level,
     :working_model, :salary, :benefits, :location, :recruiter_profile_id)
   end
 end
