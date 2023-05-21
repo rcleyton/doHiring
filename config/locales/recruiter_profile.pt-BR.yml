@@ -1,0 +1,13 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      recruiter_profile: Perfil do Recrutador
+    attributes:
+      recruiter_profile:
+        full_name: Nome da Empresa
+        document: CNPJ
+        phone: Telefone
+        cell_phone: Celular
+        sector: Setor
+        number_employee: Número de funcionários
