@@ -1,8 +1,8 @@
 class RecruitersDashboard::VacanciesController < RecruitersDashboardController
   def show
     @vacancy = Vacancy.find(params[:id])
-    rescue ActiveRecord::RecordNotFound
-    redirect_to recruiters_dashboard_home_index_path
+      rescue ActiveRecord::RecordNotFound
+      redirect_to recruiters_dashboard_home_index_path
   end
 
   def new

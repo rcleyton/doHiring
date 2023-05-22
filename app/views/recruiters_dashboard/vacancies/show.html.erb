@@ -21,4 +21,17 @@
   </dl>
   <%= button_to 'Editar', edit_recruiters_dashboard_vacancy_path(@vacancy),
     method: :get, class: 'btn btn-edit' %>
+
+  <hr class="divider">
+  <h3 class="box__title"><%= @vacancy.candidatures.count %> candidaturas para esta vaga</h3>
+  <% if @vacancy.candidatures.empty? %>
+    <h1>Nenhuma candidatura para essa vaga ainda</h1>
+  <% else %>
+    <dl>
+      <% @vacancy.candidatures.each do |candidature| %>
+        <dt>Nome do candidato: </dt>
+        <dd><%= candidature.applicant_profile.first_name %></dd>
+      <% end %>
+    </dl>
+  <% end %>
 </div>
