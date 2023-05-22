@@ -43,12 +43,13 @@
       doHiring
     </div>
     <div class="social">
-      <a href="https://www.linkedin.com/in/cleytonrsilva/" target="_blank">
-        <i class="fa-brands fa-linkedin fa-2xl" style="color: #e31260;"></i>
-      </a>
-      <a href="https://github.com/rcleyton/" target="_blank ">
-        <i class="fa-brands fa-square-github fa-2xl" style="color: #e31260;"></i>
-      </a>
+      <%= link_to icon('fa-brands', 'linkedin-in', class: 'fa-2xl'), 
+      "https://www.linkedin.com/in/cleytonrsilva/", target: "_blank" %>
+
+      <%= link_to icon('fa-brands', 'github', class: 'fa-2xl'), 
+      "https://github.com/rcleyton/", target: "_blank"%>
     </div>
   </footer>
 </div>
+
+style="color: #e31260;"
