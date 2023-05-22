@@ -1,0 +1,14 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      vacancy: Vaga
+    attributes:
+      vacancy:
+        title: Título
+        description: Descrição
+        vacancy_level: Nível da vaga
+        working_model: Modelo de trabalho
+        salary: Salário
+        benefits: Benefícios
+        location: Localização
