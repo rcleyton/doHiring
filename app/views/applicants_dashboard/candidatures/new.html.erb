@@ -1,13 +1,12 @@
 <div class="box">
   <h1 class="box__title">Aplicar para a vaga</h1>
   <hr class="divider">
-  <%= form_with model: @candidature, url: applicants_dashboard_vacancy_candidatures_path do |form| %>
-      <%= form.hidden_field :applicant_profile_id, value: current_applicant.id %>
-      <%= form.hidden_field :vacancy_id, value: params[:vacancy_id] %>
-      <div class="form-control">
-        <%= form.label :reason_application, class: 'form-label'%>
-        <%= form.text_area :reason_application, class: 'form-input' %>
-      </div>
-      <%= form.submit class: "save-btn" %>
-  <%end %>
+  <%= simple_form_for @candidature, url: applicants_dashboard_vacancy_candidatures_path do |form| %>
+    <%= form.input :applicant_profile_id, as: :hidden, input_html: { value: current_applicant.id }%>
+    <%= form.input :vacancy_id, as: :hidden, input_html: { value: params[:vacancy_id] } %>
+    <%= form.input :reason_application, as: :text, wrapper_html: { class: 'form-control' },
+                                        label_html: { class: 'form-label' },
+                                        input_html: { rows: 5, cols: 10, class: 'form-input' } %>
+    <%= form.button :submit, class: 'save-btn' %>
+  <% end %>
 </div>
