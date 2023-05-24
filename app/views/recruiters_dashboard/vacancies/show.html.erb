@@ -13,7 +13,7 @@
     <dt>Modelo de Trabalho:</dt>
     <dd><%= @vacancy.working_model %></dd>
     <dt>Salário:</dt>
-    <dd><%= @vacancy.salary %></dd>
+    <dd><%= number_to_currency @vacancy.salary %></dd>
     <dt>Benefícios:</dt>
     <dd><%= @vacancy.benefits %></dd>
     <dt>Localização:</dt>

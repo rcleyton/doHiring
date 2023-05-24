@@ -1,47 +1,45 @@
 <div class="box">
   <h1 class="box__title">Vaga</h1>
   <hr class="divider">
-  <%= form_with model: @vacancy, 
-    url: (@vacancy.new_record? ?
-    recruiters_dashboard_vacancies_path :
-    recruiters_dashboard_vacancy_path) do |form| %>
-    <%= form.hidden_field :recruiter_profile_id, value: current_recruiter.id %>
+  <%= simple_form_for @vacancy, 
+    url: (@vacancy.new_record? ? 
+      recruiters_dashboard_vacancies_path :
+      recruiters_dashboard_vacancy_path) do |form| %>
 
-    <div class="form-control">
-      <%= form.label :title, class: 'form-label' %>
-      <%= form.text_field :title, class: 'form-input' %>
-    </div>
+      <%= form.input :recruiter_profile_id, as: :hidden, input_html: { value: current_recruiter.id} %>
+      
+      <%= form.input :title, wrapper_html: { class: 'form-control' }, 
+                              label_html: { class: 'form-label' },
+                              input_html: { class: 'form-input'} %>
 
-    <div class="form-control">
-      <%= form.label :description, class: 'form-label' %>
-      <%= form.text_area :description, class: 'form-input' %>
-    </div>
+      <%= form.input :description, as: :text, wrapper_html: { class: 'form-control' },
+                              label_html: { class: 'form-label' },
+                              input_html: { rows: 5, cols: 10, class: 'form-input' } %>
+      
+      <%= form.input :vacancy_level, wrapper_html: { class: 'form-control'},
+                            label_html: { class: 'form-label' },
+                            input_html: { id: 'cnpj-input', class: 'form-input'} %>
+               
 
-    <div class="form-control">
-      <%= form.label :vacancy_level, class: 'form-label' %>
-      <%= form.text_field :vacancy_level, class: 'form-input' %>
-    </div>
+    
+      <%= form.input :working_model, wrapper_html: { class: 'form-control'}, 
+                          label_html: { class: 'form-label' },
+                          input_html: { class: 'form-input'} %>
 
-    <div class="form-control">
-      <%= form.label :working_model, class: 'form-label' %>
-      <%= form.text_field :working_model, class: 'form-input' %>
-    </div>
+      <%= form.input :salary, wrapper_html: { class: 'form-control'}, 
+                              label_html: { class: 'form-label' },
+                              input_html: { class: 'form-input'} %>
+    
 
-    <div class="form-control">
-      <%= form.label :salary, class: 'form-label' %>
-      <%= form.text_field :salary, class: 'form-input' %>
-    </div>
+    
+      <%= form.input :benefits, wrapper_html: { class: 'form-control'}, 
+                          label_html: { class: 'form-label' },
+                          input_html: { class: 'form-input'} %>
 
-    <div class="form-control">
-      <%= form.label :benefits, class: 'form-label' %>
-      <%= form.text_field :benefits, class: 'form-input' %>
-    </div>
-
-    <div class="form-control">
-      <%= form.label :location, class: 'form-label' %>
-      <%= form.text_field :location, class: 'form-input' %>  
-    </div>
-
-    <%= form.submit class: 'save-btn' %>
+      <%= form.input :location, wrapper_html: { class: 'form-control'}, 
+                                    label_html: { class: 'form-label' },
+                                    input_html: { class: 'form-input'} %>
+    
+    <%= form.button :submit, class: 'save-btn' %>
   <% end %>
-</div>  
+</div>

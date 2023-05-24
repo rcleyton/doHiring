@@ -1,6 +1,7 @@
-# require 'securerandom'
-
 class Vacancy < ApplicationRecord
+  validates :title, :description, :vacancy_level, :working_model, :salary,
+            :benefits, :location, presence: true
+
   belongs_to :recruiter_profile
   has_many :candidatures
   has_many :applicant_profiles, through: :candidatures
