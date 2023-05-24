@@ -1,43 +1,43 @@
 <div class="box">
   <h1 class="box__title">Minhas Informações</h1>
-  <hr class="divider">
-  <%= form_with model: @recruiter_profile, 
-      url: (@recruiter_profile.new_record? ? 
-      recruiters_dashboard_profile_index_path : 
-      recruiters_dashboard_profile_path ) do |form| %>
 
-    <%= form.hidden_field :recruiter_id, value: current_recruiter.id %>
+  <%= simple_form_for @recruiter_profile, 
+    url: (@recruiter_profile.new_record? ? recruiters_dashboard_profile_index_path
+        : recruiters_dashboard_profile_path ) do |f| %>
 
-    <div class="form-control">
-      <%= form.label :full_name, class: 'form-label' %>
-      <%= form.text_field :full_name, class: 'form-input' %>
-    </div>
+    <%= f.input :recruiter_id, as: :hidden, input_html: { value: current_recruiter.id} %>
+    
+    <%= f.input :full_name, wrapper_html: { class: 'form-control'}, 
+                            label_html: { class: 'form-label' },
+                            input_html: { class: 'form-input'} %>
 
-    <div class="form-control">
-      <%= form.label :document, class: 'form-label' %>
-      <%= form.text_field :document, class: 'form-input' %>
-    </div>
+      <%= f.input :document, wrapper_html: { class: 'form-control'},
+                            label_html: { class: 'form-label' },
+                            input_html: { id: 'cnpj-input', class: 'form-input'} %>
+               
 
-    <div class="form-control">
-      <%= form.label :phone, class: 'form-label' %>
-      <%= form.text_field :phone, class: 'form-input'%>
-    </div>
+    
+      <%= f.input :phone, wrapper_html: { class: 'form-control'}, 
+                          label_html: { class: 'form-label' },
+                          input_html: { class: 'form-input'} %>
 
-    <div class="form-control">
-      <%= form.label :cell_phone, class: 'form-label' %>
-      <%= form.text_field :cell_phone, class: 'form-input' %>
-    </div> 
+      <%= f.input :cell_phone, wrapper_html: { class: 'form-control'}, 
+                              label_html: { class: 'form-label' },
+                              input_html: { class: 'form-input'} %>
+    
 
-    <div class="form-control">
-      <%= form.label :sector, class: 'form-label' %>
-      <%= form.text_field :sector, class: 'form-input' %>
-    </div>
+    
+      <%= f.input :sector, wrapper_html: { class: 'form-control'}, 
+                          label_html: { class: 'form-label' },
+                          input_html: { class: 'form-input'} %>
 
-    <div class="form-control">
-      <%= form.label :number_employee, class: 'form-label' %>
-      <%= form.number_field :number_employee, class: 'form-input' %>
-    </div>
+      <%= f.input :number_employee, wrapper_html: { class: 'form-control'}, 
+                                    label_html: { class: 'form-label' },
+                                    input_html: { class: 'form-input'} %>
+    
 
-    <%= form.submit class: 'save-btn' %>
+    <hr class="divider">
+
+    <%= f.button :submit, "Salvar", class: 'save-btn' %>
   <% end %>
 </div>
