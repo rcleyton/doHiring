@@ -1,4 +1,8 @@
 class ApplicantsDashboard::CandidaturesController < ApplicantsDashboardController
+  def index
+    @candidatures = Candidature.where(applicant_profile_id: current_applicant)
+  end
+
   def show
     @candidature = Candidature.find(params[:id])
   end

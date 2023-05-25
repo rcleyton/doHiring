@@ -216,3 +216,26 @@ nav .sidebar-button i {
   @include button;
   background-color: #04D361;
 }
+
+.list {
+  margin-bottom: 1rem;
+
+  &__item {
+    font-size: 1rem;
+    padding: .5rem 0;
+    font-weight: 700;
+  }
+  
+  &__item i {
+    padding-right: 1rem;
+  }
+  
+  &__item a {
+    text-decoration: none;
+    color: #111827;
+  }
+
+  &__item a:hover {
+    text-decoration: underline;
+  }
+}

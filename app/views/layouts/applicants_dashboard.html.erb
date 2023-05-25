@@ -33,6 +33,12 @@
             <span class="links_name">Meu Perfil</span>
           <% end %>
         </li>
+        <li>
+          <%= link_to applicants_dashboard_candidatures_path do %>
+            <i class='bx bxs-briefcase-alt-2'></i>
+            <span class="links_name">Minhas Vagas</span>
+          <% end %>
+        </li>
         <li class="log_out">
           <%= link_to destroy_applicant_session_path, method: :delete do %>
             <i class="bx bx-log-out"></i>

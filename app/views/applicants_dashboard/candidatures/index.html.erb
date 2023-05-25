@@ -1,0 +1,11 @@
+<div class="box">
+  <h1 class="box__title">Minhas Vagas</h1>
+  <hr class="divider">
+
+  <h3 class="subtitle">Minhas candidaturas</h3>
+  <ul class="list">
+    <% @candidatures.each do |candidature| %>
+      <li class="list__item"><%= link_to candidature.vacancy.title, applicants_dashboard_candidature_path(candidature) %></li>
+    <% end %>
+  </ul>
+</div>

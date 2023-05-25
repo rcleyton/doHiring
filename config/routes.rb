@@ -25,5 +25,4 @@ Rails.application.routes.draw do
   end
 
   resources :vacancies, only: %i[ index show ]
-  
 end

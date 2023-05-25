@@ -1,8 +1,30 @@
 <div class="box">
   <h1 class="box__title">Minha candidatura para a vaga: <%= @candidature.vacancy.title %></h3>
   <hr class="divider">
-  <h3 class="box__subtitle">Por que devemos te contratar?</h3>
-  <p>
-    <%= @candidature.reason_application %>
-  </p>
+
+  <h3 class="subtitle">Informações da vaga</h3>
+  <dl>
+    <dt>Título:</dt>
+    <dd><%= @candidature.vacancy.title %></dd>
+    <dt>Código da vaga:</dt>
+    <dd><%= @candidature.vacancy.code %></dd>
+    <dt>Descrição:</dt>
+    <dd><%= @candidature.vacancy.description %></dd>
+    <dt>Nível da Vaga:</dt>
+    <dd><%= @candidature.vacancy.vacancy_level %></dd>
+    <dt>Modelo de Trabalho:</dt>
+    <dd><%= @candidature.vacancy.working_model %></dd>
+    <dt>Salário:</dt>
+    <dd><%= @candidature.vacancy.salary %></dd>
+    <dt>Benefícios:</dt>
+    <dd><%= @candidature.vacancy.benefits %></dd>
+    <dt>Localização:</dt>
+    <dd><%= @candidature.vacancy.location %></dd>
+  </dl>
+  <hr class="divider">
+
+  <h3 class="subtitle">Pergunstas obrigatórias</h3>
+  <h4 class="box__subtitle">Por que devemos te contratar?</h4>
+  <p><%= @candidature.reason_application %></p>
+  <hr class="divider">
 </div>
