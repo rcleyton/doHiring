@@ -1,0 +1,28 @@
+<nav id="navbar">
+  <div class="navbar__brand">
+    <%= link_to root_path do %>
+      <%= image_tag "logo.png", alt: "Logo" %>
+    <% end %>
+  </div>
+  <ul class="header__list">
+    <li class="list-item">
+      <%= link_to "vagas", vacancies_path%>
+    </li>
+    <li class="list-item">Entrar</li>
+    <li class="list-item">Cadastrar</li>
+  </ul>
+</nav>
+
+<script>
+  window.addEventListener("scroll", function () {
+    var navbar = document.getElementById("navbar");
+    var mainSection = document.getElementsByClassName("container");
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > mainSection.offsetTop) {
+      navbar.classList.add("navbar-fixed");
+    } else {
+      navbar.classList.remove("navbar-fixed");
+    }
+  });
+</script>

@@ -1,8 +1,10 @@
 .section__vacancies {
   background-image: linear-gradient(to right top, #1e192c, #22223a, #242c49, #223658, #1b4167);
   height: 30vh;
+  padding-top: 100px; 
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   margin-bottom: 5rem;
 }
