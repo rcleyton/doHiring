@@ -4,19 +4,31 @@
       <%= image_tag "logo.png", alt: "Logo" %>
     <% end %>
   </div>
-  <ul class="header__list">
-    <li class="list-item">
-      <%= link_to "vagas", vacancies_path%>
-    </li>
-    <li class="list-item">Entrar</li>
-    <li class="list-item">Cadastrar</li>
-  </ul>
+
+  <div class="nav-menu">
+    <%= link_to "Vagas", vacancies_path, class: "btn-vacancies" %>
+
+    <div class="dropdown">
+      <button class="authenticate_btn">Entrar</button>
+        <div class="dropdown-content">
+          <%= link_to 'Entrar como Cadidato', new_applicant_session_path %>
+          <%= link_to 'Entrar como Recrutador', new_recruiter_session_path %>
+        </div>
+    </div>
+    <div class="dropdown">
+      <button class="authenticate_btn sign-up">Cadastrar</button>
+        <div class="dropdown-content">
+          <%= link_to 'Cadastrar como Candidato', new_applicant_registration_path %>
+          <%= link_to 'Cadastrar como Recrutador', new_recruiter_registration_path %>
+        </div>
+    </div>
+  </div>
 </nav>
 
 <script>
   window.addEventListener("scroll", function () {
     var navbar = document.getElementById("navbar");
-    var mainSection = document.getElementsByClassName("container");
+    var mainSection = document.getElementById("scroll");
     var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
     if (scrollTop > mainSection.offsetTop) {
