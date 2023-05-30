@@ -3,4 +3,6 @@ class RecruiterProfile < ApplicationRecord
             :number_employee, presence: true
             
   belongs_to :recruiter
+  has_many :vacancies
+  has_many :comments
 end

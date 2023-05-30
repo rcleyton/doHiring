@@ -1,0 +1,60 @@
+<ul>
+  <li><%= @candidature.vacancy.code %></li>
+  <li><%= @candidature.vacancy.title %></li>
+  <li>Número de Candidaturas</li>
+  <li><%= "Criada em #{l @candidature.vacancy.created_at, format: :long}" %></li>
+  <li>Encerra em</li>
+</ul>
+
+<div class="box">
+  <h1 class="box__title">Informações do Candidato</h1>
+  <hr class="divider">
+  
+  <dl>
+    <dt>Nome:</dt>
+    <dd><%= @candidature.applicant_profile.first_name %></dd>
+    <dt>Sobrenome:</dt>
+    <dd><%= @candidature.applicant_profile.last_name %></dd>
+    <dt>Ano de Nascimento:</dt>
+    <dd><%= l @candidature.applicant_profile.birthdate, format: :long %></dd>
+    <dt>Objetivos Profissionais:</dt>
+    <dd>  <%= @candidature.applicant_profile.professional_goals %></dd>
+  </dl>
+  <hr class="divider">
+
+  <h3 class="subtitle">Perguntas obrigatórias para a vaga</h3>
+  <h4 class="box__subtitle">Por que devemos te contratar?</h4>
+  <p><%= @candidature.reason_application %></p>
+  <hr class="divider">
+
+  <h3 class="subtitle">Deixe uma mensagem para o candidato</h3>
+  <p class="box__paragraph">Acha que <%= @candidature.applicant_profile.first_name %> tem tudo a ver com a vaga?
+  Conheça-o melhor, deixe uma mensagem ou agende uma entrevista. </p>
+
+  <%= simple_form_for [ @comment, @candidature.comments.build ], url: recruiters_dashboard_candidature_comments_path(@candidature) do |form| %>
+    <%= form.input :recruiter_profile_id, as: :hidden, input_html: { value: current_recruiter.id } %>
+    <%= form.input :applicant_profile_id, as: :hidden, input_html: { value: @candidature.applicant_profile_id } %>
+    <%= form.input :content,  as: :text, wrapper_html: { class: 'form-control' },
+                                        label_html: { class: 'form-label' },
+                                        input_html: { rows: 5, cols: 10, class: 'form-input' } %>
+    <%= form.button :submit, class: 'save-btn' %>
+  <% end %>
+  <hr class="divider">
+
+  <h3 class="subtitle">Minha conversa com <%= @candidature.applicant_profile.first_name %></h3>
+  <div class="balloon-container">
+    <% @candidature.comments.each do |comment| %>
+      <% if comment.content.present? %>
+        <div class="balloon">
+          <span class="date-comment">
+            <%= l comment.created_at, format: :short %>
+          </span>
+          <p>
+            <%= comment.content %>
+          </p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+

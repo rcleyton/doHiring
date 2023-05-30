@@ -137,6 +137,7 @@ nav .sidebar-button i {
 
 .box {
   @include box;
+  margin-bottom: 2rem;
 
   &__title {
     @include box_title;
@@ -144,6 +145,11 @@ nav .sidebar-button i {
 
   &__subtitle {
     @include box_subtitle;
+  }
+
+  &__paragraph {
+    @include paragraph;
+    color: #111827;
   }
 }
 
@@ -238,4 +244,52 @@ nav .sidebar-button i {
   &__item a:hover {
     text-decoration: underline;
   }
+}
+
+.balloon-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* COMMENT BALLON */
+.balloon {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #f1f1f1;
+
+  & .date-comment {
+    color: #6b7280;
+    font-size: .9rem;
+    margin-bottom: .7rem;
+  }
+
+  & p {
+    color: #111827;
+  }
+}
+
+.balloon::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -10px;
+  margin-top: -10px;
+  border-top: 10px solid transparent;
+  border-right: 10px solid #f1f1f1;
+  border-bottom: 10px solid transparent;
+}
+
+.balloon.right {
+  align-self: flex-end;
+}
+
+.balloon.right::before {
+  left: auto;
+  right: -10px;
+  border-right: 10px solid transparent;
+  border-left: 10px solid #f1f1f1;
 }

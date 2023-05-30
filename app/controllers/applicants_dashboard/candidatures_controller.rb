@@ -5,6 +5,7 @@ class ApplicantsDashboard::CandidaturesController < ApplicantsDashboardControlle
 
   def show
     @candidature = Candidature.find(params[:id])
+    @comments = Comment.all
   end
 
   def new

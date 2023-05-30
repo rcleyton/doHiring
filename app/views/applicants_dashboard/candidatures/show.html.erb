@@ -27,4 +27,25 @@
   <h4 class="box__subtitle">Por que devemos te contratar?</h4>
   <p><%= @candidature.reason_application %></p>
   <hr class="divider">
+
+  <h3 class="subtitle">Comentários do Recrutador</h3>
+
+  <% if @candidature.comments.empty?%>
+    <p>Nenhuma mensagem ainda</p>
+  <% else %>
+    <div class="balloon-container">
+      <% @candidature.comments.each do |comment| %>
+        <% if comment.content.present? %>
+          <div class="balloon right">
+            <span class="date-comment">
+              <%= l comment.created_at, format: :short %>
+            </span>
+            <p>
+              <%= comment.content %>
+            </p>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
 </div>

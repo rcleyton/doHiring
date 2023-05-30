@@ -30,7 +30,7 @@
     <dl>
       <% @vacancy.candidatures.each do |candidature| %>
         <dt>Nome do candidato: </dt>
-        <dd><%= candidature.applicant_profile.first_name %></dd>
+        <dd><%= link_to candidature.applicant_profile.first_name, recruiters_dashboard_candidature_path(candidature) %></dd>
       <% end %>
     </dl>
   <% end %>

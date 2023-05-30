@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_21_162504) do
+ActiveRecord::Schema.define(version: 2023_05_29_213124) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,18 @@ ActiveRecord::Schema.define(version: 2023_05_21_162504) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["applicant_profile_id"], name: "index_candidatures_on_applicant_profile_id"
     t.index ["vacancy_id"], name: "index_candidatures_on_vacancy_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.bigint "applicant_profile_id", null: false
+    t.bigint "recruiter_profile_id", null: false
+    t.bigint "candidature_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["applicant_profile_id"], name: "index_comments_on_applicant_profile_id"
+    t.index ["candidature_id"], name: "index_comments_on_candidature_id"
+    t.index ["recruiter_profile_id"], name: "index_comments_on_recruiter_profile_id"
   end
 
   create_table "recruiter_profiles", force: :cascade do |t|
@@ -95,6 +107,9 @@ ActiveRecord::Schema.define(version: 2023_05_21_162504) do
   add_foreign_key "applicant_profiles", "applicants"
   add_foreign_key "candidatures", "applicant_profiles"
   add_foreign_key "candidatures", "vacancies"
+  add_foreign_key "comments", "applicant_profiles"
+  add_foreign_key "comments", "candidatures"
+  add_foreign_key "comments", "recruiter_profiles"
   add_foreign_key "recruiter_profiles", "recruiters"
   add_foreign_key "vacancies", "recruiter_profiles"
 end
