@@ -124,3 +124,30 @@
     transform: translateY(0);
   }
 }
+
+@media (max-width: 415px) and (orientation: portrait) {
+  .welcome {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding-top: 100px;
+
+    &__buttons a {
+      width: 100%;
+      text-align: center;
+    }
+
+    &__image {
+      margin-top: 5rem;
+    }
+  }
+
+  .info {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 915px) and (orientation: landscape) {
+  .welcome {
+    gap: 3rem;
+  }
+}

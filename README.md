@@ -37,7 +37,7 @@ Recrutador
 - [X] Recrutador completa o seu perfil
 - [X] Recrutador cadastra uma vaga
 - [X] Ver candidato inscritos para uma vaga
-- [ ] Escrever comentários no perfil do candidato
+- [X] Escrever comentários no perfil do candidato
 - [ ] Marcar candidato como destaque
 - [ ] Recusar candidato em vaga
 - [ ] Enviar proposta para o candidato
