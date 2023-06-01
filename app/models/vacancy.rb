@@ -1,8 +1,10 @@
 class Vacancy < ApplicationRecord
-  validates :title, :description, :vacancy_level, :working_model, :salary,
+  validates :title, :description, :working_model, :salary,
             :benefits, :location, presence: true
 
   belongs_to :recruiter_profile
+  belongs_to :vacancy_level
+  
   has_many :candidatures
   has_many :applicant_profiles, through: :candidatures
 

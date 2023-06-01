@@ -16,12 +16,11 @@
                               label_html: { class: 'form-label' },
                               input_html: { rows: 5, cols: 10, class: 'form-input' } %>
       
-      <%= form.input :vacancy_level, wrapper_html: { class: 'form-control'},
-                            label_html: { class: 'form-label' },
-                            input_html: { class: 'form-input'} %>
+      <%= form.input :vacancy_level_id, as: :select, collection: VacancyLevel.all, include_blank: "Selecione o nível da vaga", 
+                              wrapper_html: { class: 'form-control'},
+                              label_html: { class: 'form-label' },
+                              input_html: { class: 'form-input'} %>
                
-
-    
       <%= form.input :working_model, wrapper_html: { class: 'form-control'}, 
                           label_html: { class: 'form-label' },
                           input_html: { class: 'form-input'} %>
@@ -29,8 +28,6 @@
       <%= form.input :salary, wrapper_html: { class: 'form-control'}, 
                               label_html: { class: 'form-label' },
                               input_html: { class: 'form-input'} %>
-    
-
     
       <%= form.input :benefits, wrapper_html: { class: 'form-control'}, 
                           label_html: { class: 'form-label' },

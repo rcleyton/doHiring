@@ -21,7 +21,13 @@
         <% @vacancies.each do |vacancy| %>
         <tr>
           <td><%= vacancy.title %></td>  
-          <td><%= vacancy.vacancy_level %></td>  
+          <td>
+            <% if vacancy.vacancy_level.present? %>
+              <%= vacancy.vacancy_level.level %>
+            <% else %>
+              Nível não definido
+            <% end %>
+          </td>  
           <td><%= vacancy.working_model %></td>  
           <td><%= vacancy.location %></td>  
           <td><%= link_to 'Gerenciar Vaga', recruiters_dashboard_vacancy_path(vacancy) %></td>
