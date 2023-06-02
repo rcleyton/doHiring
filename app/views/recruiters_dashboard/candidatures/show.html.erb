@@ -1,27 +1,34 @@
-<ul>
-  <li><%= @candidature.vacancy.code %></li>
-  <li><%= @candidature.vacancy.title %></li>
-  <li>Número de Candidaturas</li>
-  <li><%= "Criada em #{l @candidature.vacancy.created_at, format: :long}" %></li>
-  <li>Encerra em</li>
-</ul>
+<div class="box box-candidature">
+  <ul class="list-candidature">
+    <li>Código <%= @candidature.vacancy.code %></li>
+    <li><%= @candidature.vacancy.title %></li>
+    <li>Número de Candidaturas</li>
+    <li><%= "Criada em #{l @candidature.vacancy.created_at, format: :long}" %></li>
+    <li>Encerra em</li>
+  </ul>
 
-<% if @candidature.favorite %>
-  <%= button_to 'Desmarcar Destaque', 
-  not_favorite_recruiters_dashboard_candidature_path(@candidature), method: :patch %>
-<% else %>
-  <%= button_to 'Marcar como Destaque', 
-  favorite_recruiters_dashboard_candidature_path(@candidature), method: :patch %>
-<% end %>
+  <div class="favorite-btn">
+    <% if @candidature.favorite %>
+      <%= button_to 'Desmarcar Destaque', 
+      not_favorite_recruiters_dashboard_candidature_path(@candidature), class: 'btn-edit', method: :patch %>
+    <% else %>
+      <%= button_to 'Marcar como Destaque', 
+      favorite_recruiters_dashboard_candidature_path(@candidature), class: 'btn-edit', method: :patch %>
+    <% end %>
+
+    <div>    
+      <% if @candidature.favorite == true %>
+        <span class="subtitle">Candidato destacado</span>  <%= image_tag 'star.svg', class: "favorite-applicant" %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 
 <div class="box">
   <h1 class="box__title">Informações do Candidato</h1>
   <hr class="divider">
 
-  <% if @candidature.favorite == true %>
-    <span class="subtitle">Candidato destacado</span>  <%= image_tag 'star.svg', class: "favorite-applicant" %>
-  <% end %>
 
   <dl>
     <dt>Nome:</dt>

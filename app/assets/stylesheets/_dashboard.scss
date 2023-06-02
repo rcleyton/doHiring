@@ -132,7 +132,7 @@ nav .sidebar-button i {
   justify-content: space-between;
   flex-wrap: wrap;
   padding: 0 20px;
-  margin-bottom: 26px;
+  // margin-bottom: 26px;
 }
 
 .box {
@@ -296,4 +296,29 @@ nav .sidebar-button i {
 
 .favorite-applicant {
   width: 20px;
+}
+
+.box-candidature {
+  display: flex;
+
+  & .list-candidature {
+    width: 50%;
+
+    & li {
+      padding: .5rem 0;
+      color: #111827;
+      font-weight: 600;
+    }
+  }
+  
+  & .favorite-btn {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  & .favorite-btn .btn-edit {
+    margin-bottom: 1rem;
+  }
 }
