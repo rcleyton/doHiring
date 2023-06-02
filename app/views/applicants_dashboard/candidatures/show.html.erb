@@ -15,7 +15,7 @@
     <dt>Modelo de Trabalho:</dt>
     <dd><%= @candidature.vacancy.working_model %></dd>
     <dt>Salário:</dt>
-    <dd><%= @candidature.vacancy.salary %></dd>
+    <dd><%= number_to_currency @candidature.vacancy.salary %></dd>
     <dt>Benefícios:</dt>
     <dd><%= @candidature.vacancy.benefits %></dd>
     <dt>Localização:</dt>

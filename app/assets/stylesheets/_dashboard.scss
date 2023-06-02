@@ -79,6 +79,18 @@
   }
 }
 
+.sidebar-applicant {
+  background-color: #058c42;
+
+  & .nav-links li a.active {
+    background: #004b23;
+  }
+
+  & .nav-links li a:hover {
+    background: #004b23;
+  }
+}
+
 .home-section {
   position: relative;
   background: #f5f5f5;
