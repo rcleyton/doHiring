@@ -24,6 +24,9 @@ Rails.application.routes.draw do
     resources 'vacancies', only: %i[ show new create edit update ] 
     resources :candidatures, only: %i[ show ] do
       resources :comments, only: %i[ new create ]
+      member do
+        patch :favorite
+      end
     end
   end
 

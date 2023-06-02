@@ -5,11 +5,16 @@
   <li><%= "Criada em #{l @candidature.vacancy.created_at, format: :long}" %></li>
   <li>Encerra em</li>
 </ul>
+<%= button_to 'Marcar como Destaque', favorite_recruiters_dashboard_candidature_path(@candidature), method: :patch %>
 
 <div class="box">
   <h1 class="box__title">Informações do Candidato</h1>
   <hr class="divider">
-  
+
+  <% if @candidature.favorite == true %>
+    <span class="subtitle">Candidato destacado</span>  <%= image_tag 'star.svg', class: "favorite-applicant" %>
+  <% end %>
+
   <dl>
     <dt>Nome:</dt>
     <dd><%= @candidature.applicant_profile.first_name %></dd>
@@ -42,6 +47,7 @@
   <hr class="divider">
 
   <h3 class="subtitle">Minha conversa com <%= @candidature.applicant_profile.first_name %></h3>
+
   <div class="balloon-container">
     <% @candidature.comments.each do |comment| %>
       <% if comment.content.present? %>

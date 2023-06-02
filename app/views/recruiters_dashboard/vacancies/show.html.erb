@@ -9,8 +9,7 @@
     <dt>Descrição:</dt>
     <dd><%= @vacancy.description %></dd>
     <dt>Nível da Vaga:</dt>
-    <dd><%= @vacancy.vacancy_level %>
-    </dd>
+    <dd><%= @vacancy.vacancy_level %></dd>
     <dt>Modelo de Trabalho:</dt>
     <dd><%= @vacancy.working_model %></dd>
     <dt>Salário:</dt>
@@ -22,17 +21,37 @@
   </dl>
   <%= button_to 'Editar', edit_recruiters_dashboard_vacancy_path(@vacancy),
     method: :get, class: 'btn btn-edit' %>
-
   <hr class="divider">
-  <h3 class="box__title"><%= @vacancy.candidatures.count %> candidaturas para esta vaga</h3>
+
+  <h3 class="subtitle"><%= @vacancy.candidatures.count %> candidaturas para esta vaga</h3>
   <% if @vacancy.candidatures.empty? %>
     <h1>Nenhuma candidatura para essa vaga ainda</h1>
   <% else %>
-    <dl>
-      <% @vacancy.candidatures.each do |candidature| %>
-        <dt>Nome do candidato: </dt>
-        <dd><%= link_to candidature.applicant_profile.first_name, recruiters_dashboard_candidature_path(candidature) %></dd>
-      <% end %>
-    </dl>
+    <table>
+      <thead>
+        <tr>
+          <th>Candidato</th>
+          <th>Candidatura em</th>
+          <th>Favorito</th>
+          <th>Gerenciar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @vacancy.candidatures.each do |candidature| %>
+          <tr>
+            <td><%= candidature.applicant_profile.first_name %></td>
+            <td><%= l candidature.created_at, format: :short %></td>
+            <td>
+              <% if candidature.favorite == true %>
+                <%= image_tag 'star.svg', class: "favorite-applicant" %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to 'Ver Candidatura', recruiters_dashboard_candidature_path(candidature) %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   <% end %>
 </div>
