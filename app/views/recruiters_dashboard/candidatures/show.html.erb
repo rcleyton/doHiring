@@ -66,19 +66,23 @@
 
   <h3 class="subtitle">Minha conversa com <%= @candidature.applicant_profile.first_name %></h3>
 
-  <div class="balloon-container">
-    <% @candidature.comments.each do |comment| %>
-      <% if comment.content.present? %>
-        <div class="balloon">
-          <span class="date-comment">
-            <%= l comment.created_at, format: :short %>
-          </span>
-          <p>
-            <%= comment.content %>
-          </p>
-        </div>
+  <% if @candidature.comments.count === 0 %>
+    <p>Vocês ainda não iniciaram uma conversa</p>
+  <% else %>
+    <div class="balloon-container">
+      <% @candidature.comments.each do |comment| %>
+        <% if comment.content.present? %>
+          <div class="balloon">
+            <span class="date-comment">
+              <%= l comment.created_at, format: :short %>
+            </span>
+            <p>
+              <%= comment.content %>
+            </p>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
 

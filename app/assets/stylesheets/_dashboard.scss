@@ -221,6 +221,7 @@ nav .sidebar-button i {
 .btn-edit {
   @include button;
   background-color: #04D361;
+  text-decoration: none;
 }
 
 .list {

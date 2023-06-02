@@ -1,9 +1,11 @@
 <div class="box">
+  <%= link_to 'Cadastrar nova vaga', new_recruiters_dashboard_vacancy_path, class: 'btn-edit' %>
+</div>
 
-  <%= link_to 'Cadastrar nova vaga', new_recruiters_dashboard_vacancy_path, class: 'btn btn-primary' %>
-
+<div class="box">
   <h1 class="box__title">Minhas vagas</h1>
-
+  <hr class="divider">
+  
   <% if @vacancies.empty? %>
     <h1>Nenhuma vaga publicada ainda!</h1>
   <% else %>
@@ -14,7 +16,7 @@
           <th>Nível da Vaga</th>
           <th>Modalidade</th>
           <th>Localização</th>
-          <th></th>
+          <th>Gerenciar</th>
         </tr>
       </thead>
       <tbody>
@@ -30,7 +32,7 @@
           </td>  
           <td><%= vacancy.working_model %></td>  
           <td><%= vacancy.location %></td>  
-          <td><%= link_to 'Gerenciar Vaga', recruiters_dashboard_vacancy_path(vacancy) %></td>
+          <td><%= link_to 'Ver', recruiters_dashboard_vacancy_path(vacancy) %></td>
         </tr>
         <% end %>
       </tbody>
