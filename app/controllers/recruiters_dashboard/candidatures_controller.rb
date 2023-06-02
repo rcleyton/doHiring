@@ -11,4 +11,13 @@ class RecruitersDashboard::CandidaturesController < RecruitersDashboardControlle
       redirect_to @candidature, alert: 'Ocorreu um erro ao marcar a candidatura como destaque.'
     end
   end
+
+  def not_favorite
+    @candidature = Candidature.find(params[:id])
+    if @candidature.update(favorite: false)
+      redirect_to recruiters_dashboard_candidature_path(@candidature)
+    else
+      redirect_to @candidature, alert: 'Ocorreu um erro ao marcar a candidatura como destaque.'
+    end
+  end
 end

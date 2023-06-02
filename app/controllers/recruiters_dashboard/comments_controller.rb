@@ -3,7 +3,7 @@ class RecruitersDashboard::CommentsController < RecruitersDashboardController
     @candidature = Candidature.find(params[:candidature_id])
     @comment = @candidature.comments.create(comment_params)
     if @comment.save
-      redirect_to root_path
+      redirect_to recruiters_dashboard_candidature_path(@candidature)
     else 
       puts @comment.errors.full_messages
     end

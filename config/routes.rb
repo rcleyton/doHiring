@@ -26,6 +26,7 @@ Rails.application.routes.draw do
       resources :comments, only: %i[ new create ]
       member do
         patch :favorite
+        patch :not_favorite
       end
     end
   end
