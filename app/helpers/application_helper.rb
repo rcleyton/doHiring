@@ -1,5 +1,5 @@
 module ApplicationHelper
   def total_vacancies
-    @vacancy = Vacancy.all.count
+    vacancies = Vacancy.all.count
   end
 end

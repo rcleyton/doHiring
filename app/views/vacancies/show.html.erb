@@ -1,12 +1,19 @@
+<%= render "shared/navbar" %>
 
-  <h1 class="title">
-    <%= @vacancy.title %> 
-  </h1>
+<section class="section__vacancies" id="scroll">
+  <h2 class="title">
+    <%= "Hoje temos #{total_vacancies} vagas esperando por você!" %>
+  </h2> 
+</section>
+
+<div class="box">
+  <h1 class="title"><%= @vacancy.title %> </h1>
+  <hr class="divider">
   <dl>
-    <dt>Título:</dt>
-    <dd><%= @vacancy.title %></dd>
     <dt>Código da vaga:</dt>
     <dd><%= @vacancy.code %></dd>
+    <dt>Título:</dt>
+    <dd><%= @vacancy.title %></dd>
     <dt>Descrição:</dt>
     <dd><%= @vacancy.description %></dd>
     <dt>Nível da Vaga:</dt>
@@ -14,11 +21,13 @@
     <dt>Modelo de Trabalho:</dt>
     <dd><%= @vacancy.working_model %></dd>
     <dt>Salário:</dt>
-    <dd><%= @vacancy.salary %></dd>
+    <dd><%= number_to_currency @vacancy.salary %></dd>
     <dt>Benefícios:</dt>
     <dd><%= @vacancy.benefits %></dd>
     <dt>Localização:</dt>
     <dd><%= @vacancy.location %></dd>
   </dl>
+  <hr class="divider">
   <%= link_to "Candidatar", new_applicants_dashboard_vacancy_candidature_path(@vacancy),
-  class: "btn btn-primary" %>
+  class: "save-btn" %>
+</div>
