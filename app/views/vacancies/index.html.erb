@@ -4,6 +4,16 @@
   <h2 class="title">
     <%= "Hoje temos #{total_vacancies} vagas esperando por você!" %>
   </h2> 
+
+  <div class="wrap">
+    <div class="search-vacancy">
+      <%= form_tag vacancies_path, method: :get, class: "form-search" do %>
+        <%= text_field_tag :search, params[:search], class: "search-term", placeholder: "Digite o Código, Título ou descrição da vaga" %>
+        <%= submit_tag "Buscar", class: "search-button" %> 
+      <% end %>
+    </div>
+  </div>
+
 </section>
 
 <% @vacancies.each do |vacancy| %>
@@ -27,5 +37,5 @@
         </div>
       </div>
     <% end %>
-  </div>
+  </div>  
 <% end %>
