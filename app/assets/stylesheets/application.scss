@@ -81,6 +81,10 @@ th, td {
   border-bottom: 1px solid #ddd;
 }
 
+th:last-of-type, td:last-of-type {
+  text-align: center;
+}
+
 th {
   background-color: #0A2558;
   color: #fff;

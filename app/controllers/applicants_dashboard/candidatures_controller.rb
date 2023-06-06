@@ -14,6 +14,7 @@ class ApplicantsDashboard::CandidaturesController < ApplicantsDashboardControlle
 
   def create
     @candidature = Candidature.new(candidature_params)
+    @candidature.status = "Candidatura Enviada"
     if @candidature.save
       redirect_to applicants_dashboard_candidature_path(@candidature)
     else
@@ -24,6 +25,6 @@ class ApplicantsDashboard::CandidaturesController < ApplicantsDashboardControlle
   private
   def candidature_params
     params.require(:candidature).permit(:reason_application, :vacancy_id, 
-    :applicant_profile_id)
+    :applicant_profile_id, :status)
   end
 end

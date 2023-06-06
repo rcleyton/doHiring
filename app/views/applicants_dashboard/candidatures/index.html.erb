@@ -3,9 +3,32 @@
   <hr class="divider">
 
   <h3 class="subtitle">Minhas candidaturas</h3>
-  <ul class="list">
-    <% @candidatures.each do |candidature| %>
-      <li class="list__item"><%= link_to candidature.vacancy.title, applicants_dashboard_candidature_path(candidature) %></li>
-    <% end %>
-  </ul>
+
+  <% if @candidatures.empty?%>
+    <h1>Nenhuma canidatura ainda</h1>
+  <% else %>
+    <table>
+      <thead>
+        <tr>
+          <th>Título da vaga</th>
+          <th>Status</th>
+          <th>Detalhes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @candidatures.each do |candidature| %>
+          <tr>
+            <td><%= candidature.vacancy.title %></td>
+            <td><%= candidature.status %></td>
+            <td>
+              <%= link_to applicants_dashboard_candidature_path(candidature) do %>
+                <%= icon('fa-solid', 'eye') %>
+              <% end %>
+                
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
 </div>
