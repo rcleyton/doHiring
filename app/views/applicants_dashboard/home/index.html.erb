@@ -2,12 +2,15 @@
   <h1 class="box__title">Dashboard do Candidato</h1>
   <hr class="divider">
 
-  <ul class="list">
-    <li class="list__item">
-      <%= icon('fa-solid', 'user') %> <%= link_to 'Meu Perfil', new_applicants_dashboard_profile_path %>
-    </li>
-    <li class="list__item">
-      <%= icon('fa-solid', 'suitcase') %> <%= link_to 'Minhas Vagas', applicants_dashboard_candidatures_path %>
-    </li>
-  </ul>  
+  <div class="box__options">
+    <div class="option-card">
+      <%= icon('fa-solid', 'user') %>
+      <%= link_to 'Meu Perfil', new_applicants_dashboard_profile_path %>
+    </div>
+
+    <div class="option-card">
+      <%= icon('fa-solid', 'suitcase') %>
+      <%= link_to 'Minhas Vagas', applicants_dashboard_candidatures_path %>
+    </div>
+  </div>
 </div>
