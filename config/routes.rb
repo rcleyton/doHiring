@@ -27,6 +27,7 @@ Rails.application.routes.draw do
       member do
         patch :favorite
         patch :not_favorite
+        put :change_application_status
       end
     end
   end

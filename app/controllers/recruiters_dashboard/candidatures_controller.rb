@@ -7,8 +7,6 @@ class RecruitersDashboard::CandidaturesController < RecruitersDashboardControlle
     @candidature = Candidature.find(params[:id])
     if @candidature.update(favorite: true)
       redirect_to recruiters_dashboard_candidature_path(@candidature)
-    else
-      redirect_to @candidature, alert: 'Ocorreu um erro ao marcar a candidatura como destaque.'
     end
   end
 
@@ -16,8 +14,12 @@ class RecruitersDashboard::CandidaturesController < RecruitersDashboardControlle
     @candidature = Candidature.find(params[:id])
     if @candidature.update(favorite: false)
       redirect_to recruiters_dashboard_candidature_path(@candidature)
-    else
-      redirect_to @candidature, alert: 'Ocorreu um erro ao marcar a candidatura como destaque.'
     end
+  end
+
+  def change_application_status
+    @candidature = Candidature.find(params[:id])
+    new_status = params[:candidature][:status]
+    @candidature.update(status: new_status)
   end
 end

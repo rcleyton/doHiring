@@ -6,3 +6,4 @@ pt-BR:
     attributes:
       candidature:
         reason_application: Diga-nos, por que devemos te contratar?
+        status: Status da candidatura

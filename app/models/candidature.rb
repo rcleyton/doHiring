@@ -1,5 +1,5 @@
 class Candidature < ApplicationRecord
-  validates :reason_application, presence: true
+  validates :reason_application, :status, presence: true
   
   belongs_to :applicant_profile
   belongs_to :vacancy
