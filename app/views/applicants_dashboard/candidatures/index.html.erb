@@ -10,9 +10,9 @@
     <table>
       <thead>
         <tr>
-          <th>Título da vaga</th>
-          <th>Status</th>
-          <th>Detalhes</th>
+          <th class="table-applicant">Título da vaga</th>
+          <th class="table-applicant">Status</th>
+          <th class="table-applicant">Detalhes</th>
         </tr>
       </thead>
       <tbody>
@@ -24,7 +24,6 @@
               <%= link_to applicants_dashboard_candidature_path(candidature) do %>
                 <%= icon('fa-solid', 'eye') %>
               <% end %>
-                
             </td>
           </tr>
         <% end %>

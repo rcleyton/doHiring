@@ -39,7 +39,7 @@ Recrutador
 - [X] Ver candidato inscritos para uma vaga
 - [X] Escrever comentários no perfil do candidato
 - [X] Marcar candidato como destaque
-- [ ] Recusar candidato em vaga
+- [X] Recusar candidato em vaga
 - [ ] Enviar proposta para o candidato
 - [ ] Ver feedback das propostas
 - [ ] Encerrar uma vaga

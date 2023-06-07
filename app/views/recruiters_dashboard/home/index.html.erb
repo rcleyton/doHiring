@@ -16,7 +16,7 @@
           <th>Nível da Vaga</th>
           <th>Modalidade</th>
           <th>Localização</th>
-          <th>Gerenciar</th>
+          <th>Detalhes</th>
         </tr>
       </thead>
       <tbody>
@@ -32,7 +32,11 @@
           </td>  
           <td><%= vacancy.working_model %></td>  
           <td><%= vacancy.location %></td>  
-          <td><%= link_to 'Ver', recruiters_dashboard_vacancy_path(vacancy) %></td>
+          <td>
+            <%= link_to recruiters_dashboard_vacancy_path(vacancy) do %>
+              <%= icon('fa-solid', 'eye') %>
+            <% end %>
+          </td>
         </tr>
         <% end %>
       </tbody>
