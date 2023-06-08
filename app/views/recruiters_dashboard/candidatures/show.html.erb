@@ -6,7 +6,6 @@
     <li><%= "Criada em #{l @candidature.vacancy.created_at, format: :long}" %></li>
     <li>Encerra em</li>
   </ul>
-
   <div class="favorite-btn">
     <% if @candidature.favorite %>
       <%= button_to 'Desmarcar Destaque', 
@@ -15,8 +14,7 @@
       <%= button_to 'Marcar como Destaque', 
       favorite_recruiters_dashboard_candidature_path(@candidature), class: 'btn-edit', method: :patch %>
     <% end %>
-
-    <div>    
+    <div>
       <% if @candidature.favorite == true %>
         <span class="subtitle">Candidato destacado</span>  <%= image_tag 'star.svg', class: "favorite-applicant" %>
       <% end %>
@@ -30,9 +28,13 @@
       <%= f.button :submit, "Atualizar Status", class: 'save-btn' %>
     <% end %>
   </div>
-
 </div>
-
+<div class="box">
+  <h1 class="box__title">Enviar proposta ao candidato</h1>
+  <hr class="divider">
+  <%= link_to "Enviar proposta",
+  new_recruiters_dashboard_candidature_proposal_path(@candidature) %>
+</div>
 <div class="box">
   <h1 class="box__title">Informações do Candidato</h1>
   <hr class="divider">
@@ -47,18 +49,15 @@
     <dd>  <%= @candidature.applicant_profile.professional_goals %></dd>
   </dl>
   <hr class="divider">
-
   <h3 class="subtitle">Perguntas obrigatórias para a vaga</h3>
   <h4 class="box__subtitle">Por que devemos te contratar?</h4>
   <p><%= @candidature.reason_application %></p>
   <hr class="divider">
-
   <h3 class="subtitle">Deixe uma mensagem para o candidato</h3>
   <p class="box__paragraph">
     Acha que <%= @candidature.applicant_profile.first_name %> tem tudo a ver com a vaga?
-  Conheça-o melhor, deixe uma mensagem ou agende uma entrevista. 
+    Conheça-o melhor, deixe uma mensagem ou agende uma entrevista. 
   </p>
-
   <%= simple_form_for [ @comment, @candidature.comments.build ], 
     url: recruiters_dashboard_candidature_comments_path(@candidature) do |form| %>
     <%= form.input :recruiter_profile_id, as: :hidden, input_html: { value: current_recruiter.id } %>
@@ -69,9 +68,7 @@
     <%= form.button :submit, class: 'save-btn' %>
   <% end %>
   <hr class="divider">
-
   <h3 class="subtitle">Minha conversa com <%= @candidature.applicant_profile.first_name %></h3>
-
   <% if @candidature.comments.count === 0 %>
     <p>Vocês ainda não iniciaram uma conversa</p>
   <% else %>

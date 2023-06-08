@@ -6,4 +6,5 @@ class ApplicantProfile < ApplicationRecord
   has_many :candidatures
   has_many :vacancies, through: :candidatures
   has_many :comments
+  has_many :proposals
 end

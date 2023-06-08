@@ -5,4 +5,5 @@ class RecruiterProfile < ApplicationRecord
   belongs_to :recruiter
   has_many :vacancies
   has_many :comments
+  has_many :proposals
 end

@@ -1,0 +1,26 @@
+<div class="box">
+  <ul class="list-candidature">
+    <li>Código da vaga: <%= @proposal.candidature.vacancy.code %></li>
+    <li>Título da vaga: <%= @proposal.candidature.vacancy.title %></li>
+    <li>Nome do candidato: <%= @proposal.candidature.applicant_profile.first_name %></li>
+  </ul>
+</div>
+
+<div class="box">
+  <h1 class="box__title">Proposta efetuada</h1>
+  <hr class="divider">
+  <dl>
+    <dt>Salário oferecido:</dt>
+    <dd><%= number_to_currency @proposal.salary_offered %></dd>
+    <dt>Benefícios oferecidos:</dt>
+    <dd><%= @proposal.benefits_offered %></dd>
+    <dt>Atribuições da vaga:</dt>
+    <dd><%= @proposal.job_functions %></dd>
+    <dt>Expectativa da empresa:</dt>
+    <dd><%= @proposal.company_expectations %></dd>
+    <dt>Bônus:</dt>
+    <dd><%= @proposal.bonus %></dd>
+    <dt>Informações adicionais</dt>
+    <dd><%= @proposal.additional_information %></dd>
+  </dl>
+</div>

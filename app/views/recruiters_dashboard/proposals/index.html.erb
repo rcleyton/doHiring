@@ -1,0 +1,35 @@
+<div class="box">
+  <h1 class="box__title">Propostas efetuadas</h1>
+  <hr class="divider">
+
+  <% if @proposals.empty? %>
+    <h1>Você ainda não fez nenhuma proposta para os candidatos</h1>
+  <% else %>
+    <table>
+      <thead>
+        <tr>
+          <th>Cód Vaga</th>
+          <th>Título da Vaga</th>
+          <th>Candidato</th>
+          <th>Ver</th>
+        </tr>
+      </thead>
+      <tbody>      
+        <% @proposals.each do |proposal| %>
+          <tr>
+            <td><%= proposal.candidature.vacancy.code %></td>
+            <td><%= proposal.candidature.vacancy.title %></td>
+            <td><%= proposal.candidature.applicant_profile.first_name %></td>
+            <td>
+              <%= link_to recruiters_dashboard_proposal_path(proposal) do %>
+                <%= icon('fa-solid', 'eye') %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+  
+
+</div>

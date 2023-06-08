@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_06_025503) do
+ActiveRecord::Schema.define(version: 2023_06_08_145139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,20 @@ ActiveRecord::Schema.define(version: 2023_06_06_025503) do
     t.index ["recruiter_profile_id"], name: "index_comments_on_recruiter_profile_id"
   end
 
+  create_table "proposals", force: :cascade do |t|
+    t.date "start_date"
+    t.string "salary_offered"
+    t.text "benefits_offered"
+    t.text "job_functions"
+    t.text "company_expectations"
+    t.string "bonus"
+    t.text "additional_information"
+    t.bigint "candidature_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["candidature_id"], name: "index_proposals_on_candidature_id"
+  end
+
   create_table "recruiter_profiles", force: :cascade do |t|
     t.string "full_name"
     t.string "document"
@@ -119,6 +133,7 @@ ActiveRecord::Schema.define(version: 2023_06_06_025503) do
   add_foreign_key "comments", "applicant_profiles"
   add_foreign_key "comments", "candidatures"
   add_foreign_key "comments", "recruiter_profiles"
+  add_foreign_key "proposals", "candidatures"
   add_foreign_key "recruiter_profiles", "recruiters"
   add_foreign_key "vacancies", "recruiter_profiles"
   add_foreign_key "vacancies", "vacancy_levels"
