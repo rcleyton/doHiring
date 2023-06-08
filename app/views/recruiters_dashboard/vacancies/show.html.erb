@@ -33,7 +33,7 @@
           <th>Candidato</th>
           <th>Candidatura em</th>
           <th>Favorito</th>
-          <th>Gerenciar</th>
+          <th>Detalhes</th>
         </tr>
       </thead>
       <tbody>
@@ -47,7 +47,9 @@
               <% end %>
             </td>
             <td>
-              <%= link_to 'Ver Candidatura', recruiters_dashboard_candidature_path(candidature) %>
+              <%= link_to recruiters_dashboard_candidature_path(candidature) do %>
+                <%= icon('fa-solid', 'eye') %>
+              <% end %>
             </td>
           </tr>
         <% end %>

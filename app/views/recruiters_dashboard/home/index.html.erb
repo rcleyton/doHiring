@@ -1,9 +1,17 @@
 <div class="box">
-  <%= link_to 'Cadastrar nova vaga', new_recruiters_dashboard_vacancy_path, class: 'btn-edit' %>
-</div>
+  <h1 class="box__title">Dashboard do Recrutador</h1>
+  <hr class="divider">
 
-<div class="box">
-  <%= link_to 'Propostas realizadas', recruiters_dashboard_proposals_path, class: 'save-btn' %>
+  <div class="box__options">
+    <div class="option-card option-card-recruiter">
+      <%= icon('fa-solid', 'suitcase') %>
+      <%= link_to 'Cadastrar nova vaga', new_recruiters_dashboard_vacancy_path %>
+    </div>
+    <div class="option-card option-card-recruiter">
+      <%= icon('fa-solid', 'handshake') %>  
+      <%= link_to 'Propostas realizadas', recruiters_dashboard_proposals_path %>
+    </div>
+  </div>
 </div>
 
 <div class="box">

@@ -1,6 +1,7 @@
 class RecruitersDashboard::ProposalsController < RecruitersDashboardController
   def index
-    @proposals = Proposal.all
+    @recruiter = current_recruiter # Supondo que você tenha um método para obter o recrutador atualmente logado
+    @proposals = @recruiter.recruiter_profile.proposals
   end
 
   def show

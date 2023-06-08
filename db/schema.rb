@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_08_145139) do
+ActiveRecord::Schema.define(version: 2023_06_08_174409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,7 +77,9 @@ ActiveRecord::Schema.define(version: 2023_06_08_145139) do
     t.bigint "candidature_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "recruiter_profile_id"
     t.index ["candidature_id"], name: "index_proposals_on_candidature_id"
+    t.index ["recruiter_profile_id"], name: "index_proposals_on_recruiter_profile_id"
   end
 
   create_table "recruiter_profiles", force: :cascade do |t|
@@ -134,6 +136,7 @@ ActiveRecord::Schema.define(version: 2023_06_08_145139) do
   add_foreign_key "comments", "candidatures"
   add_foreign_key "comments", "recruiter_profiles"
   add_foreign_key "proposals", "candidatures"
+  add_foreign_key "proposals", "recruiter_profiles"
   add_foreign_key "recruiter_profiles", "recruiters"
   add_foreign_key "vacancies", "recruiter_profiles"
   add_foreign_key "vacancies", "vacancy_levels"
