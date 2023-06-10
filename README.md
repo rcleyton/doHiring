@@ -27,7 +27,7 @@ Candidato
 - [X] Ver vagas disponíveis
 - [X] Candidatar-se a uma vaga
 - [X] Buscar uma vaga
-- [ ] Receber proposta do recrutador
+- [X] Receber proposta do recrutador
 - [ ] Aceitar a proposta
 - [ ] Rejeitar a proposta
 

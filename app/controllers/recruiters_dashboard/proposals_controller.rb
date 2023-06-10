@@ -6,8 +6,6 @@ class RecruitersDashboard::ProposalsController < RecruitersDashboardController
 
   def show
     @proposal = Proposal.find(params[:id])
-    @applicant_profile_id = @candidature.applicant_profile_id
-    @recruiter_profile_id = current_recruiter.recruiter_profile.id
   end
 
   def new
@@ -28,7 +26,8 @@ class RecruitersDashboard::ProposalsController < RecruitersDashboardController
 
   private
   def proposal_params
-    params.require(:proposal).permit(:start_date, :salary_offered, :benefits_offered, :job_functions, :company_expectations,
+    params.require(:proposal).permit(:start_date, :salary_offered, :benefits_offered, 
+    :job_functions, :company_expectations, :applicant_profile_id, :recruiter_profile_id,
     :bonus, :additional_information)
   end
 end

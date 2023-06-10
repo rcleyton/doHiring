@@ -24,19 +24,31 @@
     <ul class="nav-links">
       <li>
         <%= link_to recruiters_dashboard_home_index_path, class: 'active' do %>
-          <i class="bx bx-grid-alt"></i>
+          <%= icon('fa-solid', 'list') %>
           <span class="links_name">Dashboard</span>
         <% end %>
       </li>
       <li>
         <%= link_to new_recruiters_dashboard_profile_path do %>
-          <i class='bx bx-user' ></i>
+          <%= icon('fa-solid', 'user') %>
           <span class="links_name">Meu Perfil</span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to new_recruiters_dashboard_vacancy_path do %>
+          <%= icon('fa-solid', 'suitcase') %>
+          <span class="links_name">Minhas Vagas</span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to recruiters_dashboard_proposals_path do %>
+          <%= icon('fa-solid', 'handshake') %>
+          <span class="links_name">Propostas Feitas</span>
         <% end %>
       </li>
       <li class="log_out">
         <%= link_to destroy_recruiter_session_path, method: :delete do %>
-          <i class="bx bx-log-out"></i>
+          <%= icon('fa-solid', 'right-from-bracket') %>
           <span class="links_name">Sair</span>
         <% end %>
       </li>
