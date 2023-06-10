@@ -1,0 +1,29 @@
+<div class="box">
+  <h1 class="box__title">Proposta para a vaga:
+    <%= @proposal.candidature.vacancy.title %> 
+  </h1>
+  <hr class="divider">
+  <dl>
+    <dt>Código da vaga:</dt>
+    <dd><%= @proposal.candidature.vacancy.code %></dd>
+    <dt>Título da vaga:</dt>
+    <dd><%= @proposal.candidature.vacancy.title %></dd>
+    <dt>Data de início:</dt>
+    <dd><%= l @proposal.start_date, format: :long %></dd>
+    <dt>Salário:</dt>
+    <dd><%= number_to_currency @proposal.salary_offered %></dd>
+    <dt>Benefícios:</dt>
+    <dd><%= @proposal.benefits_offered %></dd>
+    <dt>Atribuições da vaga:</dt>
+    <dd><%= @proposal.job_functions %></dd>
+    <dt>Expectativa de Empresa:</dt>
+    <dd><%= @proposal.company_expectations %></dd>
+    <dt>Bônus:</dt>
+    <dd><%= @proposal.bonus %></dd>
+    <dt>Informações adicionais:</dt>
+    <dd><%= @proposal.additional_information %></dd>
+  </dl>
+  <hr class="divider">
+  <%= link_to "Ver candidatura", 
+  applicants_dashboard_candidature_path(@proposal.candidature), class: 'btn-edit' %>
+</div>

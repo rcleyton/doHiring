@@ -16,14 +16,13 @@ Rails.application.routes.draw do
       resources :candidatures, only: %i[ new create ]
     end
     resources :candidatures, only: %i[ index show ] 
+    resources :proposals, only: %i[ index show ]
   end
   
   namespace :recruiters_dashboard do
     get 'home/index'
-    resources 'profile', only: %i[ show new create edit update ]
+    resources :profile, only: %i[ show new create edit update ]
     resources :vacancies, only: %i[ show new create edit update ] 
-    resources :proposals, only: %i[ index show ]
-
     resources :candidatures, only: %i[ show ] do
       resources :comments, only: %i[ new create ]
       resources :proposals, only: %i[ new create ]
@@ -33,6 +32,7 @@ Rails.application.routes.draw do
         put :change_application_status
       end
     end
+    resources :proposals, only: %i[ index show ]
   end
 
   resources :vacancies, only: %i[ index show ]

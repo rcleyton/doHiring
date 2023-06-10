@@ -1,0 +1,34 @@
+<div class="box">
+  <h1 class="box__title">Minhas Propostas</h1>
+  <hr class="divider">
+
+  <% if @proposals.empty? %>
+    <h1>Você ainda não recebeu nenhuma proposta</h1>
+  <% else %>
+    <% @proposals.each do |proposal| %>
+      <table>
+        <thead>
+          <tr>
+            <th class="table-applicant">Cód Vaga</th>
+            <th class="table-applicant">Título da Vaga</th>
+            <th class="table-applicant">Ver</th>
+          </tr>
+        </thead>
+        <tbody>      
+          <% @proposals.each do |proposal| %>
+            <tr>
+              <td><%= proposal.candidature.vacancy.code %></td>
+              <td><%= proposal.candidature.vacancy.title %></td>
+              <td>
+                <%= link_to applicants_dashboard_proposal_path(proposal) do %>
+                  <%= icon('fa-solid', 'eye') %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  <% end %>
+  
+</div>
