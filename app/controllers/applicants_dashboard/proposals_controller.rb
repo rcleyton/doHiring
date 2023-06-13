@@ -1,7 +1,11 @@
 class ApplicantsDashboard::ProposalsController < ApplicantsDashboardController
   def index
     @applicant = current_applicant
-    @proposals = @applicant.applicant_profile.proposals
+    if @applicant.applicant_profile.present?
+      @proposals = @applicant.applicant_profile.proposals
+    else
+      redirect_to new_applicants_dashboard_profile_path
+    end
   end
 
   def show
