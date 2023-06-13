@@ -1,4 +1,4 @@
-<div class="box">
+<div class="box box-candidature">
   <ul class="list-candidature">
     <li>Código da vaga: <%= @proposal.candidature.vacancy.code %></li>
     <li>Título da vaga: <%= @proposal.candidature.vacancy.title %></li>
@@ -10,6 +10,8 @@
   <h1 class="box__title">Proposta efetuada</h1>
   <hr class="divider">
   <dl>
+    <dt>Status da Proposta:</dt>
+    <dd><%= @proposal.status %></dd>
     <dt>Salário oferecido:</dt>
     <dd><%= number_to_currency @proposal.salary_offered %></dd>
     <dt>Benefícios oferecidos:</dt>

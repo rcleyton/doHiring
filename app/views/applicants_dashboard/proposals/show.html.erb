@@ -4,6 +4,8 @@
   </h1>
   <hr class="divider">
   <dl>
+    <dt>Status da Proposta:</dt>
+    <dd><%= @proposal.status %></dd>
     <dt>Código da vaga:</dt>
     <dd><%= @proposal.candidature.vacancy.code %></dd>
     <dt>Título da vaga:</dt>
@@ -23,7 +25,8 @@
     <dt>Informações adicionais:</dt>
     <dd><%= @proposal.additional_information %></dd>
   </dl>
+  <%= link_to "Ver candidatura", applicants_dashboard_candidature_path(@proposal.candidature) %>
   <hr class="divider">
-  <%= link_to "Ver candidatura", 
-  applicants_dashboard_candidature_path(@proposal.candidature), class: 'btn-edit' %>
+  <%= link_to 'Aceitar proposta', accept_applicants_dashboard_proposal_path, class: 'btn-edit', method: :put %>
+  <%= link_to 'Recusar proposta', decline_applicants_dashboard_proposal_path, method: :put %>
 </div>

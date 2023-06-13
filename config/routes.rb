@@ -16,7 +16,10 @@ Rails.application.routes.draw do
       resources :candidatures, only: %i[ new create ]
     end
     resources :candidatures, only: %i[ index show ] 
-    resources :proposals, only: %i[ index show ]
+    resources :proposals, only: %i[ index show ] do
+      put 'accept', on: :member
+      put 'decline', on: :member
+    end
   end
   
   namespace :recruiters_dashboard do

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_09_204231) do
+ActiveRecord::Schema.define(version: 2023_06_13_030442) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 2023_06_09_204231) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "recruiter_profile_id"
     t.bigint "applicant_profile_id"
+    t.string "status", default: "Aguardando resposta do candidato"
     t.index ["applicant_profile_id"], name: "index_proposals_on_applicant_profile_id"
     t.index ["candidature_id"], name: "index_proposals_on_candidature_id"
     t.index ["recruiter_profile_id"], name: "index_proposals_on_recruiter_profile_id"

@@ -28,8 +28,8 @@ Candidato
 - [X] Candidatar-se a uma vaga
 - [X] Buscar uma vaga
 - [X] Receber proposta do recrutador
-- [ ] Aceitar a proposta
-- [ ] Rejeitar a proposta
+- [X] Aceitar a proposta
+- [X] Rejeitar a proposta
 
 Recrutador
 ----------
@@ -41,5 +41,5 @@ Recrutador
 - [X] Marcar candidato como destaque
 - [X] Recusar candidato em vaga
 - [X] Enviar proposta para o candidato
-- [ ] Ver feedback das propostas
+- [X] Ver feedback das propostas
 - [ ] Encerrar uma vaga

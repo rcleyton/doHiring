@@ -21,7 +21,7 @@
     </div>
     <%= simple_form_for @candidature, 
       url: change_application_status_recruiters_dashboard_candidature_path(@candidature), method: :put do |f| %>
-      <%= f.input :status, collection: ["Não selecionado", "Avanço"], include_blank: "Selecione um status",
+      <%= f.input :status, collection: ["Não selecionado", "Entrevista", "Feedback", "Avaliação da Proposta"], include_blank: "Selecione um status",
                               wrapper_html: { class: 'form-control'},
                               label_html: { class: 'form-label' },
                               input_html: { class: 'form-input', id: 'status-select' }  %>
