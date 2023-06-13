@@ -378,3 +378,41 @@ nav .sidebar-button i {
     margin-bottom: 1rem;
   }
 }
+
+/* ALERTS */
+.alert {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid;
+  border-radius: 4px;
+}
+
+.alert-success {
+  background-color: #dff0d8;
+  border-color: #d0e9c6;
+  color: #3c763d;
+}
+
+.alert-error {
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  color: #a94442;
+}
+
+.alert-warning {
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+  color: #8a6d3b;
+}
+
+.close-btn {
+  float: right;
+  cursor: pointer;
+  font-weight: bold;
+  color: #000;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+

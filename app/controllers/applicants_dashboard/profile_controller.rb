@@ -16,7 +16,9 @@ class ApplicantsDashboard::ProfileController < ApplicantsDashboardController
     @applicant_profile = ApplicantProfile.new(applicant_profile_params)
     if @applicant_profile.save
       redirect_to applicants_dashboard_profile_path(@applicant_profile)
+      flash[:notice] = "Perfil criado com sucesso."
     else  
+      flash.now[:error] = "Verifique o(s) campo(os) em vermelho."
       render :new
     end
   end
@@ -29,7 +31,9 @@ class ApplicantsDashboard::ProfileController < ApplicantsDashboardController
     @applicant_profile = ApplicantProfile.find(params[:id])
     if @applicant_profile.update(applicant_profile_params)
       redirect_to applicants_dashboard_profile_path
+      flash[:notice] = "Perfil atualizado com sucesso."
     else
+      flash.now[:error] = "Verifique o(s) campo(os) em vermelho."
       render :edit
     end
   end
