@@ -2,6 +2,10 @@
   <h1 class="box__title">Dashboard do Recrutador</h1>
   <hr class="divider">
 
+  <% flash.each do |type, message| %>
+    <%= render partial: 'shared/alert', locals: { type: type, message: message } %>
+  <% end %>
+
   <div class="box__options">
     <div class="option-card option-card-recruiter">
       <%= icon('fa-solid', 'suitcase') %>

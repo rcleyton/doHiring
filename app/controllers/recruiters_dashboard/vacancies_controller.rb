@@ -12,10 +12,11 @@ class RecruitersDashboard::VacanciesController < RecruitersDashboardController
 
   def create
     @vacancy = Vacancy.new(vacancy_params)
-
     if @vacancy.save
       redirect_to recruiters_dashboard_home_index_path
+      flash[:notice] = "Vaga criada com sucesso."
     else
+      flash.now[:error] = "Verifique o(s) campo(os) em vermelho."
       render :new
     end
   end
@@ -29,7 +30,9 @@ class RecruitersDashboard::VacanciesController < RecruitersDashboardController
 
     if @vacancy.update(vacancy_params)
       redirect_to recruiters_dashboard_vacancy_path(@vacancy)
+      flash[:notice] = "Vaga atualizada com sucesso."
     else
+      flash.now[:error] = "Verifique o(s) campo(os) em vermelho."
       render :edit
     end
   end

@@ -3,6 +3,10 @@
     <%= t('devise.registrations.new.sign_up') %>
   </h2>
 
+  <% if resource.errors.any? %>
+    <% flash[:error] = "Verifique os campos em vermelho" %>
+  <% end %>
+
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.input :email,
                 label: false,

@@ -23,7 +23,9 @@ class RecruitersDashboard::ProposalsController < RecruitersDashboardController
     @proposal = @candidature.build_proposal(proposal_params)
     if @proposal.save
       redirect_to recruiters_dashboard_proposal_path(@proposal)
+      flash[:notice] = "Proposta enviada com sucesso."
     else  
+      flash.now[:error] = "Verifique o(s) campo(os) em vermelho."
       render :new
     end
   end

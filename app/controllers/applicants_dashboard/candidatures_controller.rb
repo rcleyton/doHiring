@@ -17,7 +17,9 @@ class ApplicantsDashboard::CandidaturesController < ApplicantsDashboardControlle
     @candidature.status = "Candidatura Enviada"
     if @candidature.save
       redirect_to applicants_dashboard_candidature_path(@candidature)
+      flash[:notice] = "Candidatura enviada com sucesso."
     else
+      flash.now[:error] = "Verifique o(s) campo(os) em vermelho."
       render :new
     end
   end

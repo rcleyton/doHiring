@@ -14,6 +14,9 @@
   <body class="authenticate__applicant">
     <div class="col_left"></div>
     <div class="col_rigth">
+      <% flash.each do |type, message| %>
+        <%= render partial: 'shared/alert', locals: { type: type, message: message } %>
+      <% end %>
       <%= yield %>
     </div>
   </body>

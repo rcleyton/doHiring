@@ -7,6 +7,10 @@
 </div>
 
 <div class="box">
+  <% flash.each do |type, message| %>
+    <%= render partial: 'shared/alert', locals: { type: type, message: message } %>
+  <% end %>
+
   <h1 class="box__title">Proposta efetuada</h1>
   <hr class="divider">
   <dl>

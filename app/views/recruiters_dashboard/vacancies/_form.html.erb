@@ -1,6 +1,11 @@
 <div class="box">
   <h1 class="box__title">Vaga</h1>
   <hr class="divider">
+
+  <% flash.each do |type, message| %>
+    <%= render partial: 'shared/alert', locals: { type: type, message: message } %>
+  <% end %>
+  
   <%= simple_form_for @vacancy, 
     url: (@vacancy.new_record? ? 
       recruiters_dashboard_vacancies_path :

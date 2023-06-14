@@ -17,7 +17,9 @@ class RecruitersDashboard::ProfileController < RecruitersDashboardController
     @recruiter_profile = RecruiterProfile.new(recruiter_profile_params)
     if @recruiter_profile.save
       redirect_to  recruiters_dashboard_profile_path(@recruiter_profile)
+      flash[:notice] = "Perfil criado com sucesso."
     else
+      flash.now[:error] = "Verifique o(s) campo(os) em vermelho."
       render :new, status: :unprocessable_entity
     end
   end
@@ -30,7 +32,9 @@ class RecruitersDashboard::ProfileController < RecruitersDashboardController
     @recruiter_profile = RecruiterProfile.find(params[:id])
     if @recruiter_profile.update(recruiter_profile_params)
       redirect_to recruiters_dashboard_profile_path
+      flash[:notice] = "Perfil atualizado com sucesso."
     else
+      flash.now[:error] = "Verifique o(s) campo(os) em vermelho."
       render :edit
     end
   end

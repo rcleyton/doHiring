@@ -1,6 +1,9 @@
 <div class="box">
   <h1 class="box__title">Aplicar para a vaga</h1>
   <hr class="divider">
+  <% flash.each do |type, message| %>
+    <%= render partial: 'shared/alert', locals: { type: type, message: message } %>
+  <% end %>
   <%= simple_form_for @candidature, url: applicants_dashboard_vacancy_candidatures_path do |form| %>
     <%= form.input :applicant_profile_id, as: :hidden, input_html: { value: current_applicant.id }%>
     <%= form.input :vacancy_id, as: :hidden, input_html: { value: params[:vacancy_id] } %>
