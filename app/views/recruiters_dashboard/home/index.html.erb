@@ -9,53 +9,12 @@
   <div class="box__options">
     <div class="option-card option-card-recruiter">
       <%= icon('fa-solid', 'suitcase') %>
-      <%= link_to 'Cadastrar nova vaga', new_recruiters_dashboard_vacancy_path %>
+      <%= link_to 'Gerenciar Vagas', recruiters_dashboard_vacancies_path %>
+      <%# <%= link_to 'Cadastrar nova vaga', new_recruiters_dashboard_vacancy_path %> 
     </div>
     <div class="option-card option-card-recruiter">
       <%= icon('fa-solid', 'handshake') %>  
       <%= link_to 'Propostas realizadas', recruiters_dashboard_proposals_path %>
     </div>
   </div>
-</div>
-
-<div class="box">
-  <h1 class="box__title">Minhas vagas</h1>
-  <hr class="divider">
-  
-  <% if @vacancies.empty? %>
-    <h1>Nenhuma vaga publicada ainda!</h1>
-  <% else %>
-    <table>
-      <thead>
-        <tr>
-          <th>Vaga</th>
-          <th>Nível da Vaga</th>
-          <th>Modalidade</th>
-          <th>Localização</th>
-          <th>Detalhes</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @vacancies.each do |vacancy| %>
-        <tr>
-          <td><%= vacancy.title %></td>  
-          <td>
-            <% if vacancy.vacancy_level.present? %>
-              <%= vacancy.vacancy_level.level %>
-            <% else %>
-              Nível não definido
-            <% end %>
-          </td>  
-          <td><%= vacancy.working_model %></td>  
-          <td><%= vacancy.location %></td>  
-          <td>
-            <%= link_to recruiters_dashboard_vacancy_path(vacancy) do %>
-              <%= icon('fa-solid', 'eye') %>
-            <% end %>
-          </td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
-  <% end %>
 </div>

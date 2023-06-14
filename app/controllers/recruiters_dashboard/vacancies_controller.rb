@@ -1,4 +1,8 @@
 class RecruitersDashboard::VacanciesController < RecruitersDashboardController
+  def index 
+    @vacancies = Vacancy.where(recruiter_profile_id: current_recruiter)
+  end
+
   def show
     @vacancy = Vacancy.find(params[:id])
       rescue ActiveRecord::RecordNotFound
