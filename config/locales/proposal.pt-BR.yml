@@ -1,0 +1,14 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      proposal: Proposta
+    attributes:
+      proposal:
+        start_date: Data de início
+        salary_offered: Salário oferecido
+        benefits_offered: Benefícios oferecidos
+        job_functions: Atribuições da vaga
+        company_expectations: Expectativas da Empresa
+        bonus: Bônus
+        additional_information: Informações adicionais
