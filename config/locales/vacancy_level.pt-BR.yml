@@ -1,0 +1,8 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      vacancy_level: Nível da Vaga
+    attributes:
+      vacancy_level:
+        level: Nível da vaga
