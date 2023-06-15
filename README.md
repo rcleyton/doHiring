@@ -15,7 +15,7 @@ Veja a demonstração [clicando aqui](https://dohiring.onrender.com/) **(o servi
 * Postgres
 * Ruby version 3.1.2
 * Rails version 6.1.4
-* Node
+* Node v14.16.1
 * Yarn
 
 # FEATURES :pushpin:
@@ -42,4 +42,4 @@ Recrutador
 - [X] Recusar candidato em vaga
 - [X] Enviar proposta para o candidato
 - [X] Ver feedback das propostas
-- [ ] Encerrar uma vaga
+- [X] Encerrar uma vaga

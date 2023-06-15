@@ -17,7 +17,7 @@ class RecruitersDashboard::VacanciesController < RecruitersDashboardController
   def create
     @vacancy = Vacancy.new(vacancy_params)
     if @vacancy.save
-      redirect_to recruiters_dashboard_home_index_path
+      redirect_to recruiters_dashboard_vacancy_path(@vacancy)
       flash[:notice] = "Vaga criada com sucesso."
     else
       flash.now[:error] = "Verifique o(s) campo(os) em vermelho."
@@ -44,6 +44,7 @@ class RecruitersDashboard::VacanciesController < RecruitersDashboardController
   private
   def vacancy_params
     params.require(:vacancy).permit(:code, :title, :description,
-    :working_model, :salary, :benefits, :location, :recruiter_profile_id, :vacancy_level_id)
+    :working_model, :salary, :benefits, :location, :recruiter_profile_id, :vacancy_level_id,
+    :status)
   end  
 end

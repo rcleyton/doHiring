@@ -17,8 +17,30 @@
 </section>
 
 <% @vacancies.each do |vacancy| %>
-  <div class="vacancy__box">
-    <%= link_to vacancy_path(vacancy) do %>
+  <% if vacancy.status == 'Ativa' %>
+    <div class="vacancy__box">
+      <%= link_to vacancy_path(vacancy) do %>
+        <div class="vacancy__info">
+          <div class="info-job">
+            <h3 class="subtitle">Código da vaga: <%= vacancy.code %></h3>
+            <ul>
+              <li>
+                <%= vacancy.title %></h3>
+              </li>
+              <li>
+                <%= icon('fa-solid', 'location-pin') %> <%= vacancy.location %> 
+              </li>
+            </ul>
+          </div>
+          <div class="info-job-mode">
+            <span class="badge"><%= vacancy.vacancy_level%></span>
+            <p><%= number_to_currency vacancy.salary %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>  
+  <% else %>
+    <div class="vacancy__box">
       <div class="vacancy__info">
         <div class="info-job">
           <h3 class="subtitle">Código da vaga: <%= vacancy.code %></h3>
@@ -29,6 +51,9 @@
             <li>
               <%= icon('fa-solid', 'location-pin') %> <%= vacancy.location %> 
             </li>
+            <li>
+              <strong>(Não aceita mais candidaturas)</strong>
+            </li>
           </ul>
         </div>
         <div class="info-job-mode">
@@ -36,6 +61,6 @@
           <p><%= number_to_currency vacancy.salary %></p>
         </div>
       </div>
-    <% end %>
-  </div>  
+    </div>  
+  <% end %>
 <% end %>

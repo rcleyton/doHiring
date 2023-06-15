@@ -19,8 +19,8 @@
         <tr>
           <th>Vaga</th>
           <th>Nível da Vaga</th>
-          <th>Modalidade</th>
           <th>Localização</th>
+          <th>Status</th>
           <th>Detalhes</th>
         </tr>
       </thead>
@@ -35,8 +35,8 @@
               Nível não definido
             <% end %>
           </td>  
-          <td><%= vacancy.working_model %></td>  
           <td><%= vacancy.location %></td>  
+          <td><%= vacancy.status %></td>  
           <td>
             <%= link_to recruiters_dashboard_vacancy_path(vacancy) do %>
               <%= icon('fa-solid', 'eye') %>

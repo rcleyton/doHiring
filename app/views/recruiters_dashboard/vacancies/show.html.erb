@@ -5,6 +5,8 @@
     <%= render partial: 'shared/alert', locals: { type: type, message: message } %>
   <% end %>
   <dl>
+    <dt>Status da Vaga:</dt>
+    <dd><%= @vacancy.status %></dd>
     <dt>Título:</dt>
     <dd><%= @vacancy.title %></dd>
     <dt>Código da vaga:</dt>
