@@ -10,8 +10,13 @@ class RecruitersDashboard::VacanciesController < RecruitersDashboardController
   end
 
   def new
-    @vacancy = Vacancy.new
-    @vacancy.build_vacancy_level
+    if current_recruiter.recruiter_profile.present?
+      @vacancy = Vacancy.new
+      @vacancy.build_vacancy_level
+    else 
+      redirect_to new_recruiters_dashboard_profile_path
+      flash[:alert] = "Complete seu perfil antes de publicar uma vaga."
+    end
   end
 
   def create

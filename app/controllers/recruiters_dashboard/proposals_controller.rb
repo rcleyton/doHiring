@@ -5,6 +5,7 @@ class RecruitersDashboard::ProposalsController < RecruitersDashboardController
       @proposals = @recruiter.recruiter_profile.proposals
     else
       redirect_to new_recruiters_dashboard_profile_path
+      flash[:alert] = "Complete seu perfil antes de enviar propostas."
     end
   end
 
