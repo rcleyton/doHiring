@@ -5,14 +5,14 @@ class VacanciesController < ApplicationController
                    "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
     else  
       all_vacancies = Vacancy.all
-      active_vacancies, inactive_vacancies = all_vacancies.partition { |vacancy| vacancy.status == 'Ativa' }
+      active_vacancies, inactive_vacancies = all_vacancies.partition { |vacancy| vacancy.status == 'Ativo' }
       @vacancies = active_vacancies + inactive_vacancies
     end
   end
 
   def show
     @vacancy = Vacancy.find(params[:id])
-    unless @vacancy.status == 'Ativa'
+    unless @vacancy.status == 'Ativo'
       redirect_to vacancies_path
     end
     rescue ActiveRecord::RecordNotFound

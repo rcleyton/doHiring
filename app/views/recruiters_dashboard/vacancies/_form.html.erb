@@ -14,7 +14,7 @@
       <%= form.input :recruiter_profile_id, as: :hidden, input_html: { value: current_recruiter.id} %>
 
       <% if action_name == 'edit' %>
-        <%= form.input :status, collection: ["Ativa", "Pausada", "Expirada", "Cancelada", "Fechada"], include_blank: "Selecione um status",
+        <%= form.input :status, collection: ["Ativo", "Pausada", "Expirada", "Cancelada", "Fechada"], include_blank: "Selecione um status",
                               wrapper_html: { class: 'form-control'},
                               label_html: { class: 'form-label' },
                               input_html: { class: 'form-input', id: 'status-select' }  %>

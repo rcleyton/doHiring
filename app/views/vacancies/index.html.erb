@@ -17,7 +17,7 @@
 </section>
 
 <% @vacancies.each do |vacancy| %>
-  <% if vacancy.status == 'Ativa' %>
+  <% if vacancy.status == 'Ativo' %>
     <div class="vacancy__box">
       <%= link_to vacancy_path(vacancy) do %>
         <div class="vacancy__info">

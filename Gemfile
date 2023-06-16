@@ -5,6 +5,7 @@ ruby '3.1.2'
 
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise'
+gem 'faker'
 gem "font-awesome-sass", "~> 6.4.0"
 gem 'jbuilder', '~> 2.7'
 gem 'pg', '~> 1.1'
