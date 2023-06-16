@@ -4,63 +4,96 @@
   <h2 class="title">
     <%= "Hoje temos #{total_vacancies} vagas esperando por você!" %>
   </h2> 
-
-  <div class="wrap">
-    <div class="search-vacancy">
-      <%= form_tag vacancies_path, method: :get, class: "form-search" do %>
-        <%= text_field_tag :search, params[:search], class: "search-term", placeholder: "Digite o Código, Título ou descrição da vaga" %>
-        <%= submit_tag "Buscar", class: "search-button" %> 
-      <% end %>
-    </div>
-  </div>
-
 </section>
 
-<% @vacancies.each do |vacancy| %>
-  <% if vacancy.status == 'Ativo' %>
-    <div class="vacancy__box">
-      <%= link_to vacancy_path(vacancy) do %>
-        <div class="vacancy__info">
-          <div class="info-job">
-            <h3 class="subtitle">Código da vaga: <%= vacancy.code %></h3>
-            <ul>
-              <li>
-                <%= vacancy.title %></h3>
-              </li>
-              <li>
-                <%= icon('fa-solid', 'location-pin') %> <%= vacancy.location %> 
-              </li>
-            </ul>
-          </div>
-          <div class="info-job-mode">
-            <span class="badge"><%= vacancy.vacancy_level%></span>
-            <p><%= number_to_currency vacancy.salary %></p>
-          </div>
+<div class="vacancy__box">
+  <div class="search-form">
+    <%= search_form_for @q do |f| %>
+      <div class="form-control" >
+        <div class="form-label">
+          <%= f.label :title_cont, "Título" %>
         </div>
-      <% end %>
-    </div>  
-  <% else %>
-    <div class="vacancy__box">
-      <div class="vacancy__info">
-        <div class="info-job">
-          <h3 class="subtitle">Código da vaga: <%= vacancy.code %></h3>
-          <ul>
-            <li>
-              <%= vacancy.title %></h3>
-            </li>
-            <li>
-              <%= icon('fa-solid', 'location-pin') %> <%= vacancy.location %> 
-            </li>
-            <li>
-              <strong>(Não aceita mais candidaturas)</strong>
-            </li>
-          </ul>
-        </div>
-        <div class="info-job-mode">
-          <span class="badge"><%= vacancy.vacancy_level%></span>
-          <p><%= number_to_currency vacancy.salary %></p>
-        </div>
+        <%= f.search_field :title_cont, class: 'form-input' %>
       </div>
-    </div>  
-  <% end %>
-<% end %>
+
+      <div class="form-control">
+        <div class="form-label">
+          <%= f.label :vacancy_level_eq, "Nível da Vaga" %>
+        </div>
+        <%= f.select :vacancy_level_id_eq, options_for_select(@vacancy_levels), 
+        { prompt: "Nível da vaga" }, { class: 'form-input' } %>
+      </div>
+
+      <div class="form-control" >
+        <div class="form-label">
+          <%= f.label :working_model_eq, "Nível da Vaga" %>
+        </div>
+        <%= f.select :working_model_eq, options_for_select(@working_models), 
+        { prompt: "Modelo de trabalho"}, { class: 'form-input' }  %>
+      </div>
+
+      <div class="form-control" >
+        <div class="form-label">
+          <%= f.label :location_cont, "Localização" %>
+        </div>
+        <%= f.search_field :location_cont, class: 'form-input' %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Buscar", class: 'save-btn' %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="vacancies">
+    <% @vacancies.each do |vacancy| %>
+      <% if vacancy.status == 'Ativo' %>
+        <div class="vacancy__card">
+          <%= link_to vacancy_path(vacancy) do %>
+            <div class="vacancy__info">
+              <div class="info-job">
+                <h3 class="subtitle">Código da vaga: <%= vacancy.code %></h3>
+                <ul>
+                  <li>
+                    <%= vacancy.title %></h3>
+                  </li>
+                  <li>
+                    <%= icon('fa-solid', 'location-pin') %> <%= vacancy.location %> 
+                  </li>
+                </ul>
+              </div>
+              <div class="info-job-mode">
+                <span class="badge"><%= vacancy.vacancy_level%></span>
+                <p><%= number_to_currency vacancy.salary %></p>
+              </div>
+            </div>
+          <% end %>
+        </div>  
+      <% else %>
+        <div class="vacancy__card">
+          <div class="vacancy__info">
+            <div class="info-job">
+              <h3 class="subtitle">Código da vaga: <%= vacancy.code %></h3>
+              <ul>
+                <li>
+                  <%= vacancy.title %></h3>
+                </li>
+                <li>
+                  <%= icon('fa-solid', 'location-pin') %> <%= vacancy.location %> 
+                </li>
+                <li>
+                  <strong>(Não aceita mais candidaturas)</strong>
+                </li>
+              </ul>
+            </div>
+            <div class="info-job-mode">
+              <span class="badge"><%= vacancy.vacancy_level%></span>
+              <p><%= number_to_currency vacancy.salary %></p>
+            </div>
+          </div>
+        </div>  
+      <% end %>
+    <% end %>
+  </div>
+</div>
+

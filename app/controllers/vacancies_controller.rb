@@ -1,15 +1,12 @@
 class VacanciesController < ApplicationController
   def index
-    if params[:search]
-      @vacancies = Vacancy.where("code ILIKE ? OR title ILIKE ? OR description ILIKE ?", 
-                   "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
-    else  
-      all_vacancies = Vacancy.all
-      active_vacancies, inactive_vacancies = all_vacancies.partition { |vacancy| vacancy.status == 'Ativo' }
-      @vacancies = active_vacancies + inactive_vacancies
-    end
-  end
-
+    @q = Vacancy.ransack(params[:q])
+    @vacancies = @q.result(distinct: true).all.order(created_at: :desc)
+    @vacancy_levels = VacancyLevel.pluck(:level, :id)
+    @working_models = Vacancy.distinct.pluck(:working_model)
+    @locations = Vacancy.distinct.pluck(:location)
+  end  
+  
   def show
     @vacancy = Vacancy.find(params[:id])
     unless @vacancy.status == 'Ativo'

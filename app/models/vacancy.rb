@@ -10,6 +10,10 @@ class Vacancy < ApplicationRecord
 
   before_create :generate_code
 
+  def self.ransackable_attributes(auth_object = nil)
+    %w[title vacancy_level_id working_model location] 
+  end
+
   private
   def generate_code
     self.code = SecureRandom.alphanumeric(8).upcase
