@@ -1,7 +1,6 @@
 @import './variables';
 
 @mixin title {
-  font-family: 'Montserrat', sans-serif;
   font-size: $title;
   color: #04d361;
   font-weight: bold;
@@ -9,7 +8,6 @@
 }
 
 @mixin subtitle {
-  font-family: 'Montserrat', sans-serif;
   font-size: $subtitle;
   color: #E31260;
   font-weight: 600;
@@ -18,7 +16,6 @@
 
 @mixin paragraph {
   padding: 0 0 1rem 0;
-  color: #e7efeb;
   line-height: 1.6;
   text-align: justify;
 }

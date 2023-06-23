@@ -1,75 +1,29 @@
 @import './variables';
 @import './mixins';
 
-.homepage {
-  background-image: linear-gradient(to right top, #1e192c, #22223a, #242c49, #223658, #1b4167);
+.section-welcome {
+  background-image: linear-gradient(to right top, #e8f3f1, #c3ece6, #9be5db, #6bddd1, #00d5c8);
 }
 
-.container {
-  width: 80%;
-  margin: 0 auto;
+.section-welcome .section-content {
+  min-height: 80vh;
 }
 
-.welcome {
-  padding-top: 200px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-
-  &__info,
-  &__image {
-    flex: 1;
-  }
-
-  &__image {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-  }
-
-  &__buttons {
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    display: flex;
-    padding: 1rem 0;
-  }
-
-  &__buttons a {
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: bold;
-    color: #242B47;
-    background-color: #04d361;
-    padding: .7rem 1rem;
-    border-radius: 5px;
-    border: none;
-    transition: .3s;
-  }
-
-  &__buttons a:nth-of-type(even) {
-    background-color: #7dbae5;
-  }
-
-  &__buttons a:hover {
-    color: #fff;
-    opacity: .8;
-  } 
-
-  &__image img {
-    bottom: 0;
-    animation: moveUpDown 2s ease-in-out infinite;
-  }
+.welcome-img {
+  bottom: 0;
+  animation: moveUpDown 2s ease-in-out infinite;
 }
 
-.title {
+.welcome-title {
   @include title;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.subtitle {
+.welcome-subtitle {
   @include subtitle;
 }
 
-.home__paragraph {
+.welcome-paragraph {
   @include paragraph;
 }
 
