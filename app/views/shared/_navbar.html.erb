@@ -1,40 +1,43 @@
-<nav id="navbar">
-  <div class="navbar__brand">
-    <%= link_to root_path do %>
-      <%= image_tag "logo.png", alt: "Logo" %>
+<nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+  <div class="container">
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag "logo.png", alt: "Logo", height: "70", width: "70", class: "d-inline-block align-text-top" %>
     <% end %>
-  </div>
-
-  <div class="nav-menu">
-    <%= link_to "Vagas", vacancies_path, class: "btn-vacancies" %>
-
-    <div class="dropdown">
-      <button class="authenticate_btn">Entrar</button>
-        <div class="dropdown-content">
-          <%= link_to 'Entrar como Cadidato', new_applicant_session_path %>
-          <%= link_to 'Entrar como Recrutador', new_recruiter_session_path %>
-        </div>
-    </div>
-    <div class="dropdown">
-      <button class="authenticate_btn sign-up">Cadastrar</button>
-        <div class="dropdown-content">
-          <%= link_to 'Cadastrar como Candidato', new_applicant_registration_path %>
-          <%= link_to 'Cadastrar como Recrutador', new_recruiter_registration_path %>
-        </div>
+    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="navbarNav" style="">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item px-5">
+          <%= link_to "Vagas", vacancies_path, class: "nav-link fs-5 btn bg-info text-light" %>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle fw-bold fs-5 color-btn-auth" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Entrar
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <%= link_to 'Entrar como Cadidato', new_applicant_session_path, class: "dropdown-item" %>
+            </li>
+            <li>
+              <%= link_to 'Entrar como Recrutador', new_recruiter_session_path, class: "dropdown-item" %>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle color-btn-auth fw-bold fs-5" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Registrar
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <%= link_to 'Cadastrar como Candidato', new_applicant_registration_path, class: "dropdown-item" %>
+            </li>
+            <li>
+              <%= link_to 'Cadastrar como Recrutador', new_recruiter_registration_path, class: "dropdown-item" %>
+            </li>
+          </ul>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>
-
-<script>
-  window.addEventListener("scroll", function () {
-    var navbar = document.getElementById("navbar");
-    var mainSection = document.getElementById("scroll");
-    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-    if (scrollTop > mainSection.offsetTop) {
-      navbar.classList.add("navbar-fixed");
-    } else {
-      navbar.classList.remove("navbar-fixed");
-    }
-  });
-</script>
