@@ -1,13 +1,6 @@
 .custom-navbar { 
-  background-color: #ECFDFA;
-}
-
-.link-vacancies{
-  border: 2px solid black;
-}
-
-.color-btn-auth {
-  color: #545479;
+  background: rgb(9,9,121);
+  background: radial-gradient(circle, rgba(9,9,121,1) 0%, rgba(2,0,36,1) 100%);
 }
 
 #navbarDropdown::before {

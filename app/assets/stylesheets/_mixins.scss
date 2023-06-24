@@ -2,22 +2,40 @@
 
 @mixin title {
   font-size: $title;
-  color: #04d361;
+  color: #2E004B;
   font-weight: bold;
   padding: 0 0 2rem 0;
 }
 
 @mixin subtitle {
   font-size: $subtitle;
-  color: #E31260;
+  color: #2E004B;
   font-weight: 600;
   padding: 0 0 1.2rem 0;
 }
 
 @mixin paragraph {
   padding: 0 0 1rem 0;
+  color: #919191;
   line-height: 1.6;
-  text-align: justify;
+  font-family: 'Open Sans', sans-serif;
+}
+
+@mixin sm-shadow {
+  box-shadow:
+  6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+  22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+  100px 100px 80px rgba(0, 0, 0, 0.07);
+}
+
+@mixin md-shadow {
+  box-shadow:
+  2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
+  6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+  12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
+  22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+  41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
+  100px 100px 80px rgba(0, 0, 0, 0.07);
 }
 
 @mixin box {
@@ -48,13 +66,15 @@
 
 @mixin button {
   text-transform: uppercase;
+  text-decoration: none;
+  background-color: #2E004B;
+  color: #f1f1f1;
   font-weight: bold;
-  border-radius: 10px;
-  border: none;
+  border: 2px solid #2E004B;
   cursor: pointer;
-  color: #fff;
   padding: 1rem;
   margin: 1rem 0 0 0;
+  transition: .3s;
 }
 
 @mixin nav-menu {

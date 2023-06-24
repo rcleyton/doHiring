@@ -1,23 +1,23 @@
 <%= render "shared/navbar" %>
 
-<div class="container-fluid section-welcome">
+<div class="container-fluid section-welcome pt-5">
   <div class="container">
     <section class="row section-content align-items-center">
-      <div class="col-md-6 mb-4">
+      <div class="col-md-6 mb-4 text-md-start text-center">
         <h1 class="welcome-title">Bem-vindo ao doHiring</h1>
         <h3 class="welcome-subtitle">Encontre as melhores oportunidades de emprego.</h3>
-        <p class="welcome-paragraph">
+        <p class="section-paragraph">
           A doHiring é a plataforma ideal para conectar recrutadores e
           candidatos. Com nossas ferramentas, você pode encontrar
           oportunidades de emprego que correspondam às suas habilidades e
           experiências, ou encontrar os melhores talentos para sua empresa.</p>
         <p></p>
 
-        <div class="d-flex">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
           <%= button_to "Quero contratar", new_recruiter_registration_path, 
-              method: :get, class: "btn btn-success me-2" %>
+              method: :get, class: "custom-btn" %>
           <%= button_to "Quero trabalhar", new_applicant_registration_path, 
-          method: :get, class: "btn btn-outline-info" %>
+          method: :get, class: "custo-outline-btn" %>
         </div>
       </div>
       <div class="col-md-6 d-flex justify-content-center align-items-center mt-4">
@@ -27,42 +27,131 @@
   </div>
 </div>
 
-<div class="container" id="scroll">
-
-
-  <section class="info">
-    <div class="info__recruiter">
-      <h2 class="subtitle">Recrutador</h2>
-      <p class="home__paragraph">
-      Encontre os melhores talentos para sua empresa com a doHiring. Com nossa plataforma, você pode criar vagas, gerenciar candidaturas e escolher os candidatos mais qualificados para a vaga. Simplifique seu processo de contratação e encontre os melhores talentos para sua equipe.
-      </p>
-    </div>
-
-    <div class="info__applicant">
-      <h2 class="subtitle">Candidato</h2>
-      <p class="home__paragraph">
-      A doHiring é o lugar ideal para encontrar as melhores oportunidades de emprego. Com nossa plataforma, você pode pesquisar vagas, se candidatar diretamente pelo sistema e acompanhar suas candidaturas. Além disso, nossa ferramenta de busca avançada ajuda você a encontrar vagas que correspondam às suas habilidades e experiências.
-      </p>
-    </div>
-
-    <div class="info__match">
-      <h2 class="subtitle">Deu Match</h2>
-      <p class="home__paragraph">
-      Com a doHiring, encontrar o candidato ideal para sua vaga é fácil. Com nosso recurso "Deu match", você recebe recomendações de candidatos qualificados que correspondem às suas vagas. Não perca tempo analisando centenas de candidaturas - encontre o candidato ideal em segundos com a doHiring.
-      </p>
+<div class="container-fluid">
+  <section class="row cta-section">
+    <div class="col-md-8 offset-md-2">
+      <div class="cta-content text-center">
+        <h2 class="welcome-title">Encontre a oportunidade perfeita!</h2>
+        <p class="section-paragraph mb-5">Explore milhares de vagas em nossa plataforma e dê um impulso em sua carreira.</p>
+        <%= link_to 'Ver vagas', vacancies_path, class: "custo-outline-btn" %>
+      </div>
     </div>
   </section>
-
-  <footer class="footer">
-    <div class="footer__brand">
-      doHiring
-    </div>
-    <div class="social">
-      <%= link_to icon('fa-brands', 'linkedin-in', class: 'fa-2xl'), 
-      "https://www.linkedin.com/in/cleytonrsilva/", target: "_blank" %>
-
-      <%= link_to icon('fa-brands', 'github', class: 'fa-2xl'), 
-      "https://github.com/rcleyton/", target: "_blank"%>
-    </div>
-  </footer>
 </div>
+
+<div class="container my-5">
+  <section class="row text-md-start text-center pt-5">
+    <div class="col-md-4 py-4">
+      <h2 class="welcome-subtitle">Recrutador</h2>
+      <p class="section-paragraph">Encontre os melhores talentos para sua empresa com a doHiring. Com nossa plataforma, você pode criar vagas, gerenciar candidaturas e escolher os candidatos mais qualificados para a vaga. Simplifique seu processo de contratação e encontre os melhores talentos para sua equipe.</p>
+    </div>
+    <div class="col-md-4 py-4">
+      <h2 class="welcome-subtitle">Candidato</h2>
+      <p class="section-paragraph">A doHiring é o lugar ideal para encontrar as melhores oportunidades de emprego. Com nossa plataforma, você pode pesquisar vagas, se candidatar diretamente pelo sistema e acompanhar suas candidaturas. Além disso, nossa ferramenta de busca avançada ajuda você a encontrar vagas que correspondam às suas habilidades e experiências.</p>
+    </div>
+    <div class="col-md-4 py-4">
+      <h2 class="welcome-subtitle">Deu Match</h2>
+      <p class="section-paragraph">Com a doHiring, encontrar o candidato ideal para sua vaga é fácil. Com nosso recurso "Deu match", você recebe recomendações de candidatos qualificados que correspondem às suas vagas. Não perca tempo analisando centenas de candidaturas - encontre o candidato ideal em segundos com a doHiring.</p>
+    </div>
+  </section>
+</div>
+
+<div class="container-fluid">
+  <section class="row testimonial-section">
+    <div class="col-md-8 offset-md-2">
+      <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="testimonial-card">
+              <%= image_tag "chat.svg", class: "testimonial-icon" %>
+              <p class="section-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris feugiat urna sed quam sagittis, sed rhoncus massa dapibus.</p>
+              <img src="https://randomuser.me/api/portraits/men/35.jpg" alt="Depoimento 1" class="testimonial-image">
+              <h4>John Doe</h4>
+              <p class="section-paragraph">CEO, Empresa ABC</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="testimonial-card">
+              <%= image_tag "chat.svg", class: "testimonial-icon" %>
+              <p class="section-paragraph">Nullam ultrices consequat nulla, ac interdum enim auctor vel. In vel pharetra dui.</p>
+              <img src="https://randomuser.me/api/portraits/women/63.jpg" alt="Depoimento 2" class="testimonial-image">
+              <h4>Jane Smith</h4>
+              <p class="section-paragraph">Gerente de Marketing</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="testimonial-card">
+              <%= image_tag "chat.svg", class: "testimonial-icon" %>
+              <p class="section-paragraph">Etiam condimentum metus elit, ac auctor est elementum eu. Sed pulvinar tristique sollicitudin.</p>
+              <img src="https://randomuser.me/api/portraits/men/97.jpg" alt="Depoimento 3" class="testimonial-image">
+              <h4>Mike Johnson</h4>
+              <p class="section-paragraph">Desenvolvedor Web</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="row text-white text-md-start text-center">
+      <div class="col-xl-3 col-md-6 col-lg-3 footer-column">
+        <%= image_tag "logo.png", alt: "Logo", width: "70", class: "mb-4" %>
+        <ul class="list-unstyled">
+          <li><a href="#">+55 11 992722723</a></li>
+          <li><a href="#">dohiring@support.com</a></li>
+        </ul>
+        <ul class="list-inline">
+          <li class="list-inline-item">
+            <%= link_to icon('fa-brands', 'linkedin-in'), "https://www.linkedin.com/in/cleytonrsilva/", class: "text-success", target: "_blank" %>
+          </li>
+          <li class="list-inline-item">
+            <%= link_to icon('fa-brands', 'github'), "https://github.com/rcleyton/", class: "text-success", target: "_blank" %>
+          </li>
+        </ul>
+      </div>
+      <div class="col-xl-3 col-md-6 col-lg-3 footer-column">
+        <h5 class="mb-4">Institucional</h5>
+        <ul class="list-unstyled">
+          <li><a href="#">Quem somos</a></li>
+          <li><a href="#">Fale conosco</a></li>
+          <li><a href="#">Termos de uso</a></li>
+          <li><a href="#">Política de privacidade</a></li>
+        </ul>
+      </div>
+      <div class="col-xl-3 col-md-6 col-lg-3 footer-column">
+        <h5 class="mb-4">Links úteis</h5>
+        <ul class="list-unstyled">
+          <li><a href="#">Publicar vagas</a></li>
+          <li><a href="#">Buscar vagas</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+      <div class="col-xl-3 col-md-6 col-lg-3 footer-column">
+        <h5 class="mb-4">Newsletter</h5>
+        <form action="#" class="newsletter_form">
+          <input type="text" placeholder="Digite seu email">
+          <button type="submit">Assinar</button>
+        </form>
+        <p class="newsletter_text">Assine a newsletter para receber atualizações</p>
+      </div>
+    </div>
+    <hr class="text-light">
+  </div>
+  <div class="text-center pb-3">
+    <span class="text-light">©<%= DateTime.now.year %> doHiring. 
+      <a href="https://www.linkedin.com/in/cleytonrsilva/" target="_blank" class="text-white">
+        Desenvolvidor por Cleyton R. Silva</span>
+      </a>
+  </div>
+</footer>
