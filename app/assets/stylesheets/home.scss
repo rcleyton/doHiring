@@ -1,93 +1,35 @@
-@import './variables';
-@import './mixins';
+@import "./variables";
+@import "./mixins";
 
-.homepage {
-  background-image: linear-gradient(to right top, #1e192c, #22223a, #242c49, #223658, #1b4167);
+.section-welcome .section-content {
+  min-height: 80vh;
 }
 
-.container {
-  width: 80%;
-  margin: 0 auto;
+.welcome-img {
+  bottom: 0;
+  animation: moveUpDown 2s ease-in-out infinite;
 }
 
-.welcome {
-  padding-top: 200px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-
-  &__info,
-  &__image {
-    flex: 1;
-  }
-
-  &__image {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-  }
-
-  &__buttons {
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    display: flex;
-    padding: 1rem 0;
-  }
-
-  &__buttons a {
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: bold;
-    color: #242B47;
-    background-color: #04d361;
-    padding: .7rem 1rem;
-    border-radius: 5px;
-    border: none;
-    transition: .3s;
-  }
-
-  &__buttons a:nth-of-type(even) {
-    background-color: #7dbae5;
-  }
-
-  &__buttons a:hover {
-    color: #fff;
-    opacity: .8;
-  } 
-
-  &__image img {
-    bottom: 0;
-    animation: moveUpDown 2s ease-in-out infinite;
-  }
-}
-
-.title {
+.welcome-title {
   @include title;
+  font-family: "Montserrat", sans-serif;
 }
 
-.subtitle {
+.welcome-subtitle {
   @include subtitle;
 }
 
-.home__paragraph {
+.section-paragraph {
   @include paragraph;
 }
 
-.info {
-  margin: 5rem 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 3rem;
-
-  &__recruiter,
-  &__applicant,
-  &__match {
-    flex: 1;
-  }
+.cta-section {
+  background-color: #ECFDFA;
+  padding: 150px 0;
 }
 
-.info .subtitle::before {
-  content: '';
+.welcome-subtitle::before {
+  content: "";
   display: inline-block;
   width: 8px;
   height: 20px;
@@ -95,22 +37,81 @@
   background: #04d361;
 }
 
+.testimonial-section {
+  padding: 80px 0;
+}
+
+.testimonial-card {
+  background: rgb(9,9,121);
+  background: radial-gradient(circle, rgba(9,9,121,1) 0%, rgba(2,0,36,1) 100%);
+  border-radius: 10px;
+  padding: 30px;
+  text-align: center;
+}
+
+.testimonial-icon {
+  width: 50px;
+  margin-bottom: 25px;
+}
+
+.testimonial-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
 .footer {
-  padding: 1rem 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  background: rgb(9,9,121);
+  background: radial-gradient(circle, rgba(9,9,121,1) 0%, rgba(2,0,36,1) 100%);
+  padding: 80px 0 0 0;
+}
 
-  &__brand {
-    font-size: 2.25rem;
-    font-weight: bold;
-    color: #7dbae5;
-  }
+.footer-column {
+  margin-bottom: 20px;
+}
 
-  & .social i{
-    color: #04d361;
-    padding: 0 0.5rem;
-  }
+.list-unstyled li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.list-unstyled li a:hover {
+  color: #ccc;
+}
+
+.newsletter_form {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.newsletter_form input {
+  width: 100%;
+  height: 45px;
+  background: #fff;
+  padding-left: 20px;
+  font-size: 16px;
+  color: #000;
+  border: none;
+}
+
+.newsletter_form button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  border: none;
+  font-size: 14px;
+  color: #fff;
+  background: #04d361;
+  padding: 10px;
+  padding: 0 22px;
+  cursor: pointer;
+}
+
+.newsletter_text {
+  font-size: 16px;
+  color: #BABABA;
 }
 
 @keyframes moveUpDown {
@@ -125,29 +126,25 @@
   }
 }
 
-@media (max-width: 415px) and (orientation: portrait) {
-  .welcome {
-    flex-direction: column;
-    flex-wrap: nowrap;
-    padding-top: 100px;
-
-    &__buttons a {
-      width: 100%;
-      text-align: center;
-    }
-
-    &__image {
-      margin-top: 5rem;
-    }
-  }
-
-  .info {
-    flex-direction: column;
-  }
+.custom-btn {
+  @include button;
+  @include md-shadow;
 }
 
-@media (max-width: 915px) and (orientation: landscape) {
-  .welcome {
-    gap: 3rem;
-  }
+.custom-btn:hover {
+  border: 2px solid #2E004B;
+  background-color: #fff;
+  color: #2E004B;
+}
+
+.custo-outline-btn {
+  @include button;
+  @include md-shadow;
+  border: 2px solid #2E004B;
+  background-color: #fff;
+  color: #2E004B;
+}
+
+.custo-outline-btn:hover { 
+  @include button;
 }
