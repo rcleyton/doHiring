@@ -1,12 +1,55 @@
-.section__vacancies {
-  background-image: linear-gradient(to right top, #1e192c, #22223a, #242c49, #223658, #1b4167);
-  height: 40vh;
-  padding-top: 100px; 
+@import "./variables";
+@import "./mixins";
+
+.section-vacancies {
+  padding: 60px 20px 60px 20px;
+  background: #f2f6fd;
+  border-radius: 16px;
+  position: relative;
+}
+
+.search-area {
+  background-color: #fff;
+  box-shadow: 0px 18px 40px rgba(25, 15, 9, 0.1);
+  display: inline-block;
+  border-radius: 8px;
+  width: 100%;
+  padding: 10px 10px;
+}
+
+.search-vacancies {
   display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 5rem;
+}
+
+.search-vacancies-input {
+  border: 0px solid rgba(26, 15, 9, 0.1);
+  border-radius: 0px;
+  padding: 10px 20px;
+  display: inline-block;
+  width: 100%;
+}
+
+.find-btn {
+  @include button;
+  margin: 0;
+  padding: 0 20px;
+  border-radius: 8px;
+  text-transform: capitalize;
+}
+
+.image-container {
+  text-align: center;
+}
+
+.image-container img {
+  max-width: 100%;
+  max-height: 200px;
+  display: block;
+  margin: 0 auto;
+}
+
+*:focus {
+  outline: none;
 }
 
 .vacancy__box {
@@ -18,7 +61,7 @@
     width: 30%;
     padding: 0 2rem;
   }
-  
+
   & .search-form form {
     background-color: #04d361;
     padding: 1.5rem 2rem;
@@ -60,7 +103,7 @@
 
 .info-job ul li {
   color: #223658;
-  padding: .5rem 0;
+  padding: 0.5rem 0;
 }
 
 .info-job-mode p {

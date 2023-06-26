@@ -1,10 +1,16 @@
 <%= render "shared/navbar" %>
 
-<section class="section__vacancies" id="scroll">
-  <h2 class="title">
-    <%= "Hoje temos #{total_vacancies} vagas esperando por você!" %>
-  </h2> 
-</section>
+<div class="section-vacancies container my-5">
+  <div class="image-container">
+    <%= image_tag "search-job.png" %>
+  </div>
+  <div class="search-area">
+    <form class="search-vacancies">
+      <input type="text" class="search-vacancies-input" placeholder="Digite o código, título ou descrição da vaga">
+      <button class="find-btn">Pesquisar</button>
+    </form>
+  </div>
+</div>
 
 <div class="vacancy__box">
   <div class="search-form">
