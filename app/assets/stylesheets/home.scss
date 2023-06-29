@@ -137,7 +137,7 @@
   color: #2E004B;
 }
 
-.custo-outline-btn {
+.custom-outline-btn {
   @include button;
   @include md-shadow;
   border: 2px solid #2E004B;
@@ -145,6 +145,6 @@
   color: #2E004B;
 }
 
-.custo-outline-btn:hover { 
+.custom-outline-btn:hover { 
   @include button;
 }

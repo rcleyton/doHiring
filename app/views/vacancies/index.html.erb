@@ -1,99 +1,169 @@
 <%= render "shared/navbar" %>
 
-<section class="section__vacancies" id="scroll">
-  <h2 class="title">
-    <%= "Hoje temos #{total_vacancies} vagas esperando por você!" %>
-  </h2> 
-</section>
-
-<div class="vacancy__box">
-  <div class="search-form">
-    <%= search_form_for @q do |f| %>
-      <div class="form-control" >
-        <div class="form-label">
-          <%= f.label :title_cont, "Título" %>
-        </div>
-        <%= f.search_field :title_cont, class: 'form-input' %>
-      </div>
-
-      <div class="form-control">
-        <div class="form-label">
-          <%= f.label :vacancy_level_eq, "Nível da Vaga" %>
-        </div>
-        <%= f.select :vacancy_level_id_eq, options_for_select(@vacancy_levels), 
-        { prompt: "Nível da vaga" }, { class: 'form-input' } %>
-      </div>
-
-      <div class="form-control" >
-        <div class="form-label">
-          <%= f.label :working_model_eq, "Nível da Vaga" %>
-        </div>
-        <%= f.select :working_model_eq, options_for_select(@working_models), 
-        { prompt: "Modelo de trabalho"}, { class: 'form-input' }  %>
-      </div>
-
-      <div class="form-control" >
-        <div class="form-label">
-          <%= f.label :location_cont, "Localização" %>
-        </div>
-        <%= f.search_field :location_cont, class: 'form-input' %>
-      </div>
-
-      <div class="actions">
-        <%= f.submit "Buscar", class: 'save-btn' %>
-      </div>
-    <% end %>
+<div class="section-vacancies container my-5">
+  <div class="image-container">
+    <%= image_tag "search-job.png" %>
   </div>
-
-  <div class="vacancies">
-    <% @vacancies.each do |vacancy| %>
-      <% if vacancy.status == 'Ativo' %>
-        <div class="vacancy__card">
-          <%= link_to vacancy_path(vacancy) do %>
-            <div class="vacancy__info">
-              <div class="info-job">
-                <h3 class="subtitle">Código da vaga: <%= vacancy.code %></h3>
-                <ul>
-                  <li>
-                    <%= vacancy.title %></h3>
-                  </li>
-                  <li>
-                    <%= icon('fa-solid', 'location-pin') %> <%= vacancy.location %> 
-                  </li>
-                </ul>
-              </div>
-              <div class="info-job-mode">
-                <span class="badge"><%= vacancy.vacancy_level%></span>
-                <p><%= number_to_currency vacancy.salary %></p>
-              </div>
-            </div>
-          <% end %>
-        </div>  
-      <% else %>
-        <div class="vacancy__card">
-          <div class="vacancy__info">
-            <div class="info-job">
-              <h3 class="subtitle">Código da vaga: <%= vacancy.code %></h3>
-              <ul>
-                <li>
-                  <%= vacancy.title %></h3>
-                </li>
-                <li>
-                  <%= icon('fa-solid', 'location-pin') %> <%= vacancy.location %> 
-                </li>
-                <li>
-                  <strong>(Não aceita mais candidaturas)</strong>
-                </li>
-              </ul>
-            </div>
-            <div class="info-job-mode">
-              <span class="badge"><%= vacancy.vacancy_level%></span>
-              <p><%= number_to_currency vacancy.salary %></p>
-            </div>
-          </div>
-        </div>  
-      <% end %>
-    <% end %>
+  <div class="search-area">
+    <form class="search-vacancies">
+      <input type="text" class="search-vacancies-input" placeholder="Digite o código, título ou descrição da vaga">
+      <button class="find-btn">Pesquisar</button>
+    </form>
   </div>
 </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3 col-md-12 col-sm-12 col-12">
+      <div class="sidebar-left">
+        <div class="sidebar-filters">
+
+          <%= search_form_for @q do |f| %>
+          
+            <div class="filter-block">
+              <h5>Filtrar por título</h5>
+            </div>
+            
+            <%= f.search_field :title_cont, class: 'search-form' %>
+          
+            <div class="filter-block head-border mt-4">
+              <h5>Nível da vaga</h5>
+            </div>
+            
+            <%= f.select :vacancy_level_id_eq, options_for_select(@vacancy_levels), 
+            { prompt: "Nível da vaga" }, { class: 'search-form' } %>
+        
+            <div class="filter-block head-border mt-4">
+              <h5>Modelo de trabalho</h5>
+            </div>
+            
+            <%= f.select :working_model_eq, options_for_select(@working_models), 
+            { prompt: "Modelo de trabalho"}, { class: 'search-form' }  %>
+          
+            <div class="filter-block head-border mt-4">
+              <h5>Localização</h5>
+            </div>
+            
+            <%= f.search_field :location_cont, class: 'search-form' %>
+          
+            <div class="actions">
+              <%= f.submit "Buscar", class: 'custom-btn' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-9 col-md-12 col-sm-12 col-12">
+      <div class="vacancies">
+        <% @vacancies.each do |vacancy| %>
+          <% if vacancy.status == 'Ativo' %>
+            <div class="card-grid">
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                  <div class="card-grid-image-left">
+                    <div class="image-box">
+                      <img
+                        src="https://wp.alithemes.com/html/jobbox/demos/assets/imgs/brands/brand-1.png"
+                        alt=""
+                      />
+                    </div>
+                      <div class="right-info">
+                        <a href="#" class="name-job"><%= vacancy.code %></a>
+                        <span class="location-small"><%= vacancy.location %></span>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 text-start text-md-end col-md-6 col-sm-12">
+                  <div class="mt-4">
+                    <a href="#" class="btn-grey-small mr-5"><%= vacancy.vacancy_level%></a>
+                  </div>
+                </div>
+              </div>
+              <div class="card-block-info">
+                <h4 class="mt-2"><%= vacancy.title %></h4>
+                <div>
+                  <span class="card-briefcase"><%= vacancy.working_model %></span>
+                    <span class="card-time">
+                      <span><%= l vacancy.created_at, format: :short %> </span>
+                    </span>
+                    <p class="font-sm color-text-paragraph mt-1">
+                      <%= vacancy.description %>
+                    </p>
+                    <div class="card-2-bottom">
+                      <div class="row">
+                        <div class="col-lg-7 col-7">
+                          <span class="card-text-price">
+                            <%= number_to_currency vacancy.salary %>
+                          </span>
+                        </div>
+                        <div class="col-lg-5 col-5 text-end">
+                          <div>
+                            <%= link_to 'Aplicar', vacancy_path(vacancy), class: "custom-btn-applay" %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>  
+
+          <% else %>
+          
+            <div class="card-grid">
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                  <div class="card-grid-image-left">
+                    <div class="image-box">
+                      <img
+                        src="https://wp.alithemes.com/html/jobbox/demos/assets/imgs/brands/brand-1.png"
+                        alt="" class="job-disabled"
+                      />
+                    </div>
+                      <div class="right-info">
+                        <a href="#" class="name-job job-disabled"><%= vacancy.code %></a>
+                        <span class="location-small"><%= vacancy.location %></span>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 text-start text-md-end col-md-6 col-sm-12">
+                  <div class="mt-4">
+                    <span class="badge-candidature-disabled">Não aceita mais candidaturas</span>
+                    <a href="#" class="btn-grey-small mr-5 job-disabled"><%= vacancy.vacancy_level%></a>
+                  </div>
+                </div>
+              </div>
+              <div class="card-block-info">
+                <h4 class="mt-2 job-disabled"><%= vacancy.title %></h4>
+                <div>
+                  <span class="card-briefcase"><%= vacancy.working_model %></span>
+                    <span class="card-time">
+                      <span><%= l vacancy.created_at, format: :short %> </span>
+                    </span>
+                    <p class="font-sm color-text-paragraph mt-1 job-disabled">
+                      <%= vacancy.description %>
+                    </p>
+                    <div class="card-2-bottom">
+                      <div class="row">
+                        <div class="col-lg-7 col-7">
+                          <span class="card-text-price job-disabled">
+                            <%= number_to_currency vacancy.salary %>
+                          </span>
+                        </div>
+                        <div class="col-lg-5 col-5 text-end">
+                          <div class="job-disabled button-disabled">Aplicar</div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>   
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render "shared/footer" %>
 
