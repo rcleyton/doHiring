@@ -4,10 +4,10 @@
 // that code so it'll be compiled.
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap'
-import $ from 'jquery'
+// import $ from 'jquery'
 
-global.$ = $
-global.jQuery = $
+// global.$ = $
+// global.jQuery = $
 
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
