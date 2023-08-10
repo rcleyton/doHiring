@@ -69,19 +69,26 @@
                       />
                     </div>
                       <div class="right-info">
-                        <a href="#" class="name-job"><%= vacancy.code %></a>
+                        <%= link_to vacancy_path(vacancy), class: "name-job" do %>
+                          <%= vacancy.code %>
+                        <% end %>
                         <span class="location-small"><%= vacancy.location %></span>
                       </div>
                   </div>
                 </div>
                 <div class="col-lg-6 text-start text-md-end col-md-6 col-sm-12">
                   <div class="mt-4">
-                    <a href="#" class="btn-grey-small mr-5"><%= vacancy.vacancy_level%></a>
+                  <%= link_to vacancy_path(vacancy), class: "btn-grey-small mr-5" do %>
+                    <%= vacancy.vacancy_level%>
+                  <% end %>
                   </div>
                 </div>
               </div>
               <div class="card-block-info">
-                <h4 class="mt-2"><%= vacancy.title %></h4>
+                <h4 class="mt-2">
+                  <%= link_to vacancy_path(vacancy), class: "name-job name-vacancy" do %>
+                    <%= vacancy.title %></h4>
+                  <% end %>
                 <div>
                   <span class="card-briefcase"><%= vacancy.working_model %></span>
                     <span class="card-time">
@@ -121,7 +128,7 @@
                       />
                     </div>
                       <div class="right-info">
-                        <a href="#" class="name-job job-disabled"><%= vacancy.code %></a>
+                        <span class="code-job job-disabled"><%= vacancy.code %></span>
                         <span class="location-small"><%= vacancy.location %></span>
                       </div>
                   </div>
