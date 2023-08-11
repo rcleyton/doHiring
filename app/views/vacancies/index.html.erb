@@ -17,7 +17,6 @@
     <div class="col-lg-3 col-md-12 col-sm-12 col-12">
       <div class="sidebar-left">
         <div class="sidebar-filters">
-
           <%= search_form_for @q do |f| %>
           
             <div class="filter-block">
@@ -47,7 +46,7 @@
             <%= f.search_field :location_cont, class: 'search-form' %>
           
             <div class="actions">
-              <%= f.submit "Buscar", class: 'custom-btn' %>
+              <%= f.submit "Buscar", class: 'custom-btn mb-4' %>
             </div>
           <% end %>
         </div>

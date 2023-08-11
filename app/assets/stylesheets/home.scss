@@ -139,7 +139,7 @@
 
 .custom-outline-btn {
   @include button;
-  @include md-shadow;
+  @include sm-shadow;
   border: 2px solid #2E004B;
   background-color: #fff;
   color: #2E004B;

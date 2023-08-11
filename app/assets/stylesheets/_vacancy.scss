@@ -113,10 +113,6 @@
   color: #3C65F5;
 }
 
-.btn-grey-small:hover {
-  color: #3C65F5 !important;
-}
-
 .card-block-info {
   display: inline-block;
   width: 100%;
@@ -173,9 +169,10 @@
   transition: .3s;
 }
 
-a.custom-btn-applay:hover {
-  background-color: #3C65F5;
-  color: #E0E6F7;
+a.custom-btn-applay:hover,
+.find-btn:hover {
+  opacity: .8;
+  color: #fff;
 }
 
 .job-disabled {
