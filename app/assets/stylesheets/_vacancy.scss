@@ -113,9 +113,9 @@
   color: #3C65F5;
 }
 
-.btn-grey-small:hover {
-  color: #3C65F5 !important;
-}
+// .btn-grey-small:hover {
+//   color: #3C65F5 !important;
+// }
 
 .card-block-info {
   display: inline-block;
@@ -174,8 +174,8 @@
 }
 
 a.custom-btn-applay:hover {
-  background-color: #3C65F5;
-  color: #E0E6F7;
+  opacity: .8;
+  color: #fff;
 }
 
 .job-disabled {
