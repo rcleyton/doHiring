@@ -22,13 +22,17 @@
 }
 
 @mixin sm-shadow {
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+@mixin md-shadow {
   box-shadow:
   6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
   22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
   100px 100px 80px rgba(0, 0, 0, 0.07);
 }
 
-@mixin md-shadow {
+@mixin lg-shadow {
   box-shadow:
   2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
   6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
