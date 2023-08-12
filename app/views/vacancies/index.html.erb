@@ -17,38 +17,7 @@
     <div class="col-lg-3 col-md-12 col-sm-12 col-12">
       <div class="sidebar-left">
         <div class="sidebar-filters">
-          <%= search_form_for @q do |f| %>
-          
-            <div class="filter-block">
-              <h5>Filtrar por título</h5>
-            </div>
-            
-            <%= f.search_field :title_cont, class: 'search-form' %>
-          
-            <div class="filter-block head-border mt-4">
-              <h5>Nível da vaga</h5>
-            </div>
-            
-            <%= f.select :vacancy_level_id_eq, options_for_select(@vacancy_levels), 
-            { prompt: "Nível da vaga" }, { class: 'search-form' } %>
-        
-            <div class="filter-block head-border mt-4">
-              <h5>Modelo de trabalho</h5>
-            </div>
-            
-            <%= f.select :working_model_eq, options_for_select(@working_models), 
-            { prompt: "Modelo de trabalho"}, { class: 'search-form' }  %>
-          
-            <div class="filter-block head-border mt-4">
-              <h5>Localização</h5>
-            </div>
-            
-            <%= f.search_field :location_cont, class: 'search-form' %>
-          
-            <div class="actions">
-              <%= f.submit "Buscar", class: 'custom-btn mb-4' %>
-            </div>
-          <% end %>
+
         </div>
       </div>
     </div>
