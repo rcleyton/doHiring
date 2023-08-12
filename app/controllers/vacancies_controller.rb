@@ -1,10 +1,11 @@
 class VacanciesController < ApplicationController
   def index
-    @q = Vacancy.ransack(params[:q])
-    @vacancies = @q.result(distinct: true).all.order(created_at: :desc)
-    @vacancy_levels = VacancyLevel.pluck(:level, :id)
-    @working_models = Vacancy.distinct.pluck(:working_model)
-    @locations = Vacancy.distinct.pluck(:location)
+    # @q = Vacancy.ransack(params[:q])
+    # @vacancies = @q.result(distinct: true).all.order(created_at: :desc)
+    # @vacancy_levels = VacancyLevel.pluck(:level, :id)
+    # @working_models = Vacancy.distinct.pluck(:working_model)
+    # @locations = Vacancy.distinct.pluck(:location)
+    @vacancies = Vacancy.includes(:vacancy_level).all.order(created_at: :desc)
   end  
   
   def show
