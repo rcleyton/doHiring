@@ -5,7 +5,7 @@ class VacanciesController < ApplicationController
     # @vacancy_levels = VacancyLevel.pluck(:level, :id)
     # @working_models = Vacancy.distinct.pluck(:working_model)
     # @locations = Vacancy.distinct.pluck(:location)
-    @vacancies = Vacancy.includes(:vacancy_level).all.order(created_at: :desc)
+    @vacancies = Vacancy.includes(:vacancy_level).all.order(created_at: :desc).page(params[:page]).per(6)
   end  
   
   def show
