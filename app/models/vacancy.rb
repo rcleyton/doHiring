@@ -10,8 +10,12 @@ class Vacancy < ApplicationRecord
 
   before_create :generate_code
 
-  def self.ransackable_attributes(auth_object = nil)
-    %w[title vacancy_level_id working_model location] 
+  # pagination
+  paginates_per 5
+  
+  def self.search(query)
+    where("title ILIKE ? OR description ILIKE ? OR code ILIKE ?", 
+      "%#{query}%", "%#{query}%", "%#{query}%")
   end
 
   private

@@ -38,5 +38,7 @@ Rails.application.routes.draw do
     resources :proposals, only: %i[ index show ]
   end
 
-  resources :vacancies, only: %i[ index show ]
+  resources :vacancies, only: %i[ index show ] do
+    get 'search', on: :collection
+  end
 end
