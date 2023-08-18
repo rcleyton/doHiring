@@ -4,11 +4,15 @@
   <div class="image-container">
     <%= image_tag "search-job.png" %>
   </div>
-  <div class="search-area">
-    <form class="search-vacancies">
-      <input type="text" class="search-vacancies-input" placeholder="Digite o código, título ou descrição da vaga">
-      <button class="find-btn">Pesquisar</button>
-    </form>
+  <div class="row">
+    <div class="col-md-9 col-12 mx-auto">    
+      <div class="search-area">
+        <form class="search-vacancies">
+          <input type="text" class="search-vacancies-input" placeholder="Digite o código, título ou descrição da vaga">
+          <button class="find-btn">Pesquisar</button>
+        </form>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -143,5 +147,6 @@
 <div class="container d-flex justify-content-center my-5">
   <%= paginate @vacancies %>
 </div>
+
 <%= render "shared/footer" %>
 
