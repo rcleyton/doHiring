@@ -6,4 +6,5 @@ class RecruiterProfile < ApplicationRecord
   has_many :vacancies
   has_many :comments
   has_many :proposals
+  has_one_attached :avatar
 end

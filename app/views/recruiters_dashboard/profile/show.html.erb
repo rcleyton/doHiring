@@ -7,6 +7,14 @@
     <%= render partial: 'shared/alert', locals: { type: type, message: message } %>
   <% end %>
 
+  <div class="avatar-profile text-center mb-4">
+    <% if @recruiter_profile.avatar.persisted? %>
+      <%= image_tag @recruiter_profile.avatar, class: "img-fluid rounded-circle", width: "128", height: "128" %>
+    <% else %>
+      <%= image_tag 'profile.png', class: "img-fluid rounded-circle", width: "128", height: "128" %>
+    <% end %>
+  </div>
+
   <dl>
     <dt>Nome:</dt>
     <dd><%= @recruiter_profile.full_name %></dd>

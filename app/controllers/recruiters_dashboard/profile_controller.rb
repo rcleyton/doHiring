@@ -42,7 +42,7 @@ class RecruitersDashboard::ProfileController < RecruitersDashboardController
   private
 
   def recruiter_profile_params
-    params.require(:recruiter_profile).permit(:recruiter_id, :full_name, 
+    params.require(:recruiter_profile).permit(:recruiter_id, :full_name, :avatar,
     :document, :phone, :cell_phone, :sector, :number_employee)
   end
 end
