@@ -11,6 +11,8 @@
         : recruiters_dashboard_profile_path ) do |f| %>
 
     <%= f.input :recruiter_id, as: :hidden, input_html: { value: current_recruiter.id} %>
+
+    <%= f.input :avatar, as: :file, input_html: { class: 'form-control' } %>
     
     <%= f.input :full_name, wrapper_html: { class: 'form-control'}, 
                             label_html: { class: 'form-label' },
@@ -39,7 +41,6 @@
       <%= f.input :number_employee, wrapper_html: { class: 'form-control'}, 
                                     label_html: { class: 'form-label' },
                                     input_html: { class: 'form-input'} %>
-    
 
     <hr class="divider">
 
