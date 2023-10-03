@@ -1,29 +1,37 @@
 <main class="authenticate">
-  <h2 class="authenticate__title">
-    <%= t('devise.registrations.new.sign_up') %>
-  </h2>
+  <div class="px-5 px-sm-0">
+    <h2 class="authenticate__title">
+      <%= t('devise.registrations.new.sign_up') %>
+    </h2>
 
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= f.input :email,
-                label: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" },
-                placeholder: t('placeholders.email') %>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <div class="mb-3">
+        <%= f.input :email,
+                    label: false,
+                    autofocus: true,
+                    input_html: { autocomplete: "email", class: "form-control" },
+                    placeholder: t('placeholders.email') %>
+      </div>
 
-    <%= f.input :password,
-                label: false,
-                input_html: { autocomplete: "new-password" },
-                placeholder: t('placeholders.minimum_characters') %>
+      <div class="mb-3">
+        <%= f.input :password,
+                    label: false,
+                    input_html: { autocomplete: "new-password", class: "form-control" },
+                    placeholder: t('placeholders.minimum_characters') %>
+      </div>
 
-    <%= f.input :password_confirmation,
-                label: false,
-                input_html: { autocomplete: "new-password" },
-                placeholder: t('placeholders.repeat_password') %>
+      <div class="mb-3">
+        <%= f.input :password_confirmation,
+                    label: false,
+                    input_html: { autocomplete: "new-password", class: "form-control" },
+                    placeholder: t('placeholders.repeat_password') %>
+      </div>
 
-    <%= f.button :submit, t('devise.registrations.new.sign_up'), class: "authenticate-btn" %>
-  <% end %>
+      <%= f.button :submit, t('devise.registrations.new.sign_up'), class: "btn btn-success btn-lg" %>
+    <% end %>
 
-  <div class="authenticate__links">
-    <%= render "recruiters/shared/links" %>
+    <div class="authenticate__links">
+      <%= render "recruiters/shared/links" %>
+    </div>
   </div>
 </main>
