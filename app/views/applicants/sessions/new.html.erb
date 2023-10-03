@@ -1,29 +1,37 @@
 <main class="authenticate">
-  <h2 class="authenticate__title">
-    <%= t('devise.sessions.new.log_in') %>
-  </h2>
-  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="px-5 px-sm-0">
+    <h2 class="authenticate__title">
+      <%= t('devise.sessions.new.log_in') %>
+    </h2>
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-    <%= f.input :email,
-                label: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" },
-                placeholder: t('placeholders.email') %>
+      <div class="mb-3">
+        <%= f.input :email,
+                    label: false,
+                    autofocus: true,
+                    input_html: { autocomplete: "email", class: "form-control" },
+                    placeholder: t('placeholders.email') %>
+      </div>
 
-    <%= f.input :password,
-                label: false,
-                input_html: { autocomplete: "current-password" },
-                placeholder: t('placeholders.password') %>
+      <div class="mb-3">
+        <%= f.input :password,
+                    label: false,
+                    input_html: { autocomplete: "current-password", class: "form-control" },
+                    placeholder: t('placeholders.password') %>
+      </div>
 
-    <%= f.input :remember_me, 
-                label: t('simple_form.options.remember_me'),
-                input_html: { class: 'authenticate__remember' },
-                as: :boolean if devise_mapping.rememberable?  %>
+      <div class="mb-3 form-check">
+        <%= f.input :remember_me,
+                    label: t('simple_form.options.remember_me'), class: 'form-check-label',
+                    input_html: { class: 'form-check-input' },
+                    as: :boolean if devise_mapping.rememberable?  %>
+      </div>
 
-    <%= f.button :submit, t('devise.sessions.new.log_in'), class: "authenticate-btn" %>
-  <% end %>
+      <%= f.button :submit, t('devise.sessions.new.log_in'), class: "btn btn-primary btn-lg" %>
+    <% end %>
 
-  <div class="authenticate__links">
-    <%= render "recruiters/shared/links" %>
+    <div class="authenticate__links">
+      <%= render "recruiters/shared/links" %>
+    </div>
   </div>
 </main>
