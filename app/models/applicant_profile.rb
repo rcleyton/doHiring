@@ -7,4 +7,5 @@ class ApplicantProfile < ApplicationRecord
   has_many :vacancies, through: :candidatures
   has_many :comments
   has_many :proposals
+  has_one_attached :avatar
 end
