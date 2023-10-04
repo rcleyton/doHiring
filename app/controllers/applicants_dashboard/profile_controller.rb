@@ -40,7 +40,7 @@ class ApplicantsDashboard::ProfileController < ApplicantsDashboardController
 
   private
   def applicant_profile_params
-    params.require(:applicant_profile).permit(:applicant_id, :first_name,
+    params.require(:applicant_profile).permit(:applicant_id, :avatar, :first_name,
     :last_name, :birthdate, :rg, :cpf, :gender, :civil_status,
     :professional_goals)
   end
