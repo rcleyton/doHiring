@@ -62,7 +62,7 @@
             <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to recruiters_dashboard_vacancies_path, class: "nav-link#{' active' if current_page?(recruiters_dashboard_vacancies_path)}" do %>
+            <%= link_to recruiters_dashboard_vacancies_path, class: "nav-link#{' active' if controller_name == "vacancies"}" do %>
               <%= icon('fa-solid', 'suitcase', class: "bi pe-none me-2") %>
               <span class="links_name">Gerenciar Vagas</span>
             <% end %>
@@ -82,7 +82,7 @@
         </ul>
       </div>
 
-      <div class="col-md-9 col-12 border-start px-4">
+      <div class="col-md-9 col-12 px-4">
         <%= yield %>
       </div>
     </div>
