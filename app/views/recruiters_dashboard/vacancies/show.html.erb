@@ -1,9 +1,7 @@
-<div class="box">
-  <h1 class="box__title"><%= @vacancy.title %></h1>
-  <hr class="divider">
-  <% flash.each do |type, message| %>
-    <%= render partial: 'shared/alert', locals: { type: type, message: message } %>
-  <% end %>
+<% flash.each do |type, message| %>
+  <%= render partial: 'shared/alert', locals: { type: type, message: message } %>
+<% end %>
+
   <dl>
     <dt>Status da Vaga:</dt>
     <dd><%= @vacancy.status %></dd>
@@ -61,4 +59,3 @@
       </tbody>
     </table>
   <% end %>
-</div>

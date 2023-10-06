@@ -1,27 +1,20 @@
-<div class="box">
-  <div class="box__options">
-    <div class="option-card option-card-recruiter">
-      <%= icon('fa-solid', 'suitcase') %>
-      <%= link_to 'Cadastrar nova vaga', new_recruiters_dashboard_vacancy_path %> 
-    </div>
-  </div>
-</div>
+<%= link_to new_recruiters_dashboard_vacancy_path, class: 'btn btn-primary mb-md-5 my-3' do %>
+  <%= icon('fa-solid', 'suitcase') %>&nbsp;&nbsp;Nova vaga
+<% end %>
 
-<div class="box">
-<h1 class="box__title">Minhas vagas</h1>
-  <hr class="divider">
-  
-  <% if @vacancies.empty? %>
-    <h1>Nenhuma vaga publicada ainda!</h1>
-  <% else %>
-    <table>
+<h3 class="mb-3">Vagas publicadas</h3>
+<% if @vacancies.empty? %>
+  <h1>Nenhuma vaga publicada ainda!</h1>
+<% else %>
+  <div class="table-responsive">
+    <table class="table table-hover border border-primary-subtle">
       <thead>
-        <tr>
-          <th>Vaga</th>
-          <th>Nível da Vaga</th>
-          <th>Localização</th>
-          <th>Status</th>
-          <th>Detalhes</th>
+        <tr class="table-primary">
+          <th scope="col">Vaga</th>
+          <th scope="col">Nível da Vaga</th>
+          <th scope="col">Localização</th>
+          <th scope="col">Status</th>
+          <th scope="col">Detalhes</th>
         </tr>
       </thead>
       <tbody>
@@ -46,5 +39,5 @@
         <% end %>
       </tbody>
     </table>
-  <% end %>
-</div>
+  </div>
+<% end %>
