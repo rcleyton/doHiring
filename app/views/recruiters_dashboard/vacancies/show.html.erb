@@ -1,44 +1,65 @@
-<div class="box">
-  <h1 class="box__title"><%= @vacancy.title %></h1>
-  <hr class="divider">
-  <% flash.each do |type, message| %>
-    <%= render partial: 'shared/alert', locals: { type: type, message: message } %>
-  <% end %>
-  <dl>
-    <dt>Status da Vaga:</dt>
-    <dd><%= @vacancy.status %></dd>
-    <dt>Título:</dt>
-    <dd><%= @vacancy.title %></dd>
-    <dt>Código da vaga:</dt>
-    <dd><%= @vacancy.code %></dd>
-    <dt>Descrição:</dt>
-    <dd><%= @vacancy.description %></dd>
-    <dt>Nível da Vaga:</dt>
-    <dd><%= @vacancy.vacancy_level %></dd>
-    <dt>Modelo de Trabalho:</dt>
-    <dd><%= @vacancy.working_model %></dd>
-    <dt>Salário:</dt>
-    <dd><%= number_to_currency @vacancy.salary %></dd>
-    <dt>Benefícios:</dt>
-    <dd><%= @vacancy.benefits %></dd>
-    <dt>Localização:</dt>
-    <dd><%= @vacancy.location %></dd>
-  </dl>
-  <%= button_to 'Editar', edit_recruiters_dashboard_vacancy_path(@vacancy),
-    method: :get, class: 'btn btn-edit' %>
-  <hr class="divider">
+<% flash.each do |type, message| %>
+  <%= render partial: 'shared/alert', locals: { type: type, message: message } %>
+<% end %>
 
-  <h3 class="subtitle"><%= @vacancy.candidatures.count %> candidaturas para esta vaga</h3>
-  <% if @vacancy.candidatures.empty? %>
-    <h1>Nenhuma candidatura para essa vaga ainda</h1>
-  <% else %>
-    <table>
+<div class="container">
+  <div class="row mb-5 border-bottom">
+    <div class="col">
+      <h4>
+        <strong>Código da vaga:</strong> <%= @vacancy.code %>
+      </h4>
+    </div>
+    <div class="col text-end">
+      <span class="badge text-bg-success">
+        <%= @vacancy.status %>
+      </span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h4>Título da vaga</h4>
+      <p class="mb-4"><%= @vacancy.title %></p>
+
+      <h4>Descrição:</h4>
+      <p class="mb-4"><%= @vacancy.description %></p>
+
+      <h4>Nível da vaga:</h4>
+      <p class="mb-4"><%= @vacancy.vacancy_level %></p>
+
+      <h4>Modelo de Trabalho:</h4>
+      <p class="mb-4"><%= @vacancy.working_model %></p>
+
+      <h4>Salário:</h4>
+      <p class="mb-4"><%= number_to_currency @vacancy.salary %></p>
+
+      <h4>Benefícios:</h4>
+      <p class="mb-4"><%= @vacancy.benefits %></p>
+
+      <h4>Localização:</h4>
+      <p class="mb-4"><%= @vacancy.location %></p>
+
+      <%= button_to 'Editar', edit_recruiters_dashboard_vacancy_path(@vacancy),
+                    method: :get, class: 'btn btn-primary mb-5' %>
+    </div>
+  </div>
+</div>
+
+<% if @vacancy.candidatures.empty? %>
+  <div class="card text-center mb-5 bg-warning-subtle">
+    <div class="card-body">
+      <p class="card-text">Nenhuma candidatura para essa vaga ainda</p>
+    </div>
+  </div>
+<% else %>
+  <p class="fw-medium text-end"><%= @vacancy.candidatures.count %> candidaturas para esta vaga</p>
+  <div class="table-responsive mb-5">
+    <table class="table table-hover border border-primary-subtle">
       <thead>
-        <tr>
-          <th>Candidato</th>
-          <th>Candidatura em</th>
-          <th>Favorito</th>
-          <th>Detalhes</th>
+        <tr class="table-primary">
+          <th scope="col">Candidato</th>
+          <th scope="col">Candidatura em</th>
+          <th scope="col" class="text-center">Favorito</th>
+          <th scope="col" class="text-center">Detalhes</th>
         </tr>
       </thead>
       <tbody>
@@ -46,12 +67,12 @@
           <tr>
             <td><%= candidature.applicant_profile.first_name %></td>
             <td><%= l candidature.created_at, format: :short %></td>
-            <td>
+            <td class="text-center">
               <% if candidature.favorite == true %>
                 <%= image_tag 'star.svg', class: "favorite-applicant" %>
               <% end %>
             </td>
-            <td>
+            <td class="text-center">
               <%= link_to recruiters_dashboard_candidature_path(candidature) do %>
                 <%= icon('fa-solid', 'eye') %>
               <% end %>
@@ -60,5 +81,5 @@
         <% end %>
       </tbody>
     </table>
-  <% end %>
-</div>
+  </div>
+<% end %>
