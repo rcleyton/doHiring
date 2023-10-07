@@ -1,38 +1,50 @@
-<div class="box">
-  <h1 class="box__title">Preencher proposta para o candidato</h1>
-  <hr class="divider">
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-10"col-12>
+      <% flash.each do |type, message| %>
+        <%= render partial: 'shared/alert', locals: { type: type, message: message } %>
+      <% end %>
 
-  <% flash.each do |type, message| %>
-    <%= render partial: 'shared/alert', locals: { type: type, message: message } %>
-  <% end %>
+      <h3 class="mb-4">Preencher proposta</h3>
 
-  <%= simple_form_for @proposal, 
-  url: recruiters_dashboard_candidature_proposals_path do |form| %>
+      <%= simple_form_for @proposal,
+      url: recruiters_dashboard_candidature_proposals_path do |form| %>
 
-    <%= form.input :recruiter_profile_id, as: :hidden, input_html: { value: @recruiter_profile_id } %>
-    <%= form.input :applicant_profile_id, as: :hidden, input_html: { value: @applicant_profile_id } %>
+        <%= form.input :recruiter_profile_id, as: :hidden, input_html: { value: @recruiter_profile_id } %>
+        <%= form.input :applicant_profile_id, as: :hidden, input_html: { value: @applicant_profile_id } %>
 
-    <%= form.input :start_date, as: :string, wrapper_html: { class: 'form-control'},
-                  label_html: { class: 'form-label' },
-                  input_html: { type: :date, class: 'form-input'} %>
-    <%= form.input :salary_offered, wrapper_html: { class: 'form-control'}, 
-                              label_html: { class: 'form-label' },
-                              input_html: { class: 'form-input'} %>
-    <%= form.input :benefits_offered, as: 'text', wrapper_html: { class: 'form-control'}, 
-                                    label_html: { class: 'form-label' },
-                                    input_html: { class: 'form-input'} %>
-    <%= form.input :job_functions, as: 'text', wrapper_html: { class: 'form-control'}, 
-                                    label_html: { class: 'form-label' },
-                                    input_html: { class: 'form-input'} %>
-    <%= form.input :company_expectations, as: 'text', wrapper_html: { class: 'form-control'}, 
-                                    label_html: { class: 'form-label' },
-                                    input_html: { class: 'form-input'} %>
-    <%= form.input :bonus, as: 'text', wrapper_html: { class: 'form-control'}, 
-                                    label_html: { class: 'form-label' },
-                                    input_html: { class: 'form-input'} %>
-    <%= form.input :additional_information, as: 'text', wrapper_html: { class: 'form-control'}, 
-                                    label_html: { class: 'form-label' },
-                                    input_html: { class: 'form-input'} %>
-    <%= form.button :submit, class: 'save-btn' %>
-  <% end %>
+        <div class="mb-3">
+          <%= form.input :start_date, as: :string, label_html: { class: 'form-label' },
+                        input_html: { type: :date, class: "form-control"} %>
+        </div>
+        <div class="mb-3">
+          <%= form.input :salary_offered, label_html: { class: 'form-label' },
+                                    input_html: { class: "form-control"} %>
+        </div>
+        <div class="mb-3">
+          <%= form.input :benefits_offered, as: 'text', label_html: { class: 'form-label' },
+                                          input_html: { class: "form-control"} %>
+        </div>
+        <div class="mb-3">
+          <%= form.input :job_functions, as: 'text', label_html: { class: 'form-label' },
+                                          input_html: { class: "form-control"} %>
+        </div>
+        <div class="mb-3">
+          <%= form.input :company_expectations, as: 'text', label_html: { class: 'form-label' },
+                                          input_html: { class: "form-control"} %>
+        </div>
+        <div class="mb-3">
+          <%= form.input :bonus, as: 'text', label_html: { class: 'form-label' },
+                                          input_html: { class: "form-control"} %>
+        </div>
+        <div class="mb-3">
+          <%= form.input :additional_information, as: 'text', label_html: { class: 'form-label' },
+                                          input_html: { class: "form-control"} %>
+        </div>
+        <div class="mb-5">
+          <%= form.button :submit, class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>

@@ -1,32 +1,40 @@
-<div class="box box-candidature">
-  <ul class="list-candidature">
-    <li>Código da vaga: <%= @proposal.candidature.vacancy.code %></li>
-    <li>Título da vaga: <%= @proposal.candidature.vacancy.title %></li>
-    <li>Nome do candidato: <%= @proposal.candidature.applicant_profile.first_name %></li>
-  </ul>
-</div>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-10"col-12>
+      <% flash.each do |type, message| %>
+        <%= render partial: 'shared/alert', locals: { type: type, message: message } %>
+      <% end %>
 
-<div class="box">
-  <% flash.each do |type, message| %>
-    <%= render partial: 'shared/alert', locals: { type: type, message: message } %>
-  <% end %>
+      <div class="card bg-info-subtle mb-5" >
+        <div class="card-body">
+          <h5 class="card-title"><%= @proposal.candidature.vacancy.code %></h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary"><%= @proposal.candidature.vacancy.title %></h6>
+          <p class="card-text">Candidato: <%= @proposal.candidature.applicant_profile.first_name %></p>
+        </div>
+      </div>
 
-  <h1 class="box__title">Proposta efetuada</h1>
-  <hr class="divider">
-  <dl>
-    <dt>Status da Proposta:</dt>
-    <dd><%= @proposal.status %></dd>
-    <dt>Salário oferecido:</dt>
-    <dd><%= number_to_currency @proposal.salary_offered %></dd>
-    <dt>Benefícios oferecidos:</dt>
-    <dd><%= @proposal.benefits_offered %></dd>
-    <dt>Atribuições da vaga:</dt>
-    <dd><%= @proposal.job_functions %></dd>
-    <dt>Expectativa da empresa:</dt>
-    <dd><%= @proposal.company_expectations %></dd>
-    <dt>Bônus:</dt>
-    <dd><%= @proposal.bonus %></dd>
-    <dt>Informações adicionais</dt>
-    <dd><%= @proposal.additional_information %></dd>
-  </dl>
+      <h3 class="mb-4">Proposta efetuada</h3>
+
+      <h4>Status da Proposta:</h4>
+      <p class="mb-4"><%= @proposal.status %></p>
+
+      <h4>Salário oferecido:</h4>
+      <p class="mb-4"><%= number_to_currency @proposal.salary_offered %></p>
+
+      <h4>Benefícios oferecidos:</h4>
+      <p class="mb-4"><%= @proposal.benefits_offered %></p>
+
+      <h4>Atribuições da vaga:</h4>
+      <p class="mb-4"><%= @proposal.job_functions %></p>
+
+      <h4>Expectativa da empresa:</h4>
+      <p class="mb-4"><%= @proposal.company_expectations %></p>
+
+      <h4>Bônus:</h4>
+      <p class="mb-4"><%= @proposal.bonus %></p>
+
+      <h4>Informações adicionais:</h4>
+      <p class="mb-5"><%= @proposal.additional_information %></p>
+    </div>
+  </div>
 </div>

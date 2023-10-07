@@ -68,7 +68,7 @@
             <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to recruiters_dashboard_proposals_path, class: "nav-link#{' active' if current_page?(recruiters_dashboard_proposals_path)}" do %>
+            <%= link_to recruiters_dashboard_proposals_path, class: "nav-link#{' active' if controller_name == "proposals"}" do %>
               <%= icon('fa-solid', 'handshake', class: "bi pe-none me-2") %>
               <span class="links_name">Propostas Feitas</span>
             <% end %>
