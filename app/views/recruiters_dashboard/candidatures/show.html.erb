@@ -1,97 +1,131 @@
-<div class="box box-candidature">
-  <ul class="list-candidature">
-    <li>Código <%= @candidature.vacancy.code %></li>
-    <li><%= @candidature.vacancy.title %></li>
-    <li>Número de Candidaturas</li>
-    <li><%= "Criada em #{l @candidature.vacancy.created_at, format: :long}" %></li>
-    <li>Encerra em</li>
-  </ul>
-  <div class="favorite-btn">
-    <% if @candidature.favorite %>
-      <%= button_to 'Desmarcar Destaque', 
-      not_favorite_recruiters_dashboard_candidature_path(@candidature), class: 'btn-edit', method: :patch %>
-    <% else %>
-      <%= button_to 'Marcar como Destaque', 
-      favorite_recruiters_dashboard_candidature_path(@candidature), class: 'btn-edit', method: :patch %>
-    <% end %>
-    <div>
-      <% if @candidature.favorite == true %>
-        <span class="subtitle">Candidato destacado</span>  <%= image_tag 'star.svg', class: "favorite-applicant" %>
-      <% end %>
+<div class="container">
+  <div class="card mb-md-5 my-3  bg-info-subtle">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md col-12">
+          <ul class="list-candidature">
+            <li>Código da vaga <%= @candidature.vacancy.code %></li>
+            <li><%= @candidature.vacancy.title %></li>
+            <li><%= "Candidatura em #{l @candidature.vacancy.created_at, format: :long}" %></li>
+          </ul>
+        </div>
+        <div class="col-md col-12 text-center text-md-end">
+          <% if @candidature.favorite %>
+            <%= button_to 'Desmarcar Destaque',
+                          not_favorite_recruiters_dashboard_candidature_path(@candidature), class: 'btn btn-primary my-3 my-md-0', method: :patch %>
+          <% else %>
+            <%= button_to 'Marcar como Destaque',
+                          favorite_recruiters_dashboard_candidature_path(@candidature), class: 'btn btn-primary my-3 my-md-0', method: :patch %>
+          <% end %>
+          <% if @candidature.favorite == true %>
+            <div class="my-2">
+              <span class="subtitle">Candidato destacado</span>  <%= image_tag 'star.svg', class: "favorite-applicant" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
-    <%= simple_form_for @candidature, 
-      url: change_application_status_recruiters_dashboard_candidature_path(@candidature), method: :put do |f| %>
-      <%= f.input :status, collection: ["Não selecionado", "Entrevista", "Feedback", "Avaliação da Proposta"], include_blank: "Selecione um status",
-                              wrapper_html: { class: 'form-control'},
-                              label_html: { class: 'form-label' },
-                              input_html: { class: 'form-input', id: 'status-select' }  %>
-      <%= f.button :submit, "Atualizar Status", class: 'save-btn' %>
-    <% end %>
   </div>
-</div>
-<div class="box">
-  <h1 class="box__title">Enviar proposta ao candidato</h1>
-  <hr class="divider">
-  <%= link_to "Enviar proposta",
-  new_recruiters_dashboard_candidature_proposal_path(@candidature) %>
-</div>
-<div class="box">
-  <h1 class="box__title">Informações do Candidato</h1>
-  <hr class="divider">
-  <div class="avatar-profile text-center mb-4">
-    <% if @candidature.applicant_profile.avatar.persisted? %>
-      <%= image_tag @candidature.applicant_profile.avatar, class: "img-fluid rounded-circle", width: "128", height: "128" %>
-    <% else %>
-      <%= image_tag 'profile.png', class: "img-fluid rounded-circle", width: "128", height: "128" %>
-    <% end %>
+  <div class="row">
+    <div class="col-md col-12">
+      <div class="my-3 my-md-0">
+        <%= simple_form_for @candidature,
+                            url: change_application_status_recruiters_dashboard_candidature_path(@candidature), method: :put do |f| %>
+          <div class="input-group">
+            <%= f.select :status, ["Não selecionado", "Entrevista", "Feedback", "Avaliação da Proposta"],
+                         { include_blank: "Selecionar status" }, class: 'form-select' %>
+            <%= f.button :submit, "Atualizar Status", class: 'btn btn-primary' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md col-12 text-center text-md-end my-3 my-md-0">
+      <%= link_to "Enviar proposta para o candidato", new_recruiters_dashboard_candidature_proposal_path(@candidature) %>
+    </div>
   </div>
-  <dl>
-    <dt>Nome:</dt>
-    <dd><%= @candidature.applicant_profile.first_name %></dd>
-    <dt>Sobrenome:</dt>
-    <dd><%= @candidature.applicant_profile.last_name %></dd>
-    <dt>Ano de Nascimento:</dt>
-    <dd><%= l @candidature.applicant_profile.birthdate, format: :long %></dd>
-    <dt>Objetivos Profissionais:</dt>
-    <dd>  <%= @candidature.applicant_profile.professional_goals %></dd>
-  </dl>
-  <hr class="divider">
-  <h3 class="subtitle">Perguntas obrigatórias para a vaga</h3>
-  <h4 class="box__subtitle">Por que devemos te contratar?</h4>
-  <p><%= @candidature.reason_application %></p>
-  <hr class="divider">
-  <h3 class="subtitle">Deixe uma mensagem para o candidato</h3>
-  <p class="box__paragraph">
-    Acha que <%= @candidature.applicant_profile.first_name %> tem tudo a ver com a vaga?
-    Conheça-o melhor, deixe uma mensagem ou agende uma entrevista. 
-  </p>
-  <%= simple_form_for [ @comment, @candidature.comments.build ], 
-    url: recruiters_dashboard_candidature_comments_path(@candidature) do |form| %>
-    <%= form.input :recruiter_profile_id, as: :hidden, input_html: { value: current_recruiter.id } %>
-    <%= form.input :applicant_profile_id, as: :hidden, input_html: { value: @candidature.applicant_profile_id } %>
-    <%= form.input :content,  as: :text, wrapper_html: { class: 'form-control' },
-                                        label_html: { class: 'form-label' },
-                                        input_html: { rows: 5, cols: 10, class: 'form-input status-dependent' } %>
-    <%= form.button :submit, class: 'save-btn' %>
-  <% end %>
-  <hr class="divider">
-  <h3 class="subtitle">Minha conversa com <%= @candidature.applicant_profile.first_name %></h3>
-  <% if @candidature.comments.count === 0 %>
-    <p>Vocês ainda não iniciaram uma conversa</p>
-  <% else %>
-    <div class="balloon-container">
-      <% @candidature.comments.each do |comment| %>
-        <% if comment.content.present? %>
-          <div class="balloon">
+  <div class="row">
+    <div class="col-md-3 col-12 py-2 py-md-5">
+      <div class="text-center text-md-start">
+        <% if @candidature.applicant_profile.avatar.persisted? %>
+          <%= image_tag @candidature.applicant_profile.avatar, class: "img-fluid rounded", width: "128", height: "128" %>
+        <% else %>
+          <%= image_tag 'profile.png', class: "img-fluid rounded", width: "128", height: "128" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-9 col-12 py-2 py-md-5">
+      <h4>Nome:</h4>
+      <p class="mb-4"><%= @candidature.applicant_profile.first_name %></p>
+
+      <h4>Sobrenome:</h4>
+      <p class="mb-4"><%= @candidature.applicant_profile.last_name %></p>
+
+      <h4>Ano de Nascimento:</h4>
+      <p class="mb-4"><%= l @candidature.applicant_profile.birthdate, format: :long %></p>
+
+      <h4>Objetivos Profissionais:</h4>
+      <p class="mb-4"><%= @candidature.applicant_profile.professional_goals %></p>
+
+      <hr>
+
+      <h3 class="my-4">Perguntas obrigatórias para a vaga</h3>
+      <h4 class="fw-medium text-secondary">Por que devemos te contratar?</h4>
+      <p class="mb-4"><%= @candidature.reason_application %></p>
+
+      <hr>
+
+      <h3 class="my-4">Deixe uma mensagem para o candidato</h3>
+      <p class="mb-4">
+        Acha que <%= @candidature.applicant_profile.first_name %> tem tudo a ver com a vaga?
+        Conheça-o melhor, deixe uma mensagem ou agende uma entrevista.
+      </p>
+      <div>
+        <%= simple_form_for [ @comment, @candidature.comments.build ],
+                            url: recruiters_dashboard_candidature_comments_path(@candidature) do |form| %>
+          <%= form.input :recruiter_profile_id, as: :hidden, input_html: { value: current_recruiter.id } %>
+          <%= form.input :applicant_profile_id, as: :hidden, input_html: { value: @candidature.applicant_profile_id } %>
+          <%= form.input :content,  as: :text, label_html: { class: 'form-label' },
+                         input_html: { rows: 5, cols: 10, class: 'form-control status-dependent' } %>
+          <%= form.button :submit, class: 'btn btn-primary mt-3 mb-4' %>
+        <% end %>
+      </div>
+
+      <hr>
+
+      <h3 class="my-4">Minha conversa com <%= @candidature.applicant_profile.first_name %></h3>
+
+      <% if @candidature.comments.count === 0 %>
+        <div class="card text-center mb-5 bg-warning-subtle">
+          <div class="card-body">
+            <p class="card-text">Vocês ainda não iniciaram uma conversa</p>
+          </div>
+        </div>
+      <% else %>
+        <div class="balloon-container">
+          <% @candidature.comments.each do |comment| %>
+            <% if comment.content.present? %>
+              <div class="balloon">
             <span class="date-comment">
               <%= l comment.created_at, format: :short %>
             </span>
-            <p>
-              <%= comment.content %>
-            </p>
-          </div>
-        <% end %>
+                <p>
+                  <%= comment.content %>
+                </p>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
       <% end %>
+
     </div>
-  <% end %>
+  </div>
 </div>
+
+
+
+
+
+
+
+
+
