@@ -12,10 +12,12 @@
         <div class="col-md col-12 text-center text-md-end">
           <% if @candidature.favorite %>
             <%= button_to 'Desmarcar Destaque',
-                          not_favorite_recruiters_dashboard_candidature_path(@candidature), class: 'btn btn-primary my-3 my-md-0', method: :patch %>
+                          not_favorite_recruiters_dashboard_candidature_path(@candidature),
+                          class: 'btn btn-primary my-3 my-md-0', method: :patch, remote: true %>
           <% else %>
             <%= button_to 'Marcar como Destaque',
-                          favorite_recruiters_dashboard_candidature_path(@candidature), class: 'btn btn-primary my-3 my-md-0', method: :patch %>
+                          favorite_recruiters_dashboard_candidature_path(@candidature),
+                          class: 'btn btn-primary my-3 my-md-0', method: :patch, remote: true %>
           <% end %>
           <% if @candidature.favorite == true %>
             <div class="my-2">
