@@ -1,6 +1,7 @@
 class RecruitersDashboard::ProfileController < RecruitersDashboardController
-  before_action :find_profile, only: %i[ show edit update]
+  before_action :find_profile, only: %i[ edit update]
   def show
+    @recruiter_profile = RecruiterProfile.find(params[:id])
     redirect_to recruiters_dashboard_home_index_path if @recruiter_profile != current_recruiter.recruiter_profile
     rescue ActiveRecord::RecordNotFound
     redirect_to recruiters_dashboard_home_index_path
