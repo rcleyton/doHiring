@@ -8,46 +8,76 @@
 
   <%= form.input :recruiter_profile_id, as: :hidden, input_html: { value: current_recruiter.id} %>
 
-  <div class="mb-3">
+  <h3 class="mt-3 mt-md-0">Nova vaga</h3>
+
+  <div class="row">
+    <div class="col">
     <% if action_name == 'edit' %>
       <%= form.input :status, collection: ["Ativo", "Pausada", "Expirada", "Cancelada", "Fechada"], include_blank: "Selecione um status",
                      label_html: { class: 'form-label' },
-                     input_html: { class: 'form-select', id: 'status-select' }  %>
+                     input_html: { class: 'form-select'}  %>
     <% end %>
+    </div>
   </div>
 
-  <div class="mb-3">
+  <div class="row">
+    <div class="col">
     <%= form.input :title, label_html: { class: 'form-label' }, input_html: { class: 'form-control' } %>
+    </div>
   </div>
 
-  <div class="mb-3">
+  <div class="row">
+    <div class="col">
     <%= form.input :description, as: :text, label_html: { class: 'form-label' },
                               input_html: { rows: 5, cols: 10, class: 'form-control' } %>
+    </div>
   </div>
 
-  <div class="mb-3">
-    <%= form.input :vacancy_level_id, as: :select, collection: VacancyLevel.all, include_blank: "Selecione o nível da vaga",
-                              label_html: { class: 'form-label' },
-                              input_html: { class: 'form-select'} %>
+  <div class="row g-0 g-md-5">
+    <div class="col-md-6 col-12">
+      <%= form.input :requirements, label_html: { class: 'form-label' },
+                  input_html: { class: 'form-control'} %>
+    </div>
+    <div class="col-md-6 col-12">
+      <%= form.input :desired_skill, label_html: { class: 'form-label' },
+                  input_html: { class: 'form-control' } %>
+    </div>
   </div>
 
-  <div class="mb-3">
-    <%= form.input :working_model, label_html: { class: 'form-label' }, input_html: { class: 'form-control'} %>
+  <div class="row g-0 g-md-5">
+    <div class="col-md-4 col-12">
+      <%= form.input :vacancy_level_id, as: :select, collection: VacancyLevel.all, include_blank: "Selecione o nível da vaga",
+                     label_html: { class: 'form-label' },
+                     input_html: { class: 'form-select'} %>
+    </div>
+    <div class="col-md-4 col-12">
+      <%= form.input :working_model, label_html: { class: 'form-label' },
+                               input_html: { class: 'form-control' } %>
+    </div>
+    <div class="col-md-4 col-12">
+      <%= form.input :salary, label_html: { class: 'form-label' },
+                               input_html: { class: 'form-control' } %>
+    </div>
   </div>
 
-  <div class="mb-3">
-    <%= form.input :salary, label_html: { class: 'form-label' }, input_html: { class: 'form-control'} %>
+  <div class="row g-0 g-md-5">
+    <div class="col-md-6 col-12">
+      <%= form.input :contract_type, label_html: { class: 'form-label' },
+                     input_html: { class: 'form-control'} %>
+    </div>
+    <div class="col-md-6 col-12">
+      <%= form.input :benefits, label_html: { class: 'form-label' },
+                     input_html: { class: 'form-control' } %>
+    </div>
   </div>
 
-  <div class="mb-3">
-    <%= form.input :benefits, label_html: { class: 'form-label' }, input_html: { class: 'form-control'} %>
-  </div>
-
-  <div class="mb-4">
+  <div class="row">
+    <div class="col">
     <%= form.input :location, label_html: { class: 'form-label' }, input_html: { class: 'form-control'} %>
+    </div>
   </div>
 
-  <div class="mb-5">
+  <div class="my-5">
     <%= form.button :submit, class: 'btn btn-primary' %>
   </div>
 <% end %>

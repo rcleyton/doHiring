@@ -50,6 +50,6 @@ class RecruitersDashboard::VacanciesController < RecruitersDashboardController
   def vacancy_params
     params.require(:vacancy).permit(:code, :title, :description,
     :working_model, :salary, :benefits, :location, :recruiter_profile_id, :vacancy_level_id,
-    :status)
+    :status, :requirements, :desired_skill, :contract_type)
   end  
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_11_032112) do
+ActiveRecord::Schema.define(version: 2023_10_11_145254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -168,6 +168,9 @@ ActiveRecord::Schema.define(version: 2023_10_11_032112) do
     t.string "code"
     t.bigint "vacancy_level_id"
     t.string "status", default: "Ativo"
+    t.text "requirements"
+    t.text "desired_skill"
+    t.string "contract_type"
     t.index ["recruiter_profile_id"], name: "index_vacancies_on_recruiter_profile_id"
     t.index ["vacancy_level_id"], name: "index_vacancies_on_vacancy_level_id"
   end

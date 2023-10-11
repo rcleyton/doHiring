@@ -1,6 +1,7 @@
 class Vacancy < ApplicationRecord
   validates :title, :description, :working_model, :salary,
-            :benefits, :location, :vacancy_level_id, presence: true
+            :benefits, :location, :vacancy_level_id, :requirements,
+            :desired_skill, :contract_type, presence: true
 
   belongs_to :recruiter_profile
   belongs_to :vacancy_level

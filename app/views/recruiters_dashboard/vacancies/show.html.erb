@@ -3,13 +3,13 @@
 <% end %>
 
 <div class="container">
-  <div class="row mb-5 border-bottom">
-    <div class="col">
+  <div class="row my-3 mb-md-5">
+    <div class="col-md col-12">
       <h4>
         <strong>Código da vaga:</strong> <%= @vacancy.code %>
       </h4>
     </div>
-    <div class="col text-end">
+    <div class="col-md col-12 text-end">
       <span class="badge text-bg-success">
         <%= @vacancy.status %>
       </span>
@@ -23,6 +23,12 @@
       <h4>Descrição:</h4>
       <p class="mb-4"><%= @vacancy.description %></p>
 
+      <h4>Requisitos para a vaga:</h4>
+      <p class="mb-4"><%= @vacancy.requirements %></p>
+
+      <h4>Habilidades desejada:</h4>
+      <p class="mb-4"><%= @vacancy.desired_skill %></p>
+
       <h4>Nível da vaga:</h4>
       <p class="mb-4"><%= @vacancy.vacancy_level %></p>
 
@@ -31,6 +37,9 @@
 
       <h4>Salário:</h4>
       <p class="mb-4"><%= number_to_currency @vacancy.salary %></p>
+
+      <h4>Tipo de contrato:</h4>
+      <p class="mb-4"><%= @vacancy.contract_type %></p>
 
       <h4>Benefícios:</h4>
       <p class="mb-4"><%= @vacancy.benefits %></p>
