@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_10_124533) do
+ActiveRecord::Schema.define(version: 2023_10_11_032112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -139,6 +139,7 @@ ActiveRecord::Schema.define(version: 2023_10_10_124533) do
     t.bigint "recruiter_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "about_us"
     t.index ["recruiter_id"], name: "index_recruiter_profiles_on_recruiter_id"
   end
 

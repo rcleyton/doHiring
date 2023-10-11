@@ -1,6 +1,6 @@
 class RecruiterProfile < ApplicationRecord
   validates :full_name, :document, :phone, :cell_phone, :sector,
-            :number_employee, presence: true
+            :number_employee, :about_us, presence: true
             
   belongs_to :recruiter
   has_many :vacancies
