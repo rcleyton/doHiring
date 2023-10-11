@@ -1,7 +1,6 @@
 class RecruitersDashboard::ProfileController < RecruitersDashboardController
-
-  def show 
-    @recruiter_profile = RecruiterProfile.find(params[:id])
+  before_action :find_profile, only: %i[ show edit update]
+  def show
     redirect_to recruiters_dashboard_home_index_path if @recruiter_profile != current_recruiter.recruiter_profile
     rescue ActiveRecord::RecordNotFound
     redirect_to recruiters_dashboard_home_index_path
@@ -11,6 +10,7 @@ class RecruitersDashboard::ProfileController < RecruitersDashboardController
     redirect_to  recruiters_dashboard_profile_path(current_recruiter.recruiter_profile) if 
     current_recruiter.recruiter_profile.present?
     @recruiter_profile = RecruiterProfile.new
+    @recruiter_profile.build_address
   end
 
   def create
@@ -24,12 +24,10 @@ class RecruitersDashboard::ProfileController < RecruitersDashboardController
     end
   end
 
-  def edit 
-    @recruiter_profile = RecruiterProfile.find(params[:id])
+  def edit
   end
 
   def update
-    @recruiter_profile = RecruiterProfile.find(params[:id])
     if @recruiter_profile.update(recruiter_profile_params)
       redirect_to recruiters_dashboard_profile_path
       flash[:notice] = "Perfil atualizado com sucesso."
@@ -40,9 +38,13 @@ class RecruitersDashboard::ProfileController < RecruitersDashboardController
   end
 
   private
-
   def recruiter_profile_params
     params.require(:recruiter_profile).permit(:recruiter_id, :full_name, :avatar,
-    :document, :phone, :cell_phone, :sector, :number_employee)
+    :document, :phone, :cell_phone, :sector, :number_employee, address_attributes: [:id, :street, :number, :postal_code,
+                                                                                    :complement, :neighborhood,
+                                                                                    :city, :state])
+  end
+  def find_profile
+    @recruiter_profile = RecruiterProfile.find(params[:id])
   end
 end

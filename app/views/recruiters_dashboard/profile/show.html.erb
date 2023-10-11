@@ -1,40 +1,92 @@
-<% flash.each do |type, message| %>
-  <%= render partial: 'shared/alert', locals: { type: type, message: message } %>
-<% end %>
+<div class="container">
+  <% flash.each do |type, message| %>
+    <%= render partial: 'shared/alert', locals: { type: type, message: message } %>
+  <% end %>
+  <div class="row">
+    <div class="col-md-3 col-12 py-4 py-md-0">
+      <div class="text-center text-md-start">
+        <% if @recruiter_profile.avatar.persisted? %>
+          <%= image_tag @recruiter_profile.avatar, class: "img-fluid rounded", width: "128", height: "128" %>
+        <% else %>
+          <%= image_tag 'profile.png', class: "img-fluid rounded", width: "128", height: "128" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-9 col-12 py-4 py-md-0">
+      <h2><%= @recruiter_profile.full_name %></h2>
+      <hr>
+      <div class="row">
+        <div class="col-md-4 col-12">
+          <h4>CNPJ</h4>
+          <p class="mb-4"><%= @recruiter_profile.document %></p>
+        </div>
+        <div class="col-md-4 col-12">
+          <h4>Setor</h4>
+          <p class="mb-4"><%= @recruiter_profile.sector %></p>
+        </div>
+        <div class="col-md-4 col-12">
+          <h4>Número de funcionários</h4>
+          <p class="mb-4"><%= @recruiter_profile.number_employee %></p>
+        </div>
+      </div>
+      <h3 class="mt-4">Contato</h3>
+      <hr>
+      <div class="row">
+        <div class="col-md-6 col-12">
+          <h4>Telefone</h4>
+          <p class="mb-4"><%= @recruiter_profile.phone %></p>
+        </div>
+        <div class="col-md-6 col-12">
+          <h4>Mobile</h4>
+          <p class="mb-4"><%= @recruiter_profile.cell_phone %></p>
+        </div>
+      </div>
+      <h3 class="mt-4">Endereço</h3>
+      <hr>
+      <div class="row">
+        <div class="col-md-6 col-12">
+          <h4>Rua</h4>
+          <p class="mb-4"><%= @recruiter_profile.address.street %></p>
+        </div>
+        <div class="col-md-3 col-12">
+          <h4>Número</h4>
+          <p class="mb-4"><%= @recruiter_profile.address.number %></p>
+        </div>
+        <div class="col-md-3 col-12">
+          <h4>CEP</h4>
+          <p class="mb-4"><%= @recruiter_profile.address.postal_code %></p>
+        </div>
+        <div class="row">
+          <div class="col">
+            <h4>Complemento</h4>
+            <p class="mb-4"><%= @recruiter_profile.address.complement %></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-12">
+            <h4>Cidade</h4>
+            <p class="mb-4"><%= @recruiter_profile.address.city %></p>
+          </div>
+          <div class="col-md-4 col-12">
+            <h4>Bairro</h4>
+            <p class="mb-4"><%= @recruiter_profile.address.neighborhood %></p>
+          </div>
+          <div class="col-md-4 col-12">
+            <h4>Estado</h4>
+            <p class="mb-5"><%= @recruiter_profile.address.state %></p>
+          </div>
+        </div>
+      </div>
 
-<div class="row justify-content-evenly">
-  <div class="col-md-2 col-12">
-    <div class="avatar-profile text-center my-md-0 my-5">
-      <% if @recruiter_profile.avatar.persisted? %>
-        <%= image_tag @recruiter_profile.avatar, class: "img-fluid rounded", width: "128", height: "128" %>
-      <% else %>
-        <%= image_tag 'profile.png', class: "img-fluid rounded", width: "128", height: "128" %>
-      <% end %>
+      <%= button_to 'Editar', edit_recruiters_dashboard_profile_path(@recruiter_profile),
+                    method: :get, class: 'btn btn-primary mb-5' %>
     </div>
   </div>
-
-  <div class="col-md-7 col-12">
-    <h3><%= @recruiter_profile.full_name %></h3>
-    <hr>
-
-    <h4>CNPJ</h4>
-    <p class="mb-4"><%= @recruiter_profile.document %></p>
-
-    <h4>Telefone</h4>
-    <p class="mb-4"><%= @recruiter_profile.phone %></p>
-
-    <h4>Mobile</h4>
-    <p class="mb-4"><%= @recruiter_profile.cell_phone %></p>
-
-    <h4>Setor</h4>
-    <p class="mb-4"><%= @recruiter_profile.sector %></p>
-
-    <h4>Número de funcionários</h4>
-    <p class="mb-4"><%= @recruiter_profile.number_employee %></p>
-
-    <%= button_to 'Editar',
-                  edit_recruiters_dashboard_profile_path(@recruiter_profile),
-                  method: :get, class: 'btn btn-primary mb-5' %>
-  </div>
 </div>
+
+
+
+
+
+
 

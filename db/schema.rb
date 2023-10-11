@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_09_30_145356) do
+ActiveRecord::Schema.define(version: 2023_10_10_124533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,22 @@ ActiveRecord::Schema.define(version: 2023_09_30_145356) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "postal_code"
+    t.string "street"
+    t.integer "number"
+    t.string "complement"
+    t.string "neighborhood"
+    t.string "city"
+    t.string "state"
+    t.bigint "recruiter_profile_id"
+    t.bigint "applicant_profile_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["applicant_profile_id"], name: "index_addresses_on_applicant_profile_id"
+    t.index ["recruiter_profile_id"], name: "index_addresses_on_recruiter_profile_id"
   end
 
   create_table "applicant_profiles", force: :cascade do |t|
@@ -163,6 +179,8 @@ ActiveRecord::Schema.define(version: 2023_09_30_145356) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "addresses", "applicant_profiles"
+  add_foreign_key "addresses", "recruiter_profiles"
   add_foreign_key "applicant_profiles", "applicants"
   add_foreign_key "candidatures", "applicant_profiles"
   add_foreign_key "candidatures", "vacancies"
