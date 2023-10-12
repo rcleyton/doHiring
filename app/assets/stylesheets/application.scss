@@ -50,26 +50,6 @@ img {
   height: auto;
 }
 
-/* List definition */
-dl {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  color: #0a2558;
-}
-
-dt {
-  flex-basis: 35%;
-  font-weight: bold;
-  padding: .5rem 0;
-}
-
-dd {
-  flex-basis: 65%;
-  margin-left: 0;
-  padding: .5rem 0;
-}
-
 /* Table */
 table {
   width: 100%;

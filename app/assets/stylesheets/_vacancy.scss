@@ -131,7 +131,6 @@
   display: inline-block;
   padding: 0px 15px 0px 15px;
   background: image-url('briefcase.svg') no-repeat 0px 6px;
-  // background: image-url('briefcase.svg')
 }
 
 .card-time {
@@ -233,5 +232,113 @@ a.custom-btn-applay:hover,
 
 // Pagination
 .custom-pagination {
+  font-family: "Montserrat", sans-serif;
+}
+
+// Show Vacancy
+.show-title {
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.show-title h1 {
+  color: #05264E;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.show-title span {
+  color: #A0ABB8;
+  font-size: 16px;
+}
+
+.show-title span::before {
+  content: image_url('time.svg');
+  display: inline-block;
+  padding: 1px 5px 0 0;
+}
+
+.s-title-card,
+.s-job-description h2 {
+  font-family: "Montserrat", sans-serif;
+  color: #05264E;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.s-about-us,
+.s-requirement {
+  font-family: "Montserrat", sans-serif;
+  color: #4F5E64;
+  line-height: 29px;
+}
+
+.s-icon {
+  font-family: "Montserrat", sans-serif;
+  color: #66789C;
+  line-height: 24px;
+  font-weight: 400;
+  width: 50%;
+}
+
+.s-icon-description {
+  font-family: "Montserrat", sans-serif;
+  line-height: 24px;
+  font-weight: bold;
+  color: #0A2558;
+}
+
+.i-company::before {
+  content: image_url('briefcase.svg');
+  display: inline-block;
+  padding: 0px 7px 0 0;
+}
+
+.i-level::before {
+  content: image_url('job-level.svg');
+  display: inline-block;
+  padding: 0px 5px 0 0;
+}
+
+.i-type::before {
+  content: image_url('job-type.svg');
+  display: inline-block;
+  padding: 0px 5px 0 0;
+}
+
+.i-location::before {
+  content: image_url('location.svg');
+  display: inline-block;
+  padding: 0px 5px 0 0;
+}
+
+.i-sector::before {
+  content: image_url('industry.svg');
+  display: inline-block;
+  padding: 0px 5px 0 0;
+}
+
+.i-model::before {
+  content: image_url('experience.svg');
+  display: inline-block;
+  padding: 0px 5px 0 0;
+}
+
+.i-salary::before {
+  content: image_url('salary.svg');
+  display: inline-block;
+  padding: 0px 5px 0 0;
+}
+
+.i-time::before {
+  content: image_url('deadline.svg');
+  display: inline-block;
+  padding: 0px 5px 0 0;
+}
+
+.s-btn {
+  text-decoration: none;
   font-family: "Montserrat", sans-serif;
 }
