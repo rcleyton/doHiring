@@ -74,7 +74,7 @@
                       <span><%= l vacancy.created_at, format: :short %> </span>
                     </span>
                     <p class="font-sm color-text-paragraph mt-1">
-                      <%= vacancy.description %>
+                      <%= vacancy.description.truncate(200, separator: " ") %>
                     </p>
                     <div class="card-2-bottom">
                       <div class="row">
@@ -128,7 +128,7 @@
                       <span><%= l vacancy.created_at, format: :short %> </span>
                     </span>
                     <p class="font-sm color-text-paragraph mt-1 job-disabled">
-                      <%= vacancy.description %>
+                      <%= vacancy.description.truncate(200, separator: " ") %>
                     </p>
                     <div class="card-2-bottom">
                       <div class="row">
