@@ -101,10 +101,11 @@
                 <div class="col-lg-6 col-md-6 col-sm-12">
                   <div class="card-grid-image-left">
                     <div class="image-box">
-                      <img
-                        src="https://wp.alithemes.com/html/jobbox/demos/assets/imgs/brands/brand-1.png"
-                        alt="" class="job-disabled"
-                      />
+                      <% if vacancy.recruiter_profile.avatar.persisted? %>
+                        <%= image_tag vacancy.recruiter_profile.avatar, class: "card-recruiter-image-pprofile job-disabled" %>
+                      <% else %>
+                        <%= image_tag 'profile.png', class: "card-recruiter-image-pprofile job-disabled" %>
+                      <% end %>
                     </div>
                       <div class="right-info">
                         <span class="code-job job-disabled"><%= vacancy.code %></span>
