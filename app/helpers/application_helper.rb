@@ -14,5 +14,18 @@ module ApplicationHelper
     else
       ''
     end
-  end  
+  end
+
+  def badge_class_for_status(status)
+    case status
+    when "Ativo"
+      "success"
+    when "Pausada"
+      "warning"
+    when "Cancelada"
+      "danger"
+    else
+      "secondary"
+    end
+  end
 end

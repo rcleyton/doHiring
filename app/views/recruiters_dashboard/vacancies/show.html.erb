@@ -10,7 +10,7 @@
       </h4>
     </div>
     <div class="col-md col-12 text-end">
-      <span class="badge text-bg-success">
+      <span class="badge rounded-pill text-bg-<%= badge_class_for_status(@vacancy.status) %>">
         <%= @vacancy.status %>
       </span>
     </div>
