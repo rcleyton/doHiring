@@ -43,6 +43,19 @@ label {
   padding-top: .4rem;
 }
 
+.back-to-home {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  position: absolute;
+  top: 30px;
+  right: 5vw;
+}
+
+.back-to-home:hover {
+  color: #9eeaf9;
+}
+
 @media (max-width: 1064px){
   .authenticate__recruiter {
     & .col_left {
