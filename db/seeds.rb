@@ -29,7 +29,7 @@ Recruiter.all.each do |recruiter|
     number_employee: Faker::Number.between(from: 1, to: 1000),
     recruiter: recruiter
   )
-  puts "Perfil de recrutador criado: #{recruiter_profile.full_name} (Recrutador: #{recruiter.email})"
+  puts "Perfil de recrutador criado: #{recruiter_profile.legal_name} (Recrutador: #{recruiter.email})"
 end
 
 puts 'Registros de perfis de recrutador gerados com sucesso!'
@@ -61,7 +61,7 @@ RecruiterProfile.all.each do |recruiter_profile|
       status: 'Ativo',
       vacancy_level: VacancyLevel.all.sample
     )
-    puts "Vaga criada: #{vacancy.title} (Recrutador: #{recruiter_profile.full_name})"
+    puts "Vaga criada: #{vacancy.title} (Recrutador: #{recruiter_profile.legal_name})"
   end
 end
 

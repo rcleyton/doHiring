@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_11_145254) do
+ActiveRecord::Schema.define(version: 2023_10_15_155155) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -130,7 +130,7 @@ ActiveRecord::Schema.define(version: 2023_10_11_145254) do
   end
 
   create_table "recruiter_profiles", force: :cascade do |t|
-    t.string "full_name"
+    t.string "legal_name"
     t.string "document"
     t.string "phone"
     t.string "cell_phone"
@@ -140,6 +140,7 @@ ActiveRecord::Schema.define(version: 2023_10_11_145254) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "about_us"
+    t.string "trade_name"
     t.index ["recruiter_id"], name: "index_recruiter_profiles_on_recruiter_id"
   end
 

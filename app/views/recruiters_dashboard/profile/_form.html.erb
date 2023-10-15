@@ -17,22 +17,26 @@
 
   <h3 class="mt-4 mt-md-5 mb-2">Informações da empresa</h3>
   <div class="row g-0 g-md-5">
-    <div class="col-md-8 col-12">
-    <%= f.input :full_name, label_html: { class: 'form-label' },
+    <div class="col-md-6 col-12">
+    <%= f.input :legal_name, label_html: { class: 'form-label' },
                             input_html: { class: 'form-control'} %>
     </div>
-    <div class="col-md-4 col-12">
-      <%= f.input :document, label_html: { class: 'form-label' },
+    <div class="col-md-6 col-12">
+      <%= f.input :trade_name, label_html: { class: 'form-label' },
                   input_html: { class: 'form-control' } %>
     </div>
   </div>
 
   <div class="row g-0 g-md-5">
-    <div class="col-md-6 col-12">
+    <div class="col-md-4 col-12">
+      <%= f.input :document, label_html: { class: 'form-label' },
+                  input_html: { class: 'form-control' } %>
+    </div>
+    <div class="col-md-4 col-12">
       <%= f.input :sector, label_html: { class: 'form-label' },
                   input_html: { class: 'form-control' } %>
     </div>
-    <div class="col-md-6 col-12">
+    <div class="col-md-4 col-12">
       <%= f.input :number_employee, label_html: { class: 'form-label' },
                   input_html: { class: 'form-control' } %>
     </div>

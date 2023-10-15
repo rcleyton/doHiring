@@ -13,18 +13,22 @@
       </div>
     </div>
     <div class="col-md-9 col-12 py-4 py-md-0">
-      <h2><%= @recruiter_profile.full_name %></h2>
+      <h2><%= @recruiter_profile.legal_name %></h2>
       <hr>
       <div class="row">
-        <div class="col-md-4 col-12">
+        <div class="col-md-3 col-12">
+          <h4>Nome fantasia</h4>
+          <p class="mb-4"><%= @recruiter_profile.trade_name %></p>
+        </div>
+        <div class="col-md-3 col-12">
           <h4>CNPJ</h4>
           <p class="mb-4"><%= @recruiter_profile.document %></p>
         </div>
-        <div class="col-md-4 col-12">
+        <div class="col-md-3 col-12">
           <h4>Setor</h4>
           <p class="mb-4"><%= @recruiter_profile.sector %></p>
         </div>
-        <div class="col-md-4 col-12">
+        <div class="col-md-3 col-12">
           <h4>Número de funcionários</h4>
           <p class="mb-4"><%= @recruiter_profile.number_employee %></p>
         </div>

@@ -8,8 +8,6 @@ class VacanciesController < ApplicationController
   
   def show
     @vacancy = Vacancy.find(params[:id])
-    puts "Recruiter Profile ID: #{@vacancy.recruiter_profile_id}"
-    puts "Recruiter Profile Nome: #{@vacancy.recruiter_profile.full_name}"
     unless @vacancy.status == 'Ativo'
       redirect_to vacancies_path
     end
