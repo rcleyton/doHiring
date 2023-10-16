@@ -1,33 +1,31 @@
-<div class="box">
-  <h1 class="box__title">Minhas Vagas</h1>
-  <hr class="divider">
-
-  <h3 class="subtitle">Minhas candidaturas</h3>
+<h3 class="mb-3">Minhas candidaturas</h3>
 
   <% if @candidatures.empty?%>
     <h1>Nenhuma canidatura ainda</h1>
   <% else %>
-    <table>
+  <div class="table-responsive">
+    <table class="table table-hover border border-primary-subtle">
       <thead>
-        <tr>
-          <th class="table-applicant">Título da vaga</th>
-          <th class="table-applicant">Status</th>
-          <th class="table-applicant">Detalhes</th>
-        </tr>
+      <tr class="table-primary">
+        <th scope="col">Título da vaga</th>
+        <th scope="col">Status</th>
+        <th scope="col">Detalhes</th>
+      </tr>
       </thead>
       <tbody>
-        <% @candidatures.each do |candidature| %>
-          <tr>
-            <td><%= candidature.vacancy.title %></td>
-            <td><%= candidature.status %></td>
-            <td>
-              <%= link_to applicants_dashboard_candidature_path(candidature) do %>
-                <%= icon('fa-solid', 'eye') %>
-              <% end %>
-            </td>
-          </tr>
-        <% end %>
+      <% @candidatures.each do |candidature| %>
+        <tr>
+          <td><%= candidature.vacancy.title %></td>
+          <td><%= candidature.status %></td>
+          <td>
+            <%= link_to applicants_dashboard_candidature_path(candidature) do %>
+              <%= icon('fa-solid', 'eye') %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
       </tbody>
     </table>
-  <% end %>
-</div>
+<% end %>
+  </div>
+
