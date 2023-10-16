@@ -10,8 +10,9 @@
       <%= simple_form_for @proposal,
       url: recruiters_dashboard_candidature_proposals_path do |form| %>
 
-        <%= form.input :recruiter_profile_id, as: :hidden, input_html: { value: @recruiter_profile_id } %>
+        <%= form.input :recruiter_profile_id, as: :hidden, input_html: { value: current_recruiter.recruiter_profile.id } %>
         <%= form.input :applicant_profile_id, as: :hidden, input_html: { value: @applicant_profile_id } %>
+        <%= form.input :candidature_id, as: :hidden, input_html: { value: @candidature.id } %>
 
         <div class="mb-3">
           <%= form.input :start_date, as: :string, label_html: { class: 'form-label' },

@@ -15,13 +15,14 @@ class RecruitersDashboard::ProposalsController < RecruitersDashboardController
 
   def new
     @proposal = Proposal.new
+    @candidature = Candidature.find(params[:candidature_id])
+    @applicant_profile_id = @candidature.applicant_profile_id
   end
 
   def create
-    @candidature = Candidature.find(params[:candidature_id])
+    puts @candidature = Candidature.find(params[:candidature_id])
     @applicant_profile_id = @candidature.applicant_profile_id
-    @recruiter_profile_id = current_recruiter.recruiter_profile.id
-    @proposal = @candidature.build_proposal(proposal_params)
+    @proposal = Proposal.new(proposal_params)
     if @proposal.save
       redirect_to recruiters_dashboard_proposal_path(@proposal)
       flash[:notice] = "Proposta enviada com sucesso."
@@ -34,7 +35,7 @@ class RecruitersDashboard::ProposalsController < RecruitersDashboardController
   private
   def proposal_params
     params.require(:proposal).permit(:start_date, :salary_offered, :benefits_offered, 
-    :job_functions, :company_expectations, :applicant_profile_id, :recruiter_profile_id,
+    :job_functions, :company_expectations, :candidature_id, :applicant_profile_id, :recruiter_profile_id,
     :bonus, :additional_information)
   end
 end
