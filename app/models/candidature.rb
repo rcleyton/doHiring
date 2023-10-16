@@ -4,5 +4,5 @@ class Candidature < ApplicationRecord
   belongs_to :applicant_profile
   belongs_to :vacancy
   has_many :comments
-  has_one :proposal
+  has_many :proposals
 end
