@@ -1,46 +1,54 @@
-<div class="box">
-  <h1 class="box__title">Meu Perfil</h1>
-  <h3 class="box__subtitle">Informações do Candidato, endereço e contato</h3>
-  <hr class="divider">
-
+<div class="container">
   <% flash.each do |type, message| %>
     <%= render partial: 'shared/alert', locals: { type: type, message: message } %>
   <% end %>
 
-  <div class="avatar-profile text-center mb-4">
-    <% if @applicant_profile.avatar.persisted? %>
-      <%= image_tag @applicant_profile.avatar, class: "img-fluid rounded-circle", width: "128", height: "128" %>
-    <% else %>
-      <%= image_tag 'profile.png', class: "img-fluid rounded-circle", width: "128", height: "128" %>
-    <% end %>
+  <div class="row">
+    <div class="col-md-3 col-12 py-4 py-md-0">
+      <div class="text-center text-md-start">
+        <% if @applicant_profile.avatar.persisted? %>
+          <%= image_tag @applicant_profile.avatar,  class: "img-fluid rounded", width: "128", height: "128" %>
+        <% else %>
+          <%= image_tag 'profile.png', class: "img-fluid rounded", width: "128", height: "128" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-9 col-12 py-4 py-md-0">
+      <h2><%= full_name(@applicant_profile) %></h2>
+      <hr>
+      <div class="row">
+        <div class="col-md-4 col-12">
+          <h4>Ano de nascimento</h4>
+          <p class="mb-4"><%= l @applicant_profile.birthdate, format: :long %></p>
+        </div>
+        <div class="col-md-4 col-12">
+          <h4>RG</h4>
+          <p class="mb-4"><%= @applicant_profile.rg %></p>
+        </div>
+        <div class="col-md-4 col-12">
+          <h4>CPF</h4>
+          <p class="mb-4"><%= @applicant_profile.cpf %></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-12">
+          <h4>Gênero</h4>
+          <p class="mb-4"><%= @applicant_profile.gender %></p>
+        </div>
+        <div class="col-md-6 col-12">
+          <h4>Estado civil</h4>
+          <p class="mb-4"><%= @applicant_profile.civil_status%></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h4>Objetivos Profissionais</h4>
+          <p class="mb-4"><%= @applicant_profile.professional_goals %></p>
+        </div>
+      </div>
+
+      <%= button_to 'Editar', edit_applicants_dashboard_profile_path(@applicant_profile),
+                    method: :get, class: 'btn btn-primary mb-5' %>
+    </div>
   </div>
-
-  <dl>
-    <dt>Nome:</dt>
-    <dd><%= @applicant_profile.first_name %></dd>
-
-    <dt>Sobrenome:</dt>
-    <dd><%= @applicant_profile.last_name %></dd>
-
-    <dt>Ano de nascimento:</dt>
-    <dd><%= @applicant_profile.birthdate %></dd>
-
-    <dt>RG:</dt>
-    <dd><%= @applicant_profile.rg %></dd>
-
-    <dt>CPF:</dt>
-    <dd><%= @applicant_profile.cpf %></dd>
-  
-    <dt>Gênero:</dt>
-    <dd><%= @applicant_profile.gender %></dd>
-    
-    <dt>Estado civil:</dt>
-    <dd><%= @applicant_profile.civil_status%></dd>
-    
-    <dt>Objetivos Profissionais:</dt>
-    <dd><%= @applicant_profile.professional_goals %></dd>
-  </dl>
-
-  <%= button_to 'Editar', edit_applicants_dashboard_profile_path(@applicant_profile),
-  method: :get, class: 'btn btn-edit' %>
 </div>

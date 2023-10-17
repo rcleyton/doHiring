@@ -28,4 +28,8 @@ module ApplicationHelper
       "secondary"
     end
   end
+
+  def full_name(applicant_profile)
+    "#{applicant_profile.first_name} #{applicant_profile.last_name}"
+  end
 end

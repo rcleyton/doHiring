@@ -1,15 +1,17 @@
-<div class="box">
-  <h1 class="box__title">Aplicar para a vaga</h1>
-  <hr class="divider">
-  <% flash.each do |type, message| %>
-    <%= render partial: 'shared/alert', locals: { type: type, message: message } %>
-  <% end %>
-  <%= simple_form_for @candidature, url: applicants_dashboard_vacancy_candidatures_path do |form| %>
-    <%= form.input :applicant_profile_id, as: :hidden, input_html: { value: current_applicant.id }%>
-    <%= form.input :vacancy_id, as: :hidden, input_html: { value: params[:vacancy_id] } %>
-    <%= form.input :reason_application, as: :text, wrapper_html: { class: 'form-control' },
-                                        label_html: { class: 'form-label' },
-                                        input_html: { rows: 5, cols: 10, class: 'form-input' } %>
-    <%= form.button :submit, class: 'save-btn' %>
-  <% end %>
+<% flash.each do |type, message| %>
+  <%= render partial: 'shared/alert', locals: { type: type, message: message } %>
+<% end %>
+
+<div class="row">
+  <div class="col">
+    <h2>Pergunta(s) obrigatória</h2>
+    <%= simple_form_for @candidature, url: applicants_dashboard_vacancy_candidatures_path do |form| %>
+      <%= form.input :applicant_profile_id, as: :hidden, input_html: { value: current_applicant.id }%>
+      <%= form.input :vacancy_id, as: :hidden, input_html: { value: params[:vacancy_id] } %>
+      <%= form.input :reason_application, as: :text, label_html: { class: 'form-label' },
+                     input_html: { rows: 5, cols: 10, class: 'form-control' } %>
+      <%= form.button :submit, class: 'btn btn-primary my-4' %>
+    <% end %>
+  </div>
 </div>
+

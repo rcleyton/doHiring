@@ -5,71 +5,80 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <link
-      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
-      rel="stylesheet"
-    />
     <%= favicon_link_tag 'icone.ico' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <body class="dashboard">
-    <div class="sidebar sidebar-applicant">
-      <div class="logo-details">
-        <i class='bx bx-wallet'></i>
-        <span class="logo_name">doHiring</span>
-      </div>
-
-      <ul class="nav-links">
-        <li>
-          <%= link_to applicants_dashboard_home_index_path, class: 'active' do %>
-            <%= icon('fa-solid', 'list') %>
-            <span class="links_name">Dashboard</span>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to new_applicants_dashboard_profile_path do %>
-            <%= icon('fa-solid', 'user') %>
-            <span class="links_name">Meu Perfil</span>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to applicants_dashboard_candidatures_path do %>
-            <%= icon('fa-solid', 'suitcase') %>
-            <span class="links_name">Minhas Candidaturas</span>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to applicants_dashboard_proposals_path do %>
-            <%= icon('fa-solid', 'handshake') %>
-            <span class="links_name">Minhas Propostas</span>
-          <% end %>
-        </li>
-        <li class="log_out">
-          <%= link_to destroy_applicant_session_path, method: :delete do %>
-            <%= icon('fa-solid', 'right-from-bracket') %>
-            <span class="links_name">Sair</span>
-          <% end %>
-        </li>
-      </ul>
-    </div>
-
-    <section class="home-section">
-      <nav>
-        <div class="sidebar-button">
-          <i class="bx bx-menu sidebarBtn"></i>
-          <span class="dashboard">
-            <%= controller_name.capitalize.gsub('Controller', '') %>
-          </span>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary shadow mb-3 sticky-top">
+      <div class="container">
+        <%= link_to applicants_dashboard_home_index_path, class: "navbar-brand fs-2 text-white" do %>
+          <span class="links_name">doHiring</span>
+        <% end %>
+        <div class="dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <% if current_applicant.applicant_profile && current_applicant.applicant_profile.avatar.present? %>
+              <%= image_tag current_applicant.applicant_profile.avatar, alt: 'Perfil do usuário', class: "rounded", width: '30'%>
+            <% else %>
+              <%= image_tag 'profile.png', alt: 'Perfil do usuário', class: "rounded", width: '30' %>
+            <% end %>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+            <li>
+              <a class="dropdown-item" href="#">
+                <% if current_applicant.applicant_profile %>
+                  <%= "Olá #{current_applicant.applicant_profile.first_name}" %>
+                <% else %>
+                  Olá usuário
+                <% end %>
+              </a>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Sair</a></li>
+          </ul>
         </div>
-      </nav>
-      
-      <div class="home-content">
-        <div class="overview-boxes">
+      </div>
+    </nav>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-3 col-12">
+          <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item">
+              <%= link_to applicants_dashboard_home_index_path, class: "nav-link#{' active' if current_page?(applicants_dashboard_home_index_path)}" do %>
+                <%= icon('fa-solid', 'home', class: "bi pe-none me-2") %>
+                <span class="links_name">Dashboard</span>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to new_applicants_dashboard_profile_path, class: "nav-link#{' active' if controller_name == "profile"}" do %>
+                <%= icon('fa-solid', 'user', class: "bi pe-none me-2") %>
+                <span class="links_name">Meu Perfil</span>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to applicants_dashboard_candidatures_path, class: "nav-link#{' active' if controller_name == "candidatures"}" do %>
+                <%= icon('fa-solid', 'suitcase', class: "bi pe-none me-2") %>
+                <span class="links_name">Minhas candidaturas</span>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to applicants_dashboard_proposals_path, class: "nav-link#{' active' if controller_name == "proposals"}" do %>
+                <%= icon('fa-solid', 'handshake', class: "bi pe-none me-2") %>
+                <span class="links_name">Minhas propostas</span>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to destroy_applicant_session_path, class: "nav-link", method: :delete do %>
+                <%= icon('fa-solid', 'right-from-bracket', class: "bi pe-none me-2") %>
+                <span class="links_name">Sair</span>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-9 col-12 px-4">
           <%= yield %>
         </div>
       </div>
-    </section>
+    </div>
   </body>
 </html>
