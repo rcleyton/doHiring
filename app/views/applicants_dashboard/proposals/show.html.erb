@@ -1,32 +1,62 @@
-<div class="box">
-  <h1 class="box__title">Proposta para a vaga:
-    <%= @proposal.candidature.vacancy.title %> 
-  </h1>
-  <hr class="divider">
-  <dl>
-    <dt>Status da Proposta:</dt>
-    <dd><%= @proposal.status %></dd>
-    <dt>Código da vaga:</dt>
-    <dd><%= @proposal.candidature.vacancy.code %></dd>
-    <dt>Título da vaga:</dt>
-    <dd><%= @proposal.candidature.vacancy.title %></dd>
-    <dt>Data de início:</dt>
-    <dd><%= l @proposal.start_date, format: :long %></dd>
-    <dt>Salário:</dt>
-    <dd><%= number_to_currency @proposal.salary_offered %></dd>
-    <dt>Benefícios:</dt>
-    <dd><%= @proposal.benefits_offered %></dd>
-    <dt>Atribuições da vaga:</dt>
-    <dd><%= @proposal.job_functions %></dd>
-    <dt>Expectativa de Empresa:</dt>
-    <dd><%= @proposal.company_expectations %></dd>
-    <dt>Bônus:</dt>
-    <dd><%= @proposal.bonus %></dd>
-    <dt>Informações adicionais:</dt>
-    <dd><%= @proposal.additional_information %></dd>
-  </dl>
-  <%= link_to "Ver candidatura", applicants_dashboard_candidature_path(@proposal.candidature) %>
-  <hr class="divider">
-  <%= link_to 'Aceitar proposta', accept_applicants_dashboard_proposal_path, class: 'btn-edit', method: :put %>
-  <%= link_to 'Recusar proposta', decline_applicants_dashboard_proposal_path, method: :put %>
+<div class="container">
+  <div class="row d-flex mb-4 justify-content-between">
+    <div class="col">
+      <div class="border rounded-4 p-4">
+        <h4 class="border-bottom pb-3">
+          Proposta para a vaga de <%= @proposal.candidature.vacancy.title %>
+        </h4>
+        <div class="row">
+          <div class="col-md-6 d-flex justify-content-between py-2">
+            <div>Código da vaga</div>
+            <strong><%= @proposal.candidature.vacancy.code %></strong>
+          </div>
+          <div class="col-md-6 d-flex justify-content-between py-2">
+            <div>Status</div>
+            <strong><%= @proposal.status %></strong>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 d-flex justify-content-between py-2">
+            <div>Data de início</div>
+            <strong><%= l @proposal.start_date, format: :long %></strong>
+          </div>
+          <div class="col-md-6 d-flex justify-content-between py-2">
+            <div>Salário</div>
+            <strong><%= number_to_currency @proposal.salary_offered %></strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-3 mb-4">
+    <div class="col">
+      <%= link_to 'Aceitar proposta', accept_applicants_dashboard_proposal_path, class: 'btn btn-success', method: :put %>
+      <%= link_to 'Recusar proposta', decline_applicants_dashboard_proposal_path, class: 'mx-3', method: :put %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="mb-4">
+        <h2 class="mb-3">Atribuições da vaga</h2>
+        <p><%= @proposal.job_functions %></p>
+      </div>
+      <div class="mb-4">
+        <h2 class="mb-3">Expectativa de Empresa</h2>
+        <p><%= @proposal.company_expectations %></p>
+      </div>
+      <div class="mb-4">
+        <h2 class="mb-3">Bônus</h2>
+        <p><%= @proposal.bonus %></p>
+      </div>
+      <div class="mb-4">
+        <h2 class="mb-3">Benefícios</h2>
+        <p><%= @proposal.benefits_offered %></p>
+      </div>
+      <div class="mb-4">
+        <h2 class="mb-3">Informações adicionais</h2>
+        <p><%= @proposal.additional_information %></p>
+      </div>
+    </div>
+  </div>
 </div>
