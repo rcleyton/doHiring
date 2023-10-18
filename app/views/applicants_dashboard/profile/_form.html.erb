@@ -52,6 +52,46 @@
     <%= f.input :professional_goals, as: 'text', label_html: { class: 'form-label' },
                 input_html: { class: 'form-control' } %>
   </div>
+
+  <h3 class="mt-5 mb-2">Endereço</h3>
+  <%= f.fields_for :address do |address_fields| %>
+    <div class="row g-0 g-md-5">
+      <div class="col-md-6 col-12">
+        <%= address_fields.input :street, label_html: { class: 'form-label' },
+                                 input_html: { class: 'form-control' } %>
+      </div>
+      <div class="col-md-3 col-12">
+        <%= address_fields.input :number, label_html: { class: 'form-label' },
+                                 input_html: { class: 'form-control' } %>
+      </div>
+      <div class="col-md-3 col-12">
+        <%= address_fields.input :postal_code, label_html: { class: 'form-label' },
+                                 input_html: { class: 'form-control' } %>
+      </div>
+    </div>
+
+    <div class="row g-0 g-md-5">
+      <div class="col-md-8 col-12">
+        <%= address_fields.input :complement, label_html: { class: 'form-label' },
+                                 input_html: { class: 'form-control' } %>
+      </div>
+      <div class="col-md-4 col-12">
+        <%= address_fields.input :neighborhood, label_html: { class: 'form-label' },
+                                 input_html: { class: 'form-control' } %>
+      </div>
+    </div>
+
+    <div class="row g-0 g-md-5">
+      <div class="col-md-8 col-12">
+        <%= address_fields.input :city, label_html: { class: 'form-label' },
+                                 input_html: { class: 'form-control' } %>
+      </div>
+      <div class="col-md-4 col-12">
+        <%= address_fields.input :state, label_html: { class: 'form-label' },
+                                 input_html: { class: 'form-control' } %>
+      </div>
+    </div>
+  <% end %>
   <div class="my-5">
     <%= f.button :submit, "Salvar", class: 'btn btn-primary' %>
   </div>

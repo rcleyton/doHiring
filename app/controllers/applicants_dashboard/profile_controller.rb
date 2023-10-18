@@ -10,6 +10,7 @@ class ApplicantsDashboard::ProfileController < ApplicantsDashboardController
     redirect_to applicants_dashboard_profile_path(current_applicant.applicant_profile) if 
     current_applicant.applicant_profile.present?
     @applicant_profile = ApplicantProfile.new
+    @applicant_profile.build_address
   end
 
   def create
@@ -32,6 +33,7 @@ class ApplicantsDashboard::ProfileController < ApplicantsDashboardController
     if @applicant_profile.update(applicant_profile_params)
       redirect_to applicants_dashboard_profile_path
       flash[:notice] = "Perfil atualizado com sucesso."
+      puts @applicant_profile.errors.full_messages
     else
       flash.now[:error] = "Verifique o(s) campo(os) em vermelho."
       render :edit
@@ -42,6 +44,8 @@ class ApplicantsDashboard::ProfileController < ApplicantsDashboardController
   def applicant_profile_params
     params.require(:applicant_profile).permit(:applicant_id, :avatar, :first_name,
     :last_name, :birthdate, :rg, :cpf, :gender, :civil_status,
-    :professional_goals)
+    :professional_goals, address_attributes: [:id, :street, :number, :postal_code,
+                                              :complement, :neighborhood,
+                                              :city, :state])
   end
 end

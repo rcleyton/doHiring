@@ -1,31 +1,45 @@
-<h3 class="mb-3">Minhas candidaturas</h3>
-
-  <% if @candidatures.empty?%>
-    <h1>Nenhuma canidatura ainda</h1>
-  <% else %>
-  <div class="table-responsive">
-    <table class="table table-hover border border-primary-subtle">
-      <thead>
-      <tr class="table-primary">
-        <th scope="col">Título da vaga</th>
-        <th scope="col">Status</th>
-        <th scope="col">Detalhes</th>
-      </tr>
-      </thead>
-      <tbody>
-      <% @candidatures.each do |candidature| %>
-        <tr>
-          <td><%= candidature.vacancy.title %></td>
-          <td><%= candidature.status %></td>
-          <td>
-            <%= link_to applicants_dashboard_candidature_path(candidature) do %>
-              <%= icon('fa-solid', 'eye') %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="com-md-10 col-12">
+      <h3 class="mb-4">Minhas candidaturas</h3>
+      <% if @candidatures.empty?%>
+        <div class="card text-center mb-5 bg-warning-subtle">
+          <div class="card-body">
+            <p class="card-text">Nenhuma candidatura ainda</p>
+          </div>
+        </div>
+      <% else %>
+        <div class="table-responsive">
+          <table class="table table-hover border border-primary-subtle">
+            <thead>
+            <tr class="table-primary">
+              <th scope="col">Título da vaga</th>
+              <th scope="col">Status</th>
+              <th scope="col">Detalhes</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @candidatures.each do |candidature| %>
+              <tr>
+                <td><%= candidature.vacancy.title %></td>
+                <td><%= candidature.status %></td>
+                <td>
+                  <%= link_to applicants_dashboard_candidature_path(candidature) do %>
+                    <%= icon('fa-solid', 'eye') %>
+                  <% end %>
+                </td>
+              </tr>
             <% end %>
-          </td>
-        </tr>
+            </tbody>
+          </table>
+        </div>
       <% end %>
-      </tbody>
-    </table>
-<% end %>
+    </div>
   </div>
+</div>
+
+
+
+
+
 

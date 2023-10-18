@@ -46,6 +46,42 @@
           <p class="mb-4"><%= @applicant_profile.professional_goals %></p>
         </div>
       </div>
+      <h3 class="mt-4">Endereço</h3>
+      <hr>
+      <div class="row">
+        <div class="col-md-6 col-12">
+          <h4>Rua</h4>
+          <p class="mb-4"><%= @applicant_profile.address.street %></p>
+        </div>
+        <div class="col-md-3 col-12">
+          <h4>Número</h4>
+          <p class="mb-4"><%= @applicant_profile.address.number %></p>
+        </div>
+        <div class="col-md-3 col-12">
+          <h4>CEP</h4>
+          <p class="mb-4"><%= @applicant_profile.address.postal_code %></p>
+        </div>
+        <div class="row">
+          <div class="col">
+            <h4>Complemento</h4>
+            <p class="mb-4"><%= @applicant_profile.address.complement %></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-12">
+            <h4>Cidade</h4>
+            <p class="mb-4"><%= @applicant_profile.address.city %></p>
+          </div>
+          <div class="col-md-4 col-12">
+            <h4>Bairro</h4>
+            <p class="mb-4"><%= @applicant_profile.address.neighborhood %></p>
+          </div>
+          <div class="col-md-4 col-12">
+            <h4>Estado</h4>
+            <p class="mb-5"><%= @applicant_profile.address.state %></p>
+          </div>
+        </div>
+      </div>
 
       <%= button_to 'Editar', edit_applicants_dashboard_profile_path(@applicant_profile),
                     method: :get, class: 'btn btn-primary mb-5' %>
