@@ -8,9 +8,9 @@ class Vacancy < ApplicationRecord
   
   has_many :candidatures
   has_many :applicant_profiles, through: :candidatures
+  has_many :vacancy_benefits, inverse_of: :vacancy
 
-  before_create :generate_code
-
+  accepts_nested_attributes_for :vacancy_benefits, reject_if: :all_blank, allow_destroy: true
   # pagination
   paginates_per 5
   

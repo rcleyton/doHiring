@@ -5,6 +5,7 @@ class RecruitersDashboard::VacanciesController < RecruitersDashboardController
 
   def show
     @vacancy = Vacancy.find(params[:id])
+    @vacancy_benefits = @vacancy.vacancy_benefits
     rescue ActiveRecord::RecordNotFound
     redirect_to recruiters_dashboard_home_index_path
   end
@@ -50,6 +51,6 @@ class RecruitersDashboard::VacanciesController < RecruitersDashboardController
   def vacancy_params
     params.require(:vacancy).permit(:code, :title, :description,
     :working_model, :salary, :benefits, :location, :recruiter_profile_id, :vacancy_level_id,
-    :status, :requirements, :desired_skill, :contract_type)
+    :status, :requirements, :desired_skill, :contract_type, vacancy_benefits_attributes: [:id, :benefit_name, :_destroy])
   end  
 end

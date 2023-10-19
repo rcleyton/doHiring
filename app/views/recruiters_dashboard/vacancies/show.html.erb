@@ -47,6 +47,13 @@
       <h4>Localização:</h4>
       <p class="mb-4"><%= @vacancy.location %></p>
 
+      <h4>Outros Benefícios</h4>
+      <ul>
+        <% @vacancy_benefits.each do |benefit| %>
+          <li><%= benefit.benefit_name %></li>
+        <% end %>
+      </ul>
+
       <%= button_to 'Editar', edit_recruiters_dashboard_vacancy_path(@vacancy),
                     method: :get, class: 'btn btn-primary mb-5' %>
     </div>

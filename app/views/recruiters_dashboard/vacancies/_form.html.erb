@@ -77,7 +77,25 @@
     </div>
   </div>
 
-  <div class="my-5">
-    <%= form.button :submit, class: 'btn btn-primary' %>
+  <h3 class="mt-5 mb-2">Benefícios</h3>
+  <div class="row">
+    <div class="col">
+      <div id="vacancy_benefits">
+        <%= form.simple_fields_for :vacancy_benefits do |benefit| %>
+          <%= render "vacancy_benefit_fields", :f => benefit %>
+        <% end %>
+        <div class='links'>
+          <%= link_to_add_association form, :vacancy_benefits, class: 'btn btn-success btn-sm my-4' do %>
+            <%= icon('fa-solid', 'plus') %>&nbsp;&nbsp;Adicionar benefício
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row my-5">
+    <div class="col text-end">
+      <%= form.button :submit, class: 'btn btn-primary' %>
+    </div>
   </div>
 <% end %>
