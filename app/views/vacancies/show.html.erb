@@ -74,9 +74,11 @@
       </div>
       <div class="s-job-description mt-5 border-bottom">
         <h2 class="mb-3">Benefícios</h2>
-        <p class="s-description">
-          <%= @vacancy.benefits %>
-        </p>
+        <ul class="list-benefits mb-4">
+          <% @vacancy.vacancy_benefits.each do |benefit| %>
+            <li class="list-benefits-item"><%= benefit.benefit_name %></li>
+          <% end %>
+        </ul>
       </div>
       <div class="my-4">
         <%= link_to "Aplicar", new_applicants_dashboard_vacancy_candidature_path(@vacancy), class: "custom-btn-applay s-btn text-start mb-4" %>
