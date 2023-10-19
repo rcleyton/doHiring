@@ -4,10 +4,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.1.2'
 
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'cocoon'
 gem 'devise'
 gem 'faker'
 gem 'jbuilder', '~> 2.7'
-gem 'jquery-rails'
 gem 'kaminari'
 gem 'kaminari-i18n'
 gem 'pg', '~> 1.1'

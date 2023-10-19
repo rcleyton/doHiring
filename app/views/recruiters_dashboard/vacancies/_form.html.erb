@@ -66,18 +66,29 @@
                      input_html: { class: 'form-control'} %>
     </div>
     <div class="col-md-6 col-12">
-      <%= form.input :benefits, label_html: { class: 'form-label' },
-                     input_html: { class: 'form-control' } %>
+      <%= form.input :location, label_html: { class: 'form-label' }, input_html: { class: 'form-control'} %>
     </div>
   </div>
 
+  <h3 class="mt-5 mb-2">Benefícios</h3>
   <div class="row">
     <div class="col">
-    <%= form.input :location, label_html: { class: 'form-label' }, input_html: { class: 'form-control'} %>
+      <div id="vacancy_benefits">
+        <%= form.simple_fields_for :vacancy_benefits do |benefit| %>
+          <%= render "vacancy_benefit_fields", :f => benefit %>
+        <% end %>
+        <div class='links'>
+          <%= link_to_add_association form, :vacancy_benefits, class: 'btn btn-success btn-sm my-4' do %>
+            <%= icon('fa-solid', 'plus') %>&nbsp;&nbsp;Adicionar benefício
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="my-5">
-    <%= form.button :submit, class: 'btn btn-primary' %>
+  <div class="row my-5">
+    <div class="col text-end">
+      <%= form.button :submit, class: 'btn btn-primary' %>
+    </div>
   </div>
 <% end %>

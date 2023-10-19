@@ -1,0 +1,10 @@
+<div class='nested-fields'>
+  <div class="row my-4">
+    <div class="col d-flex">
+      <%= f.input :benefit_name, label: false, input_html: { class: 'form-control'} %>
+      <%= link_to_remove_association f, class: 'btn btn-danger ms-4' do %>
+        <%= icon('fa-solid', 'trash') %>&nbsp;&nbsp;Remover
+      <% end %>
+    </div>
+  </div>  
+</div>

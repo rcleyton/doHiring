@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_15_155155) do
+ActiveRecord::Schema.define(version: 2023_10_19_212833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -161,7 +161,6 @@ ActiveRecord::Schema.define(version: 2023_10_15_155155) do
     t.text "description"
     t.string "working_model"
     t.string "salary"
-    t.string "benefits"
     t.string "location"
     t.bigint "recruiter_profile_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -174,6 +173,14 @@ ActiveRecord::Schema.define(version: 2023_10_15_155155) do
     t.string "contract_type"
     t.index ["recruiter_profile_id"], name: "index_vacancies_on_recruiter_profile_id"
     t.index ["vacancy_level_id"], name: "index_vacancies_on_vacancy_level_id"
+  end
+
+  create_table "vacancy_benefits", force: :cascade do |t|
+    t.string "benefit_name"
+    t.bigint "vacancy_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["vacancy_id"], name: "index_vacancy_benefits_on_vacancy_id"
   end
 
   create_table "vacancy_levels", force: :cascade do |t|
@@ -198,4 +205,5 @@ ActiveRecord::Schema.define(version: 2023_10_15_155155) do
   add_foreign_key "recruiter_profiles", "recruiters"
   add_foreign_key "vacancies", "recruiter_profiles"
   add_foreign_key "vacancies", "vacancy_levels"
+  add_foreign_key "vacancy_benefits", "vacancies"
 end

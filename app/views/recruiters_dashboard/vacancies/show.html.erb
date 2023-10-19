@@ -38,17 +38,21 @@
       <h4>Salário:</h4>
       <p class="mb-4"><%= number_to_currency @vacancy.salary %></p>
 
+      <h4>Benefícios</h4>
+      <ul class="list-benefits mb-4">
+        <% @vacancy_benefits.each do |benefit| %>
+          <li class="list-benefits-item"><%= benefit.benefit_name %></li>
+        <% end %>
+      </ul>
+
       <h4>Tipo de contrato:</h4>
       <p class="mb-4"><%= @vacancy.contract_type %></p>
-
-      <h4>Benefícios:</h4>
-      <p class="mb-4"><%= @vacancy.benefits %></p>
 
       <h4>Localização:</h4>
       <p class="mb-4"><%= @vacancy.location %></p>
 
       <%= button_to 'Editar', edit_recruiters_dashboard_vacancy_path(@vacancy),
-                    method: :get, class: 'btn btn-primary mb-5' %>
+                    method: :get, class: 'btn btn-primary my-4' %>
     </div>
   </div>
 </div>
