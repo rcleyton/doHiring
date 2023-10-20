@@ -11,6 +11,7 @@ class Vacancy < ApplicationRecord
   has_many :vacancy_benefits, inverse_of: :vacancy
 
   accepts_nested_attributes_for :vacancy_benefits, reject_if: :all_blank, allow_destroy: true
+  
   # pagination
   paginates_per 5
   

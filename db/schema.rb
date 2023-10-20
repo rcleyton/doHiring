@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_19_212833) do
+ActiveRecord::Schema.define(version: 2023_10_20_190311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,6 +110,20 @@ ActiveRecord::Schema.define(version: 2023_10_19_212833) do
     t.index ["recruiter_profile_id"], name: "index_comments_on_recruiter_profile_id"
   end
 
+  create_table "education_levels", force: :cascade do |t|
+    t.string "course_name"
+    t.integer "course_type"
+    t.string "institution_name"
+    t.integer "course_status"
+    t.date "start_date"
+    t.date "end_date"
+    t.date "expected_end_date"
+    t.bigint "applicant_profile_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["applicant_profile_id"], name: "index_education_levels_on_applicant_profile_id"
+  end
+
   create_table "proposals", force: :cascade do |t|
     t.date "start_date"
     t.string "salary_offered"
@@ -199,6 +213,7 @@ ActiveRecord::Schema.define(version: 2023_10_19_212833) do
   add_foreign_key "comments", "applicant_profiles"
   add_foreign_key "comments", "candidatures"
   add_foreign_key "comments", "recruiter_profiles"
+  add_foreign_key "education_levels", "applicant_profiles"
   add_foreign_key "proposals", "applicant_profiles"
   add_foreign_key "proposals", "candidatures"
   add_foreign_key "proposals", "recruiter_profiles"

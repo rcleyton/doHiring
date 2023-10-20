@@ -1,0 +1,17 @@
+pt-BR:
+  activerecord:
+    models:
+      education_level: Escolaridade
+    attributes:
+      education_level:
+        institution_name: Nome da escola
+        course_name: Nome do curso
+        course_type: Tipo do curso
+        course_status: Situação do curso
+        start_date: Data de início
+        end_date: Data do término
+        expected_end_date: Previsão de término
+      education_level/course_statuses:
+        in_progress: Em andamento
+        completed: Completo
+        suspended: Trancada

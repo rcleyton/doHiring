@@ -1,6 +1,7 @@
 class ApplicantsDashboard::ProfileController < ApplicantsDashboardController
   def show
     @applicant_profile = ApplicantProfile.find(params[:id])
+    @education_levels = @applicant_profile.education_levels
     redirect_to applicants_dashboard_home_index_path if @applicant_profile != current_applicant.applicant_profile
     rescue ActiveRecord::RecordNotFound
     redirect_to applicants_dashboard_home_index_path
@@ -11,6 +12,7 @@ class ApplicantsDashboard::ProfileController < ApplicantsDashboardController
     current_applicant.applicant_profile.present?
     @applicant_profile = ApplicantProfile.new
     @applicant_profile.build_address
+    @applicant_profile.education_levels.build
   end
 
   def create
@@ -43,9 +45,10 @@ class ApplicantsDashboard::ProfileController < ApplicantsDashboardController
   private
   def applicant_profile_params
     params.require(:applicant_profile).permit(:applicant_id, :avatar, :first_name,
-    :last_name, :birthdate, :rg, :cpf, :gender, :civil_status,
-    :professional_goals, address_attributes: [:id, :street, :number, :postal_code,
-                                              :complement, :neighborhood,
-                                              :city, :state])
+    :last_name, :birthdate, :rg, :cpf, :gender, :civil_status, :professional_goals, 
+    address_attributes: [
+      :id, :street, :number, :postal_code, :complement, :neighborhood, :city, :state], 
+    education_levels_attributes: [:id, :course_name, :course_type, :institution_name, 
+      :course_status, :start_date, :end_date, :expected_end_date, :_destroy])
   end
 end

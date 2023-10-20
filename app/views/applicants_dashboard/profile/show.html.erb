@@ -82,6 +82,52 @@
           </div>
         </div>
       </div>
+      <h3 class="mt-4">Escolaridade</h3>
+      <hr>
+      <% @education_levels.each do |education| %>
+        <div class="mb-4 border-bottom">
+          <div class="row">
+            <div class="col-md-5 col-12">
+              <h4>Curso</h4>
+              <p class="mb-5"><%= education.course_name %></p>
+            </div>
+            <div class="col-md-7 col-12">
+              <h4>Instiutição de ensino</h4>
+              <p class="mb-5"><%= education.institution_name %></p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 col-12">
+              <h4>Tipo curso</h4>
+              <p class="mb-5"><%= education.course_type %></p>
+            </div>
+            <div class="col-md-6 col-12">
+              <h4>Situação curso</h4>
+              <p class="mb-5"><%= education.course_status %></p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4 col-12">
+              <h4>Data de início</h4>
+              <p class="mb-5"><%= l education.start_date, format: :long %></p>
+            </div>
+            <% if education.end_date.present? %>
+              <div class="col-md-4 col-12">
+                <h4>Data de término</h4>
+                <p class="mb-5"><%= l education.end_date, format: :long %></p>
+              </div>
+            <% end %>
+            <% if education.expected_end_date.present? %>
+              <div class="col-md-4 col-12">
+                <h4>Previsão de término</h4>
+                <p class="mb-5"><%= education.expected_end_date %></p>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
 
       <%= button_to 'Editar', edit_applicants_dashboard_profile_path(@applicant_profile),
                     method: :get, class: 'btn btn-primary mb-5' %>

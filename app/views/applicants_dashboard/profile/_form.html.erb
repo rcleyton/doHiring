@@ -4,57 +4,57 @@
   
 <%= simple_form_for @applicant_profile,
                     url: (@applicant_profile.new_record? ? applicants_dashboard_profile_index_path
-                            : applicants_dashboard_profile_path ) do |f| %>
+                            : applicants_dashboard_profile_path ) do |form| %>
 
-  <%= f.input :applicant_id, as: :hidden, input_html: { value: current_applicant.id} %>
+  <%= form.input :applicant_id, as: :hidden, input_html: { value: current_applicant.id} %>
 
   <h3 class="mt-3 mt-md-0">Foto de perfil</h3>
   <div class="row">
     <div class="col">
-    <%= f.input :avatar, as: :file, input_html: { class: 'form-control' } %>
+    <%= form.input :avatar, as: :file, input_html: { class: 'form-control' } %>
     </div>
   </div>
   <div class="row g-0 g-md-5">
     <div class="col-md-6 col-12">
-      <%= f.input :first_name, label_html: { class: 'form-label' },
+      <%= form.input :first_name, label_html: { class: 'form-label' },
                   input_html: { class: 'form-control'} %>
     </div>
     <div class="col-md-6 col-12">
-      <%= f.input :last_name, label_html: { class: 'form-label' },
+      <%= form.input :last_name, label_html: { class: 'form-label' },
                   input_html: { class: 'form-control' } %>
     </div>
   </div>
   <div class="row g-0 g-md-5">
     <div class="col-md-4 col-12">
-      <%= f.input :birthdate, as: :string, label_html: { class: 'form-label' },
+      <%= form.input :birthdate, as: :string, label_html: { class: 'form-label' },
                   input_html: { type: :date, class: 'form-control' } %>
     </div>
     <div class="col-md-4 col-12">
-      <%= f.input :rg, label_html: { class: 'form-label' },
+      <%= form.input :rg, label_html: { class: 'form-label' },
                   input_html: { class: 'form-control' } %>
     </div>
     <div class="col-md-4 col-12">
-      <%= f.input :cpf, label_html: { class: 'form-label' },
+      <%= form.input :cpf, label_html: { class: 'form-label' },
                   input_html: { class: 'form-control' } %>
     </div>
   </div>
   <div class="row g-0 g-md-5">
     <div class="col-md-6 col-12">
-      <%= f.input :gender, label_html: { class: 'form-label' },
+      <%= form.input :gender, label_html: { class: 'form-label' },
                   input_html: { class: 'form-control' } %>
     </div>
     <div class="col-md-6 col-12">
-      <%= f.input :civil_status, label_html: { class: 'form-label' },
+      <%= form.input :civil_status, label_html: { class: 'form-label' },
                   input_html: { class: 'form-control' } %>
     </div>
   </div>
   <div class="row">
-    <%= f.input :professional_goals, as: 'text', label_html: { class: 'form-label' },
+    <%= form.input :professional_goals, as: 'text', label_html: { class: 'form-label' },
                 input_html: { class: 'form-control' } %>
   </div>
 
   <h3 class="mt-5 mb-2">Endereço</h3>
-  <%= f.fields_for :address do |address_fields| %>
+  <%= form.fields_for :address do |address_fields| %>
     <div class="row g-0 g-md-5">
       <div class="col-md-6 col-12">
         <%= address_fields.input :street, label_html: { class: 'form-label' },
@@ -91,9 +91,25 @@
                                  input_html: { class: 'form-control' } %>
       </div>
     </div>
+
+    <h3 class="mt-5 mb-2">Escolaridade</h3>
+    <div class="row g-0 g-md-5">
+      <div id="education-levels" class="col">
+        <%= form.simple_fields_for :education_levels do |education| %>
+          <%= render 'education_level_fields', :f => education %>
+        <% end %>
+        <div class='links'>
+          <%= link_to_add_association form, :education_levels, class: "btn btn-success my-4" do %>
+            <%= icon('fa-solid', 'plus') %>&nbsp;&nbsp;Adicionar formação
+          <% end %>
+        </div>
+      </div>
+    </div>
   <% end %>
-  <div class="my-5">
-    <%= f.button :submit, "Salvar", class: 'btn btn-primary' %>
+  <div class="row my-5">
+    <div class="col text-end">
+      <%= form.button :submit, "Salvar", class: 'btn btn-primary' %>
+    </div>
   </div>
 <% end %>
 
