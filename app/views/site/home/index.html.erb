@@ -11,7 +11,6 @@
           candidatos. Com nossas ferramentas, você pode encontrar
           oportunidades de emprego que correspondam às suas habilidades e
           experiências, ou encontrar os melhores talentos para sua empresa.</p>
-        <p></p>
 
         <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
           <%= button_to "Quero contratar", new_recruiter_registration_path, 
@@ -27,13 +26,13 @@
   </div>
 </div>
 
-<div class="container-fluid">
-  <section class="row cta-section">
+<div class="container">
+  <section class="row cta-section rounded-4">
     <div class="col-md-8 offset-md-2">
       <div class="cta-content text-center">
-        <h2 class="welcome-title">Encontre a oportunidade perfeita!</h2>
-        <p class="section-paragraph mb-5">Explore milhares de vagas em nossa plataforma e dê um impulso em sua carreira.</p>
-        <%= link_to 'Ver vagas', vacancies_path, class: "custom-outline-btn" %>
+        <h2 class="welcome-title fw-semibold">Encontre a oportunidade perfeita!</h2>
+        <p class="section-paragraph mb-5 fs-5 fw-bolder">Explore milhares de vagas em nossa plataforma e dê um impulso em sua carreira.</p>
+        <%= link_to 'Ver vagas', vacancies_path, class: "custom-btn" %>
       </div>
     </div>
   </section>
@@ -52,52 +51,6 @@
     <div class="col-md-4 py-4">
       <h2 class="welcome-subtitle">Deu Match</h2>
       <p class="section-paragraph">Com a doHiring, encontrar o candidato ideal para sua vaga é fácil. Com nosso recurso "Deu match", você recebe recomendações de candidatos qualificados que correspondem às suas vagas. Não perca tempo analisando centenas de candidaturas - encontre o candidato ideal em segundos com a doHiring.</p>
-    </div>
-  </section>
-</div>
-
-<div class="container-fluid">
-  <section class="row testimonial-section">
-    <div class="col-md-8 offset-md-2">
-      <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="testimonial-card">
-              <%= image_tag "chat.svg", class: "testimonial-icon" %>
-              <p class="section-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris feugiat urna sed quam sagittis, sed rhoncus massa dapibus.</p>
-              <img src="https://randomuser.me/api/portraits/men/35.jpg" alt="Depoimento 1" class="testimonial-image">
-              <h4>John Doe</h4>
-              <p class="section-paragraph">CEO, Empresa ABC</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="testimonial-card">
-              <%= image_tag "chat.svg", class: "testimonial-icon" %>
-              <p class="section-paragraph">Nullam ultrices consequat nulla, ac interdum enim auctor vel. In vel pharetra dui.</p>
-              <img src="https://randomuser.me/api/portraits/women/63.jpg" alt="Depoimento 2" class="testimonial-image">
-              <h4>Jane Smith</h4>
-              <p class="section-paragraph">Gerente de Marketing</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="testimonial-card">
-              <%= image_tag "chat.svg", class: "testimonial-icon" %>
-              <p class="section-paragraph">Etiam condimentum metus elit, ac auctor est elementum eu. Sed pulvinar tristique sollicitudin.</p>
-              <img src="https://randomuser.me/api/portraits/men/97.jpg" alt="Depoimento 3" class="testimonial-image">
-              <h4>Mike Johnson</h4>
-              <p class="section-paragraph">Desenvolvedor Web</p>
-            </div>
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
     </div>
   </section>
 </div>
