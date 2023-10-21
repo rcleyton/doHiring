@@ -34,7 +34,11 @@
               </a>
             </li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Sair</a></li>
+            <li>
+              <%= link_to destroy_applicant_session_path, class: "dropdown-item", method: :delete do %>
+                Sair
+              <% end %>
+            </li>
           </ul>
         </div>
       </div>
