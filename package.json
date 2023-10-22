@@ -2,6 +2,7 @@
   "name": "do-hiring",
   "private": true,
   "dependencies": {
+    "@hotwired/turbo-rails": "^7.3.0",
     "@nathanvda/cocoon": "^1.2.14",
     "@popperjs/core": "^2.11.8",
     "@rails/actioncable": "^6.0.0",
@@ -10,7 +11,6 @@
     "@rails/webpacker": "5.4.4",
     "bootstrap": "^5.3.1",
     "jquery": "^3.7.0",
-    "turbolinks": "^5.2.0",
     "webpack": "^4.46.0",
     "webpack-cli": "^3.3.12"
   },

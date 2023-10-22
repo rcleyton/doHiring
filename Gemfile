@@ -7,6 +7,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'cocoon'
 gem 'devise'
 gem 'faker'
+gem "importmap-rails"
 gem 'jbuilder', '~> 2.7'
 gem 'kaminari'
 gem 'kaminari-i18n'
@@ -16,7 +17,7 @@ gem 'rails', '~> 6.1.4'
 gem 'ransack'
 gem 'sassc-rails', '>= 2.0'
 gem 'simple_form'
-gem 'turbolinks', '~> 5'
+gem "turbo-rails"
 gem 'webpacker', '~> 5.0'
 gem "font-awesome-sass", "~> 6.4.0"
 
@@ -33,3 +34,6 @@ group :development do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Use Redis for Action Cable
+gem 'redis', '~> 4.0'
