@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_20_190311) do
-
+ActiveRecord::Schema[7.1].define(version: 2023_10_23_141326) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,7 +19,7 @@ ActiveRecord::Schema.define(version: 2023_10_20_190311) do
     t.string "record_type", null: false
     t.bigint "record_id", null: false
     t.bigint "blob_id", null: false
-    t.datetime "created_at", null: false
+    t.datetime "created_at", precision: nil, null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
@@ -32,8 +31,8 @@ ActiveRecord::Schema.define(version: 2023_10_20_190311) do
     t.text "metadata"
     t.string "service_name", null: false
     t.bigint "byte_size", null: false
-    t.string "checksum", null: false
-    t.datetime "created_at", null: false
+    t.string "checksum"
+    t.datetime "created_at", precision: nil, null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
@@ -53,8 +52,8 @@ ActiveRecord::Schema.define(version: 2023_10_20_190311) do
     t.string "state"
     t.bigint "recruiter_profile_id"
     t.bigint "applicant_profile_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["applicant_profile_id"], name: "index_addresses_on_applicant_profile_id"
     t.index ["recruiter_profile_id"], name: "index_addresses_on_recruiter_profile_id"
   end
@@ -69,8 +68,8 @@ ActiveRecord::Schema.define(version: 2023_10_20_190311) do
     t.string "civil_status"
     t.string "professional_goals"
     t.bigint "applicant_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["applicant_id"], name: "index_applicant_profiles_on_applicant_id"
   end
 
@@ -78,10 +77,10 @@ ActiveRecord::Schema.define(version: 2023_10_20_190311) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "reset_password_sent_at", precision: nil
+    t.datetime "remember_created_at", precision: nil
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["email"], name: "index_applicants_on_email", unique: true
     t.index ["reset_password_token"], name: "index_applicants_on_reset_password_token", unique: true
   end
@@ -90,8 +89,8 @@ ActiveRecord::Schema.define(version: 2023_10_20_190311) do
     t.string "reason_application"
     t.bigint "applicant_profile_id", null: false
     t.bigint "vacancy_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.boolean "favorite", default: false
     t.string "status", default: "Candidatura Enviada"
     t.index ["applicant_profile_id"], name: "index_candidatures_on_applicant_profile_id"
@@ -103,8 +102,8 @@ ActiveRecord::Schema.define(version: 2023_10_20_190311) do
     t.bigint "applicant_profile_id", null: false
     t.bigint "recruiter_profile_id", null: false
     t.bigint "candidature_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["applicant_profile_id"], name: "index_comments_on_applicant_profile_id"
     t.index ["candidature_id"], name: "index_comments_on_candidature_id"
     t.index ["recruiter_profile_id"], name: "index_comments_on_recruiter_profile_id"
@@ -119,8 +118,8 @@ ActiveRecord::Schema.define(version: 2023_10_20_190311) do
     t.date "end_date"
     t.date "expected_end_date"
     t.bigint "applicant_profile_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["applicant_profile_id"], name: "index_education_levels_on_applicant_profile_id"
   end
 
@@ -133,8 +132,8 @@ ActiveRecord::Schema.define(version: 2023_10_20_190311) do
     t.string "bonus"
     t.text "additional_information"
     t.bigint "candidature_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "recruiter_profile_id"
     t.bigint "applicant_profile_id"
     t.string "status", default: "Aguardando resposta do candidato"
@@ -151,8 +150,8 @@ ActiveRecord::Schema.define(version: 2023_10_20_190311) do
     t.string "sector"
     t.integer "number_employee"
     t.bigint "recruiter_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.text "about_us"
     t.string "trade_name"
     t.index ["recruiter_id"], name: "index_recruiter_profiles_on_recruiter_id"
@@ -162,10 +161,10 @@ ActiveRecord::Schema.define(version: 2023_10_20_190311) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "reset_password_sent_at", precision: nil
+    t.datetime "remember_created_at", precision: nil
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["email"], name: "index_recruiters_on_email", unique: true
     t.index ["reset_password_token"], name: "index_recruiters_on_reset_password_token", unique: true
   end
@@ -177,8 +176,8 @@ ActiveRecord::Schema.define(version: 2023_10_20_190311) do
     t.string "salary"
     t.string "location"
     t.bigint "recruiter_profile_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "code"
     t.bigint "vacancy_level_id"
     t.string "status", default: "Ativo"
@@ -192,15 +191,15 @@ ActiveRecord::Schema.define(version: 2023_10_20_190311) do
   create_table "vacancy_benefits", force: :cascade do |t|
     t.string "benefit_name"
     t.bigint "vacancy_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["vacancy_id"], name: "index_vacancy_benefits_on_vacancy_id"
   end
 
   create_table "vacancy_levels", force: :cascade do |t|
     t.string "level"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

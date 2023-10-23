@@ -2,6 +2,7 @@
   "name": "do-hiring",
   "private": true,
   "dependencies": {
+    "@hotwired/stimulus": "^3.2.2",
     "@hotwired/turbo-rails": "^7.3.0",
     "@nathanvda/cocoon": "^1.2.14",
     "@popperjs/core": "^2.11.8",
@@ -10,6 +11,7 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.4.4",
     "bootstrap": "^5.3.1",
+    "esbuild": "^0.19.5",
     "jquery": "^3.7.0",
     "webpack": "^4.46.0",
     "webpack-cli": "^3.3.12"
@@ -17,5 +19,8 @@
   "version": "0.1.0",
   "devDependencies": {
     "webpack-dev-server": "^3"
+  },
+  "scripts": {
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=/assets"
   }
 }
