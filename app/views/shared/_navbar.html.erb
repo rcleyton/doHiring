@@ -1,45 +1,36 @@
-<nav class="navbar navbar-expand-lg navbar-light custom-navbar">
-  <div class="container">
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "logo.png", alt: "Logo", height: "70", width: "70", class: "d-inline-block align-text-top" %>
-    <% end %>
-    <button class="navbar-toggler collapsed text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="navbar-collapse collapse" id="navbarNav" style="">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item px-5">
-          <%= link_to vacancies_path, class: "nav-link text-white text-md-start text-center" do %>
-          <i class="fa-solid fa-magnifying-glass"></i>&nbsp;&nbsp;&nbsp;Vagas
-          <% end %>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle fw-semibold text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Entrar
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li>
-              <%= link_to 'Entrar como Cadidato', new_applicant_session_path, class: "dropdown-item" %>
-            </li>
-            <li>
-              <%= link_to 'Entrar como Recrutador', new_recruiter_session_path, class: "dropdown-item" %>
-            </li>
+<nav>
+  <div class="navbar">
+    <i class='bx bx-menu'></i>
+    <div class="logo"><a href="#">doHiring</a></div>
+    <div class="nav-links">
+      <div class="sidebar-logo">
+        <span class="logo-name">doHiring</span>
+        <i class='bx bx-x' ></i>
+      </div>
+      <ul class="links">
+        <li>
+          <a href="#">Entrar</a>
+          <i class='bx bxs-chevron-down htmlcss-arrow arrow  '></i>
+          <ul class="htmlCss-sub-menu sub-menu">
+            <li><%= link_to 'Sou cadidato', new_applicant_session_path %></li>
+            <li><%= link_to 'Sou recrutador', new_recruiter_session_path %></li>
           </ul>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-white fw-semibold " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Registrar
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li>
-              <%= link_to 'Cadastrar como Candidato', new_applicant_registration_path, class: "dropdown-item" %>
-            </li>
-            <li>
-              <%= link_to 'Cadastrar como Recrutador', new_recruiter_registration_path, class: "dropdown-item" %>
-            </li>
+        <li>
+          <a href="#">Registrar</a>
+          <i class='bx bxs-chevron-down js-arrow arrow '></i>
+          <ul class="js-sub-menu sub-menu">
+            <li><%= link_to 'Como candidato', new_applicant_registration_path %></li>
+            <li><%= link_to 'Como empresa', new_recruiter_registration_path %></li>
           </ul>
         </li>
       </ul>
+    </div>
+    <div class="search-box">
+      <i class='bx bx-search'></i>
+      <div class="input-box">
+        <input type="text" placeholder="Buscar..">
+      </div>
     </div>
   </div>
 </nav>
