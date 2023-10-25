@@ -1,52 +1,53 @@
-<footer class="footer custom-footer">
-  <div class="container">
-    <div class="row text-white text-md-start text-center">
-      <div class="col-xl-3 col-md-6 col-lg-3 footer-column">
-        <%= image_tag "logo.png", alt: "Logo", width: "70", class: "mb-4" %>
-        <ul class="list-unstyled">
-          <li><a href="#">+55 11 992722723</a></li>
-          <li><a href="#">dohiring@support.com</a></li>
-        </ul>
-        <ul class="list-inline">
-          <li class="list-inline-item">
-            <%= link_to icon('fa-brands', 'linkedin-in'), "https://www.linkedin.com/in/cleytonrsilva/", class: "text-success", target: "_blank" %>
-          </li>
-          <li class="list-inline-item">
-            <%= link_to icon('fa-brands', 'github'), "https://github.com/rcleyton/", class: "text-success", target: "_blank" %>
-          </li>
-        </ul>
-      </div>
-      <div class="col-xl-3 col-md-6 col-lg-3 footer-column">
-        <h5 class="mb-4">Institucional</h5>
-        <ul class="list-unstyled">
-          <li><a href="#">Quem somos</a></li>
-          <li><a href="#">Fale conosco</a></li>
-          <li><a href="#">Termos de uso</a></li>
-          <li><a href="#">Política de privacidade</a></li>
-        </ul>
-      </div>
-      <div class="col-xl-3 col-md-6 col-lg-3 footer-column">
-        <h5 class="mb-4">Links úteis</h5>
-        <ul class="list-unstyled">
-          <li><a href="#">Publicar vagas</a></li>
-          <li><a href="#">Buscar vagas</a></li>
-          <li><a href="#">Blog</a></li>
-        </ul>
-      </div>
-      <div class="col-xl-3 col-md-6 col-lg-3 footer-column">
-        <h5 class="mb-4">Newsletter</h5>
-        <form action="#" class="newsletter_form">
-          <input type="text" placeholder="Digite seu email">
-          <button type="submit">Assinar</button>
-        </form>
-        <p class="newsletter_text">Assine a newsletter para receber atualizações</p>
-      </div>
+<footer class="footer">
+  <div class="footer__inner">    
+    <div class="footer__column">
+      <%= image_tag "logo.png", alt: "Logo", width: "70" %>
+      <ul class="footer__column--list">
+        <li><a href="#">+55 11 992722723</a></li>
+        <li><a href="#">dohiring@support.com</a></li>
+      </ul>
+      <ul class="footer__column--list footer__column--list-inline">
+        <li class="list-inline-item">
+          <%= link_to "https://www.linkedin.com/in/cleytonrsilva/", target: "_blank" do %>
+            <i class='bx bxl-linkedin-square'></i>
+          <% end %>
+        </li>
+        <li class="list-inline-item">
+          <%= link_to "https://github.com/rcleyton/", target: "_blank" do %>
+            <i class='bx bxl-github'></i>
+          <% end %>
+        </li>
+      </ul>
     </div>
-    <hr class="text-light">
+    <div class="footer__column">
+      <h3 class="footer__column--title">Institucional</h3>
+      <ul class="footer__column--list">
+        <li><a href="#">Quem somos</a></li>
+        <li><a href="#">Fale conosco</a></li>
+        <li><a href="#">Termos de uso</a></li>
+        <li><a href="#">Política de privacidade</a></li>
+      </ul>
+    </div>
+    <div class="footer__column">
+      <h3 class="footer__column--title">Links úteis</h3>
+      <ul class="footer__column--list">
+        <li><a href="#">Publicar vagas</a></li>
+        <li><a href="#">Buscar vagas</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer__column">
+      <h3 class="footer__column--title">Newsletter</h3>
+      <form action="#" class="footer__column--form">
+        <input type="text" placeholder="Digite seu email">
+        <button type="submit">Assinar</button>
+      </form>
+      <p class="newsletter_text">Assine a newsletter para receber atualizações</p>
+    </div>
   </div>
-  <div class="text-center pb-3">
-    <span class="text-light">©<%= DateTime.now.year %> doHiring. 
-      <a href="https://www.linkedin.com/in/cleytonrsilva/" target="_blank" class="text-white">
+  <div class="footer__copy">
+    <span>©<%= DateTime.now.year %> doHiring. 
+      <a href="https://www.linkedin.com/in/cleytonrsilva/" target="_blank">
         Desenvolvidor por Cleyton R. Silva</span>
       </a>
   </div>

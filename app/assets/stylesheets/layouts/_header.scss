@@ -12,7 +12,7 @@ nav {
 
 nav .navbar {
   height: 100%;
-  max-width: 1250px;
+  @include container;
   width: 100%;
   display: flex;
   align-items: center;
