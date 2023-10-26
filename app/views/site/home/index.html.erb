@@ -1,30 +1,29 @@
 <%= render "shared/navbar" %>
 
-<div class="container-fluid section-welcome pt-5">
-  <div class="container">
-    <section class="row section-content align-items-center">
-      <div class="col-md-6 mb-4 text-md-start text-center">
-        <h1 class="welcome-title">Bem-vindo ao doHiring</h1>
-        <h3 class="welcome-subtitle">Encontre as melhores oportunidades de emprego.</h3>
-        <p class="section-paragraph">
-          A doHiring é a plataforma ideal para conectar recrutadores e
-          candidatos. Com nossas ferramentas, você pode encontrar
-          oportunidades de emprego que correspondam às suas habilidades e
-          experiências, ou encontrar os melhores talentos para sua empresa.</p>
+<section class="home">
+  <div class="home__welcome">
+    <h1 class="home__welcome-title">Bem-vindo ao doHiring</h1>
+    <h3 class="home__welcome-subtitle">Encontre as melhores oportunidades de emprego.</h3>
+    <p class="home__welcome-paragraph">
+      A doHiring é a plataforma ideal para conectar recrutadores e
+      candidatos. Com nossas ferramentas, você pode encontrar
+      oportunidades de emprego que correspondam às suas habilidades e
+      experiências, ou encontrar os melhores talentos para sua empresa.
+    </p>
 
-        <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-          <%= button_to "Quero contratar", new_recruiter_registration_path, 
-              method: :get, class: "custom-btn" %>
-          <%= button_to "Quero trabalhar", new_applicant_registration_path, 
-          method: :get, class: "custom-outline-btn" %>
-        </div>
-      </div>
-      <div class="col-md-6 d-flex justify-content-center align-items-center mt-4">
-        <%= image_tag "recruiter.png", class: "img-fluid welcome-img" %>
-      </div>
-    </section>
+    <div class="home__welcome-btns">
+      <%= button_to "Quero contratar", new_recruiter_registration_path, class: "btn", 
+          method: :get %>
+      <%= button_to "Quero trabalhar", new_applicant_registration_path, class: "btn--outline", 
+      method: :get %>
+    </div>
+
   </div>
-</div>
+  <div class="home__img">
+    <%= image_tag "recruiter.png" %>
+  </div>
+</section>
+
 
 <div class="container">
   <section class="row cta-section rounded-4">
