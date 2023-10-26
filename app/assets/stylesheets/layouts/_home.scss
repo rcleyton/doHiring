@@ -80,6 +80,27 @@
   }
 }
 
+.home__cta {
+  @include container;
+  text-align: center;
+  background-color: var(--color-light);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-small);
+  margin: var(--space-xxl) auto;
+  padding: var(--space-xxxxl) var(--space-m);
+
+  &-title {
+    color: var(--color-primary);
+    margin: 0 0 var(--space-m) 0;
+  }
+
+  &-paragraph {
+    color: #919191;
+    margin: 0 0 var(--space-xxl) 0;
+    line-height: var(--line-height-body);
+  }
+}
+
 @keyframes moveUpDown {
   0% {
     transform: translateY(0)
