@@ -1,0 +1,29 @@
+.btn {
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: var(--color-primary-rotate);
+  color: var(--color-light);
+  font-weight: bold;
+  border: 2px solid var(--color-primary-rotate);
+  border-radius: 8px;
+  cursor: pointer;
+  padding: var(--space-xs) var(--space-m);
+  margin: 0;
+  transition: .3s;
+  box-shadow: var(--shadow-small);
+}
+
+.btn--outline {
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: var(--color-light);
+  color: var(--color-primary);
+  font-weight: bold;
+  border: 2px solid var(--color-primary-rotate);
+  border-radius: 8px;
+  cursor: pointer;
+  padding: var(--space-xs) var(--space-m);
+  margin: 0;
+  transition: .3s;
+  box-shadow: var(--shadow-small);
+}

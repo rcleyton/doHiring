@@ -1,58 +1,57 @@
 <%= render "shared/navbar" %>
 
-<div class="container-fluid section-welcome pt-5">
-  <div class="container">
-    <section class="row section-content align-items-center">
-      <div class="col-md-6 mb-4 text-md-start text-center">
-        <h1 class="welcome-title">Bem-vindo ao doHiring</h1>
-        <h3 class="welcome-subtitle">Encontre as melhores oportunidades de emprego.</h3>
-        <p class="section-paragraph">
-          A doHiring é a plataforma ideal para conectar recrutadores e
-          candidatos. Com nossas ferramentas, você pode encontrar
-          oportunidades de emprego que correspondam às suas habilidades e
-          experiências, ou encontrar os melhores talentos para sua empresa.</p>
+<section class="home">
+  <div class="home__welcome">
+    <h1 class="home__welcome-title">Bem-vindo ao doHiring</h1>
+    <h3 class="home__welcome-subtitle">Encontre as melhores oportunidades de emprego.</h3>
+    <p class="home__welcome-paragraph">
+      A doHiring é a plataforma ideal para conectar recrutadores e
+      candidatos. Com nossas ferramentas, você pode encontrar
+      oportunidades de emprego que correspondam às suas habilidades e
+      experiências, ou encontrar os melhores talentos para sua empresa.
+    </p>
 
-        <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-          <%= button_to "Quero contratar", new_recruiter_registration_path, 
-              method: :get, class: "custom-btn" %>
-          <%= button_to "Quero trabalhar", new_applicant_registration_path, 
-          method: :get, class: "custom-outline-btn" %>
-        </div>
-      </div>
-      <div class="col-md-6 d-flex justify-content-center align-items-center mt-4">
-        <%= image_tag "recruiter.png", class: "img-fluid welcome-img" %>
-      </div>
-    </section>
+    <div class="home__welcome-btns">
+      <%= button_to "Quero contratar", new_recruiter_registration_path, class: "btn", 
+          method: :get %>
+      <%= button_to "Quero trabalhar", new_applicant_registration_path, class: "btn--outline", 
+      method: :get %>
+    </div>
+
   </div>
-</div>
+  <div class="home__img">
+    <%= image_tag "recruiter.png" %>
+  </div>
+</section>
 
-<div class="container">
-  <section class="row cta-section rounded-4">
-    <div class="col-md-8 offset-md-2">
-      <div class="cta-content text-center">
-        <h2 class="welcome-title fw-semibold">Encontre a oportunidade perfeita!</h2>
-        <p class="section-paragraph mb-5 fs-5 fw-bolder">Explore milhares de vagas em nossa plataforma e dê um impulso em sua carreira.</p>
-        <%= link_to 'Ver vagas', vacancies_path, class: "custom-btn" %>
-      </div>
-    </div>
-  </section>
-</div>
+<section class="home__cta">
+  <h2 class="home__cta-title">Encontre a oportunidade perfeita!</h2>
+  <p class="home__cta-paragraph">Explore milhares de vagas em nossa plataforma e dê um impulso em sua carreira.</p>
+  <%= link_to 'Ver vagas', vacancies_path, class: "btn--outline" %>
+</section>
 
-<div class="container my-5">
-  <section class="row text-md-start text-center pt-5">
-    <div class="col-md-4 py-4">
-      <h2 class="welcome-subtitle">Recrutador</h2>
-      <p class="section-paragraph">Encontre os melhores talentos para sua empresa com a doHiring. Com nossa plataforma, você pode criar vagas, gerenciar candidaturas e escolher os candidatos mais qualificados para a vaga. Simplifique seu processo de contratação e encontre os melhores talentos para sua equipe.</p>
+<section class="homeAbout">
+  <div class="homeAbout__users">
+    <div class="homeAbout__users--cards">
+      <%= image_tag "recruiter-search.svg", class: "homeAbout__users--images" %>
+      <h3 class="homeAbout__users--subtitle">Recrutador</h3>
+      <p class="homeAbout__users--paragraph">Encontre os melhores talentos para sua empresa com a doHiring.</p>
     </div>
-    <div class="col-md-4 py-4">
-      <h2 class="welcome-subtitle">Candidato</h2>
-      <p class="section-paragraph">A doHiring é o lugar ideal para encontrar as melhores oportunidades de emprego. Com nossa plataforma, você pode pesquisar vagas, se candidatar diretamente pelo sistema e acompanhar suas candidaturas. Além disso, nossa ferramenta de busca avançada ajuda você a encontrar vagas que correspondam às suas habilidades e experiências.</p>
+    <div class="homeAbout__users--cards">
+      <%= image_tag "user-hand-up.svg", class: "homeAbout__users--images" %>
+      <h3 class="homeAbout__users--subtitle">Candidato</h3>
+      <p class="homeAbout__users--paragraph">A doHiring é o lugar ideal para encontrar as melhores oportunidades de emprego.</p>
     </div>
-    <div class="col-md-4 py-4">
-      <h2 class="welcome-subtitle">Deu Match</h2>
-      <p class="section-paragraph">Com a doHiring, encontrar o candidato ideal para sua vaga é fácil. Com nosso recurso "Deu match", você recebe recomendações de candidatos qualificados que correspondem às suas vagas. Não perca tempo analisando centenas de candidaturas - encontre o candidato ideal em segundos com a doHiring.</p>
+  </div>
+  <div class="homeAbout__users">
+    <div class="homeAbout__users--cards card-match">
+      <%= image_tag "user-ok.svg", class: "homeAbout__users--images" %>
+      <h3 class="homeAbout__users--subtitle">Deu Match</h3>
+      <p class="homeAbout__users--paragraph">Com a doHiring, encontrar o candidato ideal para sua vaga é fácil.</p>
+      <p class="homeAbout__users--paragraph">Com nosso recurso "Deu match", você recebe recomendações de candidatos qualificados que correspondem às suas vagas.</p>
+      <p class="homeAbout__users--paragraph">Não perca tempo analisando centenas de candidaturas - encontre o candidato ideal em segundos com a doHiring.</p>
     </div>
-  </section>
-</div>
+  </div>
+</section>
 
 <%= render "shared/footer" %>
