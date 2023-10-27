@@ -30,22 +30,28 @@
   <%= link_to 'Ver vagas', vacancies_path, class: "btn--outline" %>
 </section>
 
-
-<div class="container my-5">
-  <section class="row text-md-start text-center pt-5">
-    <div class="col-md-4 py-4">
-      <h2 class="welcome-subtitle">Recrutador</h2>
-      <p class="section-paragraph">Encontre os melhores talentos para sua empresa com a doHiring. Com nossa plataforma, você pode criar vagas, gerenciar candidaturas e escolher os candidatos mais qualificados para a vaga. Simplifique seu processo de contratação e encontre os melhores talentos para sua equipe.</p>
+<section class="homeAbout">
+  <div class="homeAbout__users">
+    <div class="homeAbout__users--cards">
+      <%= image_tag "recruiter-search.svg", class: "homeAbout__users--images" %>
+      <h3 class="homeAbout__users--subtitle">Recrutador</h3>
+      <p class="homeAbout__users--paragraph">Encontre os melhores talentos para sua empresa com a doHiring.</p>
     </div>
-    <div class="col-md-4 py-4">
-      <h2 class="welcome-subtitle">Candidato</h2>
-      <p class="section-paragraph">A doHiring é o lugar ideal para encontrar as melhores oportunidades de emprego. Com nossa plataforma, você pode pesquisar vagas, se candidatar diretamente pelo sistema e acompanhar suas candidaturas. Além disso, nossa ferramenta de busca avançada ajuda você a encontrar vagas que correspondam às suas habilidades e experiências.</p>
+    <div class="homeAbout__users--cards">
+      <%= image_tag "user-hand-up.svg", class: "homeAbout__users--images" %>
+      <h3 class="homeAbout__users--subtitle">Candidato</h3>
+      <p class="homeAbout__users--paragraph">A doHiring é o lugar ideal para encontrar as melhores oportunidades de emprego.</p>
     </div>
-    <div class="col-md-4 py-4">
-      <h2 class="welcome-subtitle">Deu Match</h2>
-      <p class="section-paragraph">Com a doHiring, encontrar o candidato ideal para sua vaga é fácil. Com nosso recurso "Deu match", você recebe recomendações de candidatos qualificados que correspondem às suas vagas. Não perca tempo analisando centenas de candidaturas - encontre o candidato ideal em segundos com a doHiring.</p>
+  </div>
+  <div class="homeAbout__users">
+    <div class="homeAbout__users--cards card-match">
+      <%= image_tag "user-ok.svg", class: "homeAbout__users--images" %>
+      <h3 class="homeAbout__users--subtitle">Deu Match</h3>
+      <p class="homeAbout__users--paragraph">Com a doHiring, encontrar o candidato ideal para sua vaga é fácil.</p>
+      <p class="homeAbout__users--paragraph">Com nosso recurso "Deu match", você recebe recomendações de candidatos qualificados que correspondem às suas vagas.</p>
+      <p class="homeAbout__users--paragraph">Não perca tempo analisando centenas de candidaturas - encontre o candidato ideal em segundos com a doHiring.</p>
     </div>
-  </section>
-</div>
+  </div>
+</section>
 
 <%= render "shared/footer" %>
