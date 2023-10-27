@@ -1,20 +1,16 @@
 <%= render "shared/navbar" %>
 
-<div class="section-vacancies container my-5">
-  <div class="image-container">
+<section class="section__vacancies">
+  <div class="section__vacancies--image">
     <%= image_tag "search-job.png" %>
   </div>
-  <div class="row">
-    <div class="col-md-9 col-12 mx-auto">    
-      <div class="search-area">
-        <%= form_tag(search_vacancies_path, class: "search-vacancies", local: true, method: :get)  do %>
-          <%= text_field_tag :q, params[:q], placeholder: "Digite o código, título ou descrição da vaga", class: "search-vacancies-input" %>
-          <%= submit_tag "Buscar", class: "find-btn" %>
-        <% end %>
-      </div>
-    </div>
+  <div class="section__vacancies-input">   
+    <%= form_tag(search_vacancies_path, class: "section__vacancies--form", local: true, method: :get)  do %>
+      <%= text_field_tag :q, params[:q], placeholder: "Digite o código, título ou descrição da vaga", class: "search-vacancies-input" %>
+      <%= submit_tag "Buscar", class: "find-btn" %>
+    <% end %>
   </div>
-</div>
+</section>
 
 <div class="container">
   <% flash.each do |type, message| %>
