@@ -7,7 +7,7 @@
   <div class="section__search-input">   
     <%= form_tag(search_vacancies_path, class: "section__search--form", local: true, method: :get)  do %>
       <%= text_field_tag :q, params[:q], placeholder: "Digite o código, título ou descrição da vaga", class: "search-vacancies-input" %>
-      <%= submit_tag "Buscar", class: "find-btn" %>
+      <%= submit_tag "Buscar", class: "btn-find" %>
     <% end %>
   </div>
 </section>
@@ -68,7 +68,7 @@
         </span>
       </div>
       <div class="section__vacancyFooter--right">
-        <%= link_to 'Aplicar', vacancy_path(vacancy), class: "btn-apply#{ ' disabled' if vacancy.status != 'Ativo' }" %>
+        <%= link_to 'Aplicar', vacancy_path(vacancy), class: "btn btn-primary#{ ' disabled' if vacancy.status != 'Ativo' }" %>
       </div>
     </div>
   </div>

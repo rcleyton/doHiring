@@ -37,15 +37,8 @@
       outline: none;
     }
 
-    & .find-btn {
-      text-transform: uppercase;
-      text-decoration: none;
-      background-color: #2E004B;
-      color: #f1f1f1;
-      font-weight: bold;
-      border-radius: 8px;
-      cursor: pointer;
-      padding: 0 1rem;
+    & .btn-find {
+      @extend .btn-primary;
       width: 100px;
     }
   }
@@ -148,7 +141,7 @@
   &Body {
     display: inline-block;
     width: 100%;
-    padding: 5px 15px 20px 15px;
+    padding: 5px 15px 20px 20px;
 
     & .job-name {
       margin-top: 0.5rem !important;
@@ -187,7 +180,7 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    padding: 5px 15px 20px 15px;
+    padding: 5px 15px 20px 20px;
 
     &--left {
       flex: 0 0 auto;
@@ -207,16 +200,6 @@
       flex: 0 0 auto;
       width: 41.66666667%;
       text-align: right !important;
-
-      & .btn-apply {
-        background-color: #05264E;
-        max-width: 90px;
-        padding: 10px 20px;
-        float: right;
-        color: #fff;
-        border-radius: 8px;
-        transition: .3s;
-      }
     }
   }
 }

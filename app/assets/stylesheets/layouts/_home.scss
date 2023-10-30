@@ -15,7 +15,7 @@
       &-btns {
         flex-direction: column;
 
-        & input {
+        & a {
           width: 100%;
           margin: var(--space-s) 0;
         }
@@ -60,7 +60,7 @@
       margin: var(--space-s) 0 0 0;
     }
 
-    &-btns input:first-child {
+    &-btns a:first-child {
       margin-right: var(--space-m);
     }
   }
