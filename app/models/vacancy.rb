@@ -1,4 +1,6 @@
 class Vacancy < ApplicationRecord
+  before_create :generate_code
+
   validates :title, :description, :working_model, :salary,
             :location, :vacancy_level_id, :requirements,
             :desired_skill, :contract_type, presence: true
