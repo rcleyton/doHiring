@@ -1,11 +1,11 @@
 <%= render "shared/navbar" %>
 
-<section class="section__vacancies">
-  <div class="section__vacancies--image">
+<section class="section__search">
+  <div class="section__search--image">
     <%= image_tag "search-job.png" %>
   </div>
-  <div class="section__vacancies-input">   
-    <%= form_tag(search_vacancies_path, class: "section__vacancies--form", local: true, method: :get)  do %>
+  <div class="section__search-input">   
+    <%= form_tag(search_vacancies_path, class: "section__search--form", local: true, method: :get)  do %>
       <%= text_field_tag :q, params[:q], placeholder: "Digite o código, título ou descrição da vaga", class: "search-vacancies-input" %>
       <%= submit_tag "Buscar", class: "find-btn" %>
     <% end %>
@@ -18,139 +18,64 @@
   <% end %>
 </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-lg-3 col-md-12 col-sm-12 col-12">
-      <div class="sidebar-left">
-        <div class="sidebar-filters">
-
+<% @vacancies.each do |vacancy| %>
+  <div class="section__vacancy">
+    <div class="section__vacancyHeader">  
+      <div class="section__vacancyHeader--left">
+        <div class="section__vacancyHeader--info">
+          <div class="section__vacancyHeader--head-info">
+            <div class="image-box">
+              <% if vacancy.recruiter_profile.avatar.persisted? %>
+                <%= image_tag vacancy.recruiter_profile.avatar, class: "recruiter-image-profile" %>
+              <% else %>
+                <%= image_tag 'profile.png', class: "recruiter-image-profile" %>
+              <% end %>
+            </div>
+            <div class="left-info">
+              <strong class="job-code"><%= vacancy.code %></strong>
+              <span class="location"><%= vacancy.location %></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section__vacancyHeader--right">
+        <div class="job-level">
+            <% if vacancy.status != 'Ativo' %>
+              <span class="job-disabled">Não aceita mais candidaturas</span>
+            <% end %>
+            <span class="btn-gray"><%= vacancy.vacancy_level%><span>
         </div>
       </div>
     </div>
 
-    <div class="col-lg-9 col-md-12 col-sm-12 col-12">
-      <div class="vacancies">
-        <% @vacancies.each do |vacancy| %>
-          <% if vacancy.status == 'Ativo' %>
-            <div class="card-grid">
-              <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                  <div class="card-grid-image-left">
-                    <div class="image-box">
-                      <% if vacancy.recruiter_profile.avatar.persisted? %>
-                        <%= image_tag vacancy.recruiter_profile.avatar, class: "card-recruiter-image-pprofile" %>
-                      <% else %>
-                        <%= image_tag 'profile.png', class: "card-recruiter-image-pprofile" %>
-                      <% end %>
-                    </div>
-                      <div class="right-info">
-                        <%= link_to vacancy_path(vacancy), class: "name-job" do %>
-                          <%= vacancy.code %>
-                        <% end %>
-                        <span class="location-small"><%= vacancy.location %></span>
-                      </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 text-start text-md-end col-md-6 col-sm-12">
-                  <div class="mt-4">
-                  <%= link_to vacancy_path(vacancy), class: "btn-grey-small mr-5" do %>
-                    <%= vacancy.vacancy_level%>
-                  <% end %>
-                  </div>
-                </div>
-              </div>
-              <div class="card-block-info">
-                <h4 class="mt-2">
-                  <%= link_to vacancy_path(vacancy), class: "name-job name-vacancy" do %>
-                    <%= vacancy.title %></h4>
-                  <% end %>
-                <div>
-                  <span class="card-briefcase"><%= vacancy.working_model %></span>
-                    <span class="card-time">
-                      <span><%= l vacancy.created_at, format: :short %> </span>
-                    </span>
-                    <p class="font-sm color-text-paragraph mt-1">
-                      <%= vacancy.description.truncate(200, separator: " ") %>
-                    </p>
-                    <div class="card-2-bottom">
-                      <div class="row">
-                        <div class="col-lg-7 col-7">
-                          <span class="card-text-price">
-                            <%= number_to_currency vacancy.salary %>
-                          </span>
-                        </div>
-                        <div class="col-lg-5 col-5 text-end">
-                          <div>
-                            <%= link_to 'Aplicar', vacancy_path(vacancy), class: "custom-btn-applay" %>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-              </div>
-            </div>  
+    <div class="section__vacancyBody">
+      <h4 class="job-name">
+        <%= link_to vacancy.title, vacancy_path(vacancy), class: "#{ ' disabled' if vacancy.status != 'Ativo' }" %>
+      </h4>
+      <div class="job-icons">
+        <span class="card-briefcase"><%= vacancy.working_model %></span>
+        <span class="card-time"><%= l vacancy.created_at, format: :short %></span>
+        <p class="job-description">
+          <%= vacancy.description.truncate(200, separator: " ") %>
+        </p>
+      </div>
+    </div>
 
-          <% else %>
-          
-            <div class="card-grid">
-              <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                  <div class="card-grid-image-left">
-                    <div class="image-box">
-                      <% if vacancy.recruiter_profile.avatar.persisted? %>
-                        <%= image_tag vacancy.recruiter_profile.avatar, class: "card-recruiter-image-pprofile job-disabled" %>
-                      <% else %>
-                        <%= image_tag 'profile.png', class: "card-recruiter-image-pprofile job-disabled" %>
-                      <% end %>
-                    </div>
-                      <div class="right-info">
-                        <span class="code-job job-disabled"><%= vacancy.code %></span>
-                        <span class="location-small"><%= vacancy.location %></span>
-                      </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 text-start text-md-end col-md-6 col-sm-12">
-                  <div class="mt-4">
-                    <span class="badge-candidature-disabled">Não aceita mais candidaturas</span>
-                    <a href="#" class="btn-grey-small mr-5 job-disabled"><%= vacancy.vacancy_level%></a>
-                  </div>
-                </div>
-              </div>
-              <div class="card-block-info">
-                <h4 class="mt-2 job-disabled"><%= vacancy.title %></h4>
-                <div>
-                  <span class="card-briefcase"><%= vacancy.working_model %></span>
-                    <span class="card-time">
-                      <span><%= l vacancy.created_at, format: :short %> </span>
-                    </span>
-                    <p class="font-sm color-text-paragraph mt-1 job-disabled">
-                      <%= vacancy.description.truncate(200, separator: " ") %>
-                    </p>
-                    <div class="card-2-bottom">
-                      <div class="row">
-                        <div class="col-lg-7 col-7">
-                          <span class="card-text-price job-disabled">
-                            <%= number_to_currency vacancy.salary %>
-                          </span>
-                        </div>
-                        <div class="col-lg-5 col-5 text-end">
-                          <div class="job-disabled button-disabled">Aplicar</div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-              </div>
-            </div>   
-          <% end %>
-        <% end %>
+    <div class="section__vacancyFooter">
+      <div class="section__vacancyFooter--left">
+        <span class="card-text-price">
+          <%= number_to_currency vacancy.salary %>
+        </span>
+      </div>
+      <div class="section__vacancyFooter--right">
+        <%= link_to 'Aplicar', vacancy_path(vacancy), class: "btn-apply#{ ' disabled' if vacancy.status != 'Ativo' }" %>
       </div>
     </div>
   </div>
-</div>
+<% end %>
 
-<div class="container d-flex justify-content-center my-5">
+<div class="container">
   <%= paginate @vacancies %>
 </div>
 
 <%= render "shared/footer" %>
-
