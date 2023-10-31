@@ -1,97 +1,107 @@
 <%= render "shared/navbar" %>
-<div class="container my-5">
-  <div class="show-title">
-    <div>
-      <h1><%= @vacancy.title %></h1>
-      <span><%= time_ago_in_words(@vacancy.created_at) %> atrás</span>
+
+<div class="show">
+  <div class="show__title">
+    <h1 class="show__title--h1"><%= @vacancy.title %></h1>
+    <span class="show__title--span"><%= time_ago_in_words(@vacancy.created_at) %> atrás</span>
+  </div>
+  <div class="show__title-">
+    <%= button_to "Aplicar", new_applicants_dashboard_vacancy_candidature_path(@vacancy), class: "show__title--btn btn btn-primary" %>
+  </div>
+</div>
+
+<div class="showCard">
+  <div class="showCard__description">
+    <div class="showCard__description--details">
+      <h2 class="show__title--card">Vaga <%= @vacancy.code %></h2>
+      <div class="show__description-list">
+        <div class="show__description-list--item">
+          <div class="item-icon icon-company">Empresa</div>
+          <strong class="item-icon-description"><%= @vacancy.recruiter_profile.trade_name %></strong>   
+        </div>
+        <div class="show__description-list--item">
+          <div class="item-icon icon-sector">Setor</div>
+          <strong class="item-icon-description"><%= @vacancy.recruiter_profile.sector %></strong>
+        </div>
+      </div>
+
+      <div class="show__description-list">
+        <div class="show__description-list--item">
+          <div class="item-icon icon-level">Nível</div>
+          <strong class="item-icon-description"><%= @vacancy.vacancy_level %></strong>
+        </div>
+        <div class="show__description-list--item">
+          <div class="item-icon icon-model">Modalidade</div>
+          <strong class="item-icon-description"><%= @vacancy.working_model %></strong>
+        </div>
+      </div>
+
+      <div class="show__description-list">
+        <div class="show__description-list--item">
+          <div class="item-icon icon-type">Contrato</div>
+          <strong class="item-icon-description"><%= @vacancy.contract_type %></strong>
+        </div>
+        <div class="show__description-list--item">
+          <div class="item-icon icon-salary">Salário</div>
+          <strong class="item-icon-description"><%= number_to_currency @vacancy.salary %></strong>
+        </div>
+      </div>
+
+      <div class="show__description-list">
+        <div class="show__description-list--item">
+          <div class="item-icon icon-location">Localização</div>
+          <strong class="item-icon-description"><%= @vacancy.location %></strong>
+        </div>
+        <div class="show__description-list--item">
+          <div class="item-icon icon-time">Candidatura até</div>
+          <strong class="item-icon-description">30/10/20203</strong>
+        </div>
+      </div>
     </div>
-    <div>
-      <%= link_to "Aplicar", new_applicants_dashboard_vacancy_candidature_path(@vacancy), class: "custom-btn-applay s-btn" %>
+      
+    <div class="show__title--info">      
+      <h2 class="show__title--description">Descrição da vaga</h2>
+      <p class="paragraph-description">
+        <%= @vacancy.description %>
+      </p>
+    </div>
+
+    <div class="show__title--info"> 
+      <h2 class="show__title--description">Requisitos da vaga</h2>
+      <p class="paragraph-description">
+        <%= @vacancy.requirements %>
+      </p>
+    </div>
+
+    <div class="show__title--info"> 
+      <h2 class="show__title--description">Habilidades desejada</h2>
+      <p class="paragraph-description">
+        <%= @vacancy.desired_skill %>
+      </p>
+    </div>
+
+    <div class="show__title--info"> 
+      <h2 class="show__title--description">Benefícios</h2>
+      <ul class="list-benefits mb-4">
+        <% @vacancy.vacancy_benefits.each do |benefit| %>
+          <li class="list-benefits-item"><%= benefit.benefit_name %></li>
+        <% end %>
+      </ul>
+    </div>
+    
+    <div class="apply-to-vacancy-btn">
+      <%= button_to "Aplicar", new_applicants_dashboard_vacancy_candidature_path(@vacancy), class: "btn btn-primary" %>
     </div>
   </div>
-  <div class="row mt-4 d-flex justify-content-between">
-    <div class="col-md-7 col-12">
-      <div class="border rounded-4 p-4">
-        <h2 class="border-bottom s-title-card pb-3">Vaga <%= @vacancy.code %></h2>
-        <div class="row">
-          <div class="col-md-6 d-flex py-2">
-            <div class="s-icon i-company">Empresa</div>
-            <strong class="s-icon-description"><%= @vacancy.recruiter_profile.trade_name %></strong>
-          </div>
-          <div class="col-md-6 d-flex py-2">
-            <div class="s-icon i-sector">Setor</div>
-            <strong class="s-icon-description"><%= @vacancy.recruiter_profile.sector %></strong>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 d-flex py-2">
-            <div class="s-icon i-level">Nível</div>
-            <strong class="s-icon-description"><%= @vacancy.vacancy_level %></strong>
-          </div>
-          <div class="col-md-6 d-flex py-2">
-            <div class="s-icon i-model">Modalidade</div>
-            <strong class="s-icon-description"><%= @vacancy.working_model %></strong>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 d-flex py-2">
-            <div class="s-icon i-type">Contrato</div>
-            <strong class="s-icon-description"><%= @vacancy.contract_type %></strong>
-          </div>
-          <div class="col-md-6 d-flex py-2">
-            <div class="s-icon i-salary">Salário</div>
-            <strong class="s-icon-description"><%= number_to_currency @vacancy.salary %></strong>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 d-flex py-2">
-            <div class="s-icon i-location">Localização</div>
-            <strong class="s-icon-description"><%= @vacancy.location %></strong>
-          </div>
-          <div class="col-md-6 d-flex py-2">
-            <div class="s-icon i-time">Candidatura até</div>
-            <strong class="s-icon-description">30/10/20203</strong>
-          </div>
-        </div>
-      </div>
-      <div class="s-job-description mt-5">
-        <h2 class="mb-3">Descrição da vaga</h2>
-        <p class="s-description">
-          <%= @vacancy.description %>
-        </p>
-      </div>
-      <div class="s-job-description mt-5">
-        <h2 class="mb-3">Requisitos da vaga</h2>
-        <p class="s-description">
-          <%= @vacancy.requirements %>
-        </p>
-      </div>
-      <div class="s-job-description mt-5">
-        <h2 class="mb-3">Habilidades desejada</h2>
-        <p class="s-description">
-          <%= @vacancy.desired_skill %>
-        </p>
-      </div>
-      <div class="s-job-description mt-5 border-bottom">
-        <h2 class="mb-3">Benefícios</h2>
-        <ul class="list-benefits mb-4">
-          <% @vacancy.vacancy_benefits.each do |benefit| %>
-            <li class="list-benefits-item"><%= benefit.benefit_name %></li>
-          <% end %>
-        </ul>
-      </div>
-      <div class="my-4">
-        <%= link_to "Aplicar", new_applicants_dashboard_vacancy_candidature_path(@vacancy), class: "custom-btn-applay s-btn text-start mb-4" %>
-      </div>
-    </div>
-    <div class="col-md-5 col-12">
-      <div class="border rounded-4 p-4">
-        <h2 class="border-bottom s-title-card text-end pb-3">Sobre nós</h2>
-        <p class="pt-3 s-about-us">
-          <%= @vacancy.recruiter_profile.about_us %>
-        </p>
-      </div>
+
+  <div class="showCard__about">
+    <div>
+      <h2 class="show__title--card">Sobre nós</h2>
+      <p class="paragraph-about">
+        <%= @vacancy.recruiter_profile.about_us %>
+      </p>
     </div>
   </div>
 </div>
+
 <%= render "shared/footer" %>

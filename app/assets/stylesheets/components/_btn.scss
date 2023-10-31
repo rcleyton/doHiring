@@ -1,5 +1,5 @@
 .btn {
-  font-weight: bold;
+  font-weight: var(--font-weight-medium);
   border-radius: 10px;
   cursor: pointer;
   padding: var(--space-xs) var(--space-m);

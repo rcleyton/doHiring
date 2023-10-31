@@ -49,7 +49,6 @@
   border-radius: var(--space-xxxs);
   border: 1px solid hsl(224.3,59%,92.4%);
   overflow: hidden;
-  // margin: var(--space-xxl) auto;
   margin-bottom: var(--space-xxl);
   position: relative;
   background: hsl(222.9,100%,98.6%);
@@ -202,6 +201,196 @@
       text-align: right !important;
     }
   }
+}
+
+/* Action show */
+
+.show {
+  @include container;
+  margin-top: 100px;
+  display: flex ;
+  justify-content: space-between;
+
+  &__title {
+
+    &--h1 {
+      color: var(--color-primary);
+      font-size: var(--font-size-xxl);
+    }
+
+    &--span {
+      color: hsl(213, 14%, 67%);
+      font-size: var(--font-size-s);
+    }
+
+    &--span::before {
+      content: url(/assets/time.svg);
+      display: inline-block;
+      padding: 0 5px 0 0;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    flex-direction: column;
+
+    .show__title--btn {
+      margin: var(--space-s) 0;
+      width: 100%;
+    }
+  }
+}
+
+.showCard {
+  @include container;
+  display: flex;
+  column-gap: var(--space-xl);
+
+  &__description--details,
+  &__about div {
+    border: 1px solid var(--color-light);
+    padding: var(--space-l);
+    border-radius: var(--space-m);
+  }
+
+  &__description {
+    width: 70%;
+    margin-top: var(--space-l);
+  }
+
+  &__about {
+    width: 30%;
+    margin-top: var(--space-l);
+
+    & .paragraph-about {
+      color: hsl(197.1, 11.7%, 35.1%);
+      line-height: var(--line-height-body);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+
+    &__about,
+    &__description  {
+      width: 100%;
+    }
+
+    &__about {
+      margin-bottom: var(--space-xxl);
+    }
+    
+    .apply-to-vacancy-btn input {
+      width: 100%;
+    }
+  }
+}
+
+.show__description {
+
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    &--item {
+      display: flex;
+      width: 50%;
+      min-width: 310px;
+
+      & div,
+      & span {
+        width: 50%;
+      }
+
+      @media screen and (max-width: 1004px) {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.item-icon {
+  color: hsl(220, 21%, 51%);
+  line-height: 2;
+  font-weight: var(--font-weight-regular);
+}
+
+.item-icon-description {
+  line-height: 2;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+}
+
+.icon-company::before {
+  content: url(/assets/briefcase.svg);
+  display: inline-block;
+  padding: 0 7px 0 3px;                                                                                                                                 
+}
+
+.icon-sector::before {
+  content: url(/assets/industry.svg);
+  display: inline-block;
+  padding: 0 5px 0 0;
+}
+
+.icon-level::before {
+  content: url(/assets/job-level.svg);
+  display: inline-block;
+  padding: 0 5px 0 0;
+}
+
+.icon-model::before {
+  content: url(/assets/experience.svg);
+  display: inline-block;
+  padding: 0 5px 0 0;
+}
+
+.icon-type::before {
+  content: url(/assets/job-type.svg);
+  display: inline-block;
+  padding: 0 5px 0 0;
+}
+
+.icon-salary::before {
+  content: url(/assets/salary.svg);
+  display: inline-block;
+  padding: 0 5px 0 0;
+}
+
+.icon-location::before {
+  content: url(/assets/location.svg);
+  display: inline-block;
+  padding: 0 5px 0 0;
+}
+
+.icon-time::before {
+  content: url(/assets/deadline.svg);
+  display: inline-block;
+  padding: 0px 5px 0 0;
+}
+
+.show__title--description {
+  font-size: var(--font-size-l);
+  color: var(--color-primary);
+  margin-bottom: var(--space-m);
+}
+
+.show__title--card {
+  @extend .show__title--description;
+  padding-bottom: var(--space-m);
+  border-bottom: 1px solid var(--color-light);
+}
+
+.show__title--info {
+  margin-top: var(--space-xxxl) ;
+
+  & .paragraph-description {
+    color: hsl(197.1, 11.7%, 35.1%);
+    line-height: var(--line-height-body);
+  }
+}
+
+.apply-to-vacancy-btn {
+  margin: var(--space-xxxl) 0 var(--space-l) 0;
 }
 
 .disabled {
