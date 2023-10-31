@@ -1,0 +1,31 @@
+.authenticate {
+  display: flex;
+  // flex-direction: row;
+} 
+
+.authenticate__col--left {
+  width: 50%;
+  min-width: 560px;
+  height: 100vh;
+  background: var(--color-bg-auth) url(/assets/bg-authenticate-applicant.png) no-repeat center center;
+}
+
+.authenticate__col--rigth {
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  background: var(--color-bg-auth);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 1134px) {
+  .authenticate__col--left {
+    display: none;
+  }
+
+  .authenticate__col--rigth {
+    width: 100%;
+  }
+}
