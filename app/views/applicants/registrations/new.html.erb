@@ -1,43 +1,33 @@
-<%= link_to "Voltar para o início", root_path, class: "back-to-home" %>
+<%= link_to sanitize("&larr; Voltar"), root_path, class: "back-to-home" %>
 
-<main class="authenticate">
-  <div class="px-5 px-sm-0">
-    <h2 class="authenticate__title">
-      <%= t('devise.registrations.new.sign_up') %>
-    </h2>
-
-    <% if resource.errors.any? %>
-      <% flash[:error] = "Verifique os campos em vermelho" %>
-    <% end %>
-
-    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <div class="mb-3">
-        <%= f.input :email,
-                    label: false,
-                    autofocus: true,
-                    input_html: { autocomplete: "email", class: "form-control" },
-                    placeholder: t('placeholders.email') %>
-      </div>
-
-      <div class="mb-3">
+<div class="box__authorization">
+  <h2 class="box__authorization--title">
+    <%= t('devise.registrations.new.sign_up') %>
+  </h2>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <div class="box__authorization--input">
+      <%= f.input :email,
+                  label_html: { class: "box__authorization--label"},
+                  autofocus: true,
+                  input_html: { autocomplete: "email", class: "input-authorization" },
+                  placeholder: t('placeholders.email') %>
+    </div>
+    <div class="box__authorization--input">
         <%= f.input :password,
-                    label: false,
-                    input_html: { autocomplete: "new-password", class: "form-control" },
+                    label_html: { class: "box__authorization--label"},
+                    input_html: { autocomplete: "new-password", class: "input-authorization" },
                     placeholder: t('placeholders.minimum_characters') %>
-      </div>
-
-      <div class="mb-3">
+    </div>
+    <div class="box__authorization--input">
         <%= f.input :password_confirmation,
-                    label: false,
-                    input_html: { autocomplete: "new-password", class: "form-control" },
+                    label_html: { class: "box__authorization--label"},
+                    input_html: { autocomplete: "new-password", class: "input-authorization" },
                     placeholder: t('placeholders.repeat_password') %>
       </div>
+      <%= f.button :submit, t('devise.registrations.new.sign_up'), class: "btn-authorization-applicant" %>
+  <% end %>
 
-      <%= f.button :submit, t('devise.registrations.new.sign_up'), class: "btn btn-primary btn-lg" %>
-    <% end %>
-
-    <div class="authenticate__links">
-      <%= render "recruiters/shared/links" %>
-    </div>
+  <div class="box__authorization--links">
+    <%= render "applicants/shared/links" %>
   </div>
-</main>
+</div>
