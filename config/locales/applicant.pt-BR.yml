@@ -2,9 +2,9 @@
 pt-BR:
   activerecord:
     models:
-      recruiter: Recrutador
+      applicant: Candidato
     attributes: 
-      recruiter:
+      applicant:
         email: Email
         password: Senha
         password_confirmation: Confirmar senha
@@ -12,4 +12,3 @@ pt-BR:
     sessions:
       new:
         log_in: Entrar
-        

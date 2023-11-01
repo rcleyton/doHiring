@@ -231,7 +231,7 @@ pt-BR:
         sign_up: Cadastrar
     passwords:
       new:
-        reset_password: Enviar Instruções
+        reset_password: Enviar instruções
         forgot_password: Esqueceu sua senha?
   placeholders:
     email: Digite seu email aqui

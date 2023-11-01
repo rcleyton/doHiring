@@ -11,10 +11,12 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body class="authenticate__recruiter">
-    <div class="col_left"></div>
-    <div class="col_rigth">
-      <%= yield %>
+  <body>
+    <div  class="authenticate">
+      <div class="authenticate__colLeft authenticate__colLeft--recruiter"></div>
+      <div class="authenticate__colRigth authenticate__colRigth--recruiter">
+        <%= yield %>
+      </div>
     </div>
   </body>
 </html>

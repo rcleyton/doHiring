@@ -1,16 +1,21 @@
-<h2>Forgot your password?</h2>
+<%= link_to sanitize("&larr; Voltar"), root_path, class: "back-to-home" %>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "recruiters/shared/error_messages", resource: resource %>
+<div class="box__authorization">
+  <h2 class="box__authorization--title">
+    <%= t('devise.passwords.new.forgot_password') %>
+  </h2>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name)) do |f| %>
+    <div class="box__authorization--input">
+      <%= f.input :email,
+                   label_html: { class: "box__authorization--label"},
+                   input_html: { autocomplete: "email", class: "input-authorization" },
+                  placeholder: t('placeholders.email') %>
+    </div>
+    <%= f.button :submit, t('devise.passwords.new.reset_password'), class: "btn-authorization-recruiter" %>
+  <% end %>
+
+  <div class="box__authorization--links">
+    <%= render "applicants/shared/links" %>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "recruiters/shared/links" %>
+</div>

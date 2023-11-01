@@ -11,13 +11,12 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body class="authenticate__applicant">
-    <div class="col_left"></div>
-    <div class="col_rigth">
-      <% flash.each do |type, message| %>
-        <%= render partial: 'shared/alert', locals: { type: type, message: message } %>
-      <% end %>
-      <%= yield %>
+  <body>
+    <div  class="authenticate">
+      <div class="authenticate__colLeft authenticate__colLeft--applicant"></div>
+      <div class="authenticate__colRigth authenticate__colRigth--applicant">
+        <%= yield %>
+      </div>
     </div>
   </body>
 </html>
