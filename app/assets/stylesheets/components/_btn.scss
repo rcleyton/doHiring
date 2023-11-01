@@ -81,6 +81,13 @@
   margin-bottom: var(--space-m);
 }
 
+.btn-authorization-recruiter {
+  @extend .btn-authorization;
+  background-color: var(--color-tertiary);
+  color: var(--color-white);
+  margin-bottom: var(--space-m);
+}
+
 
 
 
