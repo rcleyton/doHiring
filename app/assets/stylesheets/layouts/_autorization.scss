@@ -1,31 +1,48 @@
 .authenticate {
   display: flex;
-  // flex-direction: row;
 } 
 
-.authenticate__col--left {
+.authenticate__colLeft {
   width: 50%;
   min-width: 560px;
   height: 100vh;
-  background: var(--color-bg-auth) url(/assets/bg-authenticate-applicant.png) no-repeat center center;
 }
 
-.authenticate__col--rigth {
+.authenticate__colRigth {
   width: 50%;
   height: 100vh;
   display: flex;
-  background: var(--color-bg-auth);
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+.authenticate__colLeft--applicant {
+  @extend .authenticate__colLeft;
+  background: var(--color-bg-auth) url(/assets/bg-authenticate-applicant.png) no-repeat center center;
+}
+
+.authenticate__colLeft--recruiter {
+  @extend .authenticate__colLeft;
+  background: var(--color-tertiary) url(/assets/bg-authenticate-recruiter.png) no-repeat center center;
+}
+
+.authenticate__colRigth--applicant {
+  @extend .authenticate__colRigth;
+  background: var(--color-bg-auth);
+}
+
+.authenticate__colRigth--recruiter {
+  @extend .authenticate__colRigth;
+  background: var(--color-tertiary);
+}
+
 @media screen and (max-width: 1134px) {
-  .authenticate__col--left {
+  .authenticate__colLeft{
     display: none;
   }
 
-  .authenticate__col--rigth {
+  .authenticate__colRigth{
     width: 100%;
   }
 }
