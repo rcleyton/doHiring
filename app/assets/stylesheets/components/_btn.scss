@@ -63,6 +63,24 @@
   }
 }
 
+.btn-authorization {
+  @extend .btn;
+  width: 100%;
+  border-radius: var(--space-xxs);
+  border: none;
+
+  &:hover {
+    opacity: .9;
+  }
+}
+
+.btn-authorization-applicant {
+  @extend .btn-authorization;
+  background-color: var(--color-bg-auth);
+  color: var(--color-white);
+  margin-bottom: var(--space-m);
+}
+
 
 
 

@@ -1,39 +1,36 @@
-<%= link_to "Voltar para o início", root_path, class: "back-to-home" %>
+<%= link_to sanitize("&larr; Voltar"), root_path, class: "back-to-home" %>
 
-<main class="authenticate">
-  <div class="px-5 px-sm-0">
-    <h2 class="authenticate__title">
-      <%= t('devise.sessions.new.log_in') %>
-    </h2>
-    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div class="box__authorization">
+  <h2 class="box__authorization--title">
+    <%= t('devise.sessions.new.log_in') %>
+  </h2>
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-      <div class="mb-3">
-        <%= f.input :email,
-                    label: false,
-                    autofocus: true,
-                    input_html: { autocomplete: "email", class: "form-control" },
-                    placeholder: t('placeholders.email') %>
-      </div>
-
-      <div class="mb-3">
-        <%= f.input :password,
-                    label: false,
-                    input_html: { autocomplete: "current-password", class: "form-control" },
-                    placeholder: t('placeholders.password') %>
-      </div>
-
-      <div class="mb-3 form-check">
-        <%= f.input :remember_me,
-                    label: t('simple_form.options.remember_me'), class: 'form-check-label',
-                    input_html: { class: 'form-check-input' },
-                    as: :boolean if devise_mapping.rememberable?  %>
-      </div>
-
-      <%= f.button :submit, t('devise.sessions.new.log_in'), class: "btn btn-primary btn-lg" %>
-    <% end %>
-
-    <div class="authenticate__links">
-      <%= render "recruiters/shared/links" %>
+    <div class="box__authorization--input">
+      <%= f.input :email,
+                  label_html: { class: "box__authorization--label"},
+                  autofocus: true,
+                  input_html: { autocomplete: "email", class: "input-authorization" },
+                  placeholder: t('placeholders.email') %>
     </div>
+    <div class="box__authorization--input">
+      <%= f.input :password,
+                  label_html: { class: "box__authorization--label"},
+                  input_html: { autocomplete: "current-password", class: "input-authorization" },
+                  placeholder: t('placeholders.password') %>
+    
+    </div>
+    <div class="box__authorization--input-check">
+      <%= f.input :remember_me,
+                  label: t('simple_form.options.remember_me'),
+                  input_html: { class: 'box__authorization--check' },
+                  as: :boolean if devise_mapping.rememberable?  %>
+    </div>
+
+    <%= f.button :submit, t('devise.sessions.new.log_in'), class: "btn-authorization-applicant" %>
+  <% end %>
+
+  <div class="box__authorization--links">
+    <%= render "applicants/shared/links" %>
   </div>
-</main>
+</div>
