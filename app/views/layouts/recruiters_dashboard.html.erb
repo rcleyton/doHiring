@@ -8,82 +8,22 @@
     <%= favicon_link_tag 'icone.ico' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   </head>
 
-<body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-primary shadow mb-3 sticky-top">
-    <div class="container">
-      <%= link_to recruiters_dashboard_home_index_path, class: "navbar-brand fs-2 text-white" do %>
-        <span class="links_name">doHiring</span>
-      <% end %>
-      <div class="dropdown">
-        <a class="nav-link dropdown-toggle text-white" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-          <% if current_recruiter.recruiter_profile && current_recruiter.recruiter_profile.avatar.present? %>
-            <%= image_tag current_recruiter.recruiter_profile.avatar, alt: 'Perfil do usuário', class: "rounded", width: '30'%>
-          <% else %>
-            <%= image_tag 'profile.png', alt: 'Perfil do usuário', class: "rounded", width: '30' %>
-          <% end %>
-        </a>
-        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-          <li>
-            <a class="dropdown-item" href="#">
-              <% if current_recruiter.recruiter_profile %>
-                <%= "Olá #{current_recruiter.recruiter_profile.trade_name}" %>
-              <% else %>
-                Olá usuário
-              <% end %>
-            </a>
-          </li>
-          <li><hr class="dropdown-divider"></li>
-          <li>
-            <%= link_to destroy_recruiter_session_path, class: "dropdown-item", method: :delete do %>
-              Sair
-            <% end %>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <div class="container mt-5">
-    <div class="row">
-      <div class="col-md-3 col-12">
-        <ul class="nav nav-pills flex-column mb-auto">
-          <li class="nav-item">
-            <%= link_to recruiters_dashboard_home_index_path, class: "nav-link#{' active' if current_page?(recruiters_dashboard_home_index_path)}" do %>
-              <%= icon('fa-solid', 'home', class: "bi pe-none me-2") %>
-              <span class="links_name">Início</span>
-            <% end %>
-          </li>
-          <li class="nav-item">
-            <%= link_to new_recruiters_dashboard_profile_path, class: "nav-link#{' active' if controller_name == "profile"}" do %>
-              <%= icon('fa-solid', 'user', class: "bi pe-none me-2") %>
-              <span class="links_name">Meu Perfil</span>
-            <% end %>
-          </li>
-          <li class="nav-item">
-            <%= link_to recruiters_dashboard_vacancies_path, class: "nav-link#{' active' if controller_name == "vacancies"}" do %>
-              <%= icon('fa-solid', 'suitcase', class: "bi pe-none me-2") %>
-              <span class="links_name">Gerenciar Vagas</span>
-            <% end %>
-          </li>
-          <li class="nav-item">
-            <%= link_to recruiters_dashboard_proposals_path, class: "nav-link#{' active' if controller_name == "proposals"}" do %>
-              <%= icon('fa-solid', 'handshake', class: "bi pe-none me-2") %>
-              <span class="links_name">Propostas Feitas</span>
-            <% end %>
-          </li>
-          <li class="nav-item">
-            <%= link_to destroy_recruiter_session_path, class: "nav-link", method: :delete do %>
-              <%= icon('fa-solid', 'right-from-bracket', class: "bi pe-none me-2") %>
-              <span class="links_name">Sair</span>
-            <% end %>
-          </li>
-        </ul>
-      </div>
-
-      <div class="col-md-9 col-12 px-4">
-        <%= yield %>
+<body class="dashboard">
+  <div id="nav">
+    <div class="nav__brand">doHiring</div>
+    <div class="nav__profile">
+      <%= image_tag "profile.svg", width: "48"%>
+      <button class="nav__profile--dropdown">Perfil
+        <i class='bx bx-chevron-down'></i>
+      </button>
+      <div class="nav__profile--dropdownContent">
+        <%= link_to "Sair", destroy_recruiter_session_path, 
+        data: { turbo_method: :delete}, 
+        class: "dropdown-item", 
+        method: :delete %>
       </div>
     </div>
   </div>
