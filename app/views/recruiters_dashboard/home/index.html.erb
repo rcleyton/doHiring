@@ -1,23 +1,120 @@
 <div class="dashboard__card">
-  <div class="card__btn">
-    <div class="card__btn--box card__btn--edit">
-      <%= image_tag "pencil.svg", width: "24" %>
-      <span>Editar perfil</span>
-    </div>
-    <div class="card__btn--box card__btn--view">
-      <%= image_tag "eye.svg", width: "24" %>
-      <span>Ver perfil</span> 
-    </div>
-    <div class="card__btn--box card__btn--welcome">
+  <div class="primary__card">
+    <%= link_to edit_recruiters_dashboard_profile_path(current_recruiter) do %>
+      <div class="primary__card--box primary__card--edit">
+        <%= image_tag "pencil.svg", width: "24" %>
+        <span>Editar perfil</span>
+      </div>
+    <% end %>
+    <%= link_to new_recruiters_dashboard_profile_path do %>
+      <div class="primary__card--box primary__card--view">
+          <%= image_tag "eye.svg", width: "24" %>
+          <span>Ver perfil</span> 
+      </div>
+    <% end %>
+    <div class="primary__card--box primary__card--welcome">
       <span>Seja bem-vindo</span>
-      <h1>Cleyton Silva</h1>  
+      
+      <h1><%=  current_recruiter.recruiter_profile.trade_name %></h1>  
       <div class="card__btn--signout">
-        <%= image_tag "exit.svg" %>
+        <%= link_to destroy_recruiter_session_path, data: { turbo_method: :delete}, 
+                                                    class: "dropdown-item", 
+                                                    method: :delete do %>
+          <%= image_tag "exit.svg" %>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
-
+<div class="dashboard__card">
+  <div class="account__card">
+    <h1 class="account__card--title">Conta</h1>
+    <div class="account__card--options">
+      <div class="option">
+        <%= image_tag "envelope.svg"%>
+        <span>Mudar email</span>
+      </div>
+      <%= image_tag "arrow-right.svg" %>
+    </div>
+    <div class="account__card--options">
+      <div class="option">
+        <%= image_tag "lock.svg"%>
+        <span>Mudar senha</span>
+      </div>
+      <%= image_tag "arrow-right.svg" %>
+    </div>
+    <div class="account__card--options">
+      <div class="option">
+        <%= link_to edit_recruiters_dashboard_profile_path(current_recruiter) do %>
+          <%= image_tag "arrow-loop.svg"%>
+        <% end %>
+        <span>Atualizar perfil</span>
+      </div>
+      <%= link_to edit_recruiters_dashboard_profile_path(current_recruiter) do %>
+        <%= image_tag "arrow-right.svg" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="dashboard__card">
+  <div class="vacancies__card">
+    <h1 class="vacancies__card--title">Vagas</h1>
+    <div class="vacancies__card--options">
+      <div class="option">
+        <%= link_to new_recruiters_dashboard_vacancy_path do %>
+          <%= image_tag "suitcase-line.svg" %>
+        <% end %>
+        <span>Publicar vaga</span>
+      </div>
+      <%= link_to new_recruiters_dashboard_vacancy_path do %>
+        <%= image_tag "arrow-right.svg" %>
+      <% end %>
+    </div>
+    <div class="vacancies__card--options">
+      <div class="option">
+        <%= link_to recruiters_dashboard_vacancies_path do %>
+          <%= image_tag "briefcase-view-outline.svg" %>
+        <% end %>
+        <span>Ver vagas publicadas</span>
+      </div>
+      <%= link_to recruiters_dashboard_vacancies_path do %>
+        <%= image_tag "arrow-right.svg" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="dashboard__card">
+  <div class="candidatures__card">
+    <h1 class="candidatures__card--title">Candidaturas</h1>
+    <div class="candidatures__card--options">
+      <div class="option">
+        <%= link_to recruiters_dashboard_candidatures_path do %>
+          <%= image_tag "account-view-outline.svg" %>
+        <% end %>
+        <span>Ver candidaturas</span>
+      </div>
+      <%= link_to recruiters_dashboard_candidatures_path do %>
+        <%= image_tag "arrow-right.svg" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="dashboard__card">
+  <div class="proposals__card">
+    <h1 class="proposals__card--title">Propostas</h1>
+    <div class="proposals__card--options">
+      <div class="option">
+        <%= link_to recruiters_dashboard_proposals_path do %>
+          <%= image_tag "business-outline.svg" %>
+        <% end %>
+        <span>Ver propostas enviadas</span>
+      </div>
+        <%= link_to recruiters_dashboard_proposals_path do %>
+          <%= image_tag "arrow-right.svg" %>
+        <% end %>
+    </div>
+  </div>
+</div>
 
 
 
