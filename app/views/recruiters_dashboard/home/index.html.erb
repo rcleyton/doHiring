@@ -14,8 +14,11 @@
     <% end %>
     <div class="primary__card--box primary__card--welcome">
       <span>Seja bem-vindo</span>
-      
-      <h1><%=  current_recruiter.recruiter_profile.trade_name %></h1>  
+      <% if current_recruiter.recruiter_profile.present? %>
+        <h1><%= current_recruiter.recruiter_profile.trade_name %></h1> 
+      <% else %>
+        <h1>Olá usuário</h1>
+      <% end %>   
       <div class="card__btn--signout">
         <%= link_to destroy_recruiter_session_path, data: { turbo_method: :delete}, 
                                                     class: "dropdown-item", 
