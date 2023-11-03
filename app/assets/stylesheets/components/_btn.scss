@@ -88,6 +88,16 @@
   margin-bottom: var(--space-m);
 }
 
+.card-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: var(--color-box-icon);
+  cursor: pointer;
+}
 
 
 
