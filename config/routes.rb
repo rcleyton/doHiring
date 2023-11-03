@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     get 'home/index'
     resources :profile, only: %i[ show new create edit update ]
     resources :vacancies, only: %i[ index show new create edit update ] 
-    resources :candidatures, only: %i[ show ] do
+    resources :candidatures, only: %i[ index show ] do
       resources :comments, only: %i[ new create ]
       resources :proposals, only: %i[ new create ]
       member do

@@ -13,19 +13,22 @@
   
   <body class="dashboard">
     <div id="nav">
-    <div class="nav__brand">doHiring</div>
-    <div class="nav__profile">
-      <%= image_tag "profile.svg", width: "48"%>
-      <button class="nav__profile--dropdown">Perfil
-        <i class='bx bx-chevron-down'></i>
-      </button>
-      <div class="nav__profile--dropdownContent">
-        <%= link_to "Sair", destroy_applicant_session_path, 
-        data: { turbo_method: :delete}, 
-        class: "dropdown-item", 
-        method: :delete %>
+      <div class="nav__brand">doHiring</div>
+      <div class="nav__profile">
+        <%= image_tag "profile.svg", width: "48"%>
+        <button class="nav__profile--dropdown">Perfil
+          <i class='bx bx-chevron-down'></i>
+        </button>
+        <div class="nav__profile--dropdownContent">
+          <%= link_to "Sair", destroy_applicant_session_path, 
+          data: { turbo_method: :delete}, 
+          class: "dropdown-item", 
+          method: :delete %>
+        </div>
       </div>
     </div>
-  </div>
+    <main class="dashboard__main">
+      <%= yield %>
+    </main>
   </body>
 </html>

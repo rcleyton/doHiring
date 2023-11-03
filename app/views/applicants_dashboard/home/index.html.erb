@@ -1,39 +1,109 @@
-<% flash.each do |type, message| %>
-  <%= render partial: 'shared/alert', locals: { type: type, message: message } %>
-<% end %>
-
-<div class="accordion" id="accordionFlushExample">
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-        <%= icon('fa-solid', 'suitcase') %>&nbsp;&nbsp;&nbsp;&nbsp;Perfil
-      </button>
-    </h2>
-    <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body"><%= link_to 'Meu perfil', new_applicants_dashboard_profile_path %></div>
+<div class="dashboard__card">
+  <div class="primary__card">
+    <%= link_to edit_applicants_dashboard_profile_path(current_applicant) do %>
+      <div class="primary__card--box primary__card--edit">
+        <%= image_tag "pencil.svg", width: "24" %>
+        <span>Editar perfil</span>
+      </div>
+    <% end %>
+    <%= link_to new_applicants_dashboard_profile_path do %>
+      <div class="primary__card--box primary__card--view">
+          <%= image_tag "eye.svg", width: "24" %>
+          <span>Ver perfil</span> 
+      </div>
+    <% end %> 
+    <div class="primary__card--box primary__card--welcome">
+      <span>Seja bem-vindo</span>
+      <% if current_applicant.applicant_profile.present? %>
+        <h1><%= full_name(current_applicant.applicant_profile) %></h1> 
+      <% else %>
+        <h1>Olá usuário</h1>
+      <% end %>   
+      <div class="card__btn--signout">
+        <%= link_to destroy_applicant_session_path, data: { turbo_method: :delete}, 
+                                                    class: "dropdown-item", 
+                                                    method: :delete do %>
+          <%= image_tag "exit.svg" %>
+        <% end %>
+      </div>
+    </div>   
+  </div>
+</div>
+<div class="dashboard__card">
+  <div class="account__card">
+    <h1 class="account__card--title">Conta</h1>
+    <div class="account__card--options">
+      <div class="option">
+        <%= image_tag "envelope.svg"%>
+        <span>Mudar email</span>
+      </div>
+      <%= image_tag "arrow-right.svg" %>
     </div>
-    <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body"><%= link_to 'Editar perfil', edit_applicants_dashboard_profile_path(current_applicant) %></div>
+    <div class="account__card--options">
+      <div class="option">
+        <%= image_tag "lock.svg"%>
+        <span>Mudar senha</span>
+      </div>
+      <%= image_tag "arrow-right.svg" %>
+    </div>
+    <div class="account__card--options">
+      <div class="option">
+        <%= link_to edit_applicants_dashboard_profile_path(current_applicant) do %>
+          <%= image_tag "arrow-loop.svg"%>
+        <% end %>
+        <span>Atualizar perfil</span>
+      </div>
+      <%= link_to edit_applicants_dashboard_profile_path(current_applicant) do %>
+        <%= image_tag "arrow-right.svg" %>
+      <% end %>
     </div>
   </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-        <%= icon('fa-solid', 'handshake') %>&nbsp;&nbsp;&nbsp;&nbsp;Candidaturas
-      </button>
-    </h2>
-    <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body"><%= link_to 'Minhas candidaturas', applicants_dashboard_candidatures_path %></div>
+</div>
+<div class="dashboard__card">
+  <div class="vacancies__card">
+    <h1 class="vacancies__card--title">Vagas</h1>
+    <div class="vacancies__card--options">
+      <div class="option">
+        <%= link_to vacancies_path do %>
+          <%= image_tag "suitcase-line.svg" %>
+        <% end %>
+        <span>Buscar vagas</span>
+      </div>
+      <%= link_to vacancies_path do %>
+        <%= image_tag "arrow-right.svg" %>
+      <% end %>
     </div>
   </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-        <%= icon('fa-solid', 'handshake') %>&nbsp;&nbsp;&nbsp;&nbsp;Propostas
-      </button>
-    </h2>
-    <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body"><%= link_to 'Minhas propostas', applicants_dashboard_proposals_path %></div>
+</div>
+<div class="dashboard__card">
+  <div class="candidatures__card">
+    <h1 class="candidatures__card--title">Candidaturas</h1>
+    <div class="candidatures__card--options">
+      <div class="option">
+        <%= link_to applicants_dashboard_candidatures_path do %>
+          <%= image_tag "account-view-outline.svg" %>
+        <% end %>
+        <span>Ver minhas candidaturas</span>
+      </div>
+      <%= link_to applicants_dashboard_candidatures_path do %>
+        <%= image_tag "arrow-right.svg" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="dashboard__card">
+  <div class="proposals__card">
+    <h1 class="proposals__card--title">Propostas</h1>
+    <div class="proposals__card--options">
+      <div class="option">
+        <%= link_to applicants_dashboard_proposals_path do %>
+          <%= image_tag "business-outline.svg" %>
+        <% end %>
+        <span>Ver propostas recebidas</span>
+      </div>
+        <%= link_to applicants_dashboard_proposals_path do %>
+          <%= image_tag "arrow-right.svg" %>
+        <% end %>
     </div>
   </div>
 </div>
