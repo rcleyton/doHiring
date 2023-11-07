@@ -1,45 +1,41 @@
 <div class='nested-fields'>
-  <div class="row g-0 g-md-5">
-    <div class="col-md-8 col-12">
-      <%= f.input :course_name, label_html: { class: 'form-label' },
-                                 input_html: { class: 'form-control' } %>
-    </div>
-    <div class="col-md-4 col-12">
-      <%= f.input :institution_name, label_html: { class: 'form-label' },
-                                 input_html: { class: 'form-control' } %>
-    </div>
+  <div class="form-field"> 
+    <%= f.input :course_name, label_html: { class: 'form-label' }, input_html: { class: 'form-control' } %>
+  </div>  
+  <div class="form-field"> 
+    <%= f.input :institution_name, label_html: { class: 'form-label' }, input_html: { class: 'form-control' } %>
   </div>
-    <div class="row g-0 g-md-5">
-    <div class="col-md-6 col-12">
-      <%= f.input :course_type, collection: EducationLevel.course_types.keys, as: :select,
-      include_blank: "Informe o tipo do curso",
-       label_html: { class: 'form-label' }, input_html: { class: 'form-select' } %>
-    </div>
-    <div class="col-md-6 col-12">
+  <div class="form-field--col-2">
+    <div class="form-field"> 
+    <%= f.input :course_type, collection: EducationLevel.course_types.keys, as: :select,
+        include_blank: "Informe o tipo do curso", label_html: { class: 'form-label' }, input_html: { class: 'form-select' } %>
+    </div>  
+    <div class="form-field"> 
       <%= f.input :course_status, collection: EducationLevel.course_statuses.keys, as: :select,
-      include_blank: "Selecione a situação do curso",
-      label_html: { class: 'form-label' }, input_html: { class: 'form-select' } %>
+        include_blank: "Selecione a situação do curso", label_html: { class: 'form-label' }, input_html: { class: 'form-select' } %>
+    </div>  
+  </div>
+
+  <div class="form-field-date"> 
+    <div class="date-input">
+      <%= f.label :start_date, class: "date-label" %>
+      <%= f.input :start_date, as: :date, label: false %>
     </div>
   </div>
-  <div class="row g-0 g-md-5">
-    <div class="col-md-4 col-12">
-      <%= f.input :start_date, as: :string, label_html: { class: 'form-label' },
-                  input_html: { type: :date, class: 'form-control' } %>
-    </div>
-    <div class="col-md-4 col-12">
-      <%= f.input :end_date , as: :string, label_html: { class: 'form-label' },
-                  input_html: { type: :date, class: 'form-control' } %>
-    </div>
-    <div class="col-md-4 col-12">
-      <%= f.input :expected_end_date, as: :string, label_html: { class: 'form-label' },
-                  input_html: { type: :date, class: 'form-control' } %>
-    </div>
-  
-  <div class="row my-5">
-    <div class="col text-end">
-      <%= link_to_remove_association f, class: 'btn btn-danger my-4' do %>
-        <%= icon('fa-solid', 'trash') %>&nbsp;&nbsp;Remover
-      <% end %>
+  <div class="form-field-date"> 
+    <div class="date-input">  
+      <%= f.label :end_date, class: "date-label" %>  
+      <%= f.input :end_date , as: :date, label: false %>
     </div>
   </div>
+  <div class="form-field-date"> 
+    <div class="date-input">    
+      <%= f.label :expected_end_date, class: "date-label" %>
+      <%= f.input :expected_end_date, as: :date, label: false %>
+    </div>
+  </div>
+
+  <%= link_to_remove_association f do %>
+    <%= image_tag "trash.svg", width: "24", class: "delete-education" %>
+  <% end %>
 </div>

@@ -22,6 +22,11 @@
 
   &--form {
     width: 720px;
+
+    & .form-title {
+      color: var(--color-white);
+      margin-top: var(--space-xxxl);
+    }
   }
 }
 
@@ -37,11 +42,20 @@
   }
 }
 
+.form-field,
+.form-field-date {
+  margin-top: var(--space-l);
+}
+
+.form-field label {
+  color: var(--color-white);
+}
+
 .form-field input,
-.form-field textarea {
+.form-field textarea,
+.form-field select {
   display: flex;
   flex-direction: column;
-  margin-bottom: var(--space-m);
   width: 100%;
   padding: 5px 8px;
   background-color: #121212;
@@ -50,8 +64,22 @@
   border-radius: 5px;
 }
 
-.form-field label {
+.date-label {
+  display: block;
   color: var(--color-white);
+}
+
+.date-input .date {
+  display: flex;
+  background-color: #121212;
+  color: var(--color-white);
+  border-radius: 5px;
+  width: 100%;
+  gap: 1rem;
+}
+
+.date-input  select {
+  padding: 6px 8px;
 }
 
 .btn-update {
@@ -59,3 +87,29 @@
   float: right;
   margin-bottom: var(--space-xxxl);
 }
+
+.error {
+  color: #ff0000;
+}
+
+.delete-education {
+  font-size: 1.55rem!important;
+  margin: 1rem 0;
+  color: white;
+  background: red;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: block;
+}
+
+.add-education {
+  color: var(--color-white);
+  margin: 2rem 0;
+  display: block;
+}
+
+

@@ -1,115 +1,110 @@
-<% flash.each do |type, message| %>
-  <%= render partial: 'shared/alert', locals: { type: type, message: message } %>
-<% end %>
+<div class="profile__head">
+  <div class="profile__head--header">
+    <div class="profile__head--back-btn">
+      <%= link_to applicants_dashboard_home_index_path do %>
+        <%= image_tag "arrow-right.svg" %>
+      <% end %>
+    </div>
+    <h1 class="profile__head--title-page"><%= action_name.capitalize %> perfil</h1>
+  </div>
+</div>
   
-<%= simple_form_for @applicant_profile,
-                    url: (@applicant_profile.new_record? ? applicants_dashboard_profile_index_path
-                            : applicants_dashboard_profile_path ) do |form| %>
+<div class="profile__body">
+  <div class="profile__body--form">
+    <%= simple_form_for @applicant_profile,
+                        url: (@applicant_profile.new_record? ? applicants_dashboard_profile_index_path
+                                : applicants_dashboard_profile_path ) do |f| %>
+      <%= f.input :applicant_id, as: :hidden, input_html: { value: current_applicant.id} %>
 
-  <%= form.input :applicant_id, as: :hidden, input_html: { value: current_applicant.id} %>
+      <div class="form-field">
+        <%= f.input :avatar, as: :file, input_html: { class: 'form-control' } %>
+      </div>
 
-  <h3 class="mt-3 mt-md-0">Foto de perfil</h3>
-  <div class="row">
-    <div class="col">
-    <%= form.input :avatar, as: :file, input_html: { class: 'form-control' } %>
-    </div>
-  </div>
-  <div class="row g-0 g-md-5">
-    <div class="col-md-6 col-12">
-      <%= form.input :first_name, label_html: { class: 'form-label' },
-                  input_html: { class: 'form-control'} %>
-    </div>
-    <div class="col-md-6 col-12">
-      <%= form.input :last_name, label_html: { class: 'form-label' },
-                  input_html: { class: 'form-control' } %>
-    </div>
-  </div>
-  <div class="row g-0 g-md-5">
-    <div class="col-md-4 col-12">
-      <%= form.input :birthdate, as: :string, label_html: { class: 'form-label' },
-                  input_html: { type: :date, class: 'form-control' } %>
-    </div>
-    <div class="col-md-4 col-12">
-      <%= form.input :rg, label_html: { class: 'form-label' },
-                  input_html: { class: 'form-control' } %>
-    </div>
-    <div class="col-md-4 col-12">
-      <%= form.input :cpf, label_html: { class: 'form-label' },
-                  input_html: { class: 'form-control' } %>
-    </div>
-  </div>
-  <div class="row g-0 g-md-5">
-    <div class="col-md-6 col-12">
-      <%= form.input :gender, label_html: { class: 'form-label' },
-                  input_html: { class: 'form-control' } %>
-    </div>
-    <div class="col-md-6 col-12">
-      <%= form.input :civil_status, label_html: { class: 'form-label' },
-                  input_html: { class: 'form-control' } %>
-    </div>
-  </div>
-  <div class="row">
-    <%= form.input :professional_goals, as: 'text', label_html: { class: 'form-label' },
-                input_html: { class: 'form-control' } %>
-  </div>
+      <div class="form-field">
+        <%= f.input :first_name, label: "Nome", input_html: { class: 'select'} %>
+      </div>
 
-  <h3 class="mt-5 mb-2">Endereço</h3>
-  <%= form.fields_for :address do |address_fields| %>
-    <div class="row g-0 g-md-5">
-      <div class="col-md-6 col-12">
-        <%= address_fields.input :street, label_html: { class: 'form-label' },
-                                 input_html: { class: 'form-control' } %>
+      <div class="form-field">
+        <%= f.input :last_name, label_html: { class: 'form-label' }, input_html: { class: 'form-control' } %>
       </div>
-      <div class="col-md-3 col-12">
-        <%= address_fields.input :number, label_html: { class: 'form-label' },
-                                 input_html: { class: 'form-control' } %>
-      </div>
-      <div class="col-md-3 col-12">
-        <%= address_fields.input :postal_code, label_html: { class: 'form-label' },
-                                 input_html: { class: 'form-control' } %>
-      </div>
-    </div>
 
-    <div class="row g-0 g-md-5">
-      <div class="col-md-8 col-12">
-        <%= address_fields.input :complement, label_html: { class: 'form-label' },
-                                 input_html: { class: 'form-control' } %>
+      <div class="form-field-date">
+        <%= f.label :birthdate, class: "date-label" %>
+        <div class="date-input">
+          <%= f.input :birthdate, as: :date, start_year: Date.today.year - 90, 
+                                             end_year: Date.today.year - 17, 
+                                             discard_day: false, 
+                                             order: [:day, :month, :year], label: false %> 
+        </div>
       </div>
-      <div class="col-md-4 col-12">
-        <%= address_fields.input :neighborhood, label_html: { class: 'form-label' },
-                                 input_html: { class: 'form-control' } %>
-      </div>
-    </div>
 
-    <div class="row g-0 g-md-5">
-      <div class="col-md-8 col-12">
-        <%= address_fields.input :city, label_html: { class: 'form-label' },
-                                 input_html: { class: 'form-control' } %>
-      </div>
-      <div class="col-md-4 col-12">
-        <%= address_fields.input :state, label_html: { class: 'form-label' },
-                                 input_html: { class: 'form-control' } %>
-      </div>
-    </div>
+      <div class="form-field--col-2">
+        <div class="form-field">  
+          <%= f.input :rg, label_html: { class: 'form-label' }, input_html: { class: 'form-control' } %>
+        </div>
 
-    <h3 class="mt-5 mb-2">Escolaridade</h3>
-    <div class="row g-0 g-md-5">
+        <div class="form-field">
+          <%= f.input :cpf, label_html: { class: 'form-label' }, input_html: { class: 'form-control' } %>
+        </div>
+      </div>
+      <div class="form-field--col-2">
+        <div class="form-field"> 
+          <%= f.input :gender, label_html: { class: 'form-label' }, input_html: { class: 'form-control' } %>
+        </div>
+          
+        <div class="form-field">
+            <%= f.input :civil_status, label_html: { class: 'form-label' }, input_html: { class: 'form-control' } %>
+        </div>
+      </div>
+      <div class="form-field">
+        <%= f.input :professional_goals, as: 'text', label_html: { class: 'form-label' }, input_html: { class: 'form-control' } %>
+      </div>
+
+      <h3 class="form-title">Endereço</h3>
+      <%= f.fields_for :address do |address_fields| %>
+
+      <div class="form-field"> 
+        <%= address_fields.input :street, label_html: { class: 'form-label' }, input_html: { class: 'form-control' } %>
+      </div>    
+
+      <div class="form-field"> 
+        <%= address_fields.input :number, label_html: { class: 'form-label' }, input_html: { class: 'form-control' } %>
+      </div> 
+
+      <div class="form-field">  
+        <%= address_fields.input :postal_code, label_html: { class: 'form-label' }, input_html: { class: 'form-control' } %>
+      </div>
+
+      <div class="form-field"> 
+        <%= address_fields.input :complement, label_html: { class: 'form-label' }, input_html: { class: 'form-control' } %>
+      </div>
+
+      <div class="form-field">
+        <%= address_fields.input :neighborhood, label_html: { class: 'form-label' }, input_html: { class: 'form-control' } %>
+      </div>
+      <div class="form-field--col-2">
+        <div class="form-field">  
+          <%= address_fields.input :city, label_html: { class: 'form-label' }, input_html: { class: 'form-control' } %>
+        </div>
+
+        <div class="form-field">  
+          <%= address_fields.input :state, label_html: { class: 'form-label' }, input_html: { class: 'form-control' } %>
+        </div>
+      </div>
+    <% end %>
+      
+      <h3 class="form-title">Escolaridade</h3>
       <div id="education-levels" class="col">
-        <%= form.simple_fields_for :education_levels do |education| %>
+        <%= f.simple_fields_for :education_levels do |education| %>
           <%= render 'education_level_fields', :f => education %>
         <% end %>
         <div class='links'>
-          <%= link_to_add_association form, :education_levels, class: "btn btn-success my-4" do %>
-            <%= icon('fa-solid', 'plus') %>&nbsp;&nbsp;Adicionar formação
+          <%= link_to_add_association f, :education_levels, class: "add-education" do %>
+            <i class='bx bx-plus-circle'></i> Adicionar formação
           <% end %>
-        </div>
       </div>
-    </div>
-  <% end %>
-  <div class="row my-5">
-    <div class="col text-end">
-      <%= form.button :submit, "Salvar", class: 'btn btn-primary' %>
-    </div>
-  </div>
-<% end %>
 
+      <%= f.button :submit, "Salvar", class: 'btn-update' %>
+    <% end %>
+  </div>
+</div>
