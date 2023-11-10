@@ -49,7 +49,9 @@
 .btn-edit {
   @extend .btn;
   background-color: hsl(29, 76%, 50%);
-  color: var(--color-white);
+  color: #000000;
+  border-radius: var(--space-l);
+  padding: var(--space-s) var(--space-l);
 
   &:hover {
     background-color: hsl(29, 76%, 40%);

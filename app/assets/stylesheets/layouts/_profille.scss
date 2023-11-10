@@ -85,7 +85,7 @@
 .btn-update {
   @extend .btn-save;
   float: right;
-  margin-bottom: var(--space-xxxl);
+  margin: var(--space-xxxl) 0;
 }
 
 .error {
@@ -110,6 +110,62 @@
   color: var(--color-white);
   margin: 2rem 0;
   display: block;
+}
+
+.profile__show {
+  width: 720px;
+
+  &--img {
+    display: flex;
+    justify-content: center;
+
+    & img {
+      border-radius: 8px;
+    }
+  }
+
+  &--description {
+    color: var(--color-white);
+    margin-top: var(--space-xxxxl);
+
+    & .description-field {
+      display: flex;
+      width: 100%;
+      flex-wrap: wrap;
+      margin-bottom: var(--space-l);
+    }
+
+    & dt, dd {
+      display: inline-block;
+      margin: 0;
+    }
+
+    & dt {
+      font-weight: 700;
+      width: 250px;
+    }  
+    
+    & dd {
+      text-align: right;
+      width: 450px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    dt, dd {
+      width: 100%
+    }
+
+    dd {
+      text-align: left
+    }
+  }
+}
+
+.btn-edit {
+  @extend .btn-edit;
+  float: right;
+  margin: var(--space-xxxl) 0;
 }
 
 
