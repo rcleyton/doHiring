@@ -1,5 +1,5 @@
 class RecruitersDashboard::ProfileController < RecruitersDashboardController
-  before_action :set_profile, only: %i[ edit update]
+  before_action :set_profile, only: %i[ update]
   def show
     @recruiter_profile = RecruiterProfile.find(params[:id])
     redirect_to recruiters_dashboard_home_index_path if @recruiter_profile != current_recruiter.recruiter_profile
@@ -26,6 +26,7 @@ class RecruitersDashboard::ProfileController < RecruitersDashboardController
   end
 
   def edit
+    @recruiter_profile = RecruiterProfile.find(params[:id])    
   end
 
   def update

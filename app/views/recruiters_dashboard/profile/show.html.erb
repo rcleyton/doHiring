@@ -10,7 +10,6 @@
 </div>
 
 <div class="profile__body">
-
   <div class="profile__show">
     <div class="profile__show--img">
       <% if @recruiter_profile.avatar.persisted? %>
@@ -19,77 +18,53 @@
         <%= image_tag 'profile.png', class: "img-fluid rounded", width: "128", height: "128" %>
       <% end %>
     </div>
-    
-    <dl class="profile__show--description">
-      <div class="description-field">
-        <dt>Razão social:</dt>
-          <dd><%= @recruiter_profile.legal_name %></dd>
-      </div>
 
-      <div class="description-field">
-        <dt>Nome fantasia</dt>
-          <dd><%= @recruiter_profile.trade_name %></dd>
-      </div>
-
-      <div class="description-field">
-        <dt>CNPJ</dt>
-          <dd><%= @recruiter_profile.document %></dd>
-      </div>
-
-      <div class="description-field">
-        <dt>Setor</dt>
-          <dd><%= @recruiter_profile.sector %></dd>
-      </div>
-
-      <div class="description-field">
-        <dt>Número de funcionários</dt>
-          <dd><%= @recruiter_profile.number_employee %></dd>
-      </div>
-
-      <div class="description-field">
-        <dt>Sobre nós</dt>
-          <dd><%= @recruiter_profile.about_us %></dd>
-      </div>
-
-      <div class="description-field">
-        <dt>Telefone</dt>
-          <dd><%= @recruiter_profile.phone %></dd>
-      </div>
-
-      <div class="description-field">
-        <dt>Mobile</dt>
-          <dd><%= @recruiter_profile.cell_phone %></dd>
-      </div>
-
-      <div class="description-field">
-        <dt>Rua</dt>
-          <dd><%= @recruiter_profile.address.street %></dd>
-      </div>
-
-      <div class="description-field">
-        <dt>CEP</dt>
-          <dd><%= @recruiter_profile.address.postal_code %></dd>
-      </div>
-
-      <div class="description-field">
-        <dt>Complemento</dt>
-          <dd><%= @recruiter_profile.address.complement %></dd>
-      </div>
-
-      <div class="description-field">
-        <dt>Bairro</dt>
-          <dd><%= @recruiter_profile.address.neighborhood %></dd>
-      </div>
-      <div class="description-field">
-        <dt>Cidade</dt>
-          <dd><%= @recruiter_profile.address.city %></dd>
-      </div>
-      <div class="description-field">
-        <dt>Estado</dt>
-          <dd><%= @recruiter_profile.address.state %></dd>
-      </div>
-    </dl>
-    <%= link_to "Editar perfil", edit_recruiters_dashboard_profile_path, class: "btn-edit"%>
+    <div class="profile__show--card">
+      <div class="profile__show--card-infoUser">
+        <div class="profile-card-header">
+          <%= image_tag "info.svg", width: "24" %>
+          <h1>Informações</h1>
+        </div>
+        <div class="profile-card-body">
+          <ul>
+            <li><%= @recruiter_profile.legal_name %></li>
+            <li><%= @recruiter_profile.document %></li>
+            <li><%= @recruiter_profile.sector %></li>
+            <li><%= @recruiter_profile.number_employee %> colaboradores</li>
+          </ul>
+          <h3>Sobre nós</h3>
+          <p><%= @recruiter_profile.about_us %></p>
+        </div>
+      </div>  
+      <div class="profile__show--card-contact">
+        <div class="profile-card-header">
+          <%= image_tag "contact-card.svg", width: "24" %>
+          <h1>Contato</h1>
+        </div>
+        <div class="profile-card-body">
+          <ul>
+            <li><%= current_recruiter.email %></li>
+            <li><%= @recruiter_profile.phone %></li>
+            <li><%= @recruiter_profile.cell_phone %></li>
+          </ul>
+        </div>
+      </div> 
+      <div class="profile__show--card-address">
+        <div class="profile-card-header">
+          <%= image_tag "address.svg", width: "24" %>
+          <h1>Endereço</h1>
+        </div>
+        <div class="profile-card-body">
+          <p><%= @recruiter_profile.address.street %>, <%= @recruiter_profile.address.number %> - 
+          <%= @recruiter_profile.address.complement %> - CEP - <%= @recruiter_profile.address.postal_code %></p>
+          <p><%= @recruiter_profile.address.neighborhood %>, <%= @recruiter_profile.address.city %> - 
+          <%= @recruiter_profile.address.state %>
+          </p>
+        </div>
+      </div>   
+      <%= button_to "Editar perfil", edit_recruiters_dashboard_profile_path(@recruiter_profile),
+                  method: :get, class: "btn-edit"%>
+    </div>
   </div>
 </div>
 

@@ -121,43 +121,75 @@
 
     & img {
       border-radius: 8px;
-    }
-  }
-
-  &--description {
-    color: var(--color-white);
-    margin-top: var(--space-xxxxl);
-
-    & .description-field {
-      display: flex;
-      width: 100%;
-      flex-wrap: wrap;
       margin-bottom: var(--space-l);
     }
-
-    & dt, dd {
-      display: inline-block;
-      margin: 0;
-    }
-
-    & dt {
-      font-weight: 700;
-      width: 250px;
-    }  
-    
-    & dd {
-      text-align: right;
-      width: 450px;
-    }
   }
 
-  @media screen and (max-width: 768px) {
-    dt, dd {
-      width: 100%
+  &--card {
+    width: 100%;
+
+    &-infoUser,
+    &-address,
+    &-contact,
+    &-education {
+      @extend .card;
+      margin-top: var(--space-m);
+
+      & .profile-card-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: var(--space-s)
+      } 
+
+      & .profile-card-header img {
+        @extend .card-btn;
+      }
+
+      & .profile-card-header h1 {
+        color: var(--color-white);
+        font-size: var(--font-size-m);
+        margin-left: var(--space-s);
+      }
+
+      & .profile-card-body li {
+        list-style: none;
+      }
+
+      & .profile-card-body h3 {
+        color: var(--color-white);
+        font-size: var(--font-size-m);
+        margin-top: var(--space-m);
+        margin-bottom: var(--space-xs);
+      }
     }
 
-    dd {
-      text-align: left
+    &-education {
+
+      & .profile-card-body .education-date {
+        display: flex;
+        margin-top: 1rem;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        
+        & .start-date div,
+        & .end-date div,
+        & .expected-date div {
+          display: flex;
+          align-items: center;
+
+          & img {
+            @extend .card-btn;
+          }
+
+          & span {
+            margin-left: var(--space-s);
+          }
+
+          & strong {
+            margin-top: var(--space-s)
+          }
+        } 
+      }
     }
   }
 }
