@@ -38,7 +38,7 @@ class ApplicantsDashboard::ProfileController < ApplicantsDashboardController
       puts @applicant_profile.errors.full_messages
     else
       flash.now[:error] = "Verifique o(s) campo(os) em vermelho."
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 

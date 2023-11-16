@@ -6,6 +6,7 @@
   margin: 0;
   transition: .3s;
   box-shadow: var(--shadow-small);
+  border: none;
 }
 
 .btn-primary {
@@ -36,7 +37,10 @@
 .btn-save {
   @extend .btn;
   background-color: hsl(145, 63%, 42%);
-  color: var(--color-white);
+  color: #000000;
+  border-radius: var(--space-l);
+  border: none;
+  padding: var(--space-s) var(--space-l);
 
   &:hover {
     background-color: hsl(145, 63%, 33%);
@@ -46,7 +50,9 @@
 .btn-edit {
   @extend .btn;
   background-color: hsl(29, 76%, 50%);
-  color: var(--color-white);
+  color: #000000;
+  border-radius: var(--space-l);
+  padding: var(--space-s) var(--space-l);
 
   &:hover {
     background-color: hsl(29, 76%, 40%);
@@ -56,7 +62,9 @@
 .btn-delete {
   @extend .btn;
   background-color: hsl(3, 71%, 52%);
+  border-radius: var(--space-l);
   color: var(--color-white);
+  padding: var(--space-s) var(--space-l);
 
   &:hover {
     background-color: hsl(3, 71%, 42%);
@@ -98,6 +106,17 @@
   background-color: var(--color-box-icon);
   cursor: pointer;
   padding: 4px;
+}
+
+.back-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  background-color: #242424;
+  border-radius: 50%;
+  transform: rotate(180deg);
 }
 
 

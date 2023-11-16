@@ -1,0 +1,203 @@
+.profile__head {
+  display: flex;
+  justify-content: center;
+
+  &--header {
+    width: 720px;
+  }
+
+  &--back-btn {
+    @extend .back-btn;
+  }
+  
+  &--title-page {
+    color: var(--color-white);
+    margin: var(--space-xxxl) 0;
+  }
+}
+
+.profile__body {
+  display: flex;
+  justify-content: center;
+
+  &--form {
+    width: 720px;
+
+    & .form-title {
+      color: var(--color-white);
+      margin-top: var(--space-xxxl);
+    }
+  }
+}
+
+.form-field--col-3,
+.form-field--col-2 {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  
+  & .form-field {
+    flex-grow: 1;
+  }
+}
+
+.form-field,
+.form-field-date {
+  margin-top: var(--space-l);
+}
+
+.form-field label {
+  color: var(--color-white);
+}
+
+.form-field input,
+.form-field textarea,
+.form-field select {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 5px 8px;
+  background-color: #121212;
+  border: 1px solid #878787;
+  color: var(--color-white);
+  border-radius: 5px;
+}
+
+.date-label {
+  display: block;
+  color: var(--color-white);
+}
+
+.date-input .date {
+  display: flex;
+  background-color: #121212;
+  color: var(--color-white);
+  border-radius: 5px;
+  width: 100%;
+  gap: 1rem;
+}
+
+.date-input  select {
+  padding: 6px 8px;
+}
+
+.btn-update {
+  @extend .btn-save;
+  float: right;
+  margin: var(--space-xxxl) 0;
+}
+
+.error {
+  color: #ff0000;
+}
+
+.delete-education {
+  font-size: 1.55rem!important;
+  margin: 1rem 0;
+  color: white;
+  background: red;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: block;
+}
+
+.add-education {
+  color: var(--color-white);
+  margin: 2rem 0;
+  display: block;
+}
+
+.profile__show {
+  width: 720px;
+
+  &--img {
+    display: flex;
+    justify-content: center;
+
+    & img {
+      border-radius: 8px;
+      margin-bottom: var(--space-l);
+    }
+  }
+
+  &--card {
+    width: 100%;
+
+    &-infoUser,
+    &-address,
+    &-contact,
+    &-education {
+      @extend .card;
+      margin-top: var(--space-m);
+
+      & .profile-card-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: var(--space-s)
+      } 
+
+      & .profile-card-header img {
+        @extend .card-btn;
+      }
+
+      & .profile-card-header h1 {
+        color: var(--color-white);
+        font-size: var(--font-size-m);
+        margin-left: var(--space-s);
+      }
+
+      & .profile-card-body li {
+        list-style: none;
+      }
+
+      & .profile-card-body h3 {
+        color: var(--color-white);
+        font-size: var(--font-size-m);
+        margin-top: var(--space-m);
+        margin-bottom: var(--space-xs);
+      }
+    }
+
+    &-education {
+
+      & .profile-card-body .education-date {
+        display: flex;
+        margin-top: 1rem;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        
+        & .start-date div,
+        & .end-date div,
+        & .expected-date div {
+          display: flex;
+          align-items: center;
+
+          & img {
+            @extend .card-btn;
+          }
+
+          & span {
+            margin-left: var(--space-s);
+          }
+
+          & strong {
+            margin-top: var(--space-s)
+          }
+        } 
+      }
+    }
+  }
+}
+
+.btn-edit {
+  @extend .btn-edit;
+  float: right;
+  margin: var(--space-xxxl) 0;
+}
+
+

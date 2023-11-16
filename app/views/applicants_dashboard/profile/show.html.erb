@@ -1,136 +1,123 @@
-<div class="container">
-  <% flash.each do |type, message| %>
-    <%= render partial: 'shared/alert', locals: { type: type, message: message } %>
-  <% end %>
-
-  <div class="row">
-    <div class="col-md-3 col-12 py-4 py-md-0">
-      <div class="text-center text-md-start">
-        <% if @applicant_profile.avatar.persisted? %>
-          <%= image_tag @applicant_profile.avatar,  class: "img-fluid rounded", width: "128", height: "128" %>
-        <% else %>
-          <%= image_tag 'profile.png', class: "img-fluid rounded", width: "128", height: "128" %>
-        <% end %>
-      </div>
-    </div>
-    <div class="col-md-9 col-12 py-4 py-md-0">
-      <h2><%= full_name(@applicant_profile) %></h2>
-      <hr>
-      <div class="row">
-        <div class="col-md-4 col-12">
-          <h4>Ano de nascimento</h4>
-          <p class="mb-4"><%= l @applicant_profile.birthdate, format: :long %></p>
-        </div>
-        <div class="col-md-4 col-12">
-          <h4>RG</h4>
-          <p class="mb-4"><%= @applicant_profile.rg %></p>
-        </div>
-        <div class="col-md-4 col-12">
-          <h4>CPF</h4>
-          <p class="mb-4"><%= @applicant_profile.cpf %></p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6 col-12">
-          <h4>Gênero</h4>
-          <p class="mb-4"><%= @applicant_profile.gender %></p>
-        </div>
-        <div class="col-md-6 col-12">
-          <h4>Estado civil</h4>
-          <p class="mb-4"><%= @applicant_profile.civil_status%></p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <h4>Objetivos Profissionais</h4>
-          <p class="mb-4"><%= @applicant_profile.professional_goals %></p>
-        </div>
-      </div>
-      <h3 class="mt-4">Endereço</h3>
-      <hr>
-      <div class="row">
-        <div class="col-md-6 col-12">
-          <h4>Rua</h4>
-          <p class="mb-4"><%= @applicant_profile.address.street %></p>
-        </div>
-        <div class="col-md-3 col-12">
-          <h4>Número</h4>
-          <p class="mb-4"><%= @applicant_profile.address.number %></p>
-        </div>
-        <div class="col-md-3 col-12">
-          <h4>CEP</h4>
-          <p class="mb-4"><%= @applicant_profile.address.postal_code %></p>
-        </div>
-        <div class="row">
-          <div class="col">
-            <h4>Complemento</h4>
-            <p class="mb-4"><%= @applicant_profile.address.complement %></p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4 col-12">
-            <h4>Cidade</h4>
-            <p class="mb-4"><%= @applicant_profile.address.city %></p>
-          </div>
-          <div class="col-md-4 col-12">
-            <h4>Bairro</h4>
-            <p class="mb-4"><%= @applicant_profile.address.neighborhood %></p>
-          </div>
-          <div class="col-md-4 col-12">
-            <h4>Estado</h4>
-            <p class="mb-5"><%= @applicant_profile.address.state %></p>
-          </div>
-        </div>
-      </div>
-      <h3 class="mt-4">Escolaridade</h3>
-      <hr>
-      <% @education_levels.each do |education| %>
-        <div class="mb-4 border-bottom">
-          <div class="row">
-            <div class="col-md-5 col-12">
-              <h4>Curso</h4>
-              <p class="mb-5"><%= education.course_name %></p>
-            </div>
-            <div class="col-md-7 col-12">
-              <h4>Instiutição de ensino</h4>
-              <p class="mb-5"><%= education.institution_name %></p>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-6 col-12">
-              <h4>Tipo curso</h4>
-              <p class="mb-5"><%= education.course_type %></p>
-            </div>
-            <div class="col-md-6 col-12">
-              <h4>Situação curso</h4>
-              <p class="mb-5"><%= education.course_status %></p>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-4 col-12">
-              <h4>Data de início</h4>
-              <p class="mb-5"><%= l education.start_date, format: :long %></p>
-            </div>
-            <% if education.end_date.present? %>
-              <div class="col-md-4 col-12">
-                <h4>Data de término</h4>
-                <p class="mb-5"><%= l education.end_date, format: :long %></p>
-              </div>
-            <% end %>
-            <% if education.expected_end_date.present? %>
-              <div class="col-md-4 col-12">
-                <h4>Previsão de término</h4>
-                <p class="mb-5"><%= education.expected_end_date %></p>
-              </div>
-            <% end %>
-          </div>
-        </div>
+<div class="profile__head">
+  <div class="profile__head--header">
+    <div class="profile__head--back-btn">
+      <%= link_to applicants_dashboard_home_index_path do %>
+        <%= image_tag "arrow-right.svg" %>
       <% end %>
-
-      <%= button_to 'Editar', edit_applicants_dashboard_profile_path(@applicant_profile),
-                    method: :get, class: 'btn btn-primary mb-5' %>
     </div>
+    <h1 class="profile__head--title-page"><%= full_name(@applicant_profile) %></h1>
+  </div>
+</div>
+
+<div class="profile__body">
+  <div class="profile__show">
+    <div class="profile__show--img">
+      <% if @applicant_profile.avatar.persisted? %>
+        <%= image_tag @applicant_profile.avatar, class: "img-fluid rounded", width: "128", height: "128" %>
+      <% else %>
+        <%= image_tag 'profile.png', class: "img-fluid rounded", width: "128", height: "128" %>
+      <% end %>
+    </div>
+
+    <div class="profile__show--card">
+      <div class="profile__show--card-infoUser">
+        <div class="profile-card-header">
+          <%= image_tag "info.svg", width: "24" %>
+          <h1>Informações</h1>
+        </div>
+        <div class="profile-card-body">
+          <ul>
+            <li><%= full_name(@applicant_profile) %></li>
+            <li><%= l @applicant_profile.birthdate, format: :long %></li>
+            <li><%= @applicant_profile.rg %></li>
+            <li><%= @applicant_profile.cpf %></li>
+            <li><%= @applicant_profile.gender %></li>
+            <li><%= @applicant_profile.civil_status%></li>
+          </ul>
+          <h3>Objetivos profissionais</h3>
+          <p><%= @applicant_profile.professional_goals %></p>
+        </div>
+      </div>
+
+      <div class="profile__show--card-contact">
+        <div class="profile-card-header">
+          <%= image_tag "contact-card.svg", width: "24" %>
+          <h1>Contato</h1>
+        </div>
+        <div class="profile-card-body">
+          <ul>
+            <li><%= current_applicant.email %></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="profile__show--card-address">
+        <div class="profile-card-header">
+          <%= image_tag "address.svg", width: "24" %>
+          <h1>Endereço</h1>
+        </div>
+        <div class="profile-card-body">
+          <p><%= @applicant_profile.address.street %>, <%= @applicant_profile.address.number %> - 
+          <%= @applicant_profile.address.complement %> - CEP - <%= @applicant_profile.address.postal_code %></p>
+          <p><%= @applicant_profile.address.neighborhood %>, <%= @applicant_profile.address.city %> - 
+          <%= @applicant_profile.address.state %>
+          </p>
+        </div>
+      </div>
+
+      <% @education_levels.each do |education| %>
+        <div class="profile__show--card-education">
+          <div class="profile-card-header">
+            <%= image_tag "degree.svg", width: "24" %>
+            <h1>Formação</h1>
+          </div>
+          <div class="profile-card-body">
+            <ul>
+              <li><%= education.course_name %></li>
+              <li><%= education.institution_name %></li>
+              <li><%= education.course_type %> <%= education.course_status %></li>
+            </ul>
+
+            <div class="education-date">
+              <div class="start-date">
+                <div>
+                  <%= image_tag "calendar-date.svg", width: "24"%>
+                  <span>Data de início</span>
+                </div>
+                <strong>
+                  <%= education.start_date.strftime('%d/%m/%Y') %>
+                </strong>
+              </div>
+
+              <% if education.end_date.present? %>
+                <div class="end-date">
+                  <div>
+                    <%= image_tag "calendar-date.svg", width: "24"%>
+                    <span>Data de término</span>
+                </div>
+                  <strong>
+                    <%= education.end_date.strftime('%d/%m/%Y') %>
+                  </strong> 
+                </div>
+              <% end %>
+
+              <% if education.expected_end_date.present? %>
+                <div class="expected-date">
+                  <div>
+                    <%= image_tag "calendar-date.svg", width: "24"%>
+                    <span>Previsão de término</span>
+                  </div>
+                  <strong>
+                    <%= education.expected_end_date.strftime('%d/%m/%Y') %>
+                  </strong>
+                </div>
+              <% end %>
+            </div>
+          </div>
+      </div>
+    <% end %>
+
+    <%= button_to 'Editar Perfil', edit_applicants_dashboard_profile_path(@applicant_profile),
+                    method: :get, class: 'btn-edit' %>
   </div>
 </div>
