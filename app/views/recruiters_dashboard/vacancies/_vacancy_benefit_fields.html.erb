@@ -1,10 +1,9 @@
-<div class='nested-fields'>
-  <div class="row my-4">
-    <div class="col d-flex">
-      <%= f.input :benefit_name, label: false, input_html: { class: 'form-control'} %>
-      <%= link_to_remove_association f, class: 'btn btn-danger ms-4' do %>
-        <%= icon('fa-solid', 'trash') %>&nbsp;&nbsp;Remover
-      <% end %>
-    </div>
-  </div>  
+<div class="nested-form-wrapper" data-new-record="<%= f.object.new_record? %>">
+  <div class="form-benefits">
+    <%= f.text_field :benefit_name %>
+    <button type="button" data-action="nested-form#remove" class="remove-benefit">
+      <%= image_tag "trash.svg", width: "24", class: "remove-benetit-icon" %>
+    </button>
+  </div>
+  <%= f.hidden_field :_destroy %>
 </div>

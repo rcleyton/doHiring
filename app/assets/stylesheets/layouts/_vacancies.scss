@@ -128,7 +128,7 @@
       }
 
       & .left-info .location {
-        background: url(/assets/location-cfe7056355d9286f6eae6f416017e7dd81dca82afe242162fb7c26bc52a7b9c9.svg) no-repeat 0px 5px;
+        background: url(/assets/location.svg) no-repeat 0px 5px;
         display: inline-block;
         padding: 0px 0px 0px 20px;
         font-size: var(--font-size-s);
@@ -155,7 +155,7 @@
       color: hsl(197.1,11.7%,35.1%);
       display: inline-block;
       padding: 0px 15px 0px 15px;
-      background: url(/assets/briefcase-2ef1b85f276ecf985e2a0992aa076333da3f44246ef61a48ddec1fc3b363ddd9.svg) no-repeat 0px 8px;
+      background: url(/assets/briefcase.svg) no-repeat 0px 8px;
     }
 
     & .job-icons .card-time {
@@ -163,7 +163,7 @@
       color: hsl(197.1,11.7%,35.1%);
       display: inline-block;
       padding: 0px 15px 0px 15px;
-      background: url(/assets/time-a8e78e6f40973be194f131e69d56b624e5e93401491d3ee76530610b56676c5a.svg) no-repeat 0px 6px;
+      background: url(/assets/time.svg) no-repeat 0px 6px;
     }
 
     & .job-icons .job-description {
@@ -397,3 +397,39 @@
   cursor: not-allowed;
 }
 
+/* NEW/EDIT */
+.form-benefits {
+  display: flex;
+  gap: 1rem;
+  margin-top: var(--space-m);
+
+  & input {
+    @extend .input-field;
+    flex-direction: row;
+  }
+}
+
+.remove-benefit {
+  border: none;
+  border-radius: 8px;
+  background-color: hsla(0, 0%, 0%, 0.350);
+  padding: .5rem;
+  cursor: pointer;
+}
+
+.add-benefits {
+  margin: var(--space-l) 0;
+
+  & button {
+    display: flex;
+    align-items: flex-start;
+    background-color: #ffffff00;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    
+    & img {
+      margin-right: var(--space-s);
+    }
+  }
+}
