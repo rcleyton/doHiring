@@ -1,47 +1,38 @@
-<%= link_to new_recruiters_dashboard_vacancy_path, class: 'btn btn-primary mb-md-5 my-3' do %>
-  <%= icon('fa-solid', 'suitcase') %>&nbsp;&nbsp;Nova vaga
-<% end %>
-
-<h3 class="mb-3">Vagas publicadas</h3>
-<% if @vacancies.empty? %>
-  <div class="card text-center mb-5 bg-warning-subtle">
-    <div class="card-body">
-      <p class="card-text">Nenhuma vaga publicada ainda!</p>
+<div class="dashboard__head">
+  <div class="dashboard__head--header">
+    <div class="dashboard__head--back-btn">
+      <%= link_to recruiters_dashboard_home_index_path do %>
+        <%= image_tag "angle-left.svg" %>
+      <% end %>
+    </div>
+    <%= link_to new_recruiters_dashboard_vacancy_path do %>
+      <h1 class="dashboard__head--title-page">Publicar vaga &rarr;</h1>
+    <% end %>
+  </div>
+</div>
+<div class="dashboard__body">
+  <div class="dashboard__content">
+    <div class="dashboard__content--card">
+      <div class="dashboard__content--card-header">
+        <h3>Vagas publicadas</h3>
+      </div>
+      <div class="dashboard__content--card-body">
+        <% if @vacancies.empty? %>
+          <p>Nenhuma vaga publicada ainda!</p>
+        <% else %>
+          <% @vacancies.each do |vacancy| %>
+          <div class="content-body">
+              <div class="content-body-left">
+                <%= image_tag "briefcase-view-outline.svg"%>
+                <span><%= vacancy.title %></span>
+              </div>
+              <%= link_to recruiters_dashboard_vacancy_path(vacancy) do %>
+                <%= image_tag "arrow-right.svg" %>
+              <% end %>
+          </div>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
-<% else %>
-  <div class="table-responsive">
-    <table class="table table-hover border border-primary-subtle">
-      <thead>
-        <tr class="table-primary">
-          <th scope="col">Vaga</th>
-          <th scope="col">Nível da Vaga</th>
-          <th scope="col">Localização</th>
-          <th scope="col">Status</th>
-          <th scope="col">Detalhes</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @vacancies.each do |vacancy| %>
-        <tr>
-          <td><%= vacancy.title %></td>  
-          <td>
-            <% if vacancy.vacancy_level.present? %>
-              <%= vacancy.vacancy_level.level %>
-            <% else %>
-              Nível não definido
-            <% end %>
-          </td>  
-          <td><%= vacancy.location %></td>  
-          <td><%= vacancy.status %></td>  
-          <td>
-            <%= link_to recruiters_dashboard_vacancy_path(vacancy) do %>
-              <%= icon('fa-solid', 'eye') %>
-            <% end %>
-          </td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-<% end %>
+</div>

@@ -196,15 +196,38 @@
 
       & img {
         @extend .card-btn;
+        margin-right: var(--space-s);
       }
-      
+
       & h3 {
         color: var(--color-white);
         font-size: var(--font-size-m);
-        margin-left: var(--space-s);
       }
     }
 
+    &-body .content-body {
+      margin: var(--space-m) 0 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &-body .content-body .content-body-left {
+      display: flex;
+      align-items: center;
+
+      & img {
+        @extend .card-btn;
+        margin-right: var(--space-s);
+      }
+
+      & span {
+        font-size: var(--font-size-s);
+        font-weight: var(--font-weight-medium);
+        
+      }
+    }
+    
     & li {
       list-style: none;
     }
