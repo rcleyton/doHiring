@@ -1,21 +1,3 @@
-.profile__head {
-  display: flex;
-  justify-content: center;
-
-  &--header {
-    width: 720px;
-  }
-
-  &--back-btn {
-    @extend .back-btn;
-  }
-  
-  &--title-page {
-    color: var(--color-white);
-    margin: var(--space-xxxl) 0;
-  }
-}
-
 .profile__body {
   display: flex;
   justify-content: center;
