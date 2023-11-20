@@ -11,27 +11,28 @@
   
 <div class="profile__body">
   <div class="profile__body--form">
-    <%= simple_form_for @applicant_profile,
-                        url: (@applicant_profile.new_record? ? applicants_dashboard_profile_index_path
-                                : applicants_dashboard_profile_path ) do |f| %>
-      <%= f.input :applicant_id, as: :hidden, input_html: { value: current_applicant.id} %>
+    <%= simple_form_for @applicant_profile, url: (@applicant_profile.new_record? ? 
+                                            applicants_dashboard_profile_index_path : 
+                                            applicants_dashboard_profile_path ),
+                                            data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' } do |form| %>
+      <%= form.input :applicant_id, as: :hidden, input_html: { value: current_applicant.id} %>
 
       <div class="form-field">
-        <%= f.input :avatar, as: :file, input_html: { class: 'form-control' } %>
+        <%= form.input :avatar, as: :file, input_html: { class: 'form-control' } %>
       </div>
 
       <div class="form-field">
-        <%= f.input :first_name, label: "Nome", input_html: { class: 'select'} %>
+        <%= form.input :first_name, label: "Nome", input_html: { class: 'select'} %>
       </div>
 
       <div class="form-field">
-        <%= f.input :last_name, label_html: { class: 'form-label' }, input_html: { class: 'form-control' } %>
+        <%= form.input :last_name, label_html: { class: 'form-label' }, input_html: { class: 'form-control' } %>
       </div>
 
       <div class="form-field-date">
-        <%= f.label :birthdate, class: "date-label" %>
+        <%= form.label :birthdate, class: "date-label" %>
         <div class="date-input">
-          <%= f.input :birthdate, as: :date, start_year: Date.today.year - 90, 
+          <%= form.input :birthdate, as: :date, start_year: Date.today.year - 90, 
                                              end_year: Date.today.year - 17, 
                                              discard_day: false, 
                                              order: [:day, :month, :year], label: false %> 
@@ -40,28 +41,28 @@
 
       <div class="form-field--col-2">
         <div class="form-field">  
-          <%= f.input :rg, label_html: { class: 'form-label' }, input_html: { class: 'form-control' } %>
+          <%= form.input :rg, label_html: { class: 'form-label' }, input_html: { class: 'form-control' } %>
         </div>
 
         <div class="form-field">
-          <%= f.input :cpf, label_html: { class: 'form-label' }, input_html: { class: 'form-control' } %>
+          <%= form.input :cpf, label_html: { class: 'form-label' }, input_html: { class: 'form-control' } %>
         </div>
       </div>
       <div class="form-field--col-2">
         <div class="form-field"> 
-          <%= f.input :gender, label_html: { class: 'form-label' }, input_html: { class: 'form-control' } %>
+          <%= form.input :gender, label_html: { class: 'form-label' }, input_html: { class: 'form-control' } %>
         </div>
           
         <div class="form-field">
-            <%= f.input :civil_status, label_html: { class: 'form-label' }, input_html: { class: 'form-control' } %>
+            <%= form.input :civil_status, label_html: { class: 'form-label' }, input_html: { class: 'form-control' } %>
         </div>
       </div>
       <div class="form-field">
-        <%= f.input :professional_goals, as: 'text', label_html: { class: 'form-label' }, input_html: { class: 'form-control' } %>
+        <%= form.input :professional_goals, as: 'text', label_html: { class: 'form-label' }, input_html: { class: 'form-control' } %>
       </div>
 
       <h3 class="form-title">Endereço</h3>
-      <%= f.fields_for :address do |address_fields| %>
+      <%= form.fields_for :address do |address_fields| %>
 
       <div class="form-field"> 
         <%= address_fields.input :street, label_html: { class: 'form-label' }, input_html: { class: 'form-control' } %>
@@ -93,18 +94,29 @@
       </div>
     <% end %>
       
-      <h3 class="form-title">Escolaridade</h3>
+      <h3 class="form-title">Formação</h3>
       <div id="education-levels" class="col">
-        <%= f.simple_fields_for :education_levels do |education| %>
-          <%= render 'education_level_fields', :f => education %>
-        <% end %>
-        <div class='links'>
-          <%= link_to_add_association f, :education_levels, class: "add-education" do %>
-            <i class='bx bx-plus-circle'></i> Adicionar formação
+        <template data-nested-form-target="template">
+          <%= form.simple_fields_for :education_levels, EducationLevel.new, child_index: 'NEW_RECORD' do |education| %>
+            <%= render "education_level_fields", f: education %>
           <% end %>
+        </template>
+
+        <%= form.simple_fields_for :education_levels do |education| %>
+          <%= render "education_level_fields", f: education %>
+        <% end %>
+
+        <div data-nested-form-target="target"></div>
+
+        <div class="add-education">
+          <button type="button" data-action="nested-form#add">
+            <%= image_tag "plus-circle.svg", width: "24" %>Adicionar formação
+          </button>
+        </div>
+
       </div>
 
-      <%= f.button :submit, "Salvar", class: 'btn-update' %>
+      <%= form.button :submit, "Salvar", class: 'btn-update' %>
     <% end %>
   </div>
 </div>

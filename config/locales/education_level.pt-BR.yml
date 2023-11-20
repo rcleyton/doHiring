@@ -4,7 +4,7 @@ pt-BR:
       education_level: Escolaridade
     attributes:
       education_level:
-        institution_name: Nome da escola
+        institution_name: Instituição de ensino
         course_name: Nome do curso
         course_type: Tipo do curso
         course_status: Situação do curso
@@ -14,4 +14,4 @@ pt-BR:
       education_level/course_statuses:
         in_progress: Em andamento
         completed: Completo
-        suspended: Trancada
+        suspended: Trancado

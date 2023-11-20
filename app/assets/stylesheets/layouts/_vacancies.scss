@@ -204,7 +204,6 @@
 }
 
 /* Action show */
-
 .show {
   @include container;
   margin-top: 100px;
@@ -417,7 +416,13 @@
   cursor: pointer;
 }
 
-.add-benefits {
+.remove-education {
+  @extend .remove-benefit;
+  margin-top: var(--space-s);
+}
+
+.add-benefits,
+.add-education {
   margin: var(--space-l) 0;
 
   & button {
