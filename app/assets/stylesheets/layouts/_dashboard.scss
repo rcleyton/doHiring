@@ -175,3 +175,38 @@
     margin: var(--space-xxxl) 0;
   }
 }
+
+.dashboard__body {
+  display: flex;
+  justify-content: center;
+}
+
+.dashboard__content {
+  width: 720px;
+
+  &--card {
+    @extend .card;
+    width: 100%;
+    margin-top: var(--space-m);
+
+    &-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: var(--space-s);
+
+      & img {
+        @extend .card-btn;
+      }
+      
+      & h3 {
+        color: var(--color-white);
+        font-size: var(--font-size-m);
+        margin-left: var(--space-s);
+      }
+    }
+
+    & li {
+      list-style: none;
+    }
+  }
+}

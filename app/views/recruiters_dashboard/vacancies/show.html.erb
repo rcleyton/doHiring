@@ -1,98 +1,80 @@
-<% flash.each do |type, message| %>
-  <%= render partial: 'shared/alert', locals: { type: type, message: message } %>
-<% end %>
-
-<div class="container">
-  <div class="row my-3 mb-md-5">
-    <div class="col-md col-12">
-      <h4>
-        <strong>Código da vaga:</strong> <%= @vacancy.code %>
-      </h4>
+<div class="dashboard__head">
+  <div class="dashboard__head--header">
+    <div class="dashboard__head--back-btn">
+      <%= link_to recruiters_dashboard_home_index_path do %>
+        <%= image_tag "angle-left.svg" %>
+      <% end %>
     </div>
-    <div class="col-md col-12 text-end">
-      <span class="badge rounded-pill text-bg-<%= badge_class_for_status(@vacancy.status) %>">
-        <%= @vacancy.status %>
-      </span>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <h4>Título da vaga</h4>
-      <p class="mb-4"><%= @vacancy.title %></p>
-
-      <h4>Descrição:</h4>
-      <p class="mb-4"><%= @vacancy.description %></p>
-
-      <h4>Requisitos para a vaga:</h4>
-      <p class="mb-4"><%= @vacancy.requirements %></p>
-
-      <h4>Habilidades desejada:</h4>
-      <p class="mb-4"><%= @vacancy.desired_skill %></p>
-
-      <h4>Nível da vaga:</h4>
-      <p class="mb-4"><%= @vacancy.vacancy_level %></p>
-
-      <h4>Modelo de Trabalho:</h4>
-      <p class="mb-4"><%= @vacancy.working_model %></p>
-
-      <h4>Salário:</h4>
-      <p class="mb-4"><%= number_to_currency @vacancy.salary %></p>
-
-      <h4>Benefícios</h4>
-      <ul class="list-benefits mb-4">
-        <% @vacancy_benefits.each do |benefit| %>
-          <li class="list-benefits-item"><%= benefit.benefit_name %></li>
-        <% end %>
-      </ul>
-
-      <h4>Tipo de contrato:</h4>
-      <p class="mb-4"><%= @vacancy.contract_type %></p>
-
-      <h4>Localização:</h4>
-      <p class="mb-4"><%= @vacancy.location %></p>
-
-      <%= button_to 'Editar', edit_recruiters_dashboard_vacancy_path(@vacancy),
-                    method: :get, class: 'btn btn-primary my-4' %>
-    </div>
+    <h1 class="dashboard__head--title-page"><%= @vacancy.title %></h1>
   </div>
 </div>
 
-<% if @vacancy.candidatures.empty? %>
-  <div class="card text-center mb-5 bg-warning-subtle">
-    <div class="card-body">
-      <p class="card-text">Nenhuma candidatura para essa vaga ainda</p>
-    </div>
-  </div>
-<% else %>
-  <p class="fw-medium text-end"><%= @vacancy.candidatures.count %> candidaturas para esta vaga</p>
-  <div class="table-responsive mb-5">
-    <table class="table table-hover border border-primary-subtle">
-      <thead>
-        <tr class="table-primary">
-          <th scope="col">Candidato</th>
-          <th scope="col">Candidatura em</th>
-          <th scope="col" class="text-center">Favorito</th>
-          <th scope="col" class="text-center">Detalhes</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @vacancy.candidatures.each do |candidature| %>
-          <tr>
-            <td><%= candidature.applicant_profile.first_name %></td>
-            <td><%= l candidature.created_at, format: :short %></td>
-            <td class="text-center">
-              <% if candidature.favorite == true %>
-                <%= image_tag 'star.svg', class: "favorite-applicant" %>
-              <% end %>
-            </td>
-            <td class="text-center">
-              <%= link_to recruiters_dashboard_candidature_path(candidature) do %>
-                <%= icon('fa-solid', 'eye') %>
-              <% end %>
-            </td>
-          </tr>
+<div class="dashboard__body">
+  <div class="dashboard__content">
+    <div class="dashboard__content--card">
+      <div class="dashboard__content--card-header">
+        <%= image_tag "info.svg", width: "24" %>
+        <h3>Detalhes</h3>
+      </div>
+      <ul>
+        <li>Vaga <%= @vacancy.status.downcase %></li>
+        <% if @vacancy.candidatures.empty? %>
+          <li>Nenhuma candidatura para essa vaga ainda</li>
+        <% else %>
+          <li>
+            <%= @vacancy.candidatures.count %> candidaturas para esta vaga
+          </li>
         <% end %>
-      </tbody>
-    </table>
+        <li>Nível <%= @vacancy.vacancy_level %></li>
+        <li>Modelo de trabalho <%= @vacancy.working_model.downcase %></li>
+        <li><%= number_to_currency @vacancy.salary %></li>
+        <li>Contrato do tipo <%= @vacancy.contract_type %></li>
+        <li><%= @vacancy.location %></li>
+      </ul>
+    </div>
+
+    <div class="dashboard__content--card">
+      <div class="dashboard__content--card-header">
+        <%= image_tag "description.svg", width: "24" %>
+        <h3>Descrição</h3>
+      </div>
+      <p>
+        <%= @vacancy.description %>
+      </p>
+    </div>
+
+    <div class="dashboard__content--card">
+      <div class="dashboard__content--card-header">
+        <%= image_tag "requirement.svg", width: "24" %>
+        <h3>Requisitos</h3>
+      </div>
+      <p>
+        <%= @vacancy.requirements %>
+      </p>
+    </div>
+
+    <div class="dashboard__content--card">
+      <div class="dashboard__content--card-header">
+        <%= image_tag "ability.svg", width: "24" %>
+        <h3>Habilidade desejável</h3>
+      </div>
+      <p>
+        <%= @vacancy.desired_skill %>
+      </p>
+    </div>
+
+    <div class="dashboard__content--card">
+      <div class="dashboard__content--card-header">
+        <%= image_tag "benefit.svg", width: "24" %>
+        <h3>Benefícios</h3>
+      </div>
+      <ul>
+        <% @vacancy_benefits.each do |benefit| %>
+          <li><%= benefit.benefit_name %></li>
+        <% end %>
+      </ul>
+    </div>
+    <%= button_to 'Editar', edit_recruiters_dashboard_vacancy_path(@vacancy),
+                    method: :get, class: 'btn-edit' %>
   </div>
-<% end %>
+</div>
