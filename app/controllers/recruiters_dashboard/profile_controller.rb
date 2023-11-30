@@ -1,10 +1,8 @@
 class RecruitersDashboard::ProfileController < RecruitersDashboardController
   before_action :set_profile, only: %i[ update]
+  before_action :profile_access_management, only: %i[ show edit ]
+
   def show
-    @recruiter_profile = RecruiterProfile.find(params[:id])
-    redirect_to recruiters_dashboard_home_index_path if @recruiter_profile != current_recruiter.recruiter_profile
-    rescue ActiveRecord::RecordNotFound
-    redirect_to recruiters_dashboard_home_index_path
   end
 
   def new
@@ -26,7 +24,6 @@ class RecruitersDashboard::ProfileController < RecruitersDashboardController
   end
 
   def edit
-    @recruiter_profile = RecruiterProfile.find(params[:id])    
   end
 
   def update
@@ -46,7 +43,16 @@ class RecruitersDashboard::ProfileController < RecruitersDashboardController
                                                                                     :complement, :neighborhood,
                                                                                     :city, :state])
   end
+
   def set_profile
     @recruiter_profile = RecruiterProfile.find(params[:id])
   end
+
+  def profile_access_management
+    @recruiter_profile = RecruiterProfile.find(params[:id])    
+    redirect_to recruiters_dashboard_home_index_path if @recruiter_profile != current_recruiter.recruiter_profile
+    rescue ActiveRecord::RecordNotFound
+    redirect_to recruiters_dashboard_home_index_path
+  end
+  
 end
