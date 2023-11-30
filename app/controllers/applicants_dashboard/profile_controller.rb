@@ -1,10 +1,7 @@
 class ApplicantsDashboard::ProfileController < ApplicantsDashboardController
+  before_action :profile_access_management, only: %i[ show edit ]
+
   def show
-    @applicant_profile = ApplicantProfile.find(params[:id])
-    @education_levels = @applicant_profile.education_levels
-    redirect_to applicants_dashboard_home_index_path if @applicant_profile != current_applicant.applicant_profile
-    rescue ActiveRecord::RecordNotFound
-    redirect_to applicants_dashboard_home_index_path
   end
 
   def new
@@ -12,7 +9,6 @@ class ApplicantsDashboard::ProfileController < ApplicantsDashboardController
     current_applicant.applicant_profile.present?
     @applicant_profile = ApplicantProfile.new
     @applicant_profile.build_address
-    @applicant_profile.education_levels.build
   end
 
   def create
@@ -27,7 +23,6 @@ class ApplicantsDashboard::ProfileController < ApplicantsDashboardController
   end
 
   def edit
-    @applicant_profile = ApplicantProfile.find(params[:id])
   end
 
   def update
@@ -51,4 +46,13 @@ class ApplicantsDashboard::ProfileController < ApplicantsDashboardController
     education_levels_attributes: [:id, :course_name, :course_type, :institution_name, 
       :course_status, :start_date, :end_date, :expected_end_date, :_destroy])
   end
+
+  def profile_access_management
+    @applicant_profile = ApplicantProfile.find(params[:id])
+    @education_levels = @applicant_profile.education_levels
+    redirect_to applicants_dashboard_home_index_path if @applicant_profile != current_applicant.applicant_profile
+    rescue ActiveRecord::RecordNotFound
+    redirect_to applicants_dashboard_home_index_path
+  end
+
 end
