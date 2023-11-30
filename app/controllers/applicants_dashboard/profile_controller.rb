@@ -9,7 +9,6 @@ class ApplicantsDashboard::ProfileController < ApplicantsDashboardController
     current_applicant.applicant_profile.present?
     @applicant_profile = ApplicantProfile.new
     @applicant_profile.build_address
-    @applicant_profile.education_levels.build
   end
 
   def create
@@ -55,5 +54,5 @@ class ApplicantsDashboard::ProfileController < ApplicantsDashboardController
     rescue ActiveRecord::RecordNotFound
     redirect_to applicants_dashboard_home_index_path
   end
-  
+
 end
