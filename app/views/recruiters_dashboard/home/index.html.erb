@@ -1,9 +1,12 @@
 <div class="dashboard__body">
   <div class="primary__card">
-    <%= link_to edit_recruiters_dashboard_profile_path(current_recruiter.recruiter_profile) do %>
+    <% profile_path = recruiter_has_profile? ? 
+      edit_recruiters_dashboard_profile_path(current_recruiter.recruiter_profile) : 
+      new_recruiters_dashboard_profile_path %>
+    <%= link_to profile_path do %>
       <div class="primary__card--box primary__card--edit">
         <%= image_tag "pencil.svg", width: "24" %>
-        <span>Editar perfil</span>
+          <span>Editar perfil</span>
       </div>
     <% end %>
     <%= link_to new_recruiters_dashboard_profile_path do %>
@@ -14,7 +17,7 @@
     <% end %>
     <div class="primary__card--box primary__card--welcome">
       <span>Seja bem-vindo</span>
-      <% if current_recruiter.recruiter_profile.present? %>
+      <% if recruiter_has_profile? %>
         <h1><%= current_recruiter.recruiter_profile.trade_name %></h1> 
       <% else %>
         <h1>Olá usuário</h1>
@@ -48,12 +51,12 @@
     </div>
     <div class="account__card--options">
       <div class="option">
-        <%= link_to edit_recruiters_dashboard_profile_path(current_recruiter.recruiter_profile) do %>
+        <%= link_to profile_path do %>
           <%= image_tag "arrow-loop.svg"%>
         <% end %>
         <span>Atualizar perfil</span>
       </div>
-      <%= link_to edit_recruiters_dashboard_profile_path(current_recruiter.recruiter_profile) do %>
+      <%= link_to profile_path do %>
         <%= image_tag "arrow-right.svg" %>
       <% end %>
     </div>
