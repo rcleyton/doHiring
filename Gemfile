@@ -4,7 +4,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.1.2'
 
 gem 'bootsnap', '>= 1.4.4', require: false
-gem 'cocoon'
 gem 'cssbundling-rails'
 gem 'devise'
 gem 'faker'
@@ -15,13 +14,11 @@ gem 'kaminari-i18n'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 6.4'
 gem 'rails', '~> 7.0', '>= 7.0.1'
-gem 'ransack'
 gem 'sassc-rails', '>= 2.0'
 gem 'simple_form'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
-gem 'font-awesome-sass', '~> 6.4.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

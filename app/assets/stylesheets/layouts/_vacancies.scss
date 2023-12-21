@@ -128,7 +128,7 @@
       }
 
       & .left-info .location {
-        background: url(/assets/location.svg) no-repeat 0px 5px;
+        background: url("/assets/location.svg") no-repeat 0px 5px;
         display: inline-block;
         padding: 0px 0px 0px 20px;
         font-size: var(--font-size-s);
@@ -155,7 +155,7 @@
       color: hsl(197.1,11.7%,35.1%);
       display: inline-block;
       padding: 0px 15px 0px 15px;
-      background: url(/assets/briefcase.svg) no-repeat 0px 8px;
+      background: url("/assets/briefcase.svg") no-repeat 0px 8px;
     }
 
     & .job-icons .card-time {

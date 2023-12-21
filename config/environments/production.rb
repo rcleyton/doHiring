@@ -3,8 +3,6 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.load_defaults 7.0
-
   # Code is not reloaded between requests.
   config.enable_reloading = false
 
