@@ -19,12 +19,12 @@
 
 .authenticate__colLeft--applicant {
   @extend .authenticate__colLeft;
-  background: var(--color-bg-auth) url("/assets/bg-authenticate-applicant.png") no-repeat center center;
+  background: var(--color-bg-auth) url("bg-authenticate-applicant.png") no-repeat center center;
 }
 
 .authenticate__colLeft--recruiter {
   @extend .authenticate__colLeft;
-  background: var(--color-tertiary) url("/assets/bg-authenticate-recruiter.png") no-repeat center center;
+  background: var(--color-tertiary) url("bg-authenticate-recruiter.png") no-repeat center center;
 }
 
 .authenticate__colRigth--applicant {

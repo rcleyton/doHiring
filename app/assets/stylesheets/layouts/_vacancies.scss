@@ -128,7 +128,7 @@
       }
 
       & .left-info .location {
-        background: url("/assets/location.svg") no-repeat 0px 5px;
+        background: url("map-location.svg") no-repeat 0px 5px;
         display: inline-block;
         padding: 0px 0px 0px 20px;
         font-size: var(--font-size-s);
@@ -154,16 +154,16 @@
       font-size: 15px;
       color: hsl(197.1,11.7%,35.1%);
       display: inline-block;
-      padding: 0px 15px 0px 15px;
-      background: url("/assets/briefcase.svg") no-repeat 0px 8px;
+      padding: 0px 20px;
+      background: url("company.svg") no-repeat 0px 5px;
     }
 
     & .job-icons .card-time {
       font-size: 15px;
       color: hsl(197.1,11.7%,35.1%);
       display: inline-block;
-      padding: 0px 15px 0px 15px;
-      background: url(/assets/time.svg) no-repeat 0px 6px;
+      padding: 0px 20px;
+      background: url("clock-square.svg") no-repeat 0px 5px;
     }
 
     & .job-icons .job-description {
@@ -223,7 +223,7 @@
     }
 
     &--span::before {
-      content: url(/assets/time.svg);
+      content: url("time.svg");
       display: inline-block;
       padding: 0 5px 0 0;
     }
@@ -320,49 +320,49 @@
 }
 
 .icon-company::before {
-  content: url(/assets/briefcase.svg);
+  content: url("company.svg");
   display: inline-block;
-  padding: 0 7px 0 3px;                                                                                                                                 
+  padding: 0 5px 0 0;                                                                                                                                 
 }
 
 .icon-sector::before {
-  content: url(/assets/industry.svg);
+  content: url("suitcase-sector.svg");
   display: inline-block;
   padding: 0 5px 0 0;
 }
 
 .icon-level::before {
-  content: url(/assets/job-level.svg);
+  content: url("level.svg");
   display: inline-block;
   padding: 0 5px 0 0;
 }
 
 .icon-model::before {
-  content: url(/assets/experience.svg);
+  content: url("modality.svg");
   display: inline-block;
   padding: 0 5px 0 0;
 }
 
 .icon-type::before {
-  content: url(/assets/job-type.svg);
+  content: url("contract.svg");
   display: inline-block;
   padding: 0 5px 0 0;
 }
 
 .icon-salary::before {
-  content: url(/assets/salary.svg);
+  content: url("job-salary.svg");
   display: inline-block;
   padding: 0 5px 0 0;
 }
 
 .icon-location::before {
-  content: url(/assets/location.svg);
+  content: url("map-location.svg");
   display: inline-block;
   padding: 0 5px 0 0;
 }
 
 .icon-time::before {
-  content: url(/assets/deadline.svg);
+  content: url("time-end.svg");
   display: inline-block;
   padding: 0px 5px 0 0;
 }
@@ -437,4 +437,8 @@
       margin-right: var(--space-s);
     }
   }
+}
+
+.list-benefits-item {
+  list-style: none;
 }

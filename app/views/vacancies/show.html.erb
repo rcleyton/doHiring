@@ -82,7 +82,7 @@
 
     <div class="show__title--info"> 
       <h2 class="show__title--description">Benefícios</h2>
-      <ul class="list-benefits mb-4">
+      <ul class="list-benefits">
         <% @vacancy.vacancy_benefits.each do |benefit| %>
           <li class="list-benefits-item"><%= benefit.benefit_name %></li>
         <% end %>
