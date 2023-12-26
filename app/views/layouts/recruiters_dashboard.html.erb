@@ -16,14 +16,16 @@
     <div class="nav__brand">doHiring</div>
     <div class="nav__profile">
       <%= image_tag "profile.svg", width: "48"%>
-      <button class="nav__profile--dropdown">Perfil
-        <i class='bx bx-chevron-down'></i>
-      </button>
-      <div class="nav__profile--dropdownContent">
-        <%= link_to "Sair", destroy_recruiter_session_path, 
-        data: { turbo_method: :delete}, 
-        class: "dropdown-item", 
-        method: :delete %>
+      <div data-controller="profile_dropdown">
+         <button class="nav__profile--dropdown" data-action="click->profile_dropdown#toggleDropdown">Perfil
+          <i class='bx bx-chevron-down'></i>
+        </button>
+        <div data-profile_dropdown-target="dropdownContent" class="nav__profile--dropdownContent" style="display: none;">
+          <%= link_to "Sair", destroy_recruiter_session_path, 
+          data: { turbo_method: :delete}, 
+          class: "dropdown-item", 
+          method: :delete %>
+        </div>
       </div>
     </div>
   </div>

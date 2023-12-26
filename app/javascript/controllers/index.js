@@ -3,10 +3,11 @@
 // ./bin/rails generate stimulus controllerName
 
 import { application } from "./application"
-
 import HelloController from "./hello_controller"
-
 import NestedForm from 'stimulus-rails-nested-form'
+import ProfileDropdownController from "./profile_dropdown_controller"
+
 
 application.register("hello", HelloController)
 application.register('nested-form', NestedForm)
+application.register('profile_dropdown', ProfileDropdownController)
