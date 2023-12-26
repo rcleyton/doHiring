@@ -1,6 +1,9 @@
 <div class="dashboard__card">
   <div class="primary__card">
-    <%= link_to edit_applicants_dashboard_profile_path(current_applicant.applicant_profile) do %>
+    <% profile_path = applicant_has_profile? ? 
+      edit_applicants_dashboard_profile_path(current_applicant.applicant_profile) :
+      new_applicants_dashboard_profile_path %>
+    <%= link_to profile_path do %>
       <div class="primary__card--box primary__card--edit">
         <%= image_tag "pencil.svg", width: "24" %>
         <span>Editar perfil</span>
@@ -14,7 +17,7 @@
     <% end %> 
     <div class="primary__card--box primary__card--welcome">
       <span>Seja bem-vindo</span>
-      <% if current_applicant.applicant_profile.present? %>
+      <% if applicant_has_profile? %>
         <h1><%= full_name(current_applicant.applicant_profile) %></h1> 
       <% else %>
         <h1>Olá usuário</h1>
@@ -48,12 +51,12 @@
     </div>
     <div class="account__card--options">
       <div class="option">
-        <%= link_to edit_applicants_dashboard_profile_path(current_applicant.applicant_profile) do %>
+        <%= link_to profile_path do %>
           <%= image_tag "arrow-loop.svg"%>
         <% end %>
         <span>Atualizar perfil</span>
       </div>
-      <%= link_to edit_applicants_dashboard_profile_path(current_applicant.applicant_profile) do %>
+      <%= link_to profile_path do %>
         <%= image_tag "arrow-right.svg" %>
       <% end %>
     </div>
