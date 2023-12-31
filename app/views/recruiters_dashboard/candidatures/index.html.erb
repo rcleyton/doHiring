@@ -1,0 +1,38 @@
+<div class="dashboard__head">
+  <div class="dashboard__head--header">
+    <div class="dashboard__head--back-btn">
+      <%= link_to recruiters_dashboard_home_index_path do %>
+        <%= image_tag "angle-left.svg" %>
+      <% end %>
+    </div>
+    <h1 class="dashboard__head--title-page">Candidaturas</h1>
+  </div>
+</div>
+<div class="dashboard__body">
+  <div class="dashboard__content">
+    <div class="dashboard__content--card">
+      <div class="dashboard__content--card-header">
+        <h3>Candidaturas para as vagas</h3>
+      </div>
+      <div class="dashboard__content--card-body">
+        <% if @candidatures.empty? %>
+          <p>Nenhuma candidatura ainda!</p>
+        <% else %>
+          <% @candidatures.each do |candidature| %>
+            <div class="content-body">
+              <div class="content-body-left">
+                <%= image_tag "account-view-outline.svg"%>
+                <span><%= full_name(candidature.applicant_profile) %> aplicou para a vaga de  
+                <%= candidature.vacancy.title %>
+                </span>
+              </div>
+              <%= link_to recruiters_dashboard_candidature_path(candidature) do %>
+                <%= image_tag "arrow-right.svg" %>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

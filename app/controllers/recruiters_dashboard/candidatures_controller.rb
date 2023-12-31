@@ -1,6 +1,12 @@
 class RecruitersDashboard::CandidaturesController < RecruitersDashboardController
-  before_action :find_candidature, only: [:show, :favorite, :not_favorite, :change_application_status]
+  before_action :find_candidature, only: [:favorite, :not_favorite, :change_application_status]
+  
+  def index 
+    @candidatures = Candidature.all
+  end
+  
   def show
+    @candidature = Candidature.find(params[:id])
   end
 
   def favorite
