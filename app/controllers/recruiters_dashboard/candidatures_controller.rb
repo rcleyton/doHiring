@@ -2,7 +2,7 @@ class RecruitersDashboard::CandidaturesController < RecruitersDashboardControlle
   before_action :find_candidature, only: [:favorite, :not_favorite, :change_application_status]
   
   def index 
-    @candidatures = Candidature.all
+    @candidatures = Candidature.where(vacancy: current_recruiter)
   end
   
   def show
