@@ -7,11 +7,11 @@
   </div>
   <div class="form-field--col-2">
     <div class="form-field"> 
-    <%= f.input :course_type, collection: EducationLevel.course_types.keys, as: :select,
+    <%= f.input :course_type, as: :select, collection: EducationLevel.course_type.values.map { |type| [I18n.t("activerecord.attributes.education_level.course_types.#{type}"), type] },
         include_blank: "Informe o tipo do curso", label_html: { class: 'form-label' }, input_html: { class: 'form-select' } %>
     </div>  
     <div class="form-field"> 
-      <%= f.input :course_status, collection: EducationLevel.course_statuses.keys, as: :select,
+      <%= f.input :course_status, as: :select, collection: EducationLevel.course_status.values.map { |status| [I18n.t("activerecord.attributes.education_level.course_statuses.#{status}"), status] },
         include_blank: "Selecione a situação do curso", label_html: { class: 'form-label' }, input_html: { class: 'form-select' } %>
     </div>  
   </div>

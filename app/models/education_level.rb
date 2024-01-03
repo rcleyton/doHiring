@@ -1,13 +1,14 @@
 class EducationLevel < ApplicationRecord
+  extend Enumerize 
   belongs_to :applicant_profile
 
-  enum course_status: { 
+  enumerize :course_status, in: { 
     in_progress: 0, 
     completed: 5, 
     suspended: 10 
   }
 
-  enum course_type: { 
+  enumerize :course_type, in: { 
     undergraduate: 0, 
     postgraduate: 5, 
     high_school: 10,

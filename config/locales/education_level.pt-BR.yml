@@ -11,7 +11,17 @@ pt-BR:
         start_date: Data de início
         end_date: Data do término
         expected_end_date: Previsão de término
-      education_level/course_statuses:
-        in_progress: Em andamento
-        completed: Completo
-        suspended: Trancado
+        course_statuses:
+          in_progress: "Em andamento"
+          completed: "Concluído"
+          suspended: "Suspenso"
+        course_types:
+          undergraduate: "Graduação"
+          postgraduate: "Pós-Graduação"
+          high_school: "Ensino Médio"
+          elementary_school: "Ensino Fundamental"
+          technical: "Técnico"
+          associate_degree: "Diploma de Associado"
+          mba: "MBA"
+          doctorate: "Doutorado"
+          specialization: "Especialização"

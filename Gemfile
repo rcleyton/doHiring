@@ -6,6 +6,7 @@ ruby '3.1.2'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'cssbundling-rails'
 gem 'devise'
+gem 'enumerize'
 gem 'faker'
 gem 'jbuilder', '~> 2.7'
 gem 'jsbundling-rails'
