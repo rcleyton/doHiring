@@ -75,7 +75,9 @@
             <ul>
               <li><%= education.course_name %></li>
               <li><%= education.institution_name %></li>
-              <li><%= education.course_type %> <%= education.course_status %></li>
+              <li><%= I18n.t("activerecord.attributes.education_level.course_types.#{education.course_type}") %>
+                  <%= I18n.t("activerecord.attributes.education_level.course_statuses.#{education.course_status}") %>
+              </li>
             </ul>
 
             <div class="education-date">
