@@ -1,88 +1,84 @@
-<% flash.each do |type, message| %>
-  <%= render partial: 'shared/alert', locals: { type: type, message: message } %>
-<% end %>
-<div class="container">
-  <div class="row d-flex mb-4 justify-content-between">
-    <div class="col">
-      <div class="border rounded-4 p-4">
-        <h4 class="border-bottom pb-3 text-end">
-          <span class="badge bg-secondary"><%= @candidature.status %></span>
-        </h4>
-        <div class="row">
-          <div class="col-md-6 d-flex justify-content-between py-2">
-            <div>Codigo da vaga</div>
-            <strong><%= @candidature.vacancy.code %></strong>
-          </div>
-          <div class="col-md-6 d-flex justify-content-between py-2">
-            <div>Título</div>
-            <strong><%= @candidature.vacancy.title %></strong>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 d-flex justify-content-between py-2">
-            <div>Nível</div>
-            <strong><%= @candidature.vacancy.vacancy_level %></strong>
-          </div>
-          <div class="col-md-6 d-flex justify-content-between py-2">
-            <div>Salário</div>
-            <strong><%= number_to_currency @candidature.vacancy.salary %></strong>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 d-flex justify-content-between py-2">
-            <div>Modalidade</div>
-            <strong><%= @candidature.vacancy.working_model %></strong>
-          </div>
-          <div class="col-md-6 d-flex justify-content-between py-2">
-            <div>Contrato</div>
-            <strong><%= @candidature.vacancy.contract_type %></strong>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 d-flex justify-content-between py-2">
-            <div>Localização</div>
-            <strong><%= @candidature.vacancy.location %></strong>
-          </div>
-          <div class="col-md-6 d-flex justify-content-between py-2">
-            <div>Data da candidatura</div>
-            <strong><%= l @candidature.vacancy.created_at, format: :long %></strong>
-          </div>
-        </div>
-      </div>
+<div class="dashboard__head">
+  <div class="dashboard__head--header">
+    <div class="dashboard__head--back-btn">
+      <%= link_to applicants_dashboard_home_index_path do %>
+        <%= image_tag "angle-left.svg" %>
+      <% end %>
     </div>
+    <h1 class="dashboard__head--title-page"><%= @candidature.vacancy.title %></h1>
   </div>
-  <div class="row">
-    <div class="col">
-      <div class="mb-4">
-        <h2 class="mb-3">Descrição da vaga</h2>
-        <p><%= @candidature.vacancy.description %></p>
+</div>
+<div class="dashboard__body">
+  <div class="dashboard__content">
+    <div class="dashboard__content--card">
+      <div class="dashboard__content--card-header">
+        <%= image_tag "info.svg", width: "24" %>
+        <h3>Detalhes da candidatura</h3>
       </div>
-      <div class="mb-4">
-        <h2 class="mb-3">Requisitos</h2>
-        <p><%= @candidature.vacancy.requirements %></p>
-      </div>
-      <div class="mb-4">
-        <h2 class="mb-3">Habilidades desejada</h2>
-        <p><%= @candidature.vacancy.desired_skill %></p>
-      </div>
-      <div class="mb-4">
-        <h2 class="mb-3">Benefícios</h2>
-        <p><%= @candidature.vacancy.benefits %></p>
-      </div>
+      <ul>
+        <li><%= @candidature.status %></li>
+        <li>Vaga código <strong><%= @candidature.vacancy.code %></strong></li>
+        <li>Vaga nível <strong><%= @candidature.vacancy.vacancy_level %></strong></li>
+        <li>Salário <strong><%= number_to_currency @candidature.vacancy.salary %></strong></li>
+        <li>Modalidade de trabalho <strong><%= @candidature.vacancy.working_model %></strong></li>
+        <li>Contrato do tipo <strong><%= @candidature.vacancy.contract_type %></strong></li>
+        <li>Candidatado em <strong><%= l @candidature.vacancy.created_at, format: :long %></strong></li>
+        <li>Localização <strong><%= @candidature.vacancy.location %></strong></li>
+      </ul>
     </div>
-  </div>
-  <hr class="my-4">
-  <div class="row">
-    <div class="col">
-      <h2>Perguntas obrigatórias</h2>
-      <h4 class="text-secondary">Por que devemos te contratar?</h4>
-      <p><%= @candidature.reason_application %></p>
+    <div class="dashboard__content--card">
+      <div class="dashboard__content--card-header">
+        <%= image_tag "description.svg", width: "24" %>
+        <h3>Descrição da vaga</h3>
+      </div>
+      <p>
+        <%= @candidature.vacancy.description %>
+      </p>
     </div>
-  </div>
-  <hr class="my-4">
-  <div class="row">
-    <div class="col">
-      <h2 class="mb-3">Comentários do Recrutador</h2>
+    <div class="dashboard__content--card">
+      <div class="dashboard__content--card-header">
+        <%= image_tag "requirement.svg", width: "24" %>
+        <h3>Requisitos</h3>
+      </div>
+      <p>
+        <%= @candidature.vacancy.requirements %>
+      </p>
+    </div>
+    <div class="dashboard__content--card">
+      <div class="dashboard__content--card-header">
+        <%= image_tag "ability.svg", width: "24" %>
+        <h3>Habilidade desejável</h3>
+      </div>
+      <p>
+        <%= @candidature.vacancy.desired_skill %>
+      </p>
+    </div>
+    <div class="dashboard__content--card">
+      <div class="dashboard__content--card-header">
+        <%= image_tag "benefit.svg", width: "24" %>
+        <h3>Benefícios</h3>
+      </div>
+      <ul>
+        <% @candidature.vacancy.vacancy_benefits.each do |benefit| %>
+          <li><%= benefit.benefit_name %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="dashboard__content--card">
+      <div class="dashboard__content--card-header">
+        <%= image_tag "question.svg", width: "24" %>
+        <h3>Perguntas obrigatórias</h3>
+      </div>
+      <h4>Por que devemos te contratar?</h4>
+      <p>
+        <%= @candidature.reason_application %>
+      </p>
+    </div>
+    <div class="dashboard__content--card">
+      <div class="dashboard__content--card-header">
+        <%= image_tag "messages.svg", width: "24" %>
+        <h3>Mensagens do recrutador</h3>
+      </div>
       <% if @candidature.comments.empty?%>
           <div class="card text-center mb-5 bg-warning-subtle">
             <div class="card-body">
