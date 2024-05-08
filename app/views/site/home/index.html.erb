@@ -1,55 +1,53 @@
 <%= render "shared/navbar" %>
 
-<section class="home">
-  <div class="home__welcome">
-    <h1 class="home__welcome-title">Bem-vindo ao doHiring</h1>
-    <h3 class="home__welcome-subtitle">Encontre as melhores oportunidades de emprego.</h3>
-    <p class="home__welcome-paragraph">
+<section>
+  <div>
+    <h1>Bem-vindo ao doHiring</h1>
+    <h3 class="text-3xl font-bold center">Encontre as melhores oportunidades de emprego.</h3>
+    <p>
       A doHiring é a plataforma ideal para conectar recrutadores e
       candidatos. Com nossas ferramentas, você pode encontrar
       oportunidades de emprego que correspondam às suas habilidades e
       experiências, ou encontrar os melhores talentos para sua empresa.
     </p>
 
-    <div class="home__welcome-btns">
-      <%= link_to "Quero contratar", new_recruiter_registration_path, class: "btn btn-primary", 
-          method: :get %>
-      <%= link_to "Quero trabalhar", new_applicant_registration_path, class: "btn btn-primary-outline", 
-      method: :get %>
+    <div>
+      <%= link_to "Quero contratar", new_recruiter_registration_path, method: :get %>
+      <%= link_to "Quero trabalhar", new_applicant_registration_path, method: :get %>
     </div>
-
   </div>
-  <div class="home__img">
+  
+  <div>
     <%= image_tag "recruiter.png" %>
   </div>
 </section>
 
-<section class="home__cta">
-  <h2 class="home__cta-title">Encontre a oportunidade perfeita!</h2>
-  <p class="home__cta-paragraph">Explore milhares de vagas em nossa plataforma e dê um impulso em sua carreira.</p>
-  <%= link_to 'Ver vagas', vacancies_path, class: "btn btn-primary-outline" %>
+<section>
+  <h2>Encontre a oportunidade perfeita!</h2>
+  <p >Explore milhares de vagas em nossa plataforma e dê um impulso em sua carreira.</p>
+  <%= link_to 'Ver vagas', vacancies_path %>
 </section>
 
-<section class="homeAbout">
-  <div class="homeAbout__users">
-    <div class="homeAbout__users--cards">
-      <%= image_tag "recruiter-search.svg", class: "homeAbout__users--images" %>
-      <h3 class="homeAbout__users--subtitle">Recrutador</h3>
-      <p class="homeAbout__users--paragraph">Encontre os melhores talentos para sua empresa com a doHiring.</p>
+<section>
+  <div>
+    <div>
+      <%= image_tag "recruiter-search.svg" %>
+      <h3>Recrutador</h3>
+      <p>Encontre os melhores talentos para sua empresa com a doHiring.</p>
     </div>
-    <div class="homeAbout__users--cards">
-      <%= image_tag "user-hand-up.svg", class: "homeAbout__users--images" %>
-      <h3 class="homeAbout__users--subtitle">Candidato</h3>
-      <p class="homeAbout__users--paragraph">A doHiring é o lugar ideal para encontrar as melhores oportunidades de emprego.</p>
+    <div>
+      <%= image_tag "user-hand-up.svg" %>
+      <h3>Candidato</h3>
+      <p>A doHiring é o lugar ideal para encontrar as melhores oportunidades de emprego.</p>
     </div>
   </div>
-  <div class="homeAbout__users">
+  <div>
     <div class="homeAbout__users--cards card-match">
-      <%= image_tag "user-ok.svg", class: "homeAbout__users--images" %>
-      <h3 class="homeAbout__users--subtitle">Deu Match</h3>
-      <p class="homeAbout__users--paragraph">Com a doHiring, encontrar o candidato ideal para sua vaga é fácil.</p>
-      <p class="homeAbout__users--paragraph">Com nosso recurso "Deu match", você recebe recomendações de candidatos qualificados que correspondem às suas vagas.</p>
-      <p class="homeAbout__users--paragraph">Não perca tempo analisando centenas de candidaturas - encontre o candidato ideal em segundos com a doHiring.</p>
+      <%= image_tag "user-ok.svg" %>
+      <h3>Deu Match</h3>
+      <p>Com a doHiring, encontrar o candidato ideal para sua vaga é fácil.</p>
+      <p>Com nosso recurso "Deu match", você recebe recomendações de candidatos qualificados que correspondem às suas vagas.</p>
+      <p>Não perca tempo analisando centenas de candidaturas - encontre o candidato ideal em segundos com a doHiring.</p>
     </div>
   </div>
 </section>

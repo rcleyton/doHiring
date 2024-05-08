@@ -7,13 +7,18 @@
     <%= csp_meta_tag %>
 
     <%= favicon_link_tag 'icone.ico' %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <%= yield %>
+    <main class="container mx-auto mt-28 px-5 flex">
+      <%= yield %>
+    </main>
   </body>
 </html>
