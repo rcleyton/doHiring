@@ -22,6 +22,11 @@ gem 'importmap-rails'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'dotenv-rails'
+  gem 'guard'
+  gem 'guard-minitest'
+  gem 'minitest-focus'
+  gem 'minitest-rails'
+  gem 'minitest-reporters'
 end
 
 group :development do
@@ -29,6 +34,10 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'spring'
   gem 'web-console', '>= 4.1.0'
+end
+
+group :test do
+  gem 'rails-controller-testing'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

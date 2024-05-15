@@ -1,55 +1,22 @@
-<%= render "shared/navbar" %>
-
 <section>
-  <div>
-    <h1>Bem-vindo ao doHiring</h1>
-    <h3 class="text-3xl font-bold center">Encontre as melhores oportunidades de emprego.</h3>
-    <p>
-      A doHiring é a plataforma ideal para conectar recrutadores e
-      candidatos. Com nossas ferramentas, você pode encontrar
-      oportunidades de emprego que correspondam às suas habilidades e
-      experiências, ou encontrar os melhores talentos para sua empresa.
-    </p>
-
-    <div>
-      <%= link_to "Quero contratar", new_recruiter_registration_path, method: :get %>
-      <%= link_to "Quero trabalhar", new_applicant_registration_path, method: :get %>
+  <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+    <div class="mr-auto place-self-center lg:col-span-7">
+      <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">Bem-vindo ao doHiring</h1>
+      <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
+        A doHiring é a plataforma ideal para conectar recrutadores e candidatos. Com nossas ferramentas, você pode encontrar oportunidades de emprego que correspondam às suas habilidades e experiências, ou encontrar os melhores talentos para sua empresa.
+      </p>
+      <%= link_to new_recruiter_session_path, class: "inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900" do %>
+        Quero contratar
+        <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+        </svg>
+      <% end %>
+      <%= link_to new_applicant_session_path, class: "inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800" do %>
+        Quero trabalhar
+      <% end %>
     </div>
-  </div>
-  
-  <div>
-    <%= image_tag "recruiter.png" %>
-  </div>
-</section>
-
-<section>
-  <h2>Encontre a oportunidade perfeita!</h2>
-  <p >Explore milhares de vagas em nossa plataforma e dê um impulso em sua carreira.</p>
-  <%= link_to 'Ver vagas', vacancies_path %>
-</section>
-
-<section>
-  <div>
-    <div>
-      <%= image_tag "recruiter-search.svg" %>
-      <h3>Recrutador</h3>
-      <p>Encontre os melhores talentos para sua empresa com a doHiring.</p>
-    </div>
-    <div>
-      <%= image_tag "user-hand-up.svg" %>
-      <h3>Candidato</h3>
-      <p>A doHiring é o lugar ideal para encontrar as melhores oportunidades de emprego.</p>
-    </div>
-  </div>
-  <div>
-    <div class="homeAbout__users--cards card-match">
-      <%= image_tag "user-ok.svg" %>
-      <h3>Deu Match</h3>
-      <p>Com a doHiring, encontrar o candidato ideal para sua vaga é fácil.</p>
-      <p>Com nosso recurso "Deu match", você recebe recomendações de candidatos qualificados que correspondem às suas vagas.</p>
-      <p>Não perca tempo analisando centenas de candidaturas - encontre o candidato ideal em segundos com a doHiring.</p>
+    <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
+      <%= image_tag 'people.png' %>
     </div>
   </div>
 </section>
-
-<%= render "shared/footer" %>
