@@ -2,3 +2,12 @@
  *= require_tree .
  *= require_self
  */
+
+.devise-links {
+  color: #2563eb;
+  font-weight: 600;
+}
+
+.devise-links:hover {
+  text-decoration: underline;
+}

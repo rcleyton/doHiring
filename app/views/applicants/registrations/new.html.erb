@@ -1,33 +1,43 @@
-<%= link_to sanitize("&larr; Voltar"), root_path, class: "back-to-home" %>
-
-<div class="box__authorization">
-  <h2 class="box__authorization--title">
-    <%= t('devise.registrations.new.sign_up') %>
-  </h2>
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <div class="box__authorization--input">
-      <%= f.input :email,
-                  label_html: { class: "box__authorization--label"},
-                  autofocus: true,
-                  input_html: { autocomplete: "email", class: "input-authorization" },
-                  placeholder: t('placeholders.email') %>
-    </div>
-    <div class="box__authorization--input">
-        <%= f.input :password,
-                    label_html: { class: "box__authorization--label"},
-                    input_html: { autocomplete: "new-password", class: "input-authorization" },
-                    placeholder: t('placeholders.minimum_characters') %>
-    </div>
-    <div class="box__authorization--input">
-        <%= f.input :password_confirmation,
-                    label_html: { class: "box__authorization--label"},
-                    input_html: { autocomplete: "new-password", class: "input-authorization" },
-                    placeholder: t('placeholders.repeat_password') %>
+<section class="bg-gray-50 dark:bg-gray-900">
+  <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+    <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+      <%= image_tag 'logo.png', class: '"w-12 h-12 mr-2'%>
+      doHiring    
+    </a>
+    <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+      <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+          Criar uma conta
+        </h1>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'space-y-4 md:space-y-6' }) do |f| %>
+          <div>
+            <%= f.input :email,
+            label_html: { class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white"},
+            autofocus: true,
+            input_html: { autocomplete: "email", class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" },
+            placeholder: t('placeholders.email') %>
+          </div>
+          <div>
+            <%= f.input :password,
+            label_html: { class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white"},
+            input_html: { autocomplete: "new-password", class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" },
+            placeholder: t('placeholders.minimum_characters') %>
+          </div>
+          <div>
+            <%= f.input :password_confirmation,
+            label_html: { class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white"},
+            input_html: { autocomplete: "new-password", class: "mb-3 bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" },
+            placeholder: t('placeholders.repeat_password') %>
+          </div>
+          <%= f.button :submit, t('devise.registrations.new.sign_up'), class: "w-full text-white bg-purple-600 hover:bg-purple-700 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800" %>
+          <p class="text-sm font-light text-gray-500 dark:text-gray-400">   
+            <%= link_to new_session_path(resource_name) do %>
+              Já tem conta? <span class="devise-links">Entrar</span>
+            <% end %>
+          </p>
+        <% end %>
       </div>
-      <%= f.button :submit, t('devise.registrations.new.sign_up'), class: "btn-authorization-applicant" %>
-  <% end %>
-
-  <div class="box__authorization--links">
-    <%= render "applicants/shared/links" %>
+    </div>
   </div>
-</div>
+</section>
+

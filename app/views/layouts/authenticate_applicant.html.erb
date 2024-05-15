@@ -6,17 +6,13 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= favicon_link_tag 'icone.ico' %>
+    <%= favicon_link_tag 'icone.ico' %> 
+    <%= stylesheet_link_tag 'tailwind', 'inter-font', 'data-turbo-track': 'reload' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-  </head>
+    <%= javascript_importmap_tags %>
+  </head>  
 
-  <body>
-    <div  class="authenticate">
-      <div class="authenticate__colLeft authenticate__colLeft--applicant"></div>
-      <div class="authenticate__colRigth authenticate__colRigth--applicant">
-        <%= yield %>
-      </div>
-    </div>
+  <body class="bg-white dark:bg-gray-900">
+      <%= yield %>
   </body>
 </html>
