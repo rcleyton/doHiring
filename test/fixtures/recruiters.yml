@@ -1,0 +1,7 @@
+one:
+  email: musk@dohiring.com
+  encrypted_password: <%= Devise::Encryptor.digest(Recruiter, 'password') %>
+
+two:
+  email: xandy@dohiring.com
+  encrypted_password: <%= Devise::Encryptor.digest(Recruiter, 'password') %>
