@@ -1,9 +1,16 @@
-ENV["RAILS_ENV"] ||= "test"
-# Consider setting MT_NO_EXPECTATIONS to not add expectations to Object.
+ENV["RAILS_ENV"] ||= 'test'
+
+require 'simplecov'
+SimpleCov.start 'rails' do
+  add_filter '/test/'
+  add_filter '/config/'
+  add_filter '/vendor/'
+end
+
 # ENV["MT_NO_EXPECTATIONS"] = "true"
-require_relative "../config/environment"
-require "rails/test_help"
-require "minitest/rails"
+require_relative '../config/environment'
+require 'rails/test_help'
+require 'minitest/rails'
 require 'minitest/spec'
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
