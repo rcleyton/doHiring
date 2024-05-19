@@ -13,6 +13,9 @@
   </head>
 
   <body class="bg-white dark:bg-gray-900 h-screen flex justify-center items-center">
+    <div id="flash-messages" class="fixed top-4 right-4 space-y-4" data-turbo-permanent>
+      <%= render 'layouts/flash' %>
+    </div>
    <%= yield %>
   </body>
 </html>
